@@ -7,6 +7,125 @@ import { cn } from '@/lib/utils'
 export function HeroSection() {
     return (
         <>
+            <style jsx>{`
+                @keyframes carMove1 {
+                    0% { transform: translate(-100px, 50px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 0.3; }
+                    25% { transform: translate(200px, 50px) rotate(15deg); opacity: 0.4; }
+                    50% { transform: translate(400px, 100px) rotate(45deg); opacity: 0.3; }
+                    75% { transform: translate(600px, 150px) rotate(90deg); opacity: 0.2; }
+                    100% { transform: translate(800px, 200px) rotate(120deg); opacity: 0; }
+                }
+                
+                @keyframes carMove2 {
+                    0% { transform: translate(100vw, 200px) rotate(180deg); opacity: 0; }
+                    15% { opacity: 0.3; }
+                    35% { transform: translate(70vw, 180px) rotate(195deg); opacity: 0.4; }
+                    60% { transform: translate(40vw, 160px) rotate(225deg); opacity: 0.3; }
+                    85% { transform: translate(10vw, 140px) rotate(270deg); opacity: 0.2; }
+                    100% { transform: translate(-100px, 120px) rotate(300deg); opacity: 0; }
+                }
+                
+                @keyframes carMove3 {
+                    0% { transform: translate(50vw, -50px) rotate(90deg); opacity: 0; }
+                    20% { opacity: 0.2; }
+                    40% { transform: translate(55vw, 100px) rotate(105deg); opacity: 0.3; }
+                    65% { transform: translate(45vw, 250px) rotate(135deg); opacity: 0.2; }
+                    90% { transform: translate(35vw, 400px) rotate(180deg); opacity: 0.1; }
+                    100% { transform: translate(25vw, 500px) rotate(225deg); opacity: 0; }
+                }
+                
+                @keyframes parkingLines {
+                    0%, 100% { opacity: 0.1; transform: translateY(0px); }
+                    50% { opacity: 0.3; transform: translateY(-10px); }
+                }
+                
+                @keyframes valetWalk {
+                    0% { transform: translateX(-50px); opacity: 0; }
+                    25% { transform: translateX(25vw); opacity: 0.2; }
+                    50% { transform: translateX(50vw); opacity: 0.3; }
+                    75% { transform: translateX(75vw); opacity: 0.2; }
+                    100% { transform: translateX(100vw); opacity: 0; }
+                }
+                
+                .car-animation-1 {
+                    position: absolute;
+                    width: 60px;
+                    height: 30px;
+                    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+                    border-radius: 15px 15px 8px 8px;
+                    animation: carMove1 20s infinite linear;
+                    top: 20%;
+                    left: 0;
+                }
+                
+                .car-animation-2 {
+                    position: absolute;
+                    width: 55px;
+                    height: 28px;
+                    background: linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.25));
+                    border-radius: 12px 12px 6px 6px;
+                    animation: carMove2 25s infinite linear 5s;
+                    top: 40%;
+                    right: 0;
+                }
+                
+                .car-animation-3 {
+                    position: absolute;
+                    width: 50px;
+                    height: 25px;
+                    background: linear-gradient(45deg, rgba(255,255,255,0.08), rgba(255,255,255,0.2));
+                    border-radius: 10px 10px 5px 5px;
+                    animation: carMove3 30s infinite linear 10s;
+                    top: 0;
+                    left: 50%;
+                }
+                
+                .parking-lines {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: 
+                        repeating-linear-gradient(
+                            45deg,
+                            transparent,
+                            transparent 100px,
+                            rgba(255,255,255,0.02) 100px,
+                            rgba(255,255,255,0.02) 102px
+                        ),
+                        repeating-linear-gradient(
+                            -45deg,
+                            transparent,
+                            transparent 150px,
+                            rgba(255,255,255,0.015) 150px,
+                            rgba(255,255,255,0.015) 152px
+                        );
+                    animation: parkingLines 8s ease-in-out infinite;
+                }
+                
+                .valet-figure {
+                    position: absolute;
+                    width: 20px;
+                    height: 40px;
+                    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+                    border-radius: 10px 10px 5px 5px;
+                    bottom: 30%;
+                    animation: valetWalk 35s infinite linear 15s;
+                }
+                
+                .valet-figure::before {
+                    content: '';
+                    position: absolute;
+                    top: -8px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 12px;
+                    height: 12px;
+                    background: rgba(255,255,255,0.1);
+                    border-radius: 50%;
+                }
+            `}</style>
+            
             <main>
                 <section className="relative min-h-screen bg-black text-white overflow-hidden">
                     {/* Video Background */}
@@ -24,6 +143,15 @@ export function HeroSection() {
                         </video>
                         {/* Dark overlay for better text readability */}
                         <div className="absolute inset-0 bg-black/60"></div>
+                    </div>
+
+                    {/* Advanced Parking/Valet Animation Background */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="parking-lines"></div>
+                        <div className="car-animation-1"></div>
+                        <div className="car-animation-2"></div>
+                        <div className="car-animation-3"></div>
+                        <div className="valet-figure"></div>
                     </div>
 
                     <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:py-40 min-h-screen flex items-center">
