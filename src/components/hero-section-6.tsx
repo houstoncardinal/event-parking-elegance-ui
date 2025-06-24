@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-with-hover-effects';
+import { AnimatedGeometricBackground } from '@/components/animated-geometric-background';
 import { cn } from '@/lib/utils';
 import { GlowCard } from '@/components/ui/spotlight-card';
 
@@ -39,6 +40,11 @@ export function HeroSection() {
                 </div>
                 <section>
                     <div className="relative pt-24 md:pt-36">
+                        {/* Add the animated geometric background */}
+                        <div className="absolute inset-0 pointer-events-auto" style={{ zIndex: 1 }}>
+                            <AnimatedGeometricBackground />
+                        </div>
+                        
                         <AnimatedGroup variants={{
             container: {
               visible: {
@@ -66,7 +72,7 @@ export function HeroSection() {
                             <img src="https://ik.imagekit.io/lrigu76hy/tailark/night-background.jpg?updatedAt=1745733451120" alt="background" className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block" width="3276" height="4095" />
                         </AnimatedGroup>
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
-                        <div className="mx-auto max-w-7xl px-6">
+                        <div className="mx-auto max-w-7xl px-6 relative z-10">
                             <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                                 <AnimatedGroup variants={transitionVariants}>
                                     <a href="#link" className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
