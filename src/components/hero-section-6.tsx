@@ -63,20 +63,17 @@ export function HeroSection() {
                         <div className="absolute inset-0 -mx-6 rounded-3xl p-3 lg:col-span-3">
                             <div aria-hidden className="absolute z-[1] inset-0 bg-gradient-to-r from-background from-35%" />
                             <div className="relative">
-                                <img
-                                    className="hidden dark:block w-full h-full object-cover"
-                                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2796&h=2008&fit=crop&crop=center"
-                                    alt="luxury valet parking service"
-                                    width={2796}
-                                    height={2008}
-                                />
-                                <img
-                                    className="dark:hidden w-full h-full object-cover"
-                                    src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=2796&h=2008&fit=crop&crop=center"
-                                    alt="professional valet parking"
-                                    width={2796}
-                                    height={2008}
-                                />
+                                <video
+                                    className="w-full h-full object-cover"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                >
+                                    <source src="https://cdn.pixabay.com/video/2023/05/15/163068-829226678_large.mp4" type="video/mp4" />
+                                    <source src="https://cdn.pixabay.com/video/2022/07/14/122842-728764437_large.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </div>
