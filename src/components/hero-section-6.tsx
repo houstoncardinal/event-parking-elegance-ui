@@ -41,6 +41,7 @@ export function HeroSection() {
                                             <div className="md:pr-1.5 lg:pr-0">
                                                 <Button
                                                     aria-label="submit"
+                                                    className="bg-black text-white hover:bg-gray-800"
                                                 >
                                                     <span className="hidden md:block">Get Started</span>
                                                     <SendHorizontal
