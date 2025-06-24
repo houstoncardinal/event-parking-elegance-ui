@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,14 +8,14 @@ import { Calendar, MapPin, Users, Phone, Mail, Crown, ArrowRight } from 'lucide-
 
 const QuoteForm = () => {
   return (
-    <Card className="w-full max-w-4xl card-luxury relative overflow-hidden">
+    <Card className="w-full max-w-5xl card-luxury relative overflow-hidden">
       {/* Enhanced premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-gold-50/60 via-white/40 to-slate-50/50 pointer-events-none"></div>
       <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-gold-200/40 to-gold-300/30 rounded-full blur-3xl animate-luxury-float"></div>
       <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-slate-200/30 to-slate-300/20 rounded-full blur-3xl animate-luxury-float" style={{ animationDelay: '3s' }}></div>
       <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-br from-gold-100/20 to-gold-200/10 rounded-full blur-2xl animate-luxury-glow"></div>
       
-      <CardHeader className="relative z-10 pb-6 text-center">
+      <CardHeader className="relative z-10 pb-4 text-center">
         <div className="flex items-center justify-center mb-3">
           <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 shadow-gold-glow">
             <div className="absolute inset-0 bg-gradient-to-br from-gold-300/50 to-transparent rounded-full"></div>
@@ -32,7 +31,7 @@ const QuoteForm = () => {
         </p>
       </CardHeader>
       
-      <CardContent className="relative z-10 space-y-4 px-8 pb-6">
+      <CardContent className="relative z-10 space-y-3 px-6 pb-4">
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-slate-800 font-semibold flex items-center gap-2 text-xs">
@@ -135,11 +134,11 @@ const QuoteForm = () => {
           />
         </div>
         
-        <div className="pt-3">
-          <Button className="w-full btn-gold-gradient group h-12 text-base font-semibold tracking-wide relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-200/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <span className="relative z-10">Get Premium Quote</span>
-            <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
+        <div className="pt-2">
+          <Button className="w-full h-11 text-base font-semibold tracking-wide relative overflow-hidden bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white border-0 shadow-gold-glow hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-xl group">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <span className="relative z-10 text-white font-semibold">Get Premium Quote</span>
+            <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1 text-white" />
           </Button>
         </div>
         
