@@ -24,7 +24,7 @@ const Hero = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-playfair font-bold text-white mb-6 animate-fade-in text-shadow">
+          <h1 className="text-5xl md:text-7xl font-poppins font-bold text-white mb-6 animate-fade-in text-shadow">
             Luxury Valet Services
             <span className="block text-champagne-400">For Every Occasion</span>
           </h1>
@@ -71,15 +71,15 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-white/20">
             <div className="text-center animate-fade-in">
-              <div className="text-3xl md:text-4xl font-playfair font-bold text-champagne-400 mb-2">500+</div>
+              <div className="text-3xl md:text-4xl font-poppins font-bold text-champagne-400 mb-2">500+</div>
               <div className="text-white/80 text-sm md:text-base">Events Served</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-3xl md:text-4xl font-playfair font-bold text-champagne-400 mb-2">50K+</div>
+              <div className="text-3xl md:text-4xl font-poppins font-bold text-champagne-400 mb-2">50K+</div>
               <div className="text-white/80 text-sm md:text-base">Vehicles Parked</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="text-3xl md:text-4xl font-playfair font-bold text-champagne-400 mb-2">99%</div>
+              <div className="text-3xl md:text-4xl font-poppins font-bold text-champagne-400 mb-2">99%</div>
               <div className="text-white/80 text-sm md:text-base">Client Satisfaction</div>
             </div>
           </div>
