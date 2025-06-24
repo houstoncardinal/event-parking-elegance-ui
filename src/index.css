@@ -1,51 +1,52 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury white design system */
+/* Luxurious Traffic Light Theme */
 
 @layer base {
   :root {
     --background: 255 255 255;
-    --foreground: 0 0 0;
+    --foreground: 15 23 42;
 
     --card: 255 255 255;
-    --card-foreground: 0 0 0;
+    --card-foreground: 15 23 42;
 
     --popover: 255 255 255;
-    --popover-foreground: 0 0 0;
+    --popover-foreground: 15 23 42;
 
-    --primary: 37 99 235;
+    --primary: 220 38 38;
     --primary-foreground: 255 255 255;
 
     --secondary: 248 250 252;
-    --secondary-foreground: 0 0 0;
+    --secondary-foreground: 15 23 42;
 
     --muted: 248 250 252;
-    --muted-foreground: 107 114 128;
+    --muted-foreground: 100 116 139;
 
-    --accent: 37 99 235;
+    --accent: 245 158 11;
     --accent-foreground: 255 255 255;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 229 231 235;
-    --input: 229 231 235;
-    --ring: 37 99 235;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 220 38 38;
 
     --radius: 0.5rem;
 
     --sidebar-background: 255 255 255;
-    --sidebar-foreground: 0 0 0;
-    --sidebar-primary: 37 99 235;
+    --sidebar-foreground: 15 23 42;
+    --sidebar-primary: 220 38 38;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 248 250 252;
-    --sidebar-accent-foreground: 0 0 0;
-    --sidebar-border: 229 231 235;
-    --sidebar-ring: 37 99 235;
+    --sidebar-accent-foreground: 15 23 42;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 220 38 38;
   }
 }
 
@@ -55,31 +56,43 @@
   }
 
   body {
-    @apply bg-white text-black font-poppins;
+    @apply bg-white text-foreground font-poppins;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-poppins text-black font-semibold;
+    @apply font-poppins text-foreground font-semibold;
   }
 }
 
 @layer components {
   .luxury-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
   }
   
-  .blue-gradient {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  .traffic-gradient {
+    background: linear-gradient(135deg, #dc2626 0%, #f59e0b 50%, #10b981 100%);
   }
   
   .glass-effect {
     backdrop-filter: blur(16px);
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
   }
 
   .text-shadow {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
   }
 }
 
@@ -88,7 +101,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with traffic light theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -98,10 +111,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: linear-gradient(to bottom, #dc2626, #f59e0b, #10b981);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: linear-gradient(to bottom, #b91c1c, #d97706, #059669);
 }

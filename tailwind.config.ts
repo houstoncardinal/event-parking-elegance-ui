@@ -68,7 +68,49 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Luxury color palette
+				// Luxurious Traffic Light Theme
+				luxury: {
+					red: {
+						50: '#fef2f2',
+						100: '#fce7e7',
+						200: '#f8d4d4',
+						300: '#f1b5b5',
+						400: '#e78888',
+						500: '#dc2626',
+						600: '#c41e1e',
+						700: '#a31717',
+						800: '#7f1d1d',
+						900: '#5c1a1a',
+						950: '#450a0a'
+					},
+					amber: {
+						50: '#fffbeb',
+						100: '#fef3c7',
+						200: '#fde68a',
+						300: '#fcd34d',
+						400: '#fbbf24',
+						500: '#f59e0b',
+						600: '#d97706',
+						700: '#b45309',
+						800: '#92400e',
+						900: '#78350f',
+						950: '#451a03'
+					},
+					emerald: {
+						50: '#ecfdf5',
+						100: '#d1fae5',
+						200: '#a7f3d0',
+						300: '#6ee7b7',
+						400: '#34d399',
+						500: '#10b981',
+						600: '#059669',
+						700: '#047857',
+						800: '#065f46',
+						900: '#064e3b',
+						950: '#022c22'
+					}
+				},
+				// Legacy colors for compatibility
 				navy: {
 					50: '#f8fafc',
 					100: '#f1f5f9',
@@ -164,6 +206,14 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(220, 38, 38, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px rgba(220, 38, 38, 0.6)'
+					}
 				}
 			},
 			animation: {
@@ -172,7 +222,8 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
 			}
 		}
 	},

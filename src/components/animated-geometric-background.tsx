@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -14,6 +13,7 @@ interface FloatingShape {
   rotation: number;
   rotationSpeed: number;
   type: 'circle' | 'triangle' | 'square' | 'diamond';
+  color: 'red' | 'amber' | 'emerald';
 }
 
 export function AnimatedGeometricBackground() {
@@ -22,6 +22,12 @@ export function AnimatedGeometricBackground() {
   const shapesRef = useRef<FloatingShape[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  const colors = {
+    red: { primary: 'rgba(220, 38, 38, 0.8)', secondary: 'rgba(220, 38, 38, 0.3)' },
+    amber: { primary: 'rgba(245, 158, 11, 0.8)', secondary: 'rgba(245, 158, 11, 0.3)' },
+    emerald: { primary: 'rgba(16, 185, 129, 0.8)', secondary: 'rgba(16, 185, 129, 0.3)' }
+  };
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -46,23 +52,24 @@ export function AnimatedGeometricBackground() {
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
 
-    // Initialize floating shapes with increased density
+    // Initialize floating shapes with luxurious traffic light colors
     const initShapes = () => {
       shapesRef.current = [];
-      const shapeCount = Math.floor((dimensions.width * dimensions.height) / 8000);
+      const shapeCount = Math.floor((dimensions.width * dimensions.height) / 6000);
       
       for (let i = 0; i < shapeCount; i++) {
         shapesRef.current.push({
           id: i,
           x: Math.random() * dimensions.width,
           y: Math.random() * dimensions.height,
-          size: Math.random() * 6 + 2, // Increased size
-          speedX: (Math.random() - 0.5) * 0.8,
-          speedY: (Math.random() - 0.5) * 0.8,
-          opacity: Math.random() * 0.6 + 0.3, // Increased opacity
+          size: Math.random() * 8 + 3,
+          speedX: (Math.random() - 0.5) * 1.2,
+          speedY: (Math.random() - 0.5) * 1.2,
+          opacity: Math.random() * 0.7 + 0.4,
           rotation: Math.random() * Math.PI * 2,
-          rotationSpeed: (Math.random() - 0.5) * 0.03,
-          type: ['circle', 'triangle', 'square', 'diamond'][Math.floor(Math.random() * 4)] as any
+          rotationSpeed: (Math.random() - 0.5) * 0.04,
+          type: ['circle', 'triangle', 'square', 'diamond'][Math.floor(Math.random() * 4)] as any,
+          color: ['red', 'amber', 'emerald'][Math.floor(Math.random() * 3)] as any
         });
       }
     };
@@ -78,17 +85,25 @@ export function AnimatedGeometricBackground() {
       const dx = shape.x - mouseRef.current.x;
       const dy = shape.y - mouseRef.current.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const maxDistance = 200;
+      const maxDistance = 250;
       const influence = Math.max(0, 1 - distance / maxDistance);
       
-      // Apply mouse influence with increased visibility
-      const dynamicSize = shape.size + influence * 4;
-      const dynamicOpacity = shape.opacity + influence * 0.5;
+      // Apply mouse influence with enhanced visibility
+      const dynamicSize = shape.size + influence * 6;
+      const dynamicOpacity = shape.opacity + influence * 0.6;
       
       ctx.globalAlpha = Math.min(1, dynamicOpacity);
-      ctx.strokeStyle = `rgba(37, 99, 235, ${0.7 + influence * 0.3})`; // More visible blue
-      ctx.fillStyle = `rgba(37, 99, 235, ${0.2 + influence * 0.3})`; // More visible fill
-      ctx.lineWidth = 2; // Thicker lines
+      
+      const shapeColors = colors[shape.color];
+      ctx.strokeStyle = shapeColors.primary;
+      ctx.fillStyle = shapeColors.secondary;
+      ctx.lineWidth = 2.5 + influence * 1.5;
+
+      // Add glow effect
+      if (influence > 0.3) {
+        ctx.shadowColor = shapeColors.primary;
+        ctx.shadowBlur = 15 + influence * 10;
+      }
 
       switch (shape.type) {
         case 'circle':
@@ -129,8 +144,6 @@ export function AnimatedGeometricBackground() {
 
     const drawConnections = () => {
       const shapes = shapesRef.current;
-      ctx.strokeStyle = `rgba(37, 99, 235, 0.3)`; // More visible connections
-      ctx.lineWidth = 1.5;
 
       for (let i = 0; i < shapes.length; i++) {
         for (let j = i + 1; j < shapes.length; j++) {
@@ -138,9 +151,17 @@ export function AnimatedGeometricBackground() {
           const dy = shapes[i].y - shapes[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 150) {
-            const opacity = 1 - distance / 150;
-            ctx.globalAlpha = opacity * 0.5;
+          if (distance < 180) {
+            const opacity = (1 - distance / 180) * 0.6;
+            
+            // Use gradient for connections
+            const gradient = ctx.createLinearGradient(shapes[i].x, shapes[i].y, shapes[j].x, shapes[j].y);
+            gradient.addColorStop(0, colors[shapes[i].color].primary);
+            gradient.addColorStop(1, colors[shapes[j].color].primary);
+            
+            ctx.globalAlpha = opacity;
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.moveTo(shapes[i].x, shapes[i].y);
             ctx.lineTo(shapes[j].x, shapes[j].y);
@@ -158,15 +179,15 @@ export function AnimatedGeometricBackground() {
       
       // Update and draw shapes
       shapesRef.current.forEach(shape => {
-        // Mouse attraction/repulsion effect
+        // Enhanced mouse attraction/repulsion effect
         const dx = shape.x - mouseRef.current.x;
         const dy = shape.y - mouseRef.current.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 150) {
-          const force = (150 - distance) / 150;
-          shape.x += (dx / distance) * force * 0.8;
-          shape.y += (dy / distance) * force * 0.8;
+        if (distance < 200) {
+          const force = (200 - distance) / 200;
+          shape.x += (dx / distance) * force * 1.2;
+          shape.y += (dy / distance) * force * 1.2;
         }
         
         // Normal movement
@@ -175,10 +196,10 @@ export function AnimatedGeometricBackground() {
         shape.rotation += shape.rotationSpeed;
 
         // Wrap around edges
-        if (shape.x < -20) shape.x = dimensions.width + 20;
-        if (shape.x > dimensions.width + 20) shape.x = -20;
-        if (shape.y < -20) shape.y = dimensions.height + 20;
-        if (shape.y > dimensions.height + 20) shape.y = -20;
+        if (shape.x < -30) shape.x = dimensions.width + 30;
+        if (shape.x > dimensions.width + 30) shape.x = -30;
+        if (shape.y < -30) shape.y = dimensions.height + 30;
+        if (shape.y > dimensions.width + 30) shape.y = -30;
 
         drawShape(shape);
       });
@@ -208,7 +229,7 @@ export function AnimatedGeometricBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="absolute inset-0 w-full h-full pointer-events-auto"
       style={{ zIndex: 1 }}
       onMouseMove={handleMouseMove}
     />
