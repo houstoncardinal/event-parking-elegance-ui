@@ -16,28 +16,30 @@ interface DisplayCardProps {
 
 function DisplayCard({
   className,
-  icon = <Sparkles className="size-4 text-blue-300" />,
+  icon = <Sparkles className="size-4 text-gold-300" />,
   title = "Featured",
   description = "Discover amazing content",
   date = "Just now",
-  iconClassName = "text-blue-500",
-  titleClassName = "text-blue-500",
+  iconClassName = "text-gold-500",
+  titleClassName = "text-gold-600",
 }: DisplayCardProps) {
   return (
     <div
       className={cn(
-        "relative flex h-36 w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-white/20 hover:bg-muted [&>*]:flex [&>*]:items-center [&>*]:gap-2",
+        "relative flex h-40 w-[24rem] -skew-y-[8deg] select-none flex-col justify-between rounded-2xl border-2 backdrop-blur-xl px-6 py-4 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[22rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-gold-300/40 [&>*]:flex [&>*]:items-center [&>*]:gap-3 shadow-luxury hover:shadow-xl",
+        "bg-gradient-to-br from-white/95 via-gold-50/30 to-white/90 border-white/30",
         className
       )}
     >
       <div>
-        <span className="relative inline-block rounded-full bg-blue-800 p-1">
-          {icon}
+        <span className="relative inline-block rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 p-2 shadow-gold-glow">
+          <div className="absolute inset-0 bg-gradient-to-br from-gold-300/50 to-transparent rounded-full"></div>
+          <div className="relative z-10">{icon}</div>
         </span>
-        <p className={cn("text-lg font-medium", titleClassName)}>{title}</p>
+        <p className={cn("text-xl font-semibold font-playfair drop-shadow-sm", titleClassName)}>{title}</p>
       </div>
-      <p className="whitespace-nowrap text-lg">{description}</p>
-      <p className="text-muted-foreground">{date}</p>
+      <p className="whitespace-nowrap text-lg font-medium text-slate-700 drop-shadow-sm">{description}</p>
+      <p className="text-slate-600 font-semibold text-sm">{date}</p>
     </div>
   );
 }
@@ -49,28 +51,28 @@ interface DisplayCardsProps {
 export default function DisplayCards({ cards }: DisplayCardsProps) {
   const defaultCards = [
     {
-      className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
-      icon: <Sparkles className="size-4 text-champagne-300" />,
+      className: "[grid-area:stack] hover:-translate-y-12 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-gold-glow",
+      icon: <Sparkles className="size-5 text-white" />,
       title: "Wedding Valet",
       description: "Perfect for your special day",
       date: "Starting at $15/hour",
-      titleClassName: "text-champagne-600",
+      titleClassName: "text-gold-600",
     },
     {
-      className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
-      icon: <Building className="size-4 text-navy-300" />,
+      className: "[grid-area:stack] translate-x-20 translate-y-12 hover:-translate-y-2 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-luxury",
+      icon: <Building className="size-5 text-white" />,
       title: "Corporate Events",
       description: "Professional business solutions",
       date: "Starting at $18/hour",
-      titleClassName: "text-navy-600",
+      titleClassName: "text-slate-700",
     },
     {
-      className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
-      icon: <Car className="size-4 text-blue-300" />,
+      className: "[grid-area:stack] translate-x-40 translate-y-24 hover:translate-y-12 hover:shadow-platinum-glow",
+      icon: <Car className="size-5 text-white" />,
       title: "Private Parties",
       description: "Elegant service for any occasion",
       date: "Starting at $12/hour",
-      titleClassName: "text-blue-600",
+      titleClassName: "text-slate-600",
     },
   ];
 
