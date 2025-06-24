@@ -1,13 +1,12 @@
+
 'use client';
 
 import React from 'react';
-import { ArrowRight, ChevronRight, Menu, X, Crown, Shield, Clock, Star } from 'lucide-react';
+import { ArrowRight, Crown, Shield, Clock, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-with-hover-effects';
 import { AnimatedGeometricBackground } from '@/components/animated-geometric-background';
-import { cn } from '@/lib/utils';
-import { GlowCard } from '@/components/ui/spotlight-card';
 import QuoteForm from '@/components/QuoteForm';
 
 const transitionVariants = {
@@ -53,7 +52,7 @@ export function HeroSection() {
                 </div>
                 
                 <section className="relative">
-                    <div className="relative pt-32 md:pt-40 pb-20">
+                    <div className="relative pt-24 md:pt-32 pb-20">
                         {/* Enhanced animated geometric background */}
                         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
                             <AnimatedGeometricBackground />
@@ -182,8 +181,8 @@ export function HeroSection() {
                                 </div>
                             </div>
 
-                            {/* Features section for desktop */}
-                            <div className="mt-28">
+                            {/* Features section for desktop - moved up */}
+                            <div className="mt-16">
                                 <FeaturesSectionWithHoverEffects />
                             </div>
                         </div>
@@ -221,111 +220,3 @@ export function HeroSection() {
             </main>
         </>;
 }
-
-const menuItems = [{
-  name: 'Services',
-  href: '#services'
-}, {
-  name: 'About',
-  href: '#about'
-}, {
-  name: 'Testimonials',
-  href: '#testimonials'
-}, {
-  name: 'Contact',
-  href: '#contact'
-}];
-
-const HeroHeader = () => {
-  const [menuState, setMenuState] = React.useState(false);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  return <header>
-            <nav data-state={menuState && 'active'} className="fixed z-20 w-full px-4 group">
-                <div className={cn('mx-auto mt-4 max-w-7xl px-8 transition-all duration-700 lg:px-16', isScrolled && 'glass-luxury max-w-7xl rounded-2xl border border-white/30 lg:px-12 shadow-luxury backdrop-blur-xl')}>
-                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-8 lg:py-6">
-                        <div className="flex w-full justify-between lg:w-auto">
-                            <a href="/" aria-label="home" className="flex items-center space-x-3 group">
-                                <Logo />
-                            </a>
-
-                            <button onClick={() => setMenuState(!menuState)} aria-label={menuState == true ? 'Close Menu' : 'Open Menu'} className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden rounded-xl hover:bg-slate-100/80 backdrop-blur-sm transition-all duration-300 border border-transparent hover:border-slate-200/50">
-                                <Menu className="group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-300 text-slate-700" />
-                                <X className="group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-300 text-slate-700" />
-                            </button>
-                        </div>
-
-                        <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-                            <ul className="flex gap-8 text-sm font-semibold">
-                                {menuItems.map((item, index) => <li key={index}>
-                                        <a href={item.href} className="text-slate-700 hover:text-gold-600 block duration-300 tracking-wide px-5 py-3 rounded-xl hover:bg-gradient-to-r hover:from-gold-50 hover:to-gold-100/80 transition-all hover:shadow-sm group">
-                                            <span className="relative z-10">{item.name}</span>
-                                        </a>
-                                    </li>)}
-                            </ul>
-                        </div>
-
-                        <div className="glass-luxury group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-2xl border border-white/30 p-8 shadow-luxury backdrop-blur-xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-4 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
-                            <div className="lg:hidden">
-                                <ul className="space-y-6 text-base font-semibold">
-                                    {menuItems.map((item, index) => <li key={index}>
-                                            <a href={item.href} className="text-slate-700 hover:text-gold-600 block duration-300 tracking-wide px-6 py-4 rounded-xl hover:bg-gradient-to-r hover:from-gold-50 hover:to-gold-100/80 transition-all hover:shadow-sm">
-                                                <span>{item.name}</span>
-                                            </a>
-                                        </li>)}
-                                </ul>
-                            </div>
-                            <div className="flex w-full flex-col space-y-4 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-white via-gold-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-800 border-2 border-gold-300/60 hover:border-gold-400/80 font-semibold tracking-wide rounded-xl px-6 py-3 text-sm shadow-lg hover:shadow-gold-glow transition-all duration-500 group', isScrolled && 'lg:hidden')}>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                    <span className="relative z-10">Get Quote</span>
-                                </Button>
-                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white font-semibold tracking-wide px-6 py-3 text-sm rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 group border border-slate-700/20', isScrolled && 'lg:hidden')}>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                    <span className="relative z-10">Book Now</span>
-                                </Button>
-                                <Button className={cn('btn-gold font-semibold tracking-wide px-6 py-3 text-sm group relative overflow-hidden shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-[1.02]', isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                    <span className="relative z-10">Get Started</span>
-                                    <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>;
-};
-
-const Logo = ({
-  className
-}: {
-  className?: string;
-}) => {
-  return <div className={cn('flex items-center space-x-3', className)}>
-            <div className="relative w-12 h-12 flex items-center justify-center group">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 rounded-full shadow-gold-glow blur-sm opacity-75 group-hover:opacity-90 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-full shadow-luxury border border-gold-400/30 group-hover:border-gold-400/50 transition-all duration-300"></div>
-                <div className="absolute inset-1 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full flex items-center justify-center border border-gold-500/40 group-hover:border-gold-500/60 transition-all duration-300">
-                    <div className="text-gold-400 group-hover:text-gold-300 font-bold text-sm font-playfair transition-colors duration-300">EP</div>
-                </div>
-                <Crown className="w-3 h-3 text-gold-400 fill-gold-400 absolute -top-1 -right-1 bg-slate-900 rounded-full p-0.5 border border-gold-400/40 shadow-sm group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <div className="flex flex-col leading-tight">
-                <div className="font-playfair font-bold text-lg text-luxury tracking-wide group-hover:text-slate-800 transition-colors duration-300">
-                    Executive Parking
-                </div>
-                <div className="font-inter font-medium text-xs text-gold tracking-widest uppercase -mt-1 group-hover:text-gold-600 transition-colors duration-300">
-                    Premium Services
-                </div>
-            </div>
-        </div>;
-};
