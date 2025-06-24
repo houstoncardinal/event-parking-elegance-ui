@@ -4,6 +4,7 @@ import React from 'react';
 import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
+import { GlowCard } from '@/components/ui/spotlight-card';
 import { cn } from '@/lib/utils';
 const transitionVariants = {
   item: {
@@ -113,6 +114,28 @@ export function HeroSection() {
                                         </a>
                                     </Button>
                                 </AnimatedGroup>
+
+                                {/* GlowCard section */}
+                                <div className="mt-16 flex justify-center">
+                                    <GlowCard 
+                                        glowColor="blue" 
+                                        size="md"
+                                        className="max-w-sm"
+                                    >
+                                        <div className="flex flex-col items-center text-center space-y-4">
+                                            <h3 className="text-xl font-semibold text-foreground">
+                                                Premium Valet Experience
+                                            </h3>
+                                            <p className="text-muted-foreground text-sm">
+                                                Professional service with attention to every detail, ensuring your guests feel truly welcomed.
+                                            </p>
+                                            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                                                <span>✓ Fully Insured</span>
+                                                <span>✓ 24/7 Support</span>
+                                            </div>
+                                        </div>
+                                    </GlowCard>
+                                </div>
                             </div>
                         </div>
 
@@ -141,6 +164,7 @@ export function HeroSection() {
             </main>
         </>;
 }
+
 const menuItems = [{
   name: 'Services',
   href: '#services'
