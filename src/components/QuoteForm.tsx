@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +8,7 @@ import { Calendar, MapPin, Users, Phone, Mail, Crown, ArrowRight } from 'lucide-
 
 const QuoteForm = () => {
   return (
-    <Card className="w-full max-w-md card-luxury relative overflow-hidden">
+    <Card className="w-full max-w-lg card-luxury relative overflow-hidden">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-gold-50/50 via-transparent to-slate-50/30 pointer-events-none"></div>
       <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-gold-200/30 to-gold-300/20 rounded-full blur-3xl"></div>
