@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -61,7 +62,7 @@ export function HeroSection() {
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-50/98 via-gold-50/30 to-slate-100/95 pointer-events-none" style={{ zIndex: 2 }}></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gold-50/20 pointer-events-none" style={{ zIndex: 2 }}></div>
                         
-                        <div className="container mx-auto px-4 lg:px-8 relative z-10 max-w-6xl">
+                        <div className="container mx-auto px-4 lg:px-8 relative z-10 max-w-7xl">
                             <div className="grid lg:grid-cols-2 gap-16 items-center">
                                 {/* Left side - Main content */}
                                 <div className="text-center lg:text-left">
@@ -197,7 +198,7 @@ export function HeroSection() {
                             },
                             ...transitionVariants
                         }}>
-                            <div className="relative mt-16 overflow-hidden container mx-auto px-4 lg:px-8 max-w-6xl">
+                            <div className="relative mt-16 overflow-hidden container mx-auto px-4 lg:px-8 max-w-7xl">
                                 <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-30% to-slate-50/95" />
                                 <div className="relative overflow-hidden">
                                     {/* Enhanced luxury card wrapper */}
