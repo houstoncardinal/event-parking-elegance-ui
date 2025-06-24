@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Car, Users, Building, Sparkles, Shield, Clock, MapPin, Crown, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Car, Users, Building, Sparkles, Shield, Clock, MapPin, Crown, Star, ArrowRight, CheckCircle, Award, Zap, Eye } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
@@ -8,6 +7,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
+  const [activeFeature, setActiveFeature] = useState(0);
 
   const services = [
     {
@@ -100,20 +100,53 @@ const Services = () => {
     {
       icon: Shield,
       title: 'Comprehensive Protection',
+      subtitle: 'Military-Grade Security',
       description: 'Multi-million dollar insurance coverage with bonded staff and advanced security protocols for complete peace of mind.',
-      feature: 'Zero incidents in 5+ years'
+      feature: 'Zero incidents in 5+ years',
+      stats: { value: '$10M+', label: 'Coverage' },
+      gradient: 'from-emerald-500 via-emerald-600 to-emerald-700',
+      glowColor: 'shadow-emerald-500/30',
+      bgGradient: 'from-emerald-50/30 via-white/90 to-emerald-100/20',
+      details: [
+        'Comprehensive liability coverage',
+        'Bonded and insured staff',
+        'Real-time security monitoring',
+        'Advanced theft protection'
+      ]
     },
     {
       icon: Clock,
       title: 'Punctuality Guarantee',
+      subtitle: 'Swiss-Precision Timing',
       description: 'Our teams arrive 30 minutes early and maintain 24/7 availability with real-time coordination and backup protocols.',
-      feature: '100% on-time record'
+      feature: '100% on-time record',
+      stats: { value: '99.9%', label: 'Reliability' },
+      gradient: 'from-blue-500 via-blue-600 to-blue-700',
+      glowColor: 'shadow-blue-500/30',
+      bgGradient: 'from-blue-50/30 via-white/90 to-blue-100/20',
+      details: [
+        '30-minute early arrival standard',
+        '24/7 emergency availability',
+        'Real-time GPS coordination',
+        'Automated backup protocols'
+      ]
     },
     {
       icon: MapPin,
       title: 'Advanced Technology',
+      subtitle: 'Next-Gen Innovation',
       description: 'Real-time GPS tracking, digital key management, and instant guest notifications through our proprietary platform.',
-      feature: 'Live tracking dashboard'
+      feature: 'Live tracking dashboard',
+      stats: { value: '< 30s', label: 'Response Time' },
+      gradient: 'from-purple-500 via-purple-600 to-purple-700',
+      glowColor: 'shadow-purple-500/30',
+      bgGradient: 'from-purple-50/30 via-white/90 to-purple-100/20',
+      details: [
+        'Proprietary tracking platform',
+        'Digital key management system',
+        'Instant guest notifications',
+        'AI-powered coordination'
+      ]
     }
   ];
 
@@ -256,52 +289,206 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Enhanced Why Choose Us */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/98 via-gold-50/30 to-white/95 rounded-3xl backdrop-blur-xl border border-white/40 shadow-2xl" />
-          <div className="relative z-10 p-8 md:p-16">
-            <AnimatedGroup preset="fade" className="text-center mb-16">
-              <h3 className="text-4xl md:text-5xl font-playfair font-bold mb-6">
-                <span className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
-                  The Pinnacle of
-                </span>
-                <span className="block bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent drop-shadow-gold">
-                  Valet Excellence
-                </span>
-              </h3>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                We don't just park vehicles—we curate experiences that reflect the sophistication and prestige your event deserves.
-              </p>
+        {/* Enhanced Why Choose Us - Premium Redesign */}
+        <div className="relative mt-32">
+          {/* Enhanced Background with Multiple Layers */}
+          <div className="absolute inset-0 -m-8">
+            {/* Primary background with sophisticated gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 via-gold-50/40 to-slate-100/20 rounded-[3rem] backdrop-blur-3xl" />
+            
+            {/* Animated gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-gold-200/10 via-transparent to-slate-200/10 rounded-[3rem] animate-luxury-float" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-gold-100/5 to-transparent rounded-[3rem] animate-luxury-float" style={{ animationDelay: '2s' }} />
+            
+            {/* Sophisticated border effect */}
+            <div className="absolute inset-0 rounded-[3rem] border border-gradient-to-r from-gold-200/40 via-slate-200/30 to-gold-200/40 shadow-2xl" />
+            <div className="absolute inset-0 rounded-[3rem] border border-white/60 shadow-luxury" />
+            
+            {/* Premium glow effects */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-gold-400/10 via-transparent to-gold-400/10 rounded-[4rem] blur-3xl animate-pulse" />
+          </div>
+
+          <div className="relative z-10 p-12 md:p-20">
+            {/* Enhanced Header Section */}
+            <AnimatedGroup preset="fade" className="text-center mb-20">
+              {/* Premium badge */}
+              <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gold-50/95 via-white/98 to-gold-100/90 backdrop-blur-2xl border-2 border-gold-200/60 rounded-full px-10 py-5 mb-12 shadow-luxury hover:shadow-gold-glow transition-all duration-700 group">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 shadow-gold-glow group-hover:scale-110 transition-transform duration-500">
+                  <Award className="w-5 h-5 text-white drop-shadow-sm" />
+                </div>
+                <span className="text-slate-800 font-bold text-base tracking-wide">Excellence Certified</span>
+                <div className="flex items-center gap-1.5 ml-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-gold-500 fill-gold-500 drop-shadow-sm" />
+                  ))}
+                </div>
+                <div className="w-px h-6 bg-gold-300/60 mx-2" />
+                <span className="text-gold-700 font-bold text-sm">Since 2019</span>
+              </div>
+
+              {/* Sophisticated main heading */}
+              <div className="relative mb-12">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-playfair font-bold leading-[0.9] mb-8">
+                  <span className="block bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent drop-shadow-sm">
+                    The Pinnacle of
+                  </span>
+                  <span className="block relative">
+                    <span className="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent drop-shadow-gold">
+                      Valet Excellence
+                    </span>
+                    {/* Animated underline */}
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-400 rounded-full shadow-gold-glow animate-pulse" />
+                  </span>
+                </h3>
+                
+                {/* Floating accent elements */}
+                <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-gold-200/30 to-gold-300/20 rounded-full blur-xl animate-luxury-float" />
+                <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-br from-slate-200/30 to-slate-300/20 rounded-full blur-xl animate-luxury-float" style={{ animationDelay: '1.5s' }} />
+              </div>
+              
+              {/* Enhanced description with premium styling */}
+              <div className="max-w-5xl mx-auto">
+                <p className="text-2xl lg:text-3xl text-slate-600 leading-relaxed font-medium mb-8 drop-shadow-sm">
+                  We don't just park vehicles—we curate experiences that reflect the 
+                  <span className="bg-gradient-to-r from-gold-600 to-gold-500 bg-clip-text text-transparent font-semibold"> sophistication and prestige </span>
+                  your event deserves.
+                </p>
+                
+                {/* Premium stats bar */}
+                <div className="flex items-center justify-center gap-12 mt-12">
+                  <div className="text-center">
+                    <div className="text-4xl font-playfair font-bold text-slate-800 mb-2">1000+</div>
+                    <div className="text-sm text-slate-600 font-semibold tracking-wider uppercase">Premium Events</div>
+                  </div>
+                  <div className="w-px h-16 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+                  <div className="text-center">
+                    <div className="text-4xl font-playfair font-bold text-gold-600 mb-2">99.9%</div>
+                    <div className="text-sm text-slate-600 font-semibold tracking-wider uppercase">Satisfaction Rate</div>
+                  </div>
+                  <div className="w-px h-16 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+                  <div className="text-center">
+                    <div className="text-4xl font-playfair font-bold text-slate-800 mb-2">24/7</div>
+                    <div className="text-sm text-slate-600 font-semibold tracking-wider uppercase">Availability</div>
+                  </div>
+                </div>
+              </div>
             </AnimatedGroup>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Revolutionary Feature Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
               {whyChooseUs.map((item, index) => (
                 <AnimatedGroup 
                   key={index} 
                   preset="scale"
-                  className={`group text-center animate-fade-in`}
+                  className="group text-center animate-fade-in"
                 >
-                  <div 
-                    className="relative mb-8"
-                    style={{ animationDelay: `${index * 0.3}s` }}
+                  <Card 
+                    className={`relative overflow-hidden border-2 backdrop-blur-2xl transition-all duration-700 hover:scale-105 cursor-pointer ${
+                      activeFeature === index 
+                        ? 'border-white/60 shadow-2xl scale-105' 
+                        : 'border-white/30 hover:border-white/50'
+                    } ${item.glowColor}`}
+                    style={{
+                      background: `linear-gradient(135deg, ${item.bgGradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')})`,
+                      animationDelay: `${index * 0.3}s`
+                    }}
+                    onMouseEnter={() => setActiveFeature(index)}
+                    onMouseLeave={() => setActiveFeature(-1)}
                   >
-                    <div className="w-24 h-24 bg-gradient-to-br from-gold-100 via-gold-200 to-gold-300 rounded-full flex items-center justify-center mx-auto shadow-luxury group-hover:shadow-gold-glow transition-all duration-500 group-hover:scale-110">
-                      <div className="absolute inset-0 bg-gradient-to-br from-gold-50 to-gold-100 rounded-full blur-sm opacity-50" />
-                      <item.icon className="w-12 h-12 text-gold-700 relative z-10 drop-shadow-sm" />
-                    </div>
-                  </div>
-                  <h4 className="text-2xl font-playfair font-bold text-slate-900 mb-4 group-hover:text-slate-800 transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-slate-600 leading-relaxed mb-4 text-lg">
-                    {item.description}
-                  </p>
-                  <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gold-50 to-gold-100 rounded-full border border-gold-200/60 shadow-sm">
-                    <span className="text-gold-700 font-semibold text-sm">{item.feature}</span>
-                  </div>
+                    {/* Premium card background effects */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-700`} />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    
+                    <CardContent className="p-10 relative z-10">
+                      {/* Enhanced icon section */}
+                      <div className="relative mb-10">
+                        <div className={`w-28 h-28 bg-gradient-to-br ${item.gradient} rounded-3xl flex items-center justify-center mx-auto shadow-luxury group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-3xl" />
+                          <item.icon className="w-14 h-14 text-white relative z-10 drop-shadow-lg" />
+                        </div>
+                        
+                        {/* Floating particles around icon */}
+                        <div className="absolute top-0 right-0 w-3 h-3 bg-gold-400/40 rounded-full animate-pulse" style={{ animationDelay: `${index * 0.5}s` }} />
+                        <div className="absolute bottom-2 left-2 w-2 h-2 bg-slate-400/30 rounded-full animate-pulse" style={{ animationDelay: `${index * 0.7}s` }} />
+                      </div>
+
+                      {/* Enhanced content section */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-3xl font-playfair font-bold text-slate-900 mb-2 group-hover:text-slate-800 transition-colors">
+                            {item.title}
+                          </h4>
+                          <p className={`text-lg font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-1`}>
+                            {item.subtitle}
+                          </p>
+                        </div>
+                        
+                        {/* Stats display */}
+                        <div className="flex items-center justify-center gap-6 py-4">
+                          <div className="text-center">
+                            <div className={`text-3xl font-playfair font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                              {item.stats.value}
+                            </div>
+                            <div className="text-xs text-slate-600 font-semibold tracking-wider uppercase">
+                              {item.stats.label}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <p className="text-slate-700 leading-relaxed text-lg mb-6">
+                          {item.description}
+                        </p>
+                        
+                        {/* Feature highlight */}
+                        <div className={`inline-flex items-center px-6 py-3 bg-gradient-to-r ${item.bgGradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')} rounded-full border border-white/40 shadow-sm backdrop-blur-sm`}>
+                          <Zap className={`w-4 h-4 mr-2 bg-gradient-to-r ${item.gradient} text-transparent`} />
+                          <span className={`font-semibold text-sm bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                            {item.feature}
+                          </span>
+                        </div>
+
+                        {/* Expandable details on hover */}
+                        <div className={`transition-all duration-500 overflow-hidden ${
+                          activeFeature === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                        }`}>
+                          <div className="pt-6 border-t border-white/20">
+                            <div className="space-y-3">
+                              {item.details.map((detail, idx) => (
+                                <div key={idx} className="flex items-center space-x-3">
+                                  <div className={`w-4 h-4 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-sm`}>
+                                    <CheckCircle className="w-2.5 h-2.5 text-white" />
+                                  </div>
+                                  <span className="text-slate-700 font-medium text-sm">{detail}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </AnimatedGroup>
               ))}
             </div>
+
+            {/* Premium Call-to-Action */}
+            <AnimatedGroup preset="fade" className="text-center mt-16">
+              <div className="inline-flex items-center gap-6">
+                <Button className="relative overflow-hidden text-white px-12 py-6 text-xl font-semibold tracking-wide rounded-2xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-105 border-2 border-slate-700/20 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-600 hover:to-slate-700">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <span className="relative z-10">Experience Excellence</span>
+                  <Crown className="ml-3 w-6 h-6 relative z-10" />
+                </Button>
+                
+                <div className="w-px h-16 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+                
+                <Button variant="outline" className="relative overflow-hidden px-12 py-6 text-xl font-semibold tracking-wide rounded-2xl border-2 border-gold-300/60 hover:border-gold-400/80 bg-gradient-to-r from-white via-gold-50/50 to-white hover:from-gold-50 hover:via-gold-100/50 hover:to-gold-50 text-slate-800 hover:text-slate-700 shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-105">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <span className="relative z-10">View Portfolio</span>
+                  <Eye className="ml-3 w-6 h-6 relative z-10" />
+                </Button>
+              </div>
+            </AnimatedGroup>
           </div>
         </div>
       </div>
