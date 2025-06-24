@@ -1,12 +1,12 @@
-
 'use client';
 
 import React from 'react';
 import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
-import { GlowCard } from '@/components/ui/spotlight-card';
+import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-with-hover-effects';
 import { cn } from '@/lib/utils';
+import { GlowCard } from '@/components/ui/spotlight-card';
 
 const transitionVariants = {
   item: {
@@ -118,70 +118,9 @@ export function HeroSection() {
                                     </Button>
                                 </AnimatedGroup>
 
-                                {/* Three GlowCards section */}
-                                <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                                    <GlowCard 
-                                        glowColor="blue" 
-                                        size="sm"
-                                        className="bg-white/5 backdrop-blur-md border border-white/10"
-                                    >
-                                        <div className="flex flex-col items-center text-center space-y-3 p-4">
-                                            <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
-                                                <span className="text-blue-400 text-xl">🚗</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white">
-                                                Corporate Events
-                                            </h3>
-                                            <p className="text-white/80 text-sm">
-                                                Professional valet service for business meetings, conferences, and corporate gatherings.
-                                            </p>
-                                            <div className="text-xs text-white/60">
-                                                ✓ Executive Level Service
-                                            </div>
-                                        </div>
-                                    </GlowCard>
-
-                                    <GlowCard 
-                                        glowColor="purple" 
-                                        size="sm"
-                                        className="bg-white/5 backdrop-blur-md border border-white/10"
-                                    >
-                                        <div className="flex flex-col items-center text-center space-y-3 p-4">
-                                            <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
-                                                <span className="text-purple-400 text-xl">💍</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white">
-                                                Wedding Service
-                                            </h3>
-                                            <p className="text-white/80 text-sm">
-                                                Make your special day perfect with seamless valet parking for all your guests.
-                                            </p>
-                                            <div className="text-xs text-white/60">
-                                                ✓ White Glove Treatment
-                                            </div>
-                                        </div>
-                                    </GlowCard>
-
-                                    <GlowCard 
-                                        glowColor="green" 
-                                        size="sm"
-                                        className="bg-white/5 backdrop-blur-md border border-white/10"
-                                    >
-                                        <div className="flex flex-col items-center text-center space-y-3 p-4">
-                                            <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
-                                                <span className="text-green-400 text-xl">🎉</span>
-                                            </div>
-                                            <h3 className="text-lg font-semibold text-white">
-                                                Private Events
-                                            </h3>
-                                            <p className="text-white/80 text-sm">
-                                                Exclusive valet service for private parties, galas, and special celebrations.
-                                            </p>
-                                            <div className="text-xs text-white/60">
-                                                ✓ 24/7 Availability
-                                            </div>
-                                        </div>
-                                    </GlowCard>
+                                {/* Replace the three GlowCards with FeaturesSectionWithHoverEffects */}
+                                <div className="mt-16">
+                                    <FeaturesSectionWithHoverEffects />
                                 </div>
                             </div>
                         </div>
