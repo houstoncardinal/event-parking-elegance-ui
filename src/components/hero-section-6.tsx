@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -33,7 +32,6 @@ const transitionVariants = {
 
 export function HeroSection() {
   return <>
-            <HeroHeader />
             <main className="overflow-hidden">
                 {/* Enhanced luxury background effects with bokeh */}
                 <div aria-hidden className="z-[1] absolute inset-0 pointer-events-none isolate opacity-70">
@@ -65,7 +63,7 @@ export function HeroSection() {
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-50/98 via-gold-50/30 to-slate-100/95 pointer-events-none" style={{ zIndex: 2 }}></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gold-50/20 pointer-events-none" style={{ zIndex: 2 }}></div>
                         
-                        <div className="mx-auto max-w-7xl px-6 relative z-10">
+                        <div className="w-full px-4 lg:px-8 relative z-10">
                             <div className="grid lg:grid-cols-2 gap-20 items-center">
                                 {/* Left side - Main content */}
                                 <div className="text-center lg:text-left">
@@ -201,9 +199,9 @@ export function HeroSection() {
                             },
                             ...transitionVariants
                         }}>
-                            <div className="relative mt-24 overflow-hidden px-6">
+                            <div className="relative mt-24 overflow-hidden px-4 lg:px-8">
                                 <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-30% to-slate-50/95" />
-                                <div className="relative mx-auto max-w-6xl overflow-hidden">
+                                <div className="relative overflow-hidden">
                                     {/* Enhanced luxury card wrapper */}
                                     <div className="card-luxury relative p-8 bg-gradient-to-br from-white/98 via-gold-50/30 to-white/95 backdrop-blur-xl border border-white/40 shadow-luxury hover:shadow-xl transition-all duration-700 group">
                                         <div className="absolute inset-0 bg-gradient-to-br from-gold-100/20 via-transparent to-slate-100/20 rounded-2xl"></div>

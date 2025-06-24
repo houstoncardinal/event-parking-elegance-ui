@@ -1,14 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, Car, Users, Calendar, Shield, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, Car, Users, Calendar, Shield, MapPin, Clock, ArrowRight, Crown, Building, Sparkles, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import MegaMenu from '@/components/mega-menu';
 import Logo from '@/components/Logo';
-import type { MegaMenuItem } from '@/components/mega-menu';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,56 +18,65 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const MEGA_MENU_ITEMS: MegaMenuItem[] = [
+  const megaMenuServices = [
     {
-      id: 1,
-      label: "Services",
-      subMenus: [
+      title: "Event Types",
+      items: [
         {
-          title: "Event Types",
-          items: [
-            {
-              label: "Wedding Valet",
-              description: "Elegant parking for your special day",
-              icon: Car,
-            },
-            {
-              label: "Corporate Events",
-              description: "Professional service for business functions",
-              icon: Users,
-            },
-            {
-              label: "Private Parties",
-              description: "Exclusive valet for intimate gatherings",
-              icon: Calendar,
-            },
-          ],
+          icon: Heart,
+          label: "Wedding Valet",
+          description: "Elegant parking for your special day",
+          href: "#wedding-valet"
         },
         {
-          title: "Service Features",
-          items: [
-            {
-              label: "Insured Staff",
-              description: "Fully licensed and insured attendants",
-              icon: Shield,
-            },
-            {
-              label: "Real-Time Tracking",
-              description: "Live updates on vehicle status",
-              icon: MapPin,
-            },
-            {
-              label: "On-Time Guarantee",
-              description: "Punctual service you can count on",
-              icon: Clock,
-            },
-          ],
+          icon: Building,
+          label: "Corporate Events",
+          description: "Professional service for business functions",
+          href: "#corporate-events"
         },
-      ],
+        {
+          icon: Users,
+          label: "Private Parties",
+          description: "Exclusive valet for intimate gatherings",
+          href: "#private-parties"
+        },
+        {
+          icon: Crown,
+          label: "Luxury Events",
+          description: "Premium service for high-end occasions",
+          href: "#luxury-events"
+        }
+      ]
     },
-    { id: 2, label: "About", link: "/about" },
-    { id: 3, label: "Testimonials", link: "/testimonials" },
-    { id: 4, label: "Contact", link: "/contact" },
+    {
+      title: "Service Features",
+      items: [
+        {
+          icon: Shield,
+          label: "Insured Staff",
+          description: "Fully licensed and insured attendants",
+          href: "#insurance"
+        },
+        {
+          icon: MapPin,
+          label: "Real-Time Tracking",
+          description: "Live updates on vehicle status",
+          href: "#tracking"
+        },
+        {
+          icon: Clock,
+          label: "24/7 Service",
+          description: "Round-the-clock availability",
+          href: "#availability"
+        },
+        {
+          icon: Sparkles,
+          label: "White Glove",
+          description: "Premium concierge-level service",
+          href: "#premium"
+        }
+      ]
+    }
   ];
 
   return (
@@ -78,19 +86,88 @@ const Navigation = () => {
           ? 'glass-luxury border-b border-white/10 py-2' 
           : 'bg-white/90 backdrop-blur-xl py-4'
       }`}>
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
+        <div className="w-full px-4 lg:px-8">
+          <div className="flex items-center justify-between h-16 max-w-none">
             {/* Logo */}
             <div className="flex items-center">
               <Logo size="md" />
             </div>
 
-            {/* Desktop MegaMenu Navigation */}
-            <div className="hidden lg:flex items-center">
-              <MegaMenu 
-                items={MEGA_MENU_ITEMS} 
-                className="text-slate-700 font-medium"
-              />
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <a href="#home" className="text-slate-700 hover:text-gold-600 font-medium px-4 py-2 rounded-lg hover:bg-gold-50 transition-all duration-300">
+                Home
+              </a>
+              
+              {/* Services Mega Menu */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setOpenDropdown('services')}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <button className="text-slate-700 hover:text-gold-600 font-medium px-4 py-2 rounded-lg hover:bg-gold-50 transition-all duration-300 flex items-center gap-1">
+                  Services
+                  <svg className="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Mega Menu Dropdown */}
+                {openDropdown === 'services' && (
+                  <div className="absolute top-full left-0 mt-2 w-[800px] bg-white/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-luxury p-8 z-50">
+                    <div className="grid grid-cols-2 gap-12">
+                      {megaMenuServices.map((section, sectionIndex) => (
+                        <div key={sectionIndex}>
+                          <h3 className="text-lg font-semibold text-slate-900 mb-6 font-playfair">
+                            {section.title}
+                          </h3>
+                          <div className="space-y-4">
+                            {section.items.map((item, itemIndex) => (
+                              <a
+                                key={itemIndex}
+                                href={item.href}
+                                className="flex items-start space-x-4 p-3 rounded-xl hover:bg-gold-50 transition-all duration-300 group"
+                              >
+                                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 text-gold-600 group-hover:from-gold-200 group-hover:to-gold-300 transition-all duration-300">
+                                  <item.icon className="w-5 h-5" />
+                                </div>
+                                <div>
+                                  <h4 className="text-sm font-semibold text-slate-900 group-hover:text-gold-700 transition-colors duration-300">
+                                    {item.label}
+                                  </h4>
+                                  <p className="text-xs text-slate-600 mt-1 group-hover:text-slate-700 transition-colors duration-300">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-8 pt-6 border-t border-slate-200">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm text-slate-600">
+                          Need a custom solution? Let's discuss your requirements.
+                        </p>
+                        <Button className="btn-gold text-sm px-6 py-2">
+                          Contact Us
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              <a href="#about" className="text-slate-700 hover:text-gold-600 font-medium px-4 py-2 rounded-lg hover:bg-gold-50 transition-all duration-300">
+                About
+              </a>
+              <a href="#testimonials" className="text-slate-700 hover:text-gold-600 font-medium px-4 py-2 rounded-lg hover:bg-gold-50 transition-all duration-300">
+                Testimonials
+              </a>
+              <a href="#contact" className="text-slate-700 hover:text-gold-600 font-medium px-4 py-2 rounded-lg hover:bg-gold-50 transition-all duration-300">
+                Contact
+              </a>
             </div>
 
             {/* Contact Info & CTA */}
@@ -120,7 +197,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden glass-luxury border-t border-white/10 mt-2">
-            <div className="container mx-auto px-6 py-6">
+            <div className="w-full px-6 py-6">
               <div className="flex flex-col space-y-6">
                 {['Home', 'Services', 'About', 'Testimonials', 'Contact'].map((item) => (
                   <a
