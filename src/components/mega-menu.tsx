@@ -47,13 +47,13 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
             {navItem.link ? (
               <a
                 href={navItem.link}
-                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-sm font-medium transition-colors duration-300 hover:text-champagne-500"
+                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-sm font-medium transition-colors duration-300 hover:text-blue-600"
               >
                 <span>{navItem.label}</span>
               </a>
             ) : (
               <button
-                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-sm font-medium transition-colors duration-300 hover:text-champagne-500 group"
+                className="relative flex cursor-pointer items-center justify-center gap-1 py-1.5 px-4 text-sm font-medium transition-colors duration-300 hover:text-blue-600 group"
                 onMouseEnter={() => setIsHover(navItem.id)}
                 onMouseLeave={() => setIsHover(null)}
               >
@@ -68,7 +68,7 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                 {(isHover === navItem.id || openMenu === navItem.label) && (
                   <motion.div
                     layoutId="hover-bg"
-                    className="absolute inset-0 size-full bg-champagne-500/10 rounded-full"
+                    className="absolute inset-0 size-full bg-blue-600/10 rounded-lg"
                   />
                 )}
               </button>
@@ -78,9 +78,9 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
               {openMenu === navItem.label && navItem.subMenus && (
                 <div className="absolute left-0 top-full w-auto pt-2 z-50">
                   <motion.div
-                    className="w-max border border-gray-200 bg-white/95 backdrop-blur-lg p-6 shadow-2xl"
+                    className="w-max border border-gray-200 bg-white/95 backdrop-blur-lg p-6 shadow-xl"
                     style={{
-                      borderRadius: 16,
+                      borderRadius: 12,
                     }}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                     <div className="flex w-fit shrink-0 space-x-12 overflow-hidden">
                       {navItem.subMenus.map((sub) => (
                         <motion.div layout className="w-full min-w-[200px]" key={sub.title}>
-                          <h3 className="mb-4 text-sm font-semibold text-navy-800 font-playfair">
+                          <h3 className="mb-4 text-sm font-semibold text-black font-playfair">
                             {sub.title}
                           </h3>
                           <ul className="space-y-4">
@@ -100,16 +100,16 @@ const MegaMenu = React.forwardRef<HTMLUListElement, MegaMenuProps>(
                                 <li key={item.label}>
                                   <a
                                     href="#"
-                                    className="flex items-start space-x-3 group hover:bg-champagne-50 p-2 rounded-lg transition-colors duration-200"
+                                    className="flex items-start space-x-3 group hover:bg-blue-50 p-2 rounded-lg transition-colors duration-200"
                                   >
-                                    <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-champagne-200 text-champagne-600 transition-colors duration-300 group-hover:bg-champagne-500 group-hover:text-white">
+                                    <div className="flex size-9 shrink-0 items-center justify-center rounded-md border border-blue-200 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
                                       <Icon className="h-4 w-4 flex-none" />
                                     </div>
                                     <div className="w-max leading-5">
-                                      <p className="shrink-0 text-sm font-medium text-navy-800 group-hover:text-navy-900">
+                                      <p className="shrink-0 text-sm font-medium text-black group-hover:text-black">
                                         {item.label}
                                       </p>
-                                      <p className="shrink-0 text-xs text-navy-600 transition-colors duration-300 group-hover:text-navy-700">
+                                      <p className="shrink-0 text-xs text-gray-600 transition-colors duration-300 group-hover:text-gray-700">
                                         {item.description}
                                       </p>
                                     </div>

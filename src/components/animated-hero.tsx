@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["amazing", "new", "wonderful", "beautiful", "smart"],
+    () => ["elegant", "professional", "luxurious", "premium", "exclusive"],
     []
   );
 
@@ -23,23 +23,23 @@ function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white">
       <div className="container mx-auto">
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
           <div>
-            <Button variant="secondary" size="sm" className="gap-4">
-              Read our launch article <MoveRight className="w-4 h-4" />
+            <Button variant="outline" size="sm" className="gap-4 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+              Premium Valet Services <MoveRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50">This is something</span>
+            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-playfair font-bold">
+              <span className="text-black">Luxury Valet Services</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-semibold"
+                    className="absolute font-semibold text-blue-600"
                     initial={{ opacity: 0, y: "-100" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
@@ -60,19 +60,18 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              Managing a small business today is already tough. Avoid further
-              complications by ditching outdated, tedious trade methods. Our
-              goal is to streamline SMB trade, making it easier and faster than
-              ever.
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-gray-700 max-w-3xl text-center font-medium">
+              Experience unparalleled luxury with our premium valet parking services. 
+              Professional, insured attendants providing seamless solutions for weddings, 
+              corporate events, and exclusive gatherings.
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4" variant="outline">
-              Jump on a call <PhoneCall className="w-4 h-4" />
+            <Button size="lg" className="gap-4 bg-blue-600 hover:bg-blue-700 text-white" variant="default">
+              Book Valet Service <MoveRight className="w-4 h-4" />
             </Button>
-            <Button size="lg" className="gap-4">
-              Sign up here <MoveRight className="w-4 h-4" />
+            <Button size="lg" className="gap-4 border-black text-black hover:bg-black hover:text-white" variant="outline">
+              Schedule Call <PhoneCall className="w-4 h-4" />
             </Button>
           </div>
         </div>
