@@ -1,4 +1,3 @@
-
 'use client'
 
 import React from 'react'
@@ -126,7 +125,7 @@ export function HeroSection() {
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="rounded-xl px-5 text-base">
+                                            className="bg-black hover:bg-black/90 text-white rounded-xl px-5 text-base">
                                             <a href="#booking">
                                                 <span className="text-nowrap">Book Valet Service</span>
                                             </a>
