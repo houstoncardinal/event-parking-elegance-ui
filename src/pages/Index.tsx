@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Navigation from '@/components/Navigation';
 import { HeroSection } from '@/components/hero-section-6';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
@@ -10,6 +11,7 @@ import DisplayCards from '@/components/display-cards';
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Navigation />
       <HeroSection />
       <Services />
       
