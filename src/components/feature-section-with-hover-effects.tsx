@@ -1,61 +1,60 @@
-
 import { cn } from "@/lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
+  IconCar,
+  IconClock,
+  IconShield,
+  IconUsers,
+  IconMapPin,
+  IconPhone,
+  IconAward,
   IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
 } from "@tabler/icons-react";
 
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "Built for developers",
+      title: "Professional Valet Staff",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <IconTerminal2 />,
+        "Experienced, uniformed attendants trained in customer service and vehicle handling.",
+      icon: <IconUsers />,
     },
     {
-      title: "Ease of use",
+      title: "Quick & Efficient",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <IconEaseInOut />,
+        "Fast vehicle retrieval with minimal wait times for your guests.",
+      icon: <IconClock />,
     },
     {
-      title: "Pricing like no other",
+      title: "Fully Insured Service",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
+        "Complete liability coverage and bonded staff for your peace of mind.",
+      icon: <IconShield />,
     },
     {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
+      title: "All Event Types",
+      description: "Weddings, corporate events, galas, parties, and more throughout Houston.",
+      icon: <IconAward />,
     },
     {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
+      title: "Houston-Wide Coverage",
+      description: "Serving all areas of Houston and surrounding communities",
+      icon: <IconMapPin />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "24/7 Support",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <IconHelp />,
+        "Round-the-clock availability for your event planning needs.",
+      icon: <IconPhone />,
     },
     {
-      title: "Money back guarantee",
+      title: "Premium Vehicle Care",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <IconAdjustmentsBolt />,
+        "Careful handling of all vehicles from luxury cars to everyday vehicles.",
+      icon: <IconCar />,
     },
     {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      title: "Guest Satisfaction",
+      description: "Creating memorable first impressions for your valued guests",
       icon: <IconHeart />,
     },
   ];
