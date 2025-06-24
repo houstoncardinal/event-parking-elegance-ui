@@ -9,8 +9,8 @@ export function HeroSection() {
         <>
             <main>
                 <section className="overflow-hidden">
-                    <div className="relative mx-auto max-w-5xl px-6 py-28 lg:py-32 pt-32 lg:pt-40">
-                        <div className="lg:flex lg:items-center lg:gap-12">
+                    <div className="relative mx-auto max-w-7xl px-6 py-28 lg:py-32 pt-32 lg:pt-40">
+                        <div className="lg:flex lg:items-center lg:gap-16">
                             <div className="relative z-10 mx-auto max-w-xl text-center lg:ml-0 lg:w-1/2 lg:text-left">
                                 <a
                                     href="/"
@@ -22,8 +22,8 @@ export function HeroSection() {
                                     <ArrowRight className="size-4" />
                                 </a>
 
-                                <h1 className="mt-10 text-balance text-4xl font-bold md:text-5xl xl:text-5xl">Professional Valet Parking Solutions</h1>
-                                <p className="mt-8">Experience seamless valet services for your events. Professional, insured attendants providing luxury parking solutions for weddings, corporate events, and private gatherings.</p>
+                                <h1 className="mt-10 text-balance text-4xl font-bold md:text-5xl xl:text-6xl">Professional Valet Parking Solutions</h1>
+                                <p className="mt-8 text-lg">Experience seamless valet services for your events. Professional, insured attendants providing luxury parking solutions for weddings, corporate events, and private gatherings.</p>
 
                                 <div>
                                     <form
@@ -42,7 +42,7 @@ export function HeroSection() {
                                                 <Button
                                                     aria-label="submit"
                                                 >
-                                                    <span className="hidden md:block">Get Quote</span>
+                                                    <span className="hidden md:block">Get Started</span>
                                                     <SendHorizontal
                                                         className="relative mx-auto size-5 md:hidden"
                                                         strokeWidth={2}
@@ -60,7 +60,7 @@ export function HeroSection() {
                                 </div>
                             </div>
                         </div>
-                        <div className="absolute inset-0 -mx-4 rounded-3xl p-3 lg:col-span-3">
+                        <div className="absolute inset-0 -mx-6 rounded-3xl p-3 lg:col-span-3">
                             <div aria-hidden className="absolute z-[1] inset-0 bg-gradient-to-r from-background from-35%" />
                             <div className="relative">
                                 <img
