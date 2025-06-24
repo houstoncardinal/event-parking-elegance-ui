@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -7,6 +8,7 @@ import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-with-hover-effects';
 import { AnimatedGeometricBackground } from '@/components/animated-geometric-background';
 import QuoteForm from '@/components/QuoteForm';
+
 const transitionVariants = {
   item: {
     hidden: {
@@ -26,6 +28,7 @@ const transitionVariants = {
     }
   }
 };
+
 export function HeroSection() {
   return <>
             <main className="overflow-hidden">
@@ -201,20 +204,6 @@ export function HeroSection() {
                                 <FeaturesSectionWithHoverEffects />
                             </div>
                         </div>
-
-                        <AnimatedGroup variants={{
-            container: {
-              visible: {
-                transition: {
-                  staggerChildren: 0.05,
-                  delayChildren: 0.75
-                }
-              }
-            },
-            ...transitionVariants
-          }}>
-                            
-                        </AnimatedGroup>
                     </div>
                 </section>
             </main>
