@@ -1,7 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, Car, Users, Calendar, Shield, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import MegaMenu from '@/components/mega-menu';
+import type { MegaMenuItem } from '@/components/mega-menu';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +18,56 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About', href: '/about' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Contact', href: '/contact' },
+  const MEGA_MENU_ITEMS: MegaMenuItem[] = [
+    {
+      id: 1,
+      label: "Services",
+      subMenus: [
+        {
+          title: "Event Types",
+          items: [
+            {
+              label: "Wedding Valet",
+              description: "Elegant parking for your special day",
+              icon: Car,
+            },
+            {
+              label: "Corporate Events",
+              description: "Professional service for business functions",
+              icon: Users,
+            },
+            {
+              label: "Private Parties",
+              description: "Exclusive valet for intimate gatherings",
+              icon: Calendar,
+            },
+          ],
+        },
+        {
+          title: "Service Features",
+          items: [
+            {
+              label: "Insured Staff",
+              description: "Fully licensed and insured attendants",
+              icon: Shield,
+            },
+            {
+              label: "Real-Time Tracking",
+              description: "Live updates on vehicle status",
+              icon: MapPin,
+            },
+            {
+              label: "On-Time Guarantee",
+              description: "Punctual service you can count on",
+              icon: Clock,
+            },
+          ],
+        },
+      ],
+    },
+    { id: 2, label: "About", link: "/about" },
+    { id: 3, label: "Testimonials", link: "/testimonials" },
+    { id: 4, label: "Contact", link: "/contact" },
   ];
 
   return (
@@ -29,7 +75,7 @@ const Navigation = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-lg shadow-lg' 
-          : 'bg-transparent'
+          : 'bg-navy-900/80 backdrop-blur-lg'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
@@ -45,19 +91,12 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={`font-medium transition-colors duration-300 hover:text-champagne-500 ${
-                    isScrolled ? 'text-navy-700' : 'text-white'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              ))}
+            {/* Desktop MegaMenu Navigation */}
+            <div className="hidden md:flex items-center">
+              <MegaMenu 
+                items={MEGA_MENU_ITEMS} 
+                className={`${isScrolled ? 'text-navy-700' : 'text-white'}`}
+              />
             </div>
 
             {/* Contact Info & CTA */}
@@ -94,16 +133,41 @@ const Navigation = () => {
           <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200">
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                <a
+                  href="/"
+                  className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Home
+                </a>
+                <a
+                  href="/services"
+                  className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Services
+                </a>
+                <a
+                  href="/about"
+                  className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  About
+                </a>
+                <a
+                  href="/testimonials"
+                  className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Testimonials
+                </a>
+                <a
+                  href="/contact"
+                  className="text-navy-700 font-medium py-2 hover:text-champagne-500 transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
+                </a>
                 <div className="flex items-center space-x-2 text-navy-600 py-2">
                   <Phone className="w-4 h-4" />
                   <span>(555) 123-PARK</span>
