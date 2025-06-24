@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -8,7 +7,6 @@ import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-with-hover-effects';
 import { AnimatedGeometricBackground } from '@/components/animated-geometric-background';
 import QuoteForm from '@/components/QuoteForm';
-
 const transitionVariants = {
   item: {
     hidden: {
@@ -28,7 +26,6 @@ const transitionVariants = {
     }
   }
 };
-
 export function HeroSection() {
   return <>
             <main className="overflow-hidden">
@@ -40,27 +37,47 @@ export function HeroSection() {
                     
                     {/* Enhanced luxury glow effects */}
                     <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-gold-300/20 via-gold-400/10 to-transparent rounded-full blur-3xl animate-luxury-float" />
-                    <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-gradient-to-tr from-slate-200/15 via-slate-300/8 to-transparent rounded-full blur-3xl animate-luxury-float" style={{ animationDelay: '3s' }} />
+                    <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-gradient-to-tr from-slate-200/15 via-slate-300/8 to-transparent rounded-full blur-3xl animate-luxury-float" style={{
+          animationDelay: '3s'
+        }} />
                     
                     {/* Bokeh light effects */}
-                    <div className="absolute top-1/6 left-1/5 w-12 h-12 bg-gold-400/30 rounded-full blur-sm animate-pulse" style={{ animationDelay: '1s' }} />
-                    <div className="absolute top-1/3 right-1/6 w-8 h-8 bg-gold-300/40 rounded-full blur-sm animate-pulse" style={{ animationDelay: '2.5s' }} />
-                    <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-gold-200/25 rounded-full blur-md animate-pulse" style={{ animationDelay: '4s' }} />
-                    <div className="absolute top-2/3 right-1/3 w-6 h-6 bg-gold-500/35 rounded-full blur-sm animate-pulse" style={{ animationDelay: '1.8s' }} />
-                    <div className="absolute top-1/2 left-1/8 w-10 h-10 bg-slate-300/20 rounded-full blur-md animate-pulse" style={{ animationDelay: '3.2s' }} />
-                    <div className="absolute bottom-1/6 right-1/5 w-14 h-14 bg-gold-100/30 rounded-full blur-lg animate-pulse" style={{ animationDelay: '2.8s' }} />
+                    <div className="absolute top-1/6 left-1/5 w-12 h-12 bg-gold-400/30 rounded-full blur-sm animate-pulse" style={{
+          animationDelay: '1s'
+        }} />
+                    <div className="absolute top-1/3 right-1/6 w-8 h-8 bg-gold-300/40 rounded-full blur-sm animate-pulse" style={{
+          animationDelay: '2.5s'
+        }} />
+                    <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-gold-200/25 rounded-full blur-md animate-pulse" style={{
+          animationDelay: '4s'
+        }} />
+                    <div className="absolute top-2/3 right-1/3 w-6 h-6 bg-gold-500/35 rounded-full blur-sm animate-pulse" style={{
+          animationDelay: '1.8s'
+        }} />
+                    <div className="absolute top-1/2 left-1/8 w-10 h-10 bg-slate-300/20 rounded-full blur-md animate-pulse" style={{
+          animationDelay: '3.2s'
+        }} />
+                    <div className="absolute bottom-1/6 right-1/5 w-14 h-14 bg-gold-100/30 rounded-full blur-lg animate-pulse" style={{
+          animationDelay: '2.8s'
+        }} />
                 </div>
                 
                 <section className="relative">
                     <div className="relative pt-24 md:pt-32 pb-20">
                         {/* Enhanced animated geometric background */}
-                        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
+                        <div className="absolute inset-0 pointer-events-none" style={{
+            zIndex: 1
+          }}>
                             <AnimatedGeometricBackground />
                         </div>
                         
                         {/* Enhanced luxury gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/98 via-gold-50/30 to-slate-100/95 pointer-events-none" style={{ zIndex: 2 }}></div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gold-50/20 pointer-events-none" style={{ zIndex: 2 }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/98 via-gold-50/30 to-slate-100/95 pointer-events-none" style={{
+            zIndex: 2
+          }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gold-50/20 pointer-events-none" style={{
+            zIndex: 2
+          }}></div>
                         
                         <div className="container mx-auto px-4 lg:px-8 relative z-10 max-w-7xl">
                             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -74,9 +91,7 @@ export function HeroSection() {
                                             </div>
                                             <span className="text-slate-800 font-semibold text-sm tracking-wide">Premium Valet Services Since 2010</span>
                                             <div className="flex items-center gap-1 ml-2">
-                                                {[...Array(5)].map((_, i) => (
-                                                    <Star key={i} className="w-3.5 h-3.5 text-gold-500 fill-gold-500 drop-shadow-sm" />
-                                                ))}
+                                                {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold-500 fill-gold-500 drop-shadow-sm" />)}
                                             </div>
                                         </div>
                             
@@ -118,16 +133,16 @@ export function HeroSection() {
                                     </AnimatedGroup>
 
                                     <AnimatedGroup variants={{
-                                        container: {
-                                            visible: {
-                                                transition: {
-                                                    staggerChildren: 0.05,
-                                                    delayChildren: 0.75
-                                                }
-                                            }
-                                        },
-                                        ...transitionVariants
-                                    }} className="flex flex-col items-center lg:items-start justify-center gap-4 md:flex-row">
+                  container: {
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.05,
+                        delayChildren: 0.75
+                      }
+                    }
+                  },
+                  ...transitionVariants
+                }} className="flex flex-col items-center lg:items-start justify-center gap-4 md:flex-row">
                                         <Button className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white px-10 py-4 text-base font-semibold tracking-wide rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group border border-slate-700/20">
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                             <span className="relative z-10">Reserve Valet Service</span>
@@ -159,19 +174,19 @@ export function HeroSection() {
                                 {/* Right side - Enhanced Premium Quote Form */}
                                 <div className="flex justify-center lg:justify-end">
                                     <AnimatedGroup variants={{
-                                        ...transitionVariants,
-                                        item: {
-                                            ...transitionVariants.item,
-                                            hidden: {
-                                                ...transitionVariants.item.hidden,
-                                                x: 50
-                                            },
-                                            visible: {
-                                                ...transitionVariants.item.visible,
-                                                x: 0
-                                            }
-                                        }
-                                    }}>
+                  ...transitionVariants,
+                  item: {
+                    ...transitionVariants.item,
+                    hidden: {
+                      ...transitionVariants.item.hidden,
+                      x: 50
+                    },
+                    visible: {
+                      ...transitionVariants.item.visible,
+                      x: 0
+                    }
+                  }
+                }}>
                                         <div className="relative max-w-md">
                                             {/* Enhanced glow effect around form */}
                                             <div className="absolute inset-0 bg-gradient-to-br from-gold-200/30 via-transparent to-slate-200/20 rounded-3xl blur-xl scale-105 opacity-60"></div>
@@ -188,32 +203,17 @@ export function HeroSection() {
                         </div>
 
                         <AnimatedGroup variants={{
-                            container: {
-                                visible: {
-                                    transition: {
-                                        staggerChildren: 0.05,
-                                        delayChildren: 0.75
-                                    }
-                                }
-                            },
-                            ...transitionVariants
-                        }}>
-                            <div className="relative mt-16 overflow-hidden container mx-auto px-4 lg:px-8 max-w-7xl">
-                                <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-30% to-slate-50/95" />
-                                <div className="relative overflow-hidden">
-                                    {/* Enhanced luxury card wrapper */}
-                                    <div className="card-luxury relative p-6 bg-gradient-to-br from-white/98 via-gold-50/30 to-white/95 backdrop-blur-xl border border-white/40 shadow-luxury hover:shadow-xl transition-all duration-700 group">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-gold-100/20 via-transparent to-slate-100/20 rounded-2xl"></div>
-                                        <img 
-                                            className="aspect-15/8 relative rounded-2xl shadow-luxury group-hover:shadow-xl transition-all duration-700 border border-white/60" 
-                                            src="https://tailark.com/_next/image?url=%2Fmail2-light.png&w=3840&q=75" 
-                                            alt="Executive valet service management dashboard" 
-                                            width="2700" 
-                                            height="1440" 
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                  delayChildren: 0.75
+                }
+              }
+            },
+            ...transitionVariants
+          }}>
+                            
                         </AnimatedGroup>
                     </div>
                 </section>
