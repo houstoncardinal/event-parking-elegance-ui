@@ -1,51 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury white design system */
+/* Luxury design system with sophisticated color palette */
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 0 0 0;
+    --background: 248 250 252;
+    --foreground: 15 23 42;
 
     --card: 255 255 255;
-    --card-foreground: 0 0 0;
+    --card-foreground: 15 23 42;
 
     --popover: 255 255 255;
-    --popover-foreground: 0 0 0;
+    --popover-foreground: 15 23 42;
 
-    --primary: 37 99 235;
-    --primary-foreground: 255 255 255;
+    --primary: 15 23 42;
+    --primary-foreground: 248 250 252;
 
-    --secondary: 248 250 252;
-    --secondary-foreground: 0 0 0;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
 
-    --muted: 248 250 252;
-    --muted-foreground: 107 114 128;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
 
-    --accent: 37 99 235;
-    --accent-foreground: 255 255 255;
+    --accent: 245 158 11;
+    --accent-foreground: 15 23 42;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 229 231 235;
-    --input: 229 231 235;
-    --ring: 37 99 235;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 245 158 11;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 255 255 255;
-    --sidebar-foreground: 0 0 0;
-    --sidebar-primary: 37 99 235;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 248 250 252;
-    --sidebar-accent-foreground: 0 0 0;
-    --sidebar-border: 229 231 235;
-    --sidebar-ring: 37 99 235;
+    --sidebar-foreground: 15 23 42;
+    --sidebar-primary: 15 23 42;
+    --sidebar-primary-foreground: 248 250 252;
+    --sidebar-accent: 241 245 249;
+    --sidebar-accent-foreground: 15 23 42;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 245 158 11;
   }
 }
 
@@ -55,53 +56,106 @@
   }
 
   body {
-    @apply bg-white text-black font-poppins;
+    @apply bg-slate-50 text-slate-900 font-inter antialiased;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-poppins text-black font-semibold;
+    @apply font-poppins text-slate-900 font-semibold tracking-tight;
+  }
+
+  /* Luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(241, 245, 249, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #94a3b8, #64748b);
   }
 }
 
 @layer components {
+  /* Luxury gradient backgrounds */
   .luxury-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   }
   
-  .blue-gradient {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  .luxury-gold-gradient {
+    background: linear-gradient(135deg, #fef9e7 0%, #fde68a 50%, #f59e0b 100%);
   }
   
-  .glass-effect {
-    backdrop-filter: blur(16px);
+  .luxury-platinum-gradient {
+    background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 50%, #9ca3af 100%);
+  }
+  
+  /* Glass morphism effect */
+  .glass-luxury {
+    backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 25px -10px rgba(0, 0, 0, 0.1);
   }
 
-  .text-shadow {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  /* Premium button styles */
+  .btn-luxury {
+    @apply relative overflow-hidden bg-slate-900 text-white px-8 py-4 rounded-xl font-semibold tracking-wide;
+    @apply shadow-luxury hover:shadow-xl transition-all duration-300;
+    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+    @apply before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700;
+  }
+
+  .btn-gold {
+    @apply relative overflow-hidden bg-gradient-to-r from-gold-500 to-gold-600 text-slate-900 px-8 py-4 rounded-xl font-semibold tracking-wide;
+    @apply shadow-gold-glow hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
+  }
+
+  /* Luxury text effects */
+  .text-luxury {
+    @apply bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent;
+  }
+
+  .text-gold {
+    @apply bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+  }
+
+  /* Premium card styles */
+  .card-luxury {
+    @apply bg-white/95 backdrop-blur-lg border border-white/20 rounded-2xl;
+    @apply shadow-luxury hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Sophisticated animations */
+  .animate-luxury-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-luxury-shimmer {
+    animation: luxury-shimmer 3s ease-in-out infinite;
   }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling and performance */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Selection styling */
+::selection {
+  background: rgba(245, 158, 11, 0.2);
+  color: #0f172a;
 }
 
-::-webkit-scrollbar-track {
-  background: #f8fafc;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
 }

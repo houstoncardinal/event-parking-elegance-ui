@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ParkingCircle, Star } from 'lucide-react';
+import { Star, Crown } from 'lucide-react';
 
 interface LogoProps {
   className?: string;
@@ -27,28 +27,31 @@ const Logo = ({ className = '', size = 'md' }: LogoProps) => {
   };
 
   return (
-    <div className={`flex items-center space-x-3 ${className}`}>
-      {/* Logo Badge */}
+    <div className={`flex items-center space-x-4 ${className}`}>
+      {/* Luxury Logo Badge */}
       <div className={`relative ${sizeClasses[size]} flex items-center justify-center`}>
-        {/* Outer ring */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-lg border-2 border-white"></div>
+        {/* Outer glow ring */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 rounded-full shadow-gold-glow blur-sm opacity-75"></div>
         
-        {/* Inner circle */}
-        <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
-          <div className="text-blue-600 font-bold text-lg">P</div>
+        {/* Main circle */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-full shadow-luxury border border-gold-400/20"></div>
+        
+        {/* Inner circle with logo */}
+        <div className="absolute inset-1 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full flex items-center justify-center border border-gold-500/30">
+          <div className="text-gold-400 font-bold text-lg font-playfair">EPS</div>
         </div>
         
-        {/* Premium star indicator */}
-        <Star className="w-3 h-3 text-yellow-400 fill-yellow-400 absolute -top-1 -right-1 bg-white rounded-full p-0.5" />
+        {/* Premium crown indicator */}
+        <Crown className="w-3 h-3 text-gold-400 fill-gold-400 absolute -top-1 -right-1 bg-slate-900 rounded-full p-0.5 border border-gold-400/30" />
       </div>
 
       {/* Company Text */}
       <div className="flex flex-col leading-tight">
-        <div className={`font-poppins font-bold ${textSizes[size]} text-gray-800`}>
-          EPS
+        <div className={`font-playfair font-bold ${textSizes[size]} text-luxury tracking-wide`}>
+          Executive Parking
         </div>
-        <div className={`font-poppins font-medium ${subtextSizes[size]} text-blue-600 -mt-1`}>
-          Premium Valet
+        <div className={`font-inter font-medium ${subtextSizes[size]} text-gold tracking-widest uppercase -mt-1`}>
+          Premium Services
         </div>
       </div>
     </div>
