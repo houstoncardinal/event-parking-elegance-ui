@@ -34,15 +34,23 @@ export function HeroSection() {
   return <>
             <HeroHeader />
             <main className="overflow-hidden">
-                {/* Enhanced luxury background effects */}
+                {/* Enhanced luxury background effects with bokeh */}
                 <div aria-hidden className="z-[1] absolute inset-0 pointer-events-none isolate opacity-70">
                     <div className="w-[50rem] h-[100rem] -translate-y-[500px] absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(45,84%,67%,.15)_0,hsla(45,84%,67%,.08)_40%,hsla(45,84%,67%,.02)_70%,hsla(45,84%,67%,0)_100%)]" />
                     <div className="h-[100rem] absolute right-0 top-0 w-80 rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(210,40%,15%,.12)_0,hsla(210,40%,15%,.06)_60%,hsla(210,40%,15%,.02)_80%,transparent_100%)] [translate:-5%_-50%]" />
                     <div className="h-[100rem] -translate-y-[500px] absolute left-1/2 top-0 w-96 -rotate-12 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(45,84%,67%,.10)_0,hsla(45,84%,67%,.04)_60%,hsla(45,84%,67%,.01)_80%,transparent_100%)]" />
                     
-                    {/* Additional luxury glow effects */}
+                    {/* Enhanced luxury glow effects */}
                     <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-gold-300/20 via-gold-400/10 to-transparent rounded-full blur-3xl animate-luxury-float" />
                     <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-gradient-to-tr from-slate-200/15 via-slate-300/8 to-transparent rounded-full blur-3xl animate-luxury-float" style={{ animationDelay: '3s' }} />
+                    
+                    {/* Bokeh light effects */}
+                    <div className="absolute top-1/6 left-1/5 w-12 h-12 bg-gold-400/30 rounded-full blur-sm animate-pulse" style={{ animationDelay: '1s' }} />
+                    <div className="absolute top-1/3 right-1/6 w-8 h-8 bg-gold-300/40 rounded-full blur-sm animate-pulse" style={{ animationDelay: '2.5s' }} />
+                    <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-gold-200/25 rounded-full blur-md animate-pulse" style={{ animationDelay: '4s' }} />
+                    <div className="absolute top-2/3 right-1/3 w-6 h-6 bg-gold-500/35 rounded-full blur-sm animate-pulse" style={{ animationDelay: '1.8s' }} />
+                    <div className="absolute top-1/2 left-1/8 w-10 h-10 bg-slate-300/20 rounded-full blur-md animate-pulse" style={{ animationDelay: '3.2s' }} />
+                    <div className="absolute bottom-1/6 right-1/5 w-14 h-14 bg-gold-100/30 rounded-full blur-lg animate-pulse" style={{ animationDelay: '2.8s' }} />
                 </div>
                 
                 <section className="relative">
@@ -181,7 +189,6 @@ export function HeroSection() {
                             </div>
                         </div>
 
-                        {/* Enhanced premium dashboard showcase */}
                         <AnimatedGroup variants={{
                             container: {
                                 visible: {
