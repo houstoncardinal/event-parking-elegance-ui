@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
+import { Hero } from '@/components/animated-hero';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import BookingForm from '@/components/BookingForm';
