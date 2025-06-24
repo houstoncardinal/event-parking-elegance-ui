@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail, Car, Users, Calendar, Shield, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MegaMenu from '@/components/mega-menu';
+import Logo from '@/components/Logo';
 import type { MegaMenuItem } from '@/components/mega-menu';
 
 const Navigation = () => {
@@ -81,10 +81,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="text-2xl font-poppins font-bold">
-                <span className="text-black">Event Parking</span>
-                <span className="text-blue-600"> Services</span>
-              </div>
+              <Logo size="md" />
             </div>
 
             {/* Desktop MegaMenu Navigation */}
