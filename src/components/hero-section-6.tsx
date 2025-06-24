@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -62,8 +61,8 @@ export function HeroSection() {
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-50/98 via-gold-50/30 to-slate-100/95 pointer-events-none" style={{ zIndex: 2 }}></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gold-50/20 pointer-events-none" style={{ zIndex: 2 }}></div>
                         
-                        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                            <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+                        <div className="container mx-auto px-4 lg:px-8 relative z-10 max-w-6xl">
+                            <div className="grid lg:grid-cols-2 gap-16 items-center">
                                 {/* Left side - Main content */}
                                 <div className="text-center lg:text-left">
                                     <AnimatedGroup variants={transitionVariants}>
@@ -81,7 +80,7 @@ export function HeroSection() {
                                         </div>
                             
                                         {/* Enhanced main headline with luxury gradients */}
-                                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-10 leading-[1.05]">
+                                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-10 leading-[1.05]">
                                             <span className="block bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent drop-shadow-sm">
                                                 Executive Parking
                                             </span>
@@ -94,23 +93,23 @@ export function HeroSection() {
                                         </h1>
                                         
                                         {/* Enhanced description */}
-                                        <p className="text-xl lg:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium drop-shadow-sm">
+                                        <p className="text-lg lg:text-xl text-slate-600 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium drop-shadow-sm">
                                             Distinguished valet services for Fortune 500 companies, luxury events, and discerning clientele. Experience unparalleled professionalism and attention to detail.
                                         </p>
 
                                         {/* Enhanced trust indicators */}
-                                        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-10 mb-14 text-slate-600">
-                                            <div className="flex items-center gap-4 group">
-                                                <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gold-100 via-gold-200 to-gold-300 border border-gold-300/40 shadow-lg group-hover:shadow-gold-glow transition-all duration-300">
+                                        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 mb-12 text-slate-600">
+                                            <div className="flex items-center gap-3 group">
+                                                <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-gold-100 via-gold-200 to-gold-300 border border-gold-300/40 shadow-lg group-hover:shadow-gold-glow transition-all duration-300">
                                                     <div className="absolute inset-0 bg-gradient-to-br from-gold-50 to-gold-100 rounded-full blur-sm opacity-50"></div>
-                                                    <Shield className="w-5 h-5 text-gold-700 relative z-10" />
+                                                    <Shield className="w-4 h-4 text-gold-700 relative z-10" />
                                                 </div>
                                                 <span className="font-semibold text-sm tracking-wide">Fully Insured & Licensed</span>
                                             </div>
-                                            <div className="flex items-center gap-4 group">
-                                                <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 border border-slate-300/40 shadow-lg group-hover:shadow-platinum-glow transition-all duration-300">
+                                            <div className="flex items-center gap-3 group">
+                                                <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 border border-slate-300/40 shadow-lg group-hover:shadow-platinum-glow transition-all duration-300">
                                                     <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 rounded-full blur-sm opacity-50"></div>
-                                                    <Clock className="w-5 h-5 text-slate-700 relative z-10" />
+                                                    <Clock className="w-4 h-4 text-slate-700 relative z-10" />
                                                 </div>
                                                 <span className="font-semibold text-sm tracking-wide">24/7 Premium Service</span>
                                             </div>
@@ -127,31 +126,31 @@ export function HeroSection() {
                                             }
                                         },
                                         ...transitionVariants
-                                    }} className="flex flex-col items-center lg:items-start justify-center gap-6 md:flex-row">
-                                        <Button className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white px-12 py-5 text-lg font-semibold tracking-wide rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group border border-slate-700/20">
+                                    }} className="flex flex-col items-center lg:items-start justify-center gap-4 md:flex-row">
+                                        <Button className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white px-10 py-4 text-base font-semibold tracking-wide rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group border border-slate-700/20">
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                             <span className="relative z-10">Reserve Valet Service</span>
-                                            <ArrowRight className="ml-3 w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
+                                            <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
                                         </Button>
-                                        <Button className="relative overflow-hidden bg-gradient-to-r from-white via-gold-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-800 px-12 py-5 text-lg font-semibold tracking-wide border-2 border-gold-300/60 hover:border-gold-400/80 rounded-xl shadow-lg hover:shadow-gold-glow transition-all duration-500 hover:scale-[1.02] group backdrop-blur-sm">
+                                        <Button className="relative overflow-hidden bg-gradient-to-r from-white via-gold-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-800 px-10 py-4 text-base font-semibold tracking-wide border-2 border-gold-300/60 hover:border-gold-400/80 rounded-xl shadow-lg hover:shadow-gold-glow transition-all duration-500 hover:scale-[1.02] group backdrop-blur-sm">
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                             <span className="relative z-10">View Portfolio</span>
                                         </Button>
                                     </AnimatedGroup>
 
                                     {/* Enhanced statistics with luxury presentation */}
-                                    <div className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-gradient-to-r from-transparent via-slate-200 to-transparent">
+                                    <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-gradient-to-r from-transparent via-slate-200 to-transparent">
                                         <div className="text-center lg:text-left group">
-                                            <div className="text-3xl md:text-4xl font-playfair font-bold bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent mb-3 drop-shadow-sm group-hover:scale-105 transition-transform duration-300">1,500+</div>
-                                            <div className="text-slate-600 text-sm font-semibold tracking-wider uppercase">Premium Events</div>
+                                            <div className="text-2xl md:text-3xl font-playfair font-bold bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent mb-2 drop-shadow-sm group-hover:scale-105 transition-transform duration-300">1,500+</div>
+                                            <div className="text-slate-600 text-xs font-semibold tracking-wider uppercase">Premium Events</div>
                                         </div>
                                         <div className="text-center lg:text-left group">
-                                            <div className="text-3xl md:text-4xl font-playfair font-bold bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent mb-3 drop-shadow-sm group-hover:scale-105 transition-transform duration-300">150K+</div>
-                                            <div className="text-slate-600 text-sm font-semibold tracking-wider uppercase">Vehicles Serviced</div>
+                                            <div className="text-2xl md:text-3xl font-playfair font-bold bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent mb-2 drop-shadow-sm group-hover:scale-105 transition-transform duration-300">150K+</div>
+                                            <div className="text-slate-600 text-xs font-semibold tracking-wider uppercase">Vehicles Serviced</div>
                                         </div>
                                         <div className="text-center lg:text-left group">
-                                            <div className="text-3xl md:text-4xl font-playfair font-bold bg-gradient-to-br from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent mb-3 drop-shadow-gold group-hover:scale-105 transition-transform duration-300">99.8%</div>
-                                            <div className="text-slate-600 text-sm font-semibold tracking-wider uppercase">Client Satisfaction</div>
+                                            <div className="text-2xl md:text-3xl font-playfair font-bold bg-gradient-to-br from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent mb-2 drop-shadow-gold group-hover:scale-105 transition-transform duration-300">99.8%</div>
+                                            <div className="text-slate-600 text-xs font-semibold tracking-wider uppercase">Client Satisfaction</div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +171,7 @@ export function HeroSection() {
                                             }
                                         }
                                     }}>
-                                        <div className="relative">
+                                        <div className="relative max-w-md">
                                             {/* Enhanced glow effect around form */}
                                             <div className="absolute inset-0 bg-gradient-to-br from-gold-200/30 via-transparent to-slate-200/20 rounded-3xl blur-xl scale-105 opacity-60"></div>
                                             <QuoteForm />
@@ -182,7 +181,7 @@ export function HeroSection() {
                             </div>
 
                             {/* Features section for desktop - moved up */}
-                            <div className="mt-16 max-w-7xl mx-auto">
+                            <div className="mt-12">
                                 <FeaturesSectionWithHoverEffects />
                             </div>
                         </div>
@@ -198,11 +197,11 @@ export function HeroSection() {
                             },
                             ...transitionVariants
                         }}>
-                            <div className="relative mt-24 overflow-hidden container mx-auto px-4 lg:px-8">
+                            <div className="relative mt-16 overflow-hidden container mx-auto px-4 lg:px-8 max-w-6xl">
                                 <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent from-30% to-slate-50/95" />
-                                <div className="relative overflow-hidden max-w-7xl mx-auto">
+                                <div className="relative overflow-hidden">
                                     {/* Enhanced luxury card wrapper */}
-                                    <div className="card-luxury relative p-8 bg-gradient-to-br from-white/98 via-gold-50/30 to-white/95 backdrop-blur-xl border border-white/40 shadow-luxury hover:shadow-xl transition-all duration-700 group">
+                                    <div className="card-luxury relative p-6 bg-gradient-to-br from-white/98 via-gold-50/30 to-white/95 backdrop-blur-xl border border-white/40 shadow-luxury hover:shadow-xl transition-all duration-700 group">
                                         <div className="absolute inset-0 bg-gradient-to-br from-gold-100/20 via-transparent to-slate-100/20 rounded-2xl"></div>
                                         <img 
                                             className="aspect-15/8 relative rounded-2xl shadow-luxury group-hover:shadow-xl transition-all duration-700 border border-white/60" 
