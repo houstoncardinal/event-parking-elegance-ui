@@ -1,83 +1,107 @@
 
 'use client'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Mail, SendHorizontal } from 'lucide-react'
+import { ArrowRight, Mail, SendHorizontal, Shield, Clock, Award } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export function HeroSection() {
     return (
         <>
             <main>
-                <section className="overflow-hidden">
-                    <div className="relative mx-auto max-w-7xl px-6 py-28 lg:py-32 pt-32 lg:pt-40">
-                        <div className="lg:flex lg:items-center lg:gap-16">
-                            <div className="relative z-10 mx-auto max-w-xl text-center lg:ml-0 lg:w-1/2 lg:text-left">
-                                <a
-                                    href="/"
-                                    className="rounded-lg mx-auto flex w-fit items-center gap-2 border p-1 pr-3 lg:ml-0">
-                                    <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs">New</span>
-                                    <span className="text-sm">Premium Valet Services</span>
-                                    <span className="bg-(--color-border) block h-4 w-px"></span>
+                <section className="relative min-h-screen bg-black text-white overflow-hidden">
+                    {/* Video Background */}
+                    <div className="absolute inset-0">
+                        <video
+                            className="w-full h-full object-cover opacity-40"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        >
+                            <source src="https://cdn.pixabay.com/video/2023/05/15/163068-829226678_large.mp4" type="video/mp4" />
+                            <source src="https://cdn.pixabay.com/video/2022/07/14/122842-728764437_large.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        {/* Dark overlay for better text readability */}
+                        <div className="absolute inset-0 bg-black/60"></div>
+                    </div>
 
-                                    <ArrowRight className="size-4" />
-                                </a>
+                    <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:py-40 min-h-screen flex items-center">
+                        <div className="w-full">
+                            <div className="max-w-4xl mx-auto text-center">
+                                {/* Premium Badge */}
+                                <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8">
+                                    <div className="bg-white rounded-full px-3 py-1">
+                                        <span className="text-black text-sm font-semibold">Premium</span>
+                                    </div>
+                                    <span className="text-white/90 text-sm font-medium">Luxury Valet Services</span>
+                                    <div className="w-px h-4 bg-white/30"></div>
+                                    <ArrowRight className="size-4 text-white/70" />
+                                </div>
 
-                                <h1 className="mt-10 text-balance text-4xl font-bold md:text-5xl xl:text-6xl">Professional Valet Parking Solutions</h1>
-                                <p className="mt-8 text-lg">Experience seamless valet services for your events. Professional, insured attendants providing luxury parking solutions for weddings, corporate events, and private gatherings.</p>
+                                {/* Main Heading */}
+                                <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold mb-8 tracking-tight">
+                                    <span className="block text-white">Professional</span>
+                                    <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                                        Valet Solutions
+                                    </span>
+                                </h1>
 
-                                <div>
-                                    <form
-                                        action=""
-                                        className="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto">
-                                        <div className="bg-background has-[input:focus]:ring-muted relative grid grid-cols-[1fr_auto] items-center rounded-[1rem] border pr-1 shadow shadow-zinc-950/5 has-[input:focus]:ring-2">
-                                            <Mail className="text-caption pointer-events-none absolute inset-y-0 left-5 my-auto size-5" />
+                                {/* Subtitle */}
+                                <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                                    Experience unparalleled luxury with our premium valet services. 
+                                    Professional, insured attendants delivering excellence for your most important events.
+                                </p>
 
-                                            <input
-                                                placeholder="Your email address"
-                                                className="h-14 w-full bg-transparent pl-12 focus:outline-none"
-                                                type="email"
-                                            />
-
-                                            <div className="md:pr-1.5 lg:pr-0">
-                                                <Button
-                                                    aria-label="submit"
-                                                    className="bg-black text-white hover:bg-gray-800"
-                                                >
-                                                    <span className="hidden md:block">Get Started</span>
-                                                    <SendHorizontal
-                                                        className="relative mx-auto size-5 md:hidden"
-                                                        strokeWidth={2}
+                                {/* Email Form */}
+                                <div className="max-w-md mx-auto mb-12">
+                                    <form className="relative">
+                                        <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-2 shadow-2xl">
+                                            <div className="flex items-center">
+                                                <div className="flex-1 relative">
+                                                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 size-5" />
+                                                    <input
+                                                        type="email"
+                                                        placeholder="Enter your email address"
+                                                        className="w-full bg-transparent text-white placeholder-white/60 pl-12 pr-4 py-4 focus:outline-none text-lg"
                                                     />
+                                                </div>
+                                                <Button className="bg-white text-black hover:bg-gray-100 font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105">
+                                                    <span className="hidden sm:block">Get Started</span>
+                                                    <SendHorizontal className="size-5 sm:hidden" />
                                                 </Button>
                                             </div>
                                         </div>
                                     </form>
+                                </div>
 
-                                    <ul className="list-inside list-disc space-y-2">
-                                        <li>Fully Insured</li>
-                                        <li>Professional Staff</li>
-                                        <li>24/7 Availability</li>
-                                    </ul>
+                                {/* Feature Icons */}
+                                <div className="flex flex-wrap justify-center gap-8 lg:gap-12 text-center">
+                                    <div className="flex flex-col items-center space-y-3">
+                                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-4">
+                                            <Shield className="size-6 text-white" />
+                                        </div>
+                                        <span className="text-white/90 font-medium">Fully Insured</span>
+                                    </div>
+                                    <div className="flex flex-col items-center space-y-3">
+                                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-4">
+                                            <Award className="size-6 text-white" />
+                                        </div>
+                                        <span className="text-white/90 font-medium">Professional Staff</span>
+                                    </div>
+                                    <div className="flex flex-col items-center space-y-3">
+                                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-4">
+                                            <Clock className="size-6 text-white" />
+                                        </div>
+                                        <span className="text-white/90 font-medium">24/7 Availability</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="absolute inset-0 -mx-6 rounded-3xl p-3 lg:col-span-3">
-                            <div aria-hidden className="absolute z-[1] inset-0 bg-gradient-to-r from-background from-35%" />
-                            <div className="relative">
-                                <video
-                                    className="w-full h-full object-cover"
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                >
-                                    <source src="https://cdn.pixabay.com/video/2023/05/15/163068-829226678_large.mp4" type="video/mp4" />
-                                    <source src="https://cdn.pixabay.com/video/2022/07/14/122842-728764437_large.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </div>
                     </div>
+
+                    {/* Subtle gradient overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </section>
             </main>
         </>
