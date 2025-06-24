@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -251,8 +252,8 @@ const HeroHeader = () => {
   
   return <header>
             <nav data-state={menuState && 'active'} className="fixed z-20 w-full px-4 group">
-                <div className={cn('mx-auto mt-4 max-w-6xl px-8 transition-all duration-700 lg:px-12', isScrolled && 'glass-luxury max-w-5xl rounded-2xl border border-white/30 lg:px-8 shadow-luxury backdrop-blur-xl')}>
-                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-0 lg:py-6">
+                <div className={cn('mx-auto mt-4 max-w-7xl px-8 transition-all duration-700 lg:px-16', isScrolled && 'glass-luxury max-w-7xl rounded-2xl border border-white/30 lg:px-12 shadow-luxury backdrop-blur-xl')}>
+                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-8 lg:py-6">
                         <div className="flex w-full justify-between lg:w-auto">
                             <a href="/" aria-label="home" className="flex items-center space-x-3 group">
                                 <Logo />
@@ -265,7 +266,7 @@ const HeroHeader = () => {
                         </div>
 
                         <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-                            <ul className="flex gap-12 text-sm font-semibold">
+                            <ul className="flex gap-8 text-sm font-semibold">
                                 {menuItems.map((item, index) => <li key={index}>
                                         <a href={item.href} className="text-slate-700 hover:text-gold-600 block duration-300 tracking-wide px-5 py-3 rounded-xl hover:bg-gradient-to-r hover:from-gold-50 hover:to-gold-100/80 transition-all hover:shadow-sm group">
                                             <span className="relative z-10">{item.name}</span>
@@ -274,7 +275,7 @@ const HeroHeader = () => {
                             </ul>
                         </div>
 
-                        <div className="glass-luxury group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-2xl border border-white/30 p-8 shadow-luxury backdrop-blur-xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
+                        <div className="glass-luxury group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-2xl border border-white/30 p-8 shadow-luxury backdrop-blur-xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-4 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
                             <div className="lg:hidden">
                                 <ul className="space-y-6 text-base font-semibold">
                                     {menuItems.map((item, index) => <li key={index}>
@@ -284,16 +285,16 @@ const HeroHeader = () => {
                                         </li>)}
                                 </ul>
                             </div>
-                            <div className="flex w-full flex-col space-y-4 sm:flex-row sm:gap-4 sm:space-y-0 md:w-fit">
-                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-white via-gold-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-800 border-2 border-gold-300/60 hover:border-gold-400/80 font-semibold tracking-wide rounded-xl px-8 shadow-lg hover:shadow-gold-glow transition-all duration-500 group', isScrolled && 'lg:hidden')}>
+                            <div className="flex w-full flex-col space-y-4 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-white via-gold-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-800 border-2 border-gold-300/60 hover:border-gold-400/80 font-semibold tracking-wide rounded-xl px-6 py-3 text-sm shadow-lg hover:shadow-gold-glow transition-all duration-500 group', isScrolled && 'lg:hidden')}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                     <span className="relative z-10">Get Quote</span>
                                 </Button>
-                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white font-semibold tracking-wide px-8 rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 group border border-slate-700/20', isScrolled && 'lg:hidden')}>
+                                <Button className={cn('relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 text-white font-semibold tracking-wide px-6 py-3 text-sm rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 group border border-slate-700/20', isScrolled && 'lg:hidden')}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                     <span className="relative z-10">Book Now</span>
                                 </Button>
-                                <Button className={cn('btn-gold font-semibold tracking-wide px-8 group relative overflow-hidden shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-[1.02]', isScrolled ? 'lg:inline-flex' : 'hidden')}>
+                                <Button className={cn('btn-gold font-semibold tracking-wide px-6 py-3 text-sm group relative overflow-hidden shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-[1.02]', isScrolled ? 'lg:inline-flex' : 'hidden')}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                     <span className="relative z-10">Get Started</span>
                                     <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
