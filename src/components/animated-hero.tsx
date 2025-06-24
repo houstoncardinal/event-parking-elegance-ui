@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["elegant", "professional", "luxurious", "premium", "exclusive"],
+    () => ["Exceptional", "Professional", "Luxurious", "Premium", "Exclusive"],
     []
   );
 
@@ -209,77 +209,135 @@ function Hero() {
         ))}
       </div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <Button variant="outline" size="sm" className="gap-4 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white backdrop-blur-sm bg-white/80 shadow-lg hover:shadow-xl transition-all duration-300">
-              Premium Valet Services <MoveRight className="w-4 h-4" />
-            </Button>
-          </motion.div>
+      <div className="container mx-auto relative z-10 px-6 lg:px-12">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Executive Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+              className="mb-8"
+            >
+              <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm border border-slate-200/50 rounded-full px-6 py-3 shadow-lg">
+                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                <span className="text-slate-700 text-sm font-medium tracking-wide uppercase letter-spacing-wider">
+                  Enterprise Valet Solutions
+                </span>
+                <MoveRight className="w-4 h-4 text-slate-600" />
+              </div>
+            </motion.div>
 
-          <div className="flex gap-4 flex-col">
-            <motion.h1 
-              className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-poppins font-bold"
+            {/* Corporate Headline */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+              className="mb-6"
             >
-              <span className="text-slate-800 drop-shadow-sm">Luxury Valet Services</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-                &nbsp;
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute font-semibold bg-gradient-to-r from-blue-600 via-blue-700 to-champagne-600 bg-clip-text text-transparent drop-shadow-sm"
-                    initial={{ opacity: 0, y: "-100" }}
-                    transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                    animate={
-                      titleNumber === index
-                        ? {
-                            y: 0,
-                            opacity: 1,
-                          }
-                        : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
-                    }
-                  >
-                    {title}
-                  </motion.span>
-                ))}
-              </span>
-            </motion.h1>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-slate-900 leading-tight tracking-tight">
+                Professional Valet Services
+              </h1>
+              <div className="mt-4 h-20 flex items-center justify-center">
+                <span className="text-3xl md:text-5xl lg:text-6xl font-poppins font-bold text-transparent bg-gradient-to-r from-blue-600 via-blue-700 to-slate-800 bg-clip-text relative">
+                  {titles.map((title, index) => (
+                    <motion.span
+                      key={index}
+                      className="absolute inset-0 flex items-center justify-center"
+                      initial={{ opacity: 0, y: 40 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 100, 
+                        damping: 15,
+                        duration: 0.6
+                      }}
+                      animate={
+                        titleNumber === index
+                          ? {
+                              y: 0,
+                              opacity: 1,
+                            }
+                          : {
+                              y: titleNumber > index ? -40 : 40,
+                              opacity: 0,
+                            }
+                      }
+                    >
+                      {title}
+                    </motion.span>
+                  ))}
+                </span>
+              </div>
+            </motion.div>
 
-            <motion.p 
-              className="text-lg md:text-xl leading-relaxed tracking-tight text-slate-600 max-w-3xl text-center font-medium"
+            {/* Executive Value Proposition */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
+              className="mb-12"
             >
-              Experience unparalleled luxury with our premium valet parking services. 
-              Professional, insured attendants providing seamless solutions for weddings, 
-              corporate events, and exclusive gatherings.
-            </motion.p>
-          </div>
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+                Delivering world-class valet parking solutions for Fortune 500 companies, 
+                luxury events, and exclusive corporate gatherings. Our certified professionals 
+                ensure seamless operations with uncompromising attention to detail.
+              </p>
+            </motion.div>
 
-          <motion.div 
-            className="flex flex-row gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.6 }}
-          >
-            <Button size="lg" className="gap-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" variant="default">
-              Book Valet Service <MoveRight className="w-4 h-4" />
-            </Button>
-            <Button size="lg" className="gap-4 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white backdrop-blur-sm bg-white/80 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" variant="outline">
-              Schedule Call <PhoneCall className="w-4 h-4" />
-            </Button>
-          </motion.div>
+            {/* Corporate Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto"
+            >
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-3">
+                  <Shield className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-900 mb-1">$10M+</div>
+                <div className="text-sm text-slate-600 uppercase tracking-wide">Insurance Coverage</div>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-3">
+                  <Crown className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-900 mb-1">500+</div>
+                <div className="text-sm text-slate-600 uppercase tracking-wide">Corporate Events</div>
+              </div>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-3">
+                  <Diamond className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="text-2xl font-bold text-slate-900 mb-1">99.8%</div>
+                <div className="text-sm text-slate-600 uppercase tracking-wide">Client Retention</div>
+              </div>
+            </motion.div>
+
+            {/* Executive CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <Button 
+                size="lg" 
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
+                Schedule Consultation
+                <MoveRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-10 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                Executive Briefing
+                <PhoneCall className="w-5 h-5 ml-2" />
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
