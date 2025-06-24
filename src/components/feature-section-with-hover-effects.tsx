@@ -1,14 +1,10 @@
 
 import { cn } from "@/lib/utils";
 import {
-  IconCar,
   IconClock,
   IconShield,
   IconUsers,
-  IconMapPin,
-  IconPhone,
   IconAward,
-  IconHeart,
 } from "@tabler/icons-react";
 
 export function FeaturesSectionWithHoverEffects() {
@@ -36,28 +32,6 @@ export function FeaturesSectionWithHoverEffects() {
       description: "Weddings, corporate events, galas, parties, and more throughout Houston.",
       icon: <IconAward />,
     },
-    {
-      title: "Houston-Wide Coverage",
-      description: "Serving all areas of Houston and surrounding communities",
-      icon: <IconMapPin />,
-    },
-    {
-      title: "24/7 Support",
-      description:
-        "Round-the-clock availability for your event planning needs.",
-      icon: <IconPhone />,
-    },
-    {
-      title: "Premium Vehicle Care",
-      description:
-        "Careful handling of all vehicles from luxury cars to everyday vehicles.",
-      icon: <IconCar />,
-    },
-    {
-      title: "Guest Satisfaction",
-      description: "Creating memorable first impressions for your valued guests",
-      icon: <IconHeart />,
-    },
   ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
@@ -83,16 +57,10 @@ const Feature = ({
     <div
       className={cn(
         "flex flex-col lg:border-r py-10 relative group/feature border-slate-200/60",
-        (index === 0 || index === 4) && "lg:border-l border-slate-200/60",
-        index < 4 && "lg:border-b border-slate-200/60"
+        index === 0 && "lg:border-l border-slate-200/60"
       )}
     >
-      {index < 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-gold-50/80 to-transparent pointer-events-none" />
-      )}
-      {index >= 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-gold-50/80 to-transparent pointer-events-none" />
-      )}
+      <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-gold-50/80 to-transparent pointer-events-none" />
       <div className="mb-4 relative z-10 px-10 text-slate-600 group-hover/feature:text-gold-600 transition-colors duration-200">
         {icon}
       </div>
