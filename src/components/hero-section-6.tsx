@@ -8,6 +8,7 @@ import { FeaturesSectionWithHoverEffects } from '@/components/feature-section-wi
 import { AnimatedGeometricBackground } from '@/components/animated-geometric-background';
 import { cn } from '@/lib/utils';
 import { GlowCard } from '@/components/ui/spotlight-card';
+import QuoteForm from '@/components/QuoteForm';
 
 const transitionVariants = {
   item: {
@@ -73,61 +74,89 @@ export function HeroSection() {
                         </AnimatedGroup>
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
                         <div className="mx-auto max-w-7xl px-6 relative z-10">
-                            <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                                <AnimatedGroup variants={transitionVariants}>
-                                    <a href="#link" className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
-                                        <span className="text-foreground text-sm">Introducing Premium Valet Services</span>
-                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                            <div className="grid lg:grid-cols-2 gap-12 items-center lg:mr-auto lg:mt-0">
+                                {/* Left side - Main content */}
+                                <div className="text-center lg:text-left">
+                                    <AnimatedGroup variants={transitionVariants}>
+                                        <a href="#link" className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto lg:mx-0 flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
+                                            <span className="text-foreground text-sm">Introducing Premium Valet Services</span>
+                                            <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
-                                        <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
-                                            <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
+                                            <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
+                                                <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
+                                                    <span className="flex size-6">
+                                                        <ArrowRight className="m-auto size-3" />
+                                                    </span>
+                                                    <span className="flex size-6">
+                                                        <ArrowRight className="m-auto size-3" />
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                        
-                                    <h1 className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                        Executive Valet Solutions for Modern Business
-                                    </h1>
-                                    <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                        Professional valet parking services that elevate your corporate events, weddings, and exclusive gatherings with unmatched attention to detail.
-                                    </p>
-                                </AnimatedGroup>
+                                        </a>
+                            
+                                        <h1 className="mt-8 max-w-4xl lg:mx-0 mx-auto text-balance text-5xl md:text-6xl lg:text-7xl lg:mt-16">
+                                            Executive Valet Solutions for Modern Business
+                                        </h1>
+                                        <p className="lg:mx-0 mx-auto mt-8 max-w-2xl text-balance text-lg lg:text-xl">
+                                            Professional valet parking services that elevate your corporate events, weddings, and exclusive gatherings with unmatched attention to detail.
+                                        </p>
+                                    </AnimatedGroup>
 
-                                <AnimatedGroup variants={{
-                container: {
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.75
-                    }
-                  }
-                },
-                ...transitionVariants
-              }} className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                                    <div key={1} className="bg-foreground/10 rounded-[14px] border p-0.5">
-                                        <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white rounded-xl px-5 text-base">
-                                            <a href="#booking">
-                                                <span className="text-nowrap">Book Valet Service</span>
+                                    <AnimatedGroup variants={{
+                    container: {
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.05,
+                          delayChildren: 0.75
+                        }
+                      }
+                    },
+                    ...transitionVariants
+                  }} className="mt-12 flex flex-col items-center lg:items-start justify-center gap-2 md:flex-row">
+                                        <div key={1} className="bg-foreground/10 rounded-[14px] border p-0.5">
+                                            <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white rounded-xl px-5 text-base">
+                                                <a href="#booking">
+                                                    <span className="text-nowrap">Book Valet Service</span>
+                                                </a>
+                                            </Button>
+                                        </div>
+                                        <Button key={2} asChild size="lg" variant="ghost" className="h-10.5 rounded-xl px-5">
+                                            <a href="#contact">
+                                                <span className="text-nowrap">Request a Quote</span>
                                             </a>
                                         </Button>
-                                    </div>
-                                    <Button key={2} asChild size="lg" variant="ghost" className="h-10.5 rounded-xl px-5">
-                                        <a href="#contact">
-                                            <span className="text-nowrap">Request a Quote</span>
-                                        </a>
-                                    </Button>
-                                </AnimatedGroup>
+                                    </AnimatedGroup>
 
-                                {/* Replace the three GlowCards with FeaturesSectionWithHoverEffects */}
-                                <div className="mt-16">
-                                    <FeaturesSectionWithHoverEffects />
+                                    {/* Features section moved below buttons on mobile */}
+                                    <div className="mt-16 lg:hidden">
+                                        <FeaturesSectionWithHoverEffects />
+                                    </div>
                                 </div>
+
+                                {/* Right side - Quote Form */}
+                                <div className="flex justify-center lg:justify-end">
+                                    <AnimatedGroup variants={{
+                        ...transitionVariants,
+                        item: {
+                          ...transitionVariants.item,
+                          hidden: {
+                            ...transitionVariants.item.hidden,
+                            x: 50
+                          },
+                          visible: {
+                            ...transitionVariants.item.visible,
+                            x: 0
+                          }
+                        }
+                      }}>
+                                        <QuoteForm />
+                                    </AnimatedGroup>
+                                </div>
+                            </div>
+
+                            {/* Features section for desktop */}
+                            <div className="hidden lg:block mt-16">
+                                <FeaturesSectionWithHoverEffects />
                             </div>
                         </div>
 
