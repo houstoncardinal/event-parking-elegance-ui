@@ -169,13 +169,13 @@ const Services = () => {
             <AnimatedGroup 
               key={index}
               preset="blur-slide"
-              className={`transform transition-all duration-700 ${activeService === index ? 'scale-105' : 'hover:scale-102'}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className={`transform transition-all duration-700 ${activeService === index ? 'scale-105' : 'hover:scale-102'} animate-fade-in`}
             >
               <Card 
                 className={`group cursor-pointer border-2 backdrop-blur-xl transition-all duration-700 hover:shadow-2xl ${service.borderColor} ${service.glowColor} overflow-hidden relative`}
                 style={{
                   background: `linear-gradient(135deg, ${service.bgGradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')})`,
+                  animationDelay: `${index * 0.2}s`
                 }}
                 onMouseEnter={() => setActiveService(index)}
               >
@@ -279,10 +279,12 @@ const Services = () => {
                 <AnimatedGroup 
                   key={index} 
                   preset="scale"
-                  className="group text-center"
-                  style={{ animationDelay: `${index * 0.3}s` }}
+                  className={`group text-center animate-fade-in`}
                 >
-                  <div className="relative mb-8">
+                  <div 
+                    className="relative mb-8"
+                    style={{ animationDelay: `${index * 0.3}s` }}
+                  >
                     <div className="w-24 h-24 bg-gradient-to-br from-gold-100 via-gold-200 to-gold-300 rounded-full flex items-center justify-center mx-auto shadow-luxury group-hover:shadow-gold-glow transition-all duration-500 group-hover:scale-110">
                       <div className="absolute inset-0 bg-gradient-to-br from-gold-50 to-gold-100 rounded-full blur-sm opacity-50" />
                       <item.icon className="w-12 h-12 text-gold-700 relative z-10 drop-shadow-sm" />
