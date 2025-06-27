@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -38,8 +37,7 @@ function DisplayCard({
       // Add mobile touch event handlers to prevent default highlighting
       onTouchStart={(e) => e.preventDefault()}
       style={{
-        WebkitTapHighlightColor: 'transparent',
-        tapHighlightColor: 'transparent'
+        WebkitTapHighlightColor: 'transparent'
       }}
     >
       <div>
