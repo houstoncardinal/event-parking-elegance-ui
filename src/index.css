@@ -53,15 +53,48 @@
 @layer base {
   * {
     @apply border-border;
+    /* Remove tap highlighting on all elements */
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-slate-50 text-slate-900 font-inter antialiased;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    /* Prevent yellow highlighting on mobile */
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-poppins text-slate-900 font-semibold tracking-tight;
+  }
+
+  /* Fix for mobile tap highlighting on buttons and interactive elements */
+  button, 
+  a, 
+  [role="button"],
+  .btn,
+  .card,
+  [data-radix-collection-item] {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Remove focus outlines that might appear yellow */
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none !important;
+    box-shadow: none !important;
   }
 
   /* Enhanced luxury scrollbar */
@@ -115,6 +148,8 @@
     @apply shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02];
     @apply border border-slate-700/20;
     background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   .btn-luxury::before {
@@ -132,6 +167,8 @@
     @apply shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-[1.02];
     @apply border border-gold-300/30;
     background: linear-gradient(to right, #f59e0b, #fbbf24, #f59e0b);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   /* Enhanced luxury text effects */
@@ -159,6 +196,8 @@
       0 10px 25px -10px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.6),
       0 0 0 1px rgba(255, 255, 255, 0.05);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   /* Enhanced sophisticated animations */
@@ -180,6 +219,8 @@
     @apply shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02];
     @apply border border-slate-700/20 text-white;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   .btn-luxury-gradient::before {
@@ -198,6 +239,8 @@
     @apply shadow-gold-glow hover:shadow-xl transition-all duration-500 hover:scale-[1.02];
     @apply border-2 border-gold-300/60 hover:border-gold-400/80 text-slate-800;
     background: linear-gradient(135deg, #ffffff 0%, #fef9e7 50%, #ffffff 100%);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   .btn-gold-gradient::before {
@@ -212,6 +255,12 @@
 
   .btn-gold-gradient:hover {
     background: linear-gradient(135deg, #fef9e7 0%, #fde68a 50%, #fef9e7 100%);
+  }
+
+  /* Mobile-specific tap highlight prevention */
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 }
 
@@ -267,11 +316,13 @@ html {
   color: #0f172a;
 }
 
-/* Enhanced focus styles for accessibility */
+/* Enhanced focus styles for accessibility - but prevent yellow highlights */
 :focus-visible {
   outline: 2px solid #f59e0b;
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+  -webkit-tap-highlight-color: transparent !important;
+  tap-highlight-color: transparent !important;
 }
 
 /* Additional luxury utilities */

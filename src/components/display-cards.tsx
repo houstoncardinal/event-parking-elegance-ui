@@ -26,10 +26,21 @@ function DisplayCard({
   return (
     <div
       className={cn(
+        // Remove any potential yellow background and add mobile-specific fixes
         "relative flex h-40 w-[24rem] -skew-y-[8deg] select-none flex-col justify-between rounded-2xl border-2 backdrop-blur-xl px-6 py-4 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[22rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-gold-300/40 [&>*]:flex [&>*]:items-center [&>*]:gap-3 shadow-luxury hover:shadow-xl",
         "bg-gradient-to-br from-white/95 via-gold-50/30 to-white/90 border-white/30",
+        // Add mobile-specific CSS to prevent highlighting
+        "touch-manipulation -webkit-tap-highlight-color-transparent tap-highlight-transparent",
+        // Ensure no yellow backgrounds on mobile
+        "focus:outline-none focus:ring-0 active:bg-transparent",
         className
       )}
+      // Add mobile touch event handlers to prevent default highlighting
+      onTouchStart={(e) => e.preventDefault()}
+      style={{
+        WebkitTapHighlightColor: 'transparent',
+        tapHighlightColor: 'transparent'
+      }}
     >
       <div>
         <span className="relative inline-block rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 p-2 shadow-gold-glow">
@@ -51,7 +62,7 @@ interface DisplayCardsProps {
 export default function DisplayCards({ cards }: DisplayCardsProps) {
   const defaultCards = [
     {
-      className: "[grid-area:stack] hover:-translate-y-12 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-gold-glow",
+      className: "[grid-area:stack] hover:-translate-y-12 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-gold-glow focus:outline-none focus:ring-0 active:bg-transparent -webkit-tap-highlight-color-transparent",
       icon: <Sparkles className="size-5 text-white" />,
       title: "Wedding Valet",
       description: "Perfect for your special day",
@@ -59,7 +70,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
       titleClassName: "text-gold-600",
     },
     {
-      className: "[grid-area:stack] translate-x-20 translate-y-12 hover:-translate-y-2 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-luxury",
+      className: "[grid-area:stack] translate-x-20 translate-y-12 hover:-translate-y-2 before:absolute before:w-[100%] before:outline-1 before:rounded-2xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/30 hover:before:opacity-0 before:transition-opacity before:duration-700 before:left-0 before:top-0 hover:shadow-luxury focus:outline-none focus:ring-0 active:bg-transparent -webkit-tap-highlight-color-transparent",
       icon: <Building className="size-5 text-white" />,
       title: "Corporate Events",
       description: "Professional business solutions",
@@ -67,7 +78,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
       titleClassName: "text-slate-700",
     },
     {
-      className: "[grid-area:stack] translate-x-40 translate-y-24 hover:translate-y-12 hover:shadow-platinum-glow",
+      className: "[grid-area:stack] translate-x-40 translate-y-24 hover:translate-y-12 hover:shadow-platinum-glow focus:outline-none focus:ring-0 active:bg-transparent -webkit-tap-highlight-color-transparent",
       icon: <Car className="size-5 text-white" />,
       title: "Private Parties",
       description: "Elegant service for any occasion",

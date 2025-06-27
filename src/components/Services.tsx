@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Car, Users, Building, Sparkles, Shield, Clock, MapPin, Crown, Star, ArrowRight, CheckCircle, Award, Zap, Eye } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -148,7 +149,7 @@ const Services = () => {
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
         {/* Enhanced Header */}
         <AnimatedGroup preset="fade" className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-gold-50/95 via-white/95 to-gold-100/90 backdrop-blur-xl border border-gold-200/60 rounded-full px-8 py-4 mb-8 shadow-luxury hover:shadow-gold-glow transition-all duration-500">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-gold-50/95 via-white/95 to-gold-100/90 backdrop-blur-xl border border-gold-200/60 rounded-full px-8 py-4 mb-8 shadow-luxury hover:shadow-gold-glow transition-all duration-500 tap-highlight-transparent">
             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 shadow-gold-glow">
               <Crown className="w-4 h-4 text-white" />
             </div>
@@ -187,10 +188,11 @@ const Services = () => {
               className={`transform transition-all duration-700 ${activeService === index ? 'scale-105' : 'hover:scale-102'} animate-fade-in`}
             >
               <Card 
-                className={`group cursor-pointer border-2 backdrop-blur-xl transition-all duration-700 hover:shadow-2xl ${service.borderColor} ${service.glowColor} overflow-hidden relative`}
+                className={`group cursor-pointer border-2 backdrop-blur-xl transition-all duration-700 hover:shadow-2xl ${service.borderColor} ${service.glowColor} overflow-hidden relative tap-highlight-transparent`}
                 style={{
                   background: `linear-gradient(135deg, ${service.bgGradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')})`,
-                  animationDelay: `${index * 0.2}s`
+                  animationDelay: `${index * 0.2}s`,
+                  WebkitTapHighlightColor: 'transparent'
                 }}
                 onMouseEnter={() => setActiveService(index)}
               >
@@ -248,7 +250,7 @@ const Services = () => {
                   
                   <HoverCard>
                     <HoverCardTrigger asChild>
-                      <Button className={`w-full relative overflow-hidden text-white px-8 py-4 text-lg font-semibold tracking-wide rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02] border border-white/20 bg-gradient-to-r ${service.gradient}`}>
+                      <Button className={`w-full relative overflow-hidden text-white px-8 py-4 text-lg font-semibold tracking-wide rounded-xl shadow-luxury hover:shadow-xl transition-all duration-500 hover:scale-[1.02] border border-white/20 bg-gradient-to-r ${service.gradient} tap-highlight-transparent`}>
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                         <span className="relative z-10">Reserve Service</span>
                         <ArrowRight className="ml-2 w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
@@ -259,8 +261,8 @@ const Services = () => {
                         <h4 className="font-semibold text-slate-900">Ready to book {service.title}?</h4>
                         <p className="text-sm text-slate-600">Get an instant quote and secure your preferred date with our premium {service.title.toLowerCase()} service.</p>
                         <div className="flex space-x-2">
-                          <Button size="sm" className="flex-1">Get Quote</Button>
-                          <Button size="sm" variant="outline" className="flex-1">Learn More</Button>
+                          <Button size="sm" className="flex-1 tap-highlight-transparent">Get Quote</Button>
+                          <Button size="sm" variant="outline" className="flex-1 tap-highlight-transparent">Learn More</Button>
                         </div>
                       </div>
                     </HoverCardContent>
@@ -282,7 +284,7 @@ const Services = () => {
             {/* Clean Header Section */}
             <AnimatedGroup preset="fade" className="text-center mb-16">
               {/* Simple badge */}
-              <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gold-200/50 rounded-full px-6 py-2 mb-8 shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gold-200/50 rounded-full px-6 py-2 mb-8 shadow-sm tap-highlight-transparent">
                 <Award className="w-4 h-4 text-gold-600" />
                 <span className="text-slate-700 font-medium text-sm">Excellence Certified</span>
                 <div className="flex items-center gap-0.5 ml-2">
@@ -335,13 +337,14 @@ const Services = () => {
                   className="group"
                 >
                   <Card 
-                    className={`relative overflow-hidden border backdrop-blur-sm transition-all duration-300 hover:scale-105 cursor-pointer ${
+                    className={`relative overflow-hidden border backdrop-blur-sm transition-all duration-300 hover:scale-105 cursor-pointer tap-highlight-transparent ${
                       activeFeature === index 
                         ? 'border-white/60 shadow-lg scale-105' 
                         : 'border-white/30 hover:border-white/50'
                     } ${item.glowColor}`}
                     style={{
-                      background: `linear-gradient(135deg, ${item.bgGradient.replace('from-', '').replace(' via-', ', ')})`
+                      background: `linear-gradient(135deg, ${item.bgGradient.replace('from-', '').replace(' via-', ', ')})`,
+                      WebkitTapHighlightColor: 'transparent'
                     }}
                     onMouseEnter={() => setActiveFeature(index)}
                     onMouseLeave={() => setActiveFeature(-1)}
@@ -392,12 +395,12 @@ const Services = () => {
             {/* Clean Call-to-Action */}
             <AnimatedGroup preset="fade" className="text-center mt-12">
               <div className="flex items-center justify-center gap-4">
-                <Button className="bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button className="bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 tap-highlight-transparent">
                   Experience Excellence
                   <Crown className="ml-2 w-4 h-4" />
                 </Button>
                 
-                <Button variant="outline" className="border-gold-300 hover:border-gold-400 bg-white/80 hover:bg-gold-50/80 text-slate-800 px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button variant="outline" className="border-gold-300 hover:border-gold-400 bg-white/80 hover:bg-gold-50/80 text-slate-800 px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 tap-highlight-transparent">
                   View Portfolio
                   <Eye className="ml-2 w-4 h-4" />
                 </Button>
