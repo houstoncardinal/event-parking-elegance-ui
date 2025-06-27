@@ -25,19 +25,34 @@ function DisplayCard({
   return (
     <div
       className={cn(
-        // Remove any potential yellow background and add mobile-specific fixes
+        // Enhanced mobile-specific fixes with comprehensive tap highlight prevention
         "relative flex h-40 w-[24rem] -skew-y-[8deg] select-none flex-col justify-between rounded-2xl border-2 backdrop-blur-xl px-6 py-4 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[22rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-gold-300/40 [&>*]:flex [&>*]:items-center [&>*]:gap-3 shadow-luxury hover:shadow-xl",
         "bg-gradient-to-br from-white/95 via-gold-50/30 to-white/90 border-white/30",
-        // Add mobile-specific CSS to prevent highlighting
-        "touch-manipulation -webkit-tap-highlight-color-transparent tap-highlight-transparent",
-        // Ensure no yellow backgrounds on mobile
-        "focus:outline-none focus:ring-0 active:bg-transparent",
+        // Comprehensive mobile tap highlighting prevention
+        "no-tap-highlight tap-highlight-transparent touch-manipulation",
+        // Prevent any form of highlighting or selection
+        "focus:outline-none focus:ring-0 active:bg-transparent select-none",
         className
       )}
-      // Add mobile touch event handlers to prevent default highlighting
-      onTouchStart={(e) => e.preventDefault()}
+      // Comprehensive touch event handling
+      onTouchStart={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onTouchEnd={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onTouchMove={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
       style={{
-        WebkitTapHighlightColor: 'transparent'
+        WebkitTapHighlightColor: 'transparent',
+        WebkitTouchCallout: 'none',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+        touchAction: 'manipulation'
       }}
     >
       <div>
