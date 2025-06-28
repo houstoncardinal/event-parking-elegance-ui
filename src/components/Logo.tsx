@@ -48,7 +48,7 @@ const Logo = ({ className = '', size = 'md' }: LogoProps) => {
       {/* Company Text */}
       <div className="flex flex-col leading-tight">
         <div className={`font-playfair font-bold ${textSizes[size]} text-luxury tracking-wide`}>
-          Executive Parking
+          Event Parking Services
         </div>
         <div className={`font-inter font-medium ${subtextSizes[size]} text-gold tracking-widest uppercase -mt-1`}>
           Premium Services
