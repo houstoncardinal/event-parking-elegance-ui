@@ -5,47 +5,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* VIP Luxury Design System - Men in Black Style */
+/* Elite VIP Luxury Design System - Ultra Premium */
 
 @layer base {
   :root {
     --background: 0 0 0;
     --foreground: 255 255 255;
 
-    --card: 10 10 10;
+    --card: 8 8 8;
     --card-foreground: 255 255 255;
 
-    --popover: 5 5 5;
+    --popover: 3 3 3;
     --popover-foreground: 255 255 255;
 
     --primary: 255 255 255;
     --primary-foreground: 0 0 0;
 
-    --secondary: 20 20 20;
+    --secondary: 15 15 15;
     --secondary-foreground: 255 255 255;
 
-    --muted: 30 30 30;
-    --muted-foreground: 160 160 160;
+    --muted: 25 25 25;
+    --muted-foreground: 180 180 180;
 
     --accent: 255 255 255;
     --accent-foreground: 0 0 0;
 
-    --destructive: 220 38 38;
+    --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 40 40 40;
-    --input: 25 25 25;
+    --border: 35 35 35;
+    --input: 20 20 20;
     --ring: 255 255 255;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0 0;
     --sidebar-foreground: 255 255 255;
     --sidebar-primary: 255 255 255;
     --sidebar-primary-foreground: 0 0 0;
-    --sidebar-accent: 20 20 20;
+    --sidebar-accent: 15 15 15;
     --sidebar-accent-foreground: 255 255 255;
-    --sidebar-border: 40 40 40;
+    --sidebar-border: 35 35 35;
     --sidebar-ring: 255 255 255;
   }
 }
@@ -55,20 +55,28 @@
     @apply border-border;
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
   }
 
   body {
     @apply bg-black text-white font-inter antialiased;
-    background: radial-gradient(ellipse at center, #111111 0%, #000000 100%);
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.005) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,255,255,0.003) 0%, transparent 50%),
+      linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-orbitron text-white font-bold tracking-wide;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Remove all tap highlighting */
+  /* Complete tap highlight removal */
   button, 
   a, 
   [role="button"],
@@ -79,153 +87,221 @@
   div[class*="Card"],
   [class*="hover:"],
   [class*="cursor-pointer"],
-  [tabindex]:not([tabindex="-1"]) {
+  [tabindex]:not([tabindex="-1"]),
+  input,
+  textarea,
+  select {
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    user-select: none !important;
+    outline: none !important;
   }
 
-  /* Enhanced scrollbar */
+  /* Elite scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #111111;
+    background: rgba(0, 0, 0, 0.8);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #333333, #666666);
-    border-radius: 3px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #555555, #888888);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.5));
   }
 }
 
 @layer components {
-  /* VIP Luxury Components */
+  /* Ultra-Premium VIP Components */
   .vip-gradient {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    background: linear-gradient(135deg, #000000 0%, #0f0f0f 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%);
   }
   
   .vip-border {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
   
   .vip-glow {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1), 
-                0 0 60px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 0 40px rgba(255, 255, 255, 0.08), 
+      0 0 80px rgba(255, 255, 255, 0.04),
+      0 0 120px rgba(255, 255, 255, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* Futuristic Glass Effect */
+  /* Ultra-Sophisticated Glass Effect */
   .glass-vip {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px) saturate(180%);
+    background: 
+      linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%),
+      linear-gradient(225deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.6),
+      0 50px 100px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.02);
   }
 
-  /* VIP Buttons */
+  /* Elite VIP Buttons */
   .btn-vip {
-    @apply relative overflow-hidden bg-black text-white px-8 py-4 rounded-lg font-orbitron font-bold tracking-wide;
-    @apply border border-white/20 hover:border-white/40 transition-all duration-500;
-    @apply shadow-lg hover:shadow-2xl hover:shadow-white/10;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    @apply relative overflow-hidden bg-black text-white font-orbitron font-bold tracking-wider;
+    @apply border border-white/15 hover:border-white/30 transition-all duration-700;
+    @apply shadow-xl hover:shadow-2xl;
+    background: 
+      linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #000000 100%),
+      linear-gradient(45deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
     -webkit-tap-highlight-color: transparent !important;
+    position: relative;
   }
 
   .btn-vip::before {
-    @apply absolute inset-0 translate-x-[-100%] transition-transform duration-700;
+    @apply absolute inset-0 translate-x-[-100%] transition-transform duration-1000;
     content: '';
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    z-index: 1;
+  }
+
+  .btn-vip::after {
+    @apply absolute inset-0 transition-opacity duration-700;
+    content: '';
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
+    opacity: 0;
+    z-index: 0;
   }
 
   .btn-vip:hover::before {
     @apply translate-x-[100%];
   }
 
-  .btn-vip:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  .btn-vip:hover::after {
+    opacity: 1;
   }
 
-  /* VIP Cards */
+  .btn-vip:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+      0 15px 40px rgba(255, 255, 255, 0.1),
+      0 5px 15px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Ultra-Premium VIP Cards */
   .card-vip {
-    @apply backdrop-blur-xl rounded-lg p-6;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    @apply backdrop-blur-3xl rounded-2xl;
+    background: 
+      linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 50%, rgba(255, 255, 255, 0.01) 100%),
+      linear-gradient(225deg, rgba(255, 255, 255, 0.008) 0%, rgba(255, 255, 255, 0.025) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.6),
+      0 50px 100px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.02);
     -webkit-tap-highlight-color: transparent !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-vip::before {
+    content: '';
+    @apply absolute inset-0 transition-opacity duration-700;
+    background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+    opacity: 0;
+  }
+
+  .card-vip:hover::before {
+    opacity: 1;
   }
 
   .card-vip:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7),
-                0 0 30px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 40px 80px rgba(0, 0, 0, 0.8),
+      0 0 60px rgba(255, 255, 255, 0.08),
+      0 0 120px rgba(255, 255, 255, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
-  /* Futuristic Text Effects */
+  /* Premium Text Effects */
   .text-vip {
     @apply text-white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.2),
+      0 0 40px rgba(255, 255, 255, 0.1);
   }
 
   .text-neon {
     @apply text-white;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
-                 0 0 10px rgba(255, 255, 255, 0.6),
-                 0 0 15px rgba(255, 255, 255, 0.4);
+    text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6),
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 40px rgba(255, 255, 255, 0.2);
   }
 
-  /* Animations */
+  /* Elite Animations */
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
+    animation: pulse-glow 6s ease-in-out infinite;
   }
 
   .animate-scan {
-    animation: scan 3s ease-in-out infinite;
+    animation: scan 4s ease-in-out infinite;
   }
 
-  /* Remove tap highlights globally */
-  .no-tap-highlight {
+  /* Complete tap highlight removal */
+  .no-tap-highlight,
+  .no-tap-highlight * {
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
     user-select: none !important;
     touch-action: manipulation !important;
+    outline: none !important;
   }
 }
 
-/* Keyframe Animations */
+/* Elite Keyframe Animations */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(1deg);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-30px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-1deg);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.05),
+      0 0 60px rgba(255, 255, 255, 0.02);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 0 50px rgba(255, 255, 255, 0.15),
+      0 0 100px rgba(255, 255, 255, 0.08),
+      0 0 150px rgba(255, 255, 255, 0.04);
   }
 }
 
@@ -234,7 +310,10 @@
     transform: translateX(-100%);
     opacity: 0;
   }
-  50% {
+  25% {
+    opacity: 1;
+  }
+  75% {
     opacity: 1;
   }
   100% {
@@ -243,15 +322,22 @@
   }
 }
 
-/* Selection styling */
+/* Premium Selection Styling */
 ::selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Focus styles for accessibility */
+/* Elite Focus Styles */
 :focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 3px;
   -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: transform, opacity, box-shadow, border-color, background;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
