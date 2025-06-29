@@ -24,6 +24,10 @@ export default {
 				'inter': ['Inter', 'sans-serif'],
 				'playfair': ['Playfair Display', 'serif'],
 			},
+			transitionDuration: {
+				'1200': '1200ms',
+				'1500': '1500ms',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

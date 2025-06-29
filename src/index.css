@@ -155,7 +155,7 @@
 
   /* Universal VIP Button - ALWAYS WHITE TEXT */
   .btn-vip {
-    @apply relative overflow-hidden font-orbitron font-bold tracking-wider transition-all duration-700;
+    @apply relative overflow-hidden font-orbitron font-bold tracking-wider transition-all duration-1000;
     background: linear-gradient(135deg, 
       rgba(var(--vip-black), 0.9) 0%, 
       rgba(var(--vip-gray-dark), 0.8) 50%,
@@ -171,7 +171,7 @@
   }
 
   .btn-vip::before {
-    @apply absolute inset-0 translate-x-[-100%] transition-transform duration-1200;
+    @apply absolute inset-0 translate-x-[-100%] transition-transform duration-1000;
     content: '';
     background: linear-gradient(90deg, 
       transparent, 
