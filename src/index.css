@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Elite VIP Luxury Design System - Ultra Premium */
+/* Ultra-Premium VIP Design System - Consistent Across All Devices */
 
 @layer base {
   :root {
@@ -39,14 +39,12 @@
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0 0;
-    --sidebar-foreground: 255 255 255;
-    --sidebar-primary: 255 255 255;
-    --sidebar-primary-foreground: 0 0 0;
-    --sidebar-accent: 15 15 15;
-    --sidebar-accent-foreground: 255 255 255;
-    --sidebar-border: 35 35 35;
-    --sidebar-ring: 255 255 255;
+    /* VIP Color Palette - Fixed Values */
+    --vip-white: 255, 255, 255;
+    --vip-black: 0, 0, 0;
+    --vip-gray-dark: 15, 15, 15;
+    --vip-gray-medium: 35, 35, 35;
+    --vip-gray-light: 180, 180, 180;
   }
 }
 
@@ -58,25 +56,34 @@
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
     user-select: none !important;
+    outline: none !important;
+  }
+
+  *:focus,
+  *:active,
+  *:hover,
+  *:visited {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+    outline: none !important;
   }
 
   body {
     @apply bg-black text-white font-inter antialiased;
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.005) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,255,255,0.003) 0%, transparent 50%),
-      linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
     overflow-x: hidden;
+    color: rgb(var(--vip-white)) !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-orbitron text-white font-bold tracking-wide;
     text-rendering: optimizeLegibility;
+    color: rgb(var(--vip-white)) !important;
   }
 
-  /* Complete tap highlight removal */
+  /* Complete tap highlight removal for all interactive elements */
   button, 
   a, 
   [role="button"],
@@ -90,14 +97,28 @@
   [tabindex]:not([tabindex="-1"]),
   input,
   textarea,
-  select {
+  select,
+  [class*="btn"] {
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
     outline: none !important;
+    border: none !important;
   }
 
-  /* Elite scrollbar */
+  /* Override any system colors */
+  button:focus,
+  button:active,
+  button:hover,
+  a:focus,
+  a:active,
+  a:hover {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 4px;
   }
@@ -117,139 +138,87 @@
 }
 
 @layer components {
-  /* Ultra-Premium VIP Components */
-  .vip-gradient {
-    background: linear-gradient(135deg, #000000 0%, #0f0f0f 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%);
-  }
-  
-  .vip-border {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
-      0 0 30px rgba(255, 255, 255, 0.02),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
-  
-  .vip-glow {
-    box-shadow: 
-      0 0 40px rgba(255, 255, 255, 0.08), 
-      0 0 80px rgba(255, 255, 255, 0.04),
-      0 0 120px rgba(255, 255, 255, 0.02),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  /* Ultra-Sophisticated Glass Effect */
+  /* VIP Glass Effect - Consistent Across All Devices */
   .glass-vip {
     backdrop-filter: blur(40px) saturate(180%);
-    background: 
-      linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%),
-      linear-gradient(225deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.03) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(var(--vip-white), 0.02) 0%, rgba(var(--vip-white), 0.005) 100%);
+    border: 1px solid rgba(var(--vip-white), 0.08);
     box-shadow: 
-      0 25px 50px rgba(0, 0, 0, 0.6),
-      0 50px 100px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.02);
+      0 25px 50px rgba(var(--vip-black), 0.6),
+      0 50px 100px rgba(var(--vip-black), 0.4),
+      inset 0 1px 0 rgba(var(--vip-white), 0.1);
   }
 
-  /* Elite VIP Buttons */
+  /* Universal VIP Button - ALWAYS WHITE TEXT ON BLACK/TRANSPARENT */
   .btn-vip {
-    @apply relative overflow-hidden bg-black text-white font-orbitron font-bold tracking-wider;
-    @apply border border-white/15 hover:border-white/30 transition-all duration-700;
-    @apply shadow-xl hover:shadow-2xl;
-    background: 
-      linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #000000 100%),
-      linear-gradient(45deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+    @apply relative overflow-hidden font-orbitron font-bold tracking-wider transition-all duration-700;
+    background: linear-gradient(135deg, rgba(var(--vip-black), 0.8) 0%, rgba(var(--vip-gray-dark), 0.6) 100%);
+    border: 1px solid rgba(var(--vip-white), 0.15) !important;
+    color: rgb(var(--vip-white)) !important;
+    text-shadow: 0 0 10px rgba(var(--vip-white), 0.3);
     -webkit-tap-highlight-color: transparent !important;
-    position: relative;
+    tap-highlight-color: transparent !important;
+    outline: none !important;
   }
 
   .btn-vip::before {
     @apply absolute inset-0 translate-x-[-100%] transition-transform duration-1000;
     content: '';
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--vip-white), 0.15), transparent);
     z-index: 1;
-  }
-
-  .btn-vip::after {
-    @apply absolute inset-0 transition-opacity duration-700;
-    content: '';
-    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
-    opacity: 0;
-    z-index: 0;
   }
 
   .btn-vip:hover::before {
     @apply translate-x-[100%];
   }
 
-  .btn-vip:hover::after {
-    opacity: 1;
-  }
-
   .btn-vip:hover {
     transform: translateY(-3px);
+    border-color: rgba(var(--vip-white), 0.3) !important;
+    color: rgb(var(--vip-white)) !important;
     box-shadow: 
-      0 15px 40px rgba(255, 255, 255, 0.1),
-      0 5px 15px rgba(0, 0, 0, 0.8),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 15px 40px rgba(var(--vip-white), 0.1),
+      0 5px 15px rgba(var(--vip-black), 0.8),
+      inset 0 1px 0 rgba(var(--vip-white), 0.2);
   }
 
-  /* Ultra-Premium VIP Cards */
-  .card-vip {
-    @apply backdrop-blur-3xl rounded-2xl;
-    background: 
-      linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 50%, rgba(255, 255, 255, 0.01) 100%),
-      linear-gradient(225deg, rgba(255, 255, 255, 0.008) 0%, rgba(255, 255, 255, 0.025) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
-      0 25px 50px rgba(0, 0, 0, 0.6),
-      0 50px 100px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.02);
+  .btn-vip:active,
+  .btn-vip:focus {
+    color: rgb(var(--vip-white)) !important;
     -webkit-tap-highlight-color: transparent !important;
-    position: relative;
-    overflow: hidden;
+    tap-highlight-color: transparent !important;
+    outline: none !important;
   }
 
-  .card-vip::before {
-    content: '';
-    @apply absolute inset-0 transition-opacity duration-700;
-    background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
-    opacity: 0;
-  }
-
-  .card-vip:hover::before {
-    opacity: 1;
+  /* VIP Cards */
+  .card-vip {
+    @apply backdrop-blur-3xl rounded-2xl relative overflow-hidden;
+    background: linear-gradient(135deg, rgba(var(--vip-white), 0.02) 0%, rgba(var(--vip-white), 0.005) 100%);
+    border: 1px solid rgba(var(--vip-white), 0.08);
+    box-shadow: 
+      0 25px 50px rgba(var(--vip-black), 0.6),
+      0 50px 100px rgba(var(--vip-black), 0.3),
+      inset 0 1px 0 rgba(var(--vip-white), 0.1);
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
   }
 
   .card-vip:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
-      0 40px 80px rgba(0, 0, 0, 0.8),
-      0 0 60px rgba(255, 255, 255, 0.08),
-      0 0 120px rgba(255, 255, 255, 0.04),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.15);
+      0 40px 80px rgba(var(--vip-black), 0.8),
+      0 0 60px rgba(var(--vip-white), 0.08),
+      inset 0 1px 0 rgba(var(--vip-white), 0.15);
+    border-color: rgba(var(--vip-white), 0.15);
   }
 
-  /* Premium Text Effects */
+  /* Text Effects */
   .text-vip {
-    @apply text-white;
-    text-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.2),
-      0 0 40px rgba(255, 255, 255, 0.1);
+    color: rgb(var(--vip-white)) !important;
+    text-shadow: 0 0 20px rgba(var(--vip-white), 0.2);
   }
 
-  .text-neon {
-    @apply text-white;
-    text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.8),
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 30px rgba(255, 255, 255, 0.4),
-      0 0 40px rgba(255, 255, 255, 0.2);
-  }
-
-  /* Elite Animations */
+  /* Animations */
   .animate-float {
     animation: float 8s ease-in-out infinite;
   }
@@ -258,13 +227,10 @@
     animation: pulse-glow 6s ease-in-out infinite;
   }
 
-  .animate-scan {
-    animation: scan 4s ease-in-out infinite;
-  }
-
-  /* Complete tap highlight removal */
+  /* Remove all tap highlights globally */
   .no-tap-highlight,
-  .no-tap-highlight * {
+  .no-tap-highlight *,
+  * {
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
@@ -275,7 +241,7 @@
   }
 }
 
-/* Elite Keyframe Animations */
+/* Keyframe Animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
@@ -293,51 +259,37 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 
-      0 0 30px rgba(255, 255, 255, 0.05),
-      0 0 60px rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 30px rgba(var(--vip-white), 0.05);
   }
   50% {
-    box-shadow: 
-      0 0 50px rgba(255, 255, 255, 0.15),
-      0 0 100px rgba(255, 255, 255, 0.08),
-      0 0 150px rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 50px rgba(var(--vip-white), 0.15);
   }
 }
 
-@keyframes scan {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-/* Premium Selection Styling */
+/* Selection styling */
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  background: rgba(var(--vip-white), 0.15);
+  color: rgb(var(--vip-white));
 }
 
-/* Elite Focus Styles */
+/* Focus styles */
 :focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline: 2px solid rgba(var(--vip-white), 0.3) !important;
   outline-offset: 3px;
   -webkit-tap-highlight-color: transparent !important;
 }
 
-/* Smooth Transitions */
-* {
-  transition-property: transform, opacity, box-shadow, border-color, background;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* Media queries for device consistency */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    tap-highlight-color: transparent !important;
+  }
 }
