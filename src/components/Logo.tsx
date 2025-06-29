@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Crown } from 'lucide-react';
+import { Shield, Zap } from 'lucide-react';
 
 interface LogoProps {
   className?: string;
@@ -27,31 +27,31 @@ const Logo = ({ className = '', size = 'md' }: LogoProps) => {
   };
 
   return (
-    <div className={`flex items-center space-x-4 ${className}`}>
-      {/* Luxury Logo Badge */}
+    <div className={`flex items-center space-x-4 ${className} no-tap-highlight`}>
+      {/* VIP Logo Badge */}
       <div className={`relative ${sizeClasses[size]} flex items-center justify-center`}>
-        {/* Outer glow ring */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 rounded-full shadow-gold-glow blur-sm opacity-75"></div>
+        {/* Outer glow */}
+        <div className="absolute inset-0 bg-white/10 rounded-lg blur-sm"></div>
         
-        {/* Main circle */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-full shadow-luxury border border-gold-400/20"></div>
+        {/* Main container */}
+        <div className="absolute inset-0 glass-vip rounded-lg"></div>
         
-        {/* Inner circle with logo */}
-        <div className="absolute inset-1 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full flex items-center justify-center border border-gold-500/30">
-          <div className="text-gold-400 font-bold text-lg font-playfair">EPS</div>
+        {/* Inner content */}
+        <div className="absolute inset-1 bg-black/50 rounded-lg flex items-center justify-center border border-white/20">
+          <div className="text-white font-orbitron font-bold text-lg">EPS</div>
         </div>
         
-        {/* Premium crown indicator */}
-        <Crown className="w-3 h-3 text-gold-400 fill-gold-400 absolute -top-1 -right-1 bg-slate-900 rounded-full p-0.5 border border-gold-400/30" />
+        {/* Status indicator */}
+        <Shield className="w-3 h-3 text-white absolute -top-1 -right-1 bg-black rounded-full p-0.5 border border-white/30" />
       </div>
 
       {/* Company Text */}
       <div className="flex flex-col leading-tight">
-        <div className={`font-playfair font-bold ${textSizes[size]} text-luxury tracking-wide`}>
+        <div className={`font-orbitron font-bold ${textSizes[size]} text-white tracking-wider`}>
           Event Parking Services
         </div>
-        <div className={`font-inter font-medium ${subtextSizes[size]} text-gold tracking-widest uppercase -mt-1`}>
-          Premium Services
+        <div className={`font-inter font-medium ${subtextSizes[size]} text-white/60 tracking-widest uppercase -mt-1`}>
+          Executive Operations
         </div>
       </div>
     </div>
