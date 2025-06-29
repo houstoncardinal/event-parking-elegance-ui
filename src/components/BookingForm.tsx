@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, ArrowRight, CheckCircle, Crown } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -53,7 +53,6 @@ const BookingForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
   };
 
@@ -65,16 +64,28 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-black relative overflow-hidden">
+      {/* Premium background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/2 to-white/5 pointer-events-none"></div>
+      <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/8 to-white/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-navy-900 mb-6">
+            <div className="flex items-center justify-center mb-6">
+              <div className="relative flex items-center justify-center w-16 h-16 rounded-full glass-vip">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                <Crown className="w-8 h-8 text-white relative z-10 drop-shadow-sm" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-vip mb-6 drop-shadow-sm">
               Book Your Valet Service
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Get started with a quick quote. Our team will respond within 24 hours with a detailed proposal.
+            <p className="text-xl text-white/70 max-w-2xl mx-auto font-medium">
+              Experience premium valet service with our exclusive booking process.
+              <span className="block text-white/90 font-semibold mt-2">Luxury response within 24 hours</span>
             </p>
           </div>
 
@@ -82,41 +93,41 @@ const BookingForm = () => {
           <div className="flex justify-center mb-12">
             <div className="flex items-center space-x-4">
               {steps.map((step, index) => (
-                <React.Fragment key={step.number}>
-                  <div className="flex items-center space-x-2">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                <div key={step.number} className="flex items-center">
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-500 glass-vip ${
                       currentStep >= step.number 
-                        ? 'bg-champagne-500 border-champagne-500 text-navy-900' 
-                        : 'border-gray-300 text-gray-400'
+                        ? 'bg-white/10 border-white/30 text-white shadow-vip-glow' 
+                        : 'border-white/20 text-white/60'
                     }`}>
                       {currentStep > step.number ? (
-                        <CheckCircle className="w-6 h-6" />
+                        <CheckCircle className="w-6 h-6 text-white" />
                       ) : (
                         <step.icon className="w-6 h-6" />
                       )}
                     </div>
                     <div className="hidden md:block">
-                      <div className={`font-medium ${
-                        currentStep >= step.number ? 'text-navy-900' : 'text-gray-400'
+                      <div className={`font-medium font-orbitron text-sm ${
+                        currentStep >= step.number ? 'text-white' : 'text-white/60'
                       }`}>
                         {step.title}
                       </div>
                     </div>
                   </div>
                   {index < steps.length - 1 && (
-                    <div className={`w-16 h-0.5 ${
-                      currentStep > step.number ? 'bg-champagne-500' : 'bg-gray-300'
-                    } transition-colors duration-300`} />
+                    <div className={`w-16 h-0.5 mx-4 ${
+                      currentStep > step.number ? 'bg-white/30' : 'bg-white/20'
+                    } transition-colors duration-500`} />
                   )}
-                </React.Fragment>
+                </div>
               ))}
             </div>
           </div>
 
           {/* Form Card */}
-          <Card className="shadow-xl border-0">
-            <CardHeader className="bg-navy-900 text-white rounded-t-lg">
-              <CardTitle className="text-2xl font-playfair text-center">
+          <Card className="card-vip shadow-vip border-white/20">
+            <CardHeader className="glass-vip rounded-t-2xl border-b border-white/20 pb-6">
+              <CardTitle className="text-2xl font-orbitron font-bold text-center text-vip">
                 Step {currentStep}: {steps[currentStep - 1].title}
               </CardTitle>
             </CardHeader>
@@ -127,24 +138,24 @@ const BookingForm = () => {
                   <div className="space-y-6 animate-fade-in">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="eventType" className="text-navy-900 font-medium">Event Type</Label>
+                        <Label htmlFor="eventType" className="text-white font-semibold font-orbitron">Event Type</Label>
                         <Select onValueChange={(value) => updateFormData('eventType', value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Select event type" />
+                          <SelectTrigger className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white">
+                            <SelectValue placeholder="Select event type" className="text-white/60" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="glass-vip border-white/20">
                             {eventTypes.map((type) => (
-                              <SelectItem key={type} value={type.toLowerCase()}>{type}</SelectItem>
+                              <SelectItem key={type} value={type.toLowerCase()} className="text-white hover:bg-white/10">{type}</SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
                       </div>
                       <div>
-                        <Label htmlFor="date" className="text-navy-900 font-medium">Event Date</Label>
+                        <Label htmlFor="date" className="text-white font-semibold font-orbitron">Event Date</Label>
                         <Input
                           type="date"
                           id="date"
-                          className="mt-2"
+                          className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white"
                           onChange={(e) => updateFormData('date', e.target.value)}
                         />
                       </div>
@@ -152,31 +163,31 @@ const BookingForm = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="startTime" className="text-navy-900 font-medium">Start Time</Label>
+                        <Label htmlFor="startTime" className="text-white font-semibold font-orbitron">Start Time</Label>
                         <Input
                           type="time"
                           id="startTime"
-                          className="mt-2"
+                          className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white"
                           onChange={(e) => updateFormData('startTime', e.target.value)}
                         />
                       </div>
                       <div>
-                        <Label htmlFor="endTime" className="text-navy-900 font-medium">End Time</Label>
+                        <Label htmlFor="endTime" className="text-white font-semibold font-orbitron">End Time</Label>
                         <Input
                           type="time"
                           id="endTime"
-                          className="mt-2"
+                          className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white"
                           onChange={(e) => updateFormData('endTime', e.target.value)}
                         />
                       </div>
                     </div>
                     
                     <div>
-                      <Label htmlFor="location" className="text-navy-900 font-medium">Event Location</Label>
+                      <Label htmlFor="location" className="text-white font-semibold font-orbitron">Event Location</Label>
                       <Input
                         id="location"
                         placeholder="Full address or venue name"
-                        className="mt-2"
+                        className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white placeholder:text-white/40"
                         onChange={(e) => updateFormData('location', e.target.value)}
                       />
                     </div>
@@ -188,43 +199,43 @@ const BookingForm = () => {
                   <div className="space-y-6 animate-fade-in">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="guestCount" className="text-navy-900 font-medium">Expected Guests</Label>
+                        <Label htmlFor="guestCount" className="text-white font-semibold font-orbitron">Expected Guests</Label>
                         <Select onValueChange={(value) => updateFormData('guestCount', value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Number of guests" />
+                          <SelectTrigger className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white">
+                            <SelectValue placeholder="Number of guests" className="text-white/60" />
                           </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1-50">1-50 guests</SelectItem>
-                            <SelectItem value="51-100">51-100 guests</SelectItem>
-                            <SelectItem value="101-200">101-200 guests</SelectItem>
-                            <SelectItem value="201-300">201-300 guests</SelectItem>
-                            <SelectItem value="300+">300+ guests</SelectItem>
+                          <SelectContent className="glass-vip border-white/20">
+                            <SelectItem value="1-50" className="text-white hover:bg-white/10">1-50 guests</SelectItem>
+                            <SelectItem value="51-100" className="text-white hover:bg-white/10">51-100 guests</SelectItem>
+                            <SelectItem value="101-200" className="text-white hover:bg-white/10">101-200 guests</SelectItem>
+                            <SelectItem value="201-300" className="text-white hover:bg-white/10">201-300 guests</SelectItem>
+                            <SelectItem value="300+" className="text-white hover:bg-white/10">300+ guests</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                       <div>
-                        <Label htmlFor="attendants" className="text-navy-900 font-medium">Preferred Attendants</Label>
+                        <Label htmlFor="attendants" className="text-white font-semibold font-orbitron">Preferred Attendants</Label>
                         <Select onValueChange={(value) => updateFormData('attendants', value)}>
-                          <SelectTrigger className="mt-2">
-                            <SelectValue placeholder="Number of attendants" />
+                          <SelectTrigger className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white">
+                            <SelectValue placeholder="Number of attendants" className="text-white/60" />
                           </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1">1 attendant</SelectItem>
-                            <SelectItem value="2">2 attendants</SelectItem>
-                            <SelectItem value="3">3 attendants</SelectItem>
-                            <SelectItem value="4">4 attendants</SelectItem>
-                            <SelectItem value="5+">5+ attendants</SelectItem>
+                          <SelectContent className="glass-vip border-white/20">
+                            <SelectItem value="1" className="text-white hover:bg-white/10">1 attendant</SelectItem>
+                            <SelectItem value="2" className="text-white hover:bg-white/10">2 attendants</SelectItem>
+                            <SelectItem value="3" className="text-white hover:bg-white/10">3 attendants</SelectItem>
+                            <SelectItem value="4" className="text-white hover:bg-white/10">4 attendants</SelectItem>
+                            <SelectItem value="5+" className="text-white hover:bg-white/10">5+ attendants</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
                     
                     <div>
-                      <Label htmlFor="specialRequests" className="text-navy-900 font-medium">Special Requests</Label>
+                      <Label htmlFor="specialRequests" className="text-white font-semibold font-orbitron">Special Requests</Label>
                       <Textarea
                         id="specialRequests"
                         placeholder="Any special requirements, VIP guests, vehicle types, or other details..."
-                        className="mt-2 min-h-[120px]"
+                        className="mt-2 min-h-[120px] glass-vip border-white/20 focus:border-white/40 text-white placeholder:text-white/40"
                         onChange={(e) => updateFormData('specialRequests', e.target.value)}
                       />
                     </div>
@@ -235,58 +246,70 @@ const BookingForm = () => {
                 {currentStep === 3 && (
                   <div className="space-y-6 animate-fade-in">
                     <div>
-                      <Label htmlFor="name" className="text-navy-900 font-medium">Full Name</Label>
+                      <Label htmlFor="name" className="text-white font-semibold font-orbitron">Full Name</Label>
                       <Input
                         id="name"
                         placeholder="Your full name"
-                        className="mt-2"
+                        className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white placeholder:text-white/40"
                         onChange={(e) => updateFormData('name', e.target.value)}
                       />
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="email" className="text-navy-900 font-medium">Email Address</Label>
+                        <Label htmlFor="email" className="text-white font-semibold font-orbitron">Email Address</Label>
                         <Input
                           type="email"
                           id="email"
                           placeholder="your.email@example.com"
-                          className="mt-2"
+                          className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white placeholder:text-white/40"
                           onChange={(e) => updateFormData('email', e.target.value)}
                         />
                       </div>
                       <div>
-                        <Label htmlFor="phone" className="text-navy-900 font-medium">Phone Number</Label>
+                        <Label htmlFor="phone" className="text-white font-semibold font-orbitron">Phone Number</Label>
                         <Input
                           type="tel"
                           id="phone"
                           placeholder="(555) 123-4567"
-                          className="mt-2"
+                          className="mt-2 glass-vip border-white/20 focus:border-white/40 text-white placeholder:text-white/40"
                           onChange={(e) => updateFormData('phone', e.target.value)}
                         />
                       </div>
                     </div>
                     
-                    <div className="bg-champagne-50 p-6 rounded-lg">
-                      <h4 className="font-semibold text-navy-900 mb-2">What happens next?</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• We'll review your request within 24 hours</li>
-                        <li>• Our team will call to discuss details and finalize arrangements</li>
-                        <li>• You'll receive a detailed proposal and contract</li>
-                        <li>• We'll coordinate all logistics leading up to your event</li>
+                    <div className="glass-vip p-6 rounded-xl border border-white/20">
+                      <h4 className="font-semibold text-white mb-3 font-orbitron">What happens next?</h4>
+                      <ul className="text-sm text-white/70 space-y-2 font-medium">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                          We'll review your request within 24 hours
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                          Our team will call to discuss details and finalize arrangements
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                          You'll receive a detailed proposal and contract
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                          We'll coordinate all logistics leading up to your event
+                        </li>
                       </ul>
                     </div>
                   </div>
                 )}
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between pt-8 border-t border-gray-200 mt-8">
+                <div className="flex justify-between pt-8 border-t border-white/20 mt-8">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={handlePrev}
                     disabled={currentStep === 1}
-                    className="px-6"
+                    className="px-6 btn-vip"
                   >
                     Previous
                   </Button>
@@ -295,18 +318,18 @@ const BookingForm = () => {
                     <Button
                       type="button"
                       onClick={handleNext}
-                      className="bg-champagne-500 hover:bg-champagne-600 text-navy-900 px-6"
+                      className="btn-vip px-6 group"
                     >
-                      Next Step
-                      <ArrowRight className="ml-2 w-4 h-4" />
+                      <span className="text-vip font-semibold">Next Step</span>
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1 text-white" />
                     </Button>
                   ) : (
                     <Button
                       type="submit"
-                      className="bg-navy-900 hover:bg-navy-800 text-white px-8"
+                      className="btn-vip px-8 group"
                     >
-                      Submit Request
-                      <CheckCircle className="ml-2 w-4 h-4" />
+                      <span className="text-vip font-semibold">Submit Request</span>
+                      <CheckCircle className="ml-2 w-4 h-4 text-white" />
                     </Button>
                   )}
                 </div>
