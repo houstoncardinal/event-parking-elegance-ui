@@ -9,15 +9,15 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
   const sizeClasses = {
-    sm: 'h-8 w-auto',
-    md: 'h-10 w-auto lg:h-12 lg:w-auto',
+    sm: 'h-6 w-auto',
+    md: 'h-8 w-auto lg:h-12 lg:w-auto',
     lg: 'h-14 w-auto lg:h-16 lg:w-auto'
   };
 
   return (
     <Link 
       to="/" 
-      className={`flex items-center gap-2 md:gap-4 group cursor-pointer transition-all duration-300 hover:scale-[1.02] ${className}`}
+      className={`flex items-center gap-1 md:gap-3 group cursor-pointer transition-all duration-300 hover:scale-[1.02] ${className}`}
     >
       {/* Enhanced Cardinal Bird Icon */}
       <div className={`relative ${sizeClasses[size]} group-hover:drop-shadow-lg transition-all duration-300`}>
@@ -108,13 +108,13 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
       
       {/* Enhanced Company Name */}
       <div className="flex flex-col">
-        <span className="font-bold text-lg md:text-xl leading-tight text-gray-900 group-hover:text-gray-700 transition-colors duration-300">
+        <span className="font-bold text-sm md:text-lg lg:text-xl leading-tight text-gray-900 group-hover:text-gray-700 transition-colors duration-300">
           Cardinal Valet
         </span>
-        <span className="text-xs md:text-sm text-gray-600 leading-tight group-hover:text-gray-500 transition-colors duration-300 font-medium">
+        <span className="text-xs md:text-sm text-gray-600 leading-tight group-hover:text-gray-500 transition-colors duration-300 font-medium hidden sm:block">
           Premium Event Parking
         </span>
-        <div className="flex items-center gap-1 mt-0.5">
+        <div className="flex items-center gap-1 mt-0.5 hidden md:flex">
           <div className="w-1 h-1 bg-yellow-500 rounded-full animate-pulse"></div>
           <span className="text-xs text-yellow-600 font-semibold uppercase tracking-wider">
             Houston's Elite
