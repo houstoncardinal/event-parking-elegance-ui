@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Star, Award } from 'lucide-react';
 
@@ -17,12 +16,12 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="mb-8">
               <div className="text-4xl font-playfair font-bold mb-4 text-white">
-                Event Parking <span className="text-gold-400">Services</span>
+                Event Parking Services <span className="text-gold-400">By Cardinal</span>
               </div>
               <div className="w-16 h-1 bg-gradient-to-r from-gold-400 to-gold-600 rounded-full mb-6"></div>
               <p className="text-slate-300 text-lg leading-relaxed max-w-md mb-8">
                 Houston's premier valet and event parking services. Delivering exceptional experiences 
-                for weddings, corporate events, and private gatherings since 2010.
+                for weddings, corporate events, and private gatherings with the Cardinal touch.
               </p>
               
               {/* Trust Indicators */}
@@ -114,7 +113,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-white font-medium mb-1">Phone</div>
-                  <div className="text-slate-300 text-sm">(713) 555-PARK</div>
+                  <div className="text-slate-300 text-sm">(832) 555-CARDINAL</div>
                 </div>
               </li>
               <li className="flex items-start space-x-4">
@@ -123,7 +122,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-white font-medium mb-1">Email</div>
-                  <div className="text-slate-300 text-sm">info@houstonvaletservices.com</div>
+                  <div className="text-slate-300 text-sm">info@cardinalparking.com</div>
                 </div>
               </li>
               <li className="flex items-start space-x-4">
@@ -179,7 +178,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
             <div className="flex items-center space-x-6">
               <p className="text-slate-400 text-sm">
-                © 2024 Event Parking Services. All rights reserved.
+                © 2024 Event Parking Services By Cardinal. All rights reserved.
               </p>
               <div className="flex items-center space-x-2">
                 <Award className="w-4 h-4 text-gold-400" />

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Star, Shield, Clock, Sparkles, Zap, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -141,7 +140,7 @@ const Hero = () => {
               <Sparkles className="w-5 h-5 text-blue-400" />
               <div className="absolute inset-0 bg-blue-400 blur-sm opacity-50 animate-pulse"></div>
             </div>
-            <span className="text-white font-medium text-sm tracking-wide">Next-Generation Valet Solutions</span>
+            <span className="text-white font-medium text-sm tracking-wide">Houston's Premier Event Parking Service</span>
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3 h-3 text-gold-400 fill-gold-400" />
@@ -158,10 +157,10 @@ const Hero = () => {
           >
             <h1 className="text-6xl md:text-8xl font-poppins font-black mb-4 leading-none">
               <span className="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
-                PREMIUM
+                HOUSTON
               </span>
               <span className="block bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 bg-clip-text text-transparent relative">
-                VALET TECH
+                EVENT PARKING
                 {/* Holographic Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 bg-clip-text text-transparent blur-sm opacity-50 animate-pulse"></div>
               </span>
@@ -176,9 +175,9 @@ const Hero = () => {
             className="mb-12"
           >
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-              Revolutionary parking solutions powered by precision technology and unmatched hospitality. 
-              <span className="text-blue-400 font-medium"> Experience the future of valet services</span> with our 
-              AI-optimized operations and luxury-grade professional team.
+              Professional valet parking services for weddings, corporate events, and special occasions across Houston. 
+              <span className="text-blue-400 font-medium"> Luxury service meets reliability</span> with our 
+              experienced team and comprehensive event parking solutions.
             </p>
           </motion.div>
 
@@ -197,34 +196,34 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-sm">Military-Grade Security</div>
-                <div className="text-slate-400 text-xs">$15M+ Insurance Coverage</div>
+                <div className="text-white font-semibold text-sm">Fully Insured Service</div>
+                <div className="text-slate-400 text-xs">$2M Liability Coverage</div>
               </div>
             </div>
 
             <div className="flex items-center space-x-4 group">
               <div className="relative">
                 <div className="w-14 h-14 bg-gradient-to-br from-gold-500/20 to-gold-600/30 rounded-xl backdrop-blur-sm border border-gold-400/30 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                  <Zap className="w-6 h-6 text-gold-400" />
+                  <Clock className="w-6 h-6 text-gold-400" />
                 </div>
                 <div className="absolute inset-0 bg-gold-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-sm">Lightning Response</div>
-                <div className="text-slate-400 text-xs">30-Second Guarantee</div>
+                <div className="text-white font-semibold text-sm">24/7 Availability</div>
+                <div className="text-slate-400 text-xs">Same-Day Booking Available</div>
               </div>
             </div>
 
             <div className="flex items-center space-x-4 group">
               <div className="relative">
                 <div className="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-purple-600/30 rounded-xl backdrop-blur-sm border border-purple-400/30 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                  <Eye className="w-6 h-6 text-purple-400" />
+                  <Star className="w-6 h-6 text-purple-400" />
                 </div>
                 <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-sm">AI-Powered Monitoring</div>
-                <div className="text-slate-400 text-xs">Real-Time Analytics</div>
+                <div className="text-white font-semibold text-sm">5-Star Rated</div>
+                <div className="text-slate-400 text-xs">500+ Happy Clients</div>
               </div>
             </div>
           </motion.div>
@@ -242,7 +241,7 @@ const Hero = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               <span className="relative z-10 flex items-center">
-                ACTIVATE SERVICE
+                GET FREE QUOTE
                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>
@@ -253,7 +252,7 @@ const Hero = () => {
               className="relative overflow-hidden bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-xl border-2 border-gold-400/50 text-gold-400 hover:bg-gradient-to-r hover:from-gold-400/10 hover:to-gold-500/10 font-bold px-12 py-6 text-lg rounded-2xl shadow-2xl hover:shadow-gold-400/25 transition-all duration-500 hover:scale-105 group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              <span className="relative z-10">VIEW PORTFOLIO</span>
+              <span className="relative z-10">VIEW SERVICES</span>
             </Button>
           </motion.div>
 
@@ -266,26 +265,26 @@ const Hero = () => {
           >
             <div className="text-center group cursor-pointer">
               <div className="relative">
-                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">2,500+</div>
+                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
                 <div className="absolute inset-0 bg-blue-400 blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
-              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Elite Events</div>
+              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Events Served</div>
             </div>
 
             <div className="text-center group cursor-pointer">
               <div className="relative">
-                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">250K+</div>
+                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">50K+</div>
                 <div className="absolute inset-0 bg-gold-400 blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
-              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Vehicles Secured</div>
+              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Vehicles Parked</div>
             </div>
 
             <div className="text-center group cursor-pointer">
               <div className="relative">
-                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">99.9%</div>
+                <div className="text-4xl md:text-5xl font-poppins font-black bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
                 <div className="absolute inset-0 bg-purple-400 blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
-              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Precision Rate</div>
+              <div className="text-slate-400 text-sm font-medium uppercase tracking-wider">Satisfaction Rate</div>
             </div>
           </motion.div>
         </div>
