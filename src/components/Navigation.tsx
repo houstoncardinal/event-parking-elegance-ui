@@ -23,7 +23,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out bg-white border-b border-gray-200 ${isScrolled ? '' : ''}`}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-6 xl:px-8">
         {/* Top Info Bar - Premium Contact Details */}
         <div className="hidden lg:flex items-center justify-between py-2 border-b border-gray-200">
           <div className="flex items-center space-x-8 text-sm">
@@ -49,8 +49,11 @@ const Navigation = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="flex items-center justify-between py-4">
-          <Logo size="md" className="text-black" />
+        <div className="flex items-center justify-between py-3 md:py-4">
+          <div className="flex-shrink-0">
+            <Logo size="sm" className="text-black lg:hidden" />
+            <Logo size="md" className="text-black hidden lg:block" />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
