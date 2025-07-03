@@ -41,21 +41,30 @@ const Footer = () => {
 
               {/* Social Media */}
               <div className="flex space-x-4">
-                <a href="#" className="group">
+                <button 
+                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group"
+                >
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Facebook className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </a>
-                <a href="#" className="group">
+                </button>
+                <button 
+                  onClick={() => document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group"
+                >
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Instagram className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </a>
-                <a href="#" className="group">
+                </button>
+                <button 
+                  onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group"
+                >
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Linkedin className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -65,19 +74,18 @@ const Footer = () => {
             <h4 className="text-xl font-playfair font-semibold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-4">
               {[
-                { name: 'Home', href: '/' },
-                { name: 'Services', href: '/services' },
-                { name: 'About Us', href: '/about' },
-                { name: 'Testimonials', href: '/testimonials' },
-                { name: 'Book Now', href: '/book' }
+                { name: 'Services', action: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) },
+                { name: 'Service Areas', action: () => document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' }) },
+                { name: 'Testimonials', action: () => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) },
+                { name: 'Book Now', action: () => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' }) }
               ].map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <button 
+                    onClick={link.action}
                     className="text-slate-300 hover:text-gold-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 inline-block"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -186,15 +194,24 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex space-x-8 text-sm">
-              <a href="/privacy" className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium">
-                Terms of Service
-              </a>
-              <a href="/insurance" className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium">
-                Insurance Details
-              </a>
+              <button 
+                onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                Contact Us
+              </button>
+              <button 
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                Our Services
+              </button>
+              <button 
+                onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                Get Quote
+              </button>
             </div>
           </div>
         </div>

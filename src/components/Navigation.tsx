@@ -146,7 +146,7 @@ const Navigation = () => {
                 <span className="text-black">Elite Services</span>
               </button>
               <button
-                onClick={() => scrollToSection('areas')}
+                onClick={() => scrollToSection('service-areas')}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
                 <span className="text-black">Service Areas</span>
@@ -158,20 +158,20 @@ const Navigation = () => {
                 <span className="text-black">Client Reviews</span>
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('book')}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
-                <span className="text-black">Contact Elite Team</span>
+                <span className="text-black">Book Now</span>
               </button>
             </div>
 
             {/* Mobile CTA */}
             <div className="pt-6">
               <Button
-                onClick={() => scrollToSection('booking')}
+                onClick={() => scrollToSection('book')}
                 className="w-full py-4 text-lg font-bold tracking-wider uppercase bg-white text-black border border-black hover:bg-gray-100"
               >
-                <span className="text-black">Request Elite Quote</span>
+                <span className="text-black">Request Quote</span>
               </Button>
             </div>
 

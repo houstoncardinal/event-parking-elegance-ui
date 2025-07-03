@@ -121,10 +121,19 @@ function Hero() {
           </div>
 
           <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" variant="outline">
+            <Button 
+              size="lg" 
+              className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" 
+              variant="outline"
+              onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Get Free Quote <PhoneCall className="w-4 h-4 text-white" />
             </Button>
-            <Button size="lg" className="gap-4 bg-black text-white hover:bg-gray-900">
+            <Button 
+              size="lg" 
+              className="gap-4 bg-black text-white hover:bg-gray-900"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               View Services <MoveRight className="w-4 h-4 text-white" />
             </Button>
           </div>
