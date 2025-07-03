@@ -74,10 +74,6 @@
     @apply border-border;
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    user-select: none !important;
-    outline: none !important;
     box-sizing: border-box !important;
   }
 
@@ -395,16 +391,11 @@ p, span, div, label, input, textarea, button {
       inset 0 1px 0 rgba(var(--vip-white), 0.08);
   }
 
-  /* Remove all tap highlights globally */
+  /* Remove all tap highlights globally - Allow touch scroll */
   .no-tap-highlight,
-  .no-tap-highlight *,
-  * {
+  .no-tap-highlight * {
     -webkit-tap-highlight-color: transparent !important;
     tap-highlight-color: transparent !important;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    user-select: none !important;
-    touch-action: manipulation !important;
     outline: none !important;
   }
 
