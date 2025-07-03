@@ -16,10 +16,20 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
-      <Marquee className="mt-0 py-4 bg-gradient-to-r from-yellow-400 to-amber-400">
-        <span className="font-semibold text-black">
-          Welcome to Event Parking Services By Cardinal – Experience the VIP difference with Houston's premier valet service.
-        </span>
+      <Marquee variant="luxury" className="mt-0" speed={30}>
+        <div className="flex items-center gap-6 sm:gap-8">
+          <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent">
+            Welcome to Event Parking Services By Cardinal
+          </span>
+          <div className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
+          <span className="text-base sm:text-lg font-medium text-gray-700">
+            Experience the VIP difference with Houston's premier valet service
+          </span>
+          <div className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
+          <span className="text-base sm:text-lg font-semibold text-gold-600">
+            Professional • Reliable • Luxury Service
+          </span>
+        </div>
       </Marquee>
       <Pricing />
       <Services />
