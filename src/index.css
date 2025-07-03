@@ -101,6 +101,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    /* Enhanced mobile support */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Prevent zoom on input focus on iOS */
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -510,6 +516,12 @@ p, span, div, label, input, textarea, button {
     tap-highlight-color: transparent !important;
   }
 
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
   .btn-vip {
     padding: 14px 28px;
     font-size: 16px;
@@ -518,6 +530,18 @@ p, span, div, label, input, textarea, button {
 
   .card-vip {
     border-radius: 1.5rem;
+  }
+
+  /* Ensure proper mobile scrolling */
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  /* Fix viewport issues on mobile */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 }
 

@@ -79,6 +79,25 @@ export default {
 					accent: '#333333',
 					'platinum': '#e5e5e5',
 					'silver': '#c0c0c0'
+				},
+				// Gold color system
+				gold: {
+					50: 'hsl(var(--gold-50))',
+					100: 'hsl(var(--gold-100))',
+					200: 'hsl(var(--gold-200))',
+					300: 'hsl(var(--gold-300))',
+					400: 'hsl(var(--gold-400))',
+					500: 'hsl(var(--gold-500))',
+					600: 'hsl(var(--gold-600))',
+					700: 'hsl(var(--gold-700))',
+					800: 'hsl(var(--gold-800))',
+					900: 'hsl(var(--gold-900))'
+				},
+				// Navy colors for dark theme
+				navy: {
+					900: '#0f172a',
+					800: '#1e293b',
+					700: '#334155'
 				}
 			},
 			borderRadius: {
