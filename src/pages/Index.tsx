@@ -19,11 +19,7 @@ const Index = () => {
       <Marquee variant="luxury" className="mt-0" speed={30}>
         <div className="flex items-center gap-8 sm:gap-12">
           <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent">
-            Houston's Premier Valet Service
-          </span>
-          <div className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
-          <span className="text-base sm:text-lg font-medium text-gray-700">
-            Professional • Reliable • Luxury
+            Houston's Premier Valet Service • Professional • Reliable • Luxury
           </span>
         </div>
       </Marquee>
