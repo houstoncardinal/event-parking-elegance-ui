@@ -116,8 +116,8 @@ const Navigation = () => {
 
       {/* Enhanced Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 z-40">
-          <div className="bg-white h-full p-6 space-y-8 overflow-y-auto border-t border-gray-200">
+        <div className="lg:hidden absolute left-0 right-0 top-full z-40 bg-white shadow-lg">
+          <div className="p-6 space-y-8 border-t border-gray-200">
             {/* Mobile Contact Info */}
             <div className="space-y-4 pb-6 border-b border-gray-200">
               <div className="flex items-center space-x-3 text-black">
