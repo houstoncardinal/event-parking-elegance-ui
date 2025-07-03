@@ -61,11 +61,11 @@ const Navigation = () => {
                 onClick={() => scrollToSection('services')}
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
-                <span className="relative z-10 text-black">Elite Services</span>
+                <span className="relative z-10 text-black">Services</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
               </button>
               <button
-                onClick={() => scrollToSection('areas')}
+                onClick={() => scrollToSection('service-areas')}
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
                 <span className="relative z-10 text-black">Service Areas</span>
@@ -79,17 +79,17 @@ const Navigation = () => {
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('book')}
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
-                <span className="relative z-10 text-black">Contact</span>
+                <span className="relative z-10 text-black">Book Now</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
               </button>
             </div>
 
             <div className="flex items-center space-x-4">
               <Button
-                onClick={() => scrollToSection('booking')}
+                onClick={() => scrollToSection('book')}
                 className="px-8 py-3 text-sm font-bold tracking-wider uppercase relative overflow-hidden group bg-white text-black border border-black hover:bg-gray-100"
               >
                 <span className="relative z-10 flex items-center text-black">

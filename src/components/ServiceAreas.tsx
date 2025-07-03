@@ -25,7 +25,7 @@ const ServiceAreas = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-gold-50/20 relative overflow-hidden">
+    <section id="service-areas" className="py-24 bg-gradient-to-br from-slate-50 via-white to-gold-50/20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-gold-200/20 via-gold-300/10 to-transparent rounded-full blur-3xl" />

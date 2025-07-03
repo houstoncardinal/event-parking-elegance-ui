@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
   const secondColumn = testimonials.slice(2, 5);
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(203,213,225,0.1)_0%,transparent_50%)]" />

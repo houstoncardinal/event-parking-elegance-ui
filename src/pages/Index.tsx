@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import { Hero } from '@/components/animated-hero';
 import { Marquee } from '@/components/ui/marquee';
 import { Pricing } from '@/components/ui/pricing-section-with-comparison';
+import Services from '@/components/Services';
 import ServiceAreas from '@/components/ServiceAreas';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
@@ -21,6 +22,7 @@ const Index = () => {
         </span>
       </Marquee>
       <Pricing />
+      <Services />
       <Features />
       <ServiceAreas />
       <TestimonialsSection />

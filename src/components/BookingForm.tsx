@@ -64,11 +64,12 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
-      {/* Premium background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/2 to-white/5 pointer-events-none"></div>
-      <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/8 to-white/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+    <section id="book" className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+      {/* Clean background effects */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-gold-200/30 via-gold-300/15 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tr from-slate-200/20 via-slate-300/10 to-transparent rounded-full blur-3xl" />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -80,12 +81,12 @@ const BookingForm = () => {
                 <Crown className="w-8 h-8 text-white relative z-10 drop-shadow-sm" />
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-vip mb-6 drop-shadow-sm">
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 mb-6">
               Book Your Valet Service
             </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto font-medium">
-              Experience premium valet service with our exclusive booking process.
-              <span className="block text-white/90 font-semibold mt-2">Luxury response within 24 hours</span>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Experience premium valet service with our streamlined booking process.
+              <span className="block text-slate-800 font-semibold mt-2">Professional response within 24 hours</span>
             </p>
           </div>
 
@@ -125,9 +126,9 @@ const BookingForm = () => {
           </div>
 
           {/* Form Card */}
-          <Card className="card-vip shadow-vip border-white/20">
-            <CardHeader className="glass-vip rounded-t-2xl border-b border-white/20 pb-6">
-              <CardTitle className="text-2xl font-orbitron font-bold text-center text-vip">
+          <Card className="bg-white/90 backdrop-blur-sm shadow-xl border border-white/60">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-white rounded-t-2xl border-b border-slate-200 pb-6">
+              <CardTitle className="text-2xl font-playfair font-bold text-center text-slate-900">
                 Step {currentStep}: {steps[currentStep - 1].title}
               </CardTitle>
             </CardHeader>
