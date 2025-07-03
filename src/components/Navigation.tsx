@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Clock, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +17,8 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -57,47 +55,46 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
             <div className="flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection('services')}
+              <Link
+                to="/services"
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
                 <span className="relative z-10 text-black">Services</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-              </button>
-              <button
-                onClick={() => scrollToSection('service-areas')}
+              </Link>
+              <Link
+                to="/service-areas"
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
                 <span className="relative z-10 text-black">Service Areas</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-              </button>
-              <button
-                onClick={() => scrollToSection('testimonials')}
+              </Link>
+              <Link
+                to="/client-reviews"
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
                 <span className="relative z-10 text-black">Client Reviews</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-              </button>
-              <button
-                onClick={() => scrollToSection('book')}
+              </Link>
+              <Link
+                to="/contact"
                 className="text-black hover:text-black font-inter font-medium tracking-wide transition-all duration-300 relative group"
               >
-                <span className="relative z-10 text-black">Book Now</span>
+                <span className="relative z-10 text-black">Contact</span>
                 <div className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
-              </button>
+              </Link>
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button
-                onClick={() => scrollToSection('book')}
-                className="px-8 py-3 text-sm font-bold tracking-wider uppercase relative overflow-hidden group bg-white text-black border border-black hover:bg-gray-100"
-              >
-                <span className="relative z-10 flex items-center text-black">
-                  Request Quote
-                  <div className="ml-2 w-2 h-2 bg-black rounded-full animate-pulse"></div>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </Button>
+              <Link to="/booking">
+                <Button className="px-8 py-3 text-sm font-bold tracking-wider uppercase relative overflow-hidden group bg-white text-black border border-black hover:bg-gray-100">
+                  <span className="relative z-10 flex items-center text-black">
+                    Request Quote
+                    <div className="ml-2 w-2 h-2 bg-black rounded-full animate-pulse"></div>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -139,40 +136,43 @@ const Navigation = () => {
 
             {/* Mobile Navigation Links */}
             <div className="space-y-6">
-              <button
-                onClick={() => scrollToSection('services')}
+              <Link
+                to="/services"
+                onClick={closeMenu}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
-                <span className="text-black">Elite Services</span>
-              </button>
-              <button
-                onClick={() => scrollToSection('service-areas')}
+                <span className="text-black">Services</span>
+              </Link>
+              <Link
+                to="/service-areas"
+                onClick={closeMenu}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
                 <span className="text-black">Service Areas</span>
-              </button>
-              <button
-                onClick={() => scrollToSection('testimonials')}
+              </Link>
+              <Link
+                to="/client-reviews"
+                onClick={closeMenu}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
                 <span className="text-black">Client Reviews</span>
-              </button>
-              <button
-                onClick={() => scrollToSection('book')}
+              </Link>
+              <Link
+                to="/contact"
+                onClick={closeMenu}
                 className="block w-full text-left text-xl font-orbitron font-bold text-black hover:text-gray-700 transition-colors duration-300 py-3 border-b border-gray-200"
               >
-                <span className="text-black">Book Now</span>
-              </button>
+                <span className="text-black">Contact</span>
+              </Link>
             </div>
 
             {/* Mobile CTA */}
             <div className="pt-6">
-              <Button
-                onClick={() => scrollToSection('book')}
-                className="w-full py-4 text-lg font-bold tracking-wider uppercase bg-white text-black border border-black hover:bg-gray-100"
-              >
-                <span className="text-black">Request Quote</span>
-              </Button>
+              <Link to="/booking" onClick={closeMenu}>
+                <Button className="w-full py-4 text-lg font-bold tracking-wider uppercase bg-white text-black border border-black hover:bg-gray-100">
+                  <span className="text-black">Request Quote</span>
+                </Button>
+              </Link>
             </div>
 
             {/* Elite Badge */}

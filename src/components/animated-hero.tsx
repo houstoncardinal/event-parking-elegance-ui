@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Waves } from "@/components/ui/background";
 import { Marquee } from "@/components/ui/marquee";
 import { Pricing } from "@/components/ui/pricing-section-with-comparison";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -121,21 +122,23 @@ function Hero() {
           </div>
 
           <div className="flex flex-row gap-3">
-            <Button 
-              size="lg" 
-              className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" 
-              variant="outline"
-              onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Get Free Quote <PhoneCall className="w-4 h-4 text-white" />
-            </Button>
-            <Button 
-              size="lg" 
-              className="gap-4 bg-black text-white hover:bg-gray-900"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              View Services <MoveRight className="w-4 h-4 text-white" />
-            </Button>
+            <Link to="/booking">
+              <Button 
+                size="lg" 
+                className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" 
+                variant="outline"
+              >
+                Get Free Quote <PhoneCall className="w-4 h-4 text-white" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button 
+                size="lg" 
+                className="gap-4 bg-black text-white hover:bg-gray-900"
+              >
+                View Services <MoveRight className="w-4 h-4 text-white" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

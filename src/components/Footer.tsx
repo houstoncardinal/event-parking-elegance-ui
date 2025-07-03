@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Star, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -41,30 +42,21 @@ const Footer = () => {
 
               {/* Social Media */}
               <div className="flex space-x-4">
-                <button 
-                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group"
-                >
+                <div className="group">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Facebook className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </button>
-                <button 
-                  onClick={() => document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group"
-                >
+                </div>
+                <div className="group">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Instagram className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </button>
-                <button 
-                  onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group"
-                >
+                </div>
+                <div className="group">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group-hover:scale-110 border border-slate-600/30">
                     <Linkedin className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors duration-300" />
                   </div>
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -74,18 +66,19 @@ const Footer = () => {
             <h4 className="text-xl font-playfair font-semibold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-4">
               {[
-                { name: 'Services', action: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) },
-                { name: 'Service Areas', action: () => document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' }) },
-                { name: 'Testimonials', action: () => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) },
-                { name: 'Book Now', action: () => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' }) }
+                { name: 'Services', path: '/services' },
+                { name: 'Service Areas', path: '/service-areas' },
+                { name: 'Client Reviews', path: '/client-reviews' },
+                { name: 'Contact', path: '/contact' },
+                { name: 'Book Now', path: '/booking' }
               ].map((link) => (
                 <li key={link.name}>
-                  <button 
-                    onClick={link.action}
+                  <Link 
+                    to={link.path}
                     className="text-slate-300 hover:text-gold-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 inline-block"
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -194,24 +187,24 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex space-x-8 text-sm">
-              <button 
-                onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link 
+                to="/contact"
                 className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
               >
                 Contact Us
-              </button>
-              <button 
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              </Link>
+              <Link 
+                to="/services"
                 className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
               >
                 Our Services
-              </button>
-              <button 
-                onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' })}
+              </Link>
+              <Link 
+                to="/booking"
                 className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
               >
                 Get Quote
-              </button>
+              </Link>
             </div>
           </div>
         </div>
