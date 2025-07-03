@@ -17,11 +17,9 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Marquee variant="luxury" className="mt-0" speed={30}>
-        <div className="flex items-center gap-8 sm:gap-12">
-          <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent">
-            Houston's Premier Valet Service • Professional • Reliable • Luxury
-          </span>
-        </div>
+        <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent whitespace-nowrap">
+          Houston's Premier Valet Service • Professional • Reliable • Luxury
+        </span>
       </Marquee>
       <Pricing />
       <Services />
