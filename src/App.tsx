@@ -10,6 +10,7 @@ import ContactPage from "./pages/Contact";
 import ServiceAreasPage from "./pages/ServiceAreasPage";
 import ClientReviewsPage from "./pages/ClientReviews";
 import BookingPage from "./pages/BookingPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<ServicesPage />} />
