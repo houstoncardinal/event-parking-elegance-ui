@@ -1,87 +1,145 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Shield, Users } from 'lucide-react'
+import { Shield, Users, Clock, Award, Car, Smartphone, CheckCircle, Star } from 'lucide-react'
 
 export function Features() {
+    const features = [
+        {
+            icon: Car,
+            title: "Elite Valet Staff",
+            description: "Professionally trained, uniformed attendants with extensive experience in luxury vehicle handling and white-glove customer service.",
+            metric: "500+",
+            metricLabel: "Events Served"
+        },
+        {
+            icon: Smartphone,
+            title: "Smart Vehicle Tracking",
+            description: "Advanced real-time GPS tracking system allows guests to monitor their vehicle status and request retrieval via mobile app.",
+            metric: "30 sec",
+            metricLabel: "Avg Response"
+        },
+        {
+            icon: Shield,
+            title: "Complete Protection",
+            description: "Comprehensive $2M liability coverage, bonded staff, and state-of-the-art security protocols for absolute peace of mind.",
+            metric: "$2M",
+            metricLabel: "Coverage"
+        },
+        {
+            icon: Clock,
+            title: "24/7 Availability",
+            description: "Round-the-clock emergency response team and same-day booking capabilities for any event, any time.",
+            metric: "24/7",
+            metricLabel: "Available"
+        },
+        {
+            icon: Award,
+            title: "Premium Signage",
+            description: "Custom-designed, illuminated directional signage that enhances your event's professional appearance and guest experience.",
+            metric: "100%",
+            metricLabel: "Custom"
+        },
+        {
+            icon: Users,
+            title: "VIP Concierge",
+            description: "Dedicated concierge services for high-profile guests, including priority parking, shuttle coordination, and personal assistance.",
+            metric: "VIP",
+            metricLabel: "Service"
+        }
+    ];
+
     return (
-        <section className="relative bg-gradient-to-br from-black via-slate-900 to-black py-20 md:py-32 dark:bg-transparent">
-            <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
-                {/* Section Title */}
-                <div className="mb-14 text-center">
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-yellow-400 drop-shadow-lg">
-                        Why Choose Event Parking Services <span className="text-yellow-300">By Cardinal?</span>
+        <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24 md:py-32 overflow-hidden">
+            {/* Futuristic Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+                {/* Grid Pattern */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] [background-size:40px_40px]" />
+                
+                {/* Glowing Orbs */}
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 via-cyan-500/5 to-transparent rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-l from-purple-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}} />
+                
+                {/* Scanning Lines */}
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent animate-pulse" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent animate-pulse" style={{animationDelay: '0.5s'}} />
+            </div>
+
+            <div className="mx-auto max-w-7xl px-6 relative z-10">
+                {/* Section Header */}
+                <div className="mb-20 text-center">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-6 py-2 mb-8">
+                        <Star className="w-4 h-4 text-blue-400" />
+                        <span className="text-blue-300 font-medium text-sm tracking-wide">INDUSTRY LEADING</span>
+                    </div>
+                    
+                    <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                        <span className="block text-white mb-2">Why Choose</span>
+                        <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                            Cardinal Valet Services?
+                        </span>
                     </h2>
-                    <div className="w-24 h-1 mx-auto mt-4 mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 rounded-full"></div>
-                    <p className="text-lg text-gray-200 max-w-2xl mx-auto font-medium">
-                        Discover the premium difference: luxury valet, real-time tracking, and VIP service for every guest and every event.
+                    
+                    <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 rounded-full" />
+                    
+                    <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                        Experience the future of event parking with our cutting-edge technology, 
+                        <span className="text-cyan-400 font-medium"> elite service standards</span>, and 
+                        unwavering commitment to excellence.
                     </p>
                 </div>
-                <div className="relative z-10 grid grid-cols-6 gap-6">
-                    <Card className="relative col-span-full flex overflow-hidden lg:col-span-2 bg-black/90 border border-yellow-300/60 shadow-xl shadow-yellow-200/10 transition-transform hover:scale-105 hover:shadow-yellow-400/20 duration-300">
-                        <CardContent className="relative m-auto size-fit pt-6">
-                            <div className="relative flex h-24 w-56 items-center">
-                                {/* Gold parking icon */}
-                                <svg className="absolute left-0 top-0 w-16 h-16 text-yellow-400 drop-shadow-lg" fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="4" fill="#fff8e1" /><text x="24" y="32" textAnchor="middle" fontSize="24" fontWeight="bold" fill="#eab308">P</text></svg>
-                                <span className="mx-auto block w-fit text-5xl font-extrabold text-yellow-400 drop-shadow-lg">Valet</span>
-                            </div>
-                            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white drop-shadow-lg">Professional Attendants</h2>
-                        </CardContent>
-                    </Card>
-                    <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-black/90 border border-yellow-300/60 shadow-xl shadow-yellow-200/10 transition-transform hover:scale-105 hover:shadow-yellow-400/20 duration-300">
-                        <CardContent className="pt-6">
-                            <div className="relative mx-auto flex aspect-square size-32 rounded-full border-4 border-yellow-400 bg-yellow-50 before:absolute before:-inset-2 before:rounded-full before:border dark:border-yellow-600/40 dark:before:border-yellow-600/10">
-                                <svg className="m-auto h-fit w-24" viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="32" height="16" rx="4" fill="#fde68a" stroke="#eab308" strokeWidth="2"/><circle cx="16" cy="36" r="3" fill="#eab308"/><circle cx="32" cy="36" r="3" fill="#eab308"/><rect x="20" y="24" width="8" height="4" rx="2" fill="#eab308"/></svg>
-                            </div>
-                            <div className="relative z-10 mt-6 space-y-2 text-center">
-                                <h2 className="text-lg font-bold tracking-tight text-white drop-shadow-lg">Real-Time Vehicle Tracking</h2>
-                                <p className="text-gray-100 text-base drop-shadow">Guests can check valet status and request their car from their phone.</p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-black/90 border border-yellow-300/60 shadow-xl shadow-yellow-200/10 transition-transform hover:scale-105 hover:shadow-yellow-400/20 duration-300">
-                        <CardContent className="pt-6">
-                            <div className="pt-6 lg:px-6 flex justify-center">
-                                <Shield className="w-16 h-16 text-yellow-400 drop-shadow-lg" strokeWidth={2} />
-                            </div>
-                            <div className="relative z-10 mt-6 space-y-2 text-center">
-                                <h2 className="text-lg font-bold tracking-tight text-white drop-shadow-lg">Fully Insured & Secure</h2>
-                                <p className="text-gray-100 text-base drop-shadow">$2M liability coverage for total peace of mind at your event.</p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-black/90 border border-yellow-300/60 shadow-xl shadow-yellow-200/10 transition-transform hover:scale-105 hover:shadow-yellow-400/20 duration-300">
-                        <CardContent className="grid pt-6 sm:grid-cols-2">
-                            <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                                <div className="relative flex aspect-square size-12 rounded-full border-4 border-yellow-400 bg-yellow-50 before:absolute before:-inset-2 before:rounded-full before:border dark:border-yellow-600/40 dark:before:border-yellow-600/10">
-                                    <svg className="m-auto w-8 h-8" fill="none" viewBox="0 0 32 32"><rect x="4" y="12" width="24" height="8" rx="2" fill="#fde68a" stroke="#eab308" strokeWidth="2"/><text x="16" y="20" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#eab308">Sign</text></svg>
+
+                {/* Features Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {features.map((feature, index) => (
+                        <Card key={index} className="group relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-xl border border-slate-700/50 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                            {/* Glow Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                            
+                            <CardContent className="relative p-8">
+                                {/* Icon Section */}
+                                <div className="relative mb-6">
+                                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all duration-500 group-hover:scale-110">
+                                        <feature.icon className="w-8 h-8 text-blue-400 group-hover:text-cyan-400 transition-colors duration-500" strokeWidth={1.5} />
+                                    </div>
+                                    
+                                    {/* Metric Badge */}
+                                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                        {feature.metric}
+                                    </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <h2 className="text-lg font-bold tracking-tight text-white drop-shadow-lg">Custom Event Signage</h2>
-                                    <p className="text-gray-100 text-base drop-shadow">Branded, elegant signage to guide and impress your guests.</p>
+
+                                {/* Content */}
+                                <div className="space-y-4">
+                                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                                        {feature.title}
+                                    </h3>
+                                    
+                                    <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                                        {feature.description}
+                                    </p>
+                                    
+                                    {/* Bottom Accent */}
+                                    <div className="flex items-center justify-between pt-4 border-t border-slate-700/50 group-hover:border-blue-400/30 transition-colors duration-300">
+                                        <span className="text-xs text-slate-500 font-medium tracking-wide uppercase">
+                                            {feature.metricLabel}
+                                        </span>
+                                        <CheckCircle className="w-4 h-4 text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="text-yellow-200 font-semibold text-center drop-shadow-lg italic flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5 text-yellow-300" fill="none" viewBox="0 0 24 24"><path d="M7 17h2v-6H5v2h2v4zm8 0h2v-6h-4v2h2v4z" fill="currentColor"/></svg>
-                                “The signage made our event feel truly VIP!”
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-black/90 border border-yellow-300/60 shadow-xl shadow-yellow-200/10 transition-transform hover:scale-105 hover:shadow-yellow-400/20 duration-300">
-                        <CardContent className="grid h-full pt-6 sm:grid-cols-2">
-                            <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
-                                <div className="relative flex aspect-square size-12 rounded-full border-4 border-yellow-400 bg-yellow-50 before:absolute before:-inset-2 before:rounded-full before:border dark:border-yellow-600/40 dark:before:border-yellow-600/10">
-                                    <Users className="m-auto size-6 text-yellow-600" strokeWidth={2} />
-                                </div>
-                                <div className="space-y-2">
-                                    <h2 className="text-lg font-bold tracking-tight text-white drop-shadow-lg">VIP & Shuttle Services</h2>
-                                    <p className="text-gray-100 text-base drop-shadow">Special options for high-profile guests and large events.</p>
-                                </div>
-                            </div>
-                            <div className="text-yellow-200 font-semibold text-center drop-shadow-lg italic flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5 text-yellow-300" fill="none" viewBox="0 0 24 24"><path d="M7 17h2v-6H5v2h2v4zm8 0h2v-6h-4v2h2v4z" fill="currentColor"/></svg>
-                                “Our VIPs loved the dedicated shuttle!”
-                            </div>
-                        </CardContent>
-                    </Card>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+
+                {/* Bottom CTA Section */}
+                <div className="mt-20 text-center">
+                    <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-sm border border-blue-400/30 rounded-2xl px-8 py-4">
+                        <div className="flex -space-x-2">
+                            {[1,2,3,4,5].map((i) => (
+                                <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                            ))}
+                        </div>
+                        <span className="text-white font-medium">Trusted by 1,500+ Houston Events</span>
+                    </div>
                 </div>
             </div>
         </section>
