@@ -25,6 +25,7 @@ import ClientsOverview from "@/components/admin/ClientsOverview";
 import ClientManagement from "@/components/admin/ClientManagement";
 import ProjectManagement from "@/components/admin/ProjectManagement";
 import ProjectsOverview from "@/components/admin/ProjectsOverview";
+import TeamManagement from "@/components/admin/TeamManagement";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -71,10 +72,7 @@ const AdminDashboard = () => {
             )}
             
             {activeTab === "team" && (
-              <div className="card-vip p-8">
-                <h2 className="text-2xl font-orbitron font-bold text-vip-glow mb-6">Team Management</h2>
-                <p className="text-vip/80">Team collaboration and management features coming soon...</p>
-              </div>
+              <TeamManagement />
             )}
             
             {activeTab === "forms" && (

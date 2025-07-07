@@ -10,10 +10,12 @@ import {
 } from "lucide-react";
 import { useClients } from "@/hooks/useClients";
 import { useProjects } from "@/hooks/useProjects";
+import { useTeamMembers } from "@/hooks/useTeamMembers";
 
 const MetricsCards = () => {
   const { stats: clientStats, loading: clientsLoading } = useClients();
   const { stats: projectStats, loading: projectsLoading } = useProjects();
+  const { stats: teamStats, loading: teamLoading } = useTeamMembers();
 
   const metrics = [
     {
@@ -33,12 +35,12 @@ const MetricsCards = () => {
       description: "pending approval"
     },
     {
-      title: "Active Projects",
-      value: projectsLoading ? "..." : projectStats.activeProjects.toString(),
-      change: `+${projectStats.planningProjects}`,
+      title: "Active Team Members",
+      value: teamLoading ? "..." : teamStats.activeMembers.toString(),
+      change: `+${teamStats.onLeaveMembers}`,
       trend: "up",
-      icon: FolderOpen,
-      description: "in planning"
+      icon: Users,
+      description: "on leave"
     },
     {
       title: "Monthly Growth",
