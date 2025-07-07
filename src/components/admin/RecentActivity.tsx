@@ -73,10 +73,10 @@ const RecentActivity = () => {
   };
 
   return (
-    <Card className="card-vip p-6">
+    <Card className="bg-white border border-gray-200 shadow-lg p-6">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-orbitron font-bold text-vip-glow">Recent Activity</h3>
-        <Button variant="ghost" size="sm" className="text-vip/70 hover:text-vip">
+        <h3 className="text-lg font-orbitron font-bold text-gray-900">Recent Activity</h3>
+        <Button variant="ghost" size="sm" className="text-gray-600 hover:text-gray-900 hover:bg-gray-100">
           View All
         </Button>
       </div>
@@ -86,20 +86,20 @@ const RecentActivity = () => {
           const Icon = activity.icon;
           
           return (
-            <div key={activity.id} className="flex items-start space-x-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400/20 to-gold-600/20 border border-gold-500/30">
-                <Icon className="w-5 h-5 text-gold-400" />
+            <div key={activity.id} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-all duration-300">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-gold-100 to-gold-200 border border-gold-300">
+                <Icon className="w-5 h-5 text-gold-600" />
               </div>
               
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-1">
-                  <h4 className="text-sm font-medium text-vip truncate">{activity.title}</h4>
-                  <Button variant="ghost" size="icon" className="w-6 h-6 text-vip/50 hover:text-vip">
+                  <h4 className="text-sm font-medium text-gray-900 truncate">{activity.title}</h4>
+                  <Button variant="ghost" size="icon" className="w-6 h-6 text-gray-500 hover:text-gray-900">
                     <MoreVertical className="w-4 h-4" />
                   </Button>
                 </div>
                 
-                <p className="text-sm text-vip/70 mb-2">{activity.description}</p>
+                <p className="text-sm text-gray-600 mb-2">{activity.description}</p>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -111,7 +111,7 @@ const RecentActivity = () => {
                     )}
                   </div>
                   
-                  <div className="flex items-center space-x-1 text-xs text-vip/50">
+                  <div className="flex items-center space-x-1 text-xs text-gray-500">
                     <Clock className="w-3 h-3" />
                     <span>{activity.time}</span>
                   </div>

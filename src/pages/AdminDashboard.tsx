@@ -27,10 +27,10 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="min-h-screen bg-black text-vip font-inter">
+    <div className="min-h-screen bg-background text-foreground font-inter">
       {/* Premium background with subtle patterns */}
-      <div className="fixed inset-0 bg-gradient-to-br from-black via-vip-gray-dark to-black opacity-95"></div>
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-vip-white/5 via-transparent to-transparent"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-100/30 via-transparent to-transparent"></div>
       
       <div className="relative z-10 flex">
         <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />

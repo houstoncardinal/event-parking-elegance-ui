@@ -52,10 +52,10 @@ const MetricsCards = () => {
         const isPositive = metric.trend === "up";
         
         return (
-          <Card key={index} className="card-vip p-6 hover:scale-105 transition-all duration-300">
+          <Card key={index} className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:scale-105">
             <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400/20 to-gold-600/20 border border-gold-500/30">
-                <Icon className="w-6 h-6 text-gold-400" />
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 border border-gold-300">
+                <Icon className="w-6 h-6 text-gold-600" />
               </div>
               <Badge 
                 variant="secondary" 
@@ -71,9 +71,9 @@ const MetricsCards = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-orbitron font-bold text-vip-glow mb-1">{metric.value}</h3>
-              <p className="text-sm text-vip/80 font-medium">{metric.title}</p>
-              <p className="text-xs text-vip/60 mt-1">{metric.description}</p>
+              <h3 className="text-2xl font-orbitron font-bold text-gray-900 mb-1">{metric.value}</h3>
+              <p className="text-sm text-gray-700 font-medium">{metric.title}</p>
+              <p className="text-xs text-gray-500 mt-1">{metric.description}</p>
             </div>
           </Card>
         );

@@ -65,14 +65,14 @@ const ClientsOverview = () => {
   };
 
   return (
-    <Card className="card-vip p-8">
+    <Card className="bg-white border border-gray-200 shadow-lg p-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="text-xl font-orbitron font-bold text-vip-glow mb-2">Active Clients</h3>
-          <p className="text-vip/70">Overview of your current client portfolio</p>
+          <h3 className="text-xl font-orbitron font-bold text-gray-900 mb-2">Active Clients</h3>
+          <p className="text-gray-600">Overview of your current client portfolio</p>
         </div>
         
-        <Button className="btn-vip">
+        <Button className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white shadow-lg">
           <Plus className="w-4 h-4 mr-2" />
           Add Client
         </Button>
@@ -80,66 +80,66 @@ const ClientsOverview = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {clients.map((client) => (
-          <div key={client.id} className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div key={client.id} className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-all duration-300 shadow-sm hover:shadow-md">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400/20 to-gold-600/20 border border-gold-500/30">
-                  <Building className="w-6 h-6 text-gold-400" />
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 border border-gold-300">
+                  <Building className="w-6 h-6 text-gold-600" />
                 </div>
                 
                 <div>
-                  <h4 className="text-lg font-orbitron font-semibold text-vip-glow">{client.name}</h4>
-                  <div className="flex items-center space-x-1 text-sm text-vip/70 mt-1">
+                  <h4 className="text-lg font-orbitron font-semibold text-gray-900">{client.name}</h4>
+                  <div className="flex items-center space-x-1 text-sm text-gray-600 mt-1">
                     <MapPin className="w-3 h-3" />
                     <span>{client.location}</span>
                   </div>
                 </div>
               </div>
               
-              <Button variant="ghost" size="icon" className="w-8 h-8 text-vip/50 hover:text-vip">
+              <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-500 hover:text-gray-900">
                 <MoreVertical className="w-4 h-4" />
               </Button>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-vip/70">Monthly Value</span>
-                <span className="text-lg font-semibold text-gold-400">{client.monthlyValue}</span>
+                <span className="text-sm text-gray-600">Monthly Value</span>
+                <span className="text-lg font-semibold text-gold-600">{client.monthlyValue}</span>
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-sm text-vip/70">Status</span>
+                <span className="text-sm text-gray-600">Status</span>
                 <Badge variant="secondary" className={getStatusColor(client.status)}>
                   {client.status}
                 </Badge>
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-sm text-vip/70">Rating</span>
+                <span className="text-sm text-gray-600">Rating</span>
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className={`w-3 h-3 ${i < client.rating ? 'text-yellow-400 fill-current' : 'text-vip/30'}`} 
+                      className={`w-3 h-3 ${i < client.rating ? 'text-yellow-500 fill-current' : 'text-gray-300'}`} 
                     />
                   ))}
                 </div>
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-sm text-vip/70">Next Service</span>
-                <div className="flex items-center space-x-1 text-sm text-vip">
+                <span className="text-sm text-gray-600">Next Service</span>
+                <div className="flex items-center space-x-1 text-sm text-gray-900">
                   <Calendar className="w-3 h-3" />
                   <span>{client.nextService}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/10">
-              <p className="text-xs text-vip/60 mb-2">Services</p>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs text-gray-500 mb-2">Services</p>
               <div className="flex flex-wrap gap-2">
                 {client.services.map((service, index) => (
-                  <Badge key={index} variant="secondary" className="bg-white/10 text-vip/80 border-white/20 text-xs">
+                  <Badge key={index} variant="secondary" className="bg-gray-200 text-gray-700 border-gray-300 text-xs">
                     {service}
                   </Badge>
                 ))}

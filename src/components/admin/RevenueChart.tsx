@@ -16,11 +16,11 @@ const RevenueChart = () => {
   const maxRevenue = Math.max(...data.map(d => d.revenue));
 
   return (
-    <Card className="card-vip p-8">
+    <Card className="bg-white border border-gray-200 shadow-lg p-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="text-xl font-orbitron font-bold text-vip-glow mb-2">Revenue Overview</h3>
-          <p className="text-vip/70">Monthly revenue and project tracking</p>
+          <h3 className="text-xl font-orbitron font-bold text-gray-900 mb-2">Revenue Overview</h3>
+          <p className="text-gray-600">Monthly revenue and project tracking</p>
         </div>
         
         <div className="flex items-center space-x-3">
@@ -28,11 +28,11 @@ const RevenueChart = () => {
             <TrendingUp className="w-3 h-3 mr-1" />
             +12.5%
           </Badge>
-          <Button variant="outline" size="sm" className="border-white/20 text-vip/80 hover:text-vip">
+          <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:text-gray-900 hover:bg-gray-50">
             <Calendar className="w-4 h-4 mr-2" />
             Last 6 months
           </Button>
-          <Button variant="outline" size="sm" className="border-white/20 text-vip/80 hover:text-vip">
+          <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:text-gray-900 hover:bg-gray-50">
             <Download className="w-4 h-4 mr-2" />
             Export
           </Button>
@@ -54,7 +54,7 @@ const RevenueChart = () => {
                       style={{ height: `${height}%` }}
                     >
                       <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <span className="text-xs font-medium text-vip bg-black/80 px-2 py-1 rounded">
+                        <span className="text-xs font-medium text-gray-900 bg-white shadow-md border border-gray-200 px-2 py-1 rounded">
                           ${(item.revenue / 1000).toFixed(0)}k
                         </span>
                       </div>
@@ -63,29 +63,29 @@ const RevenueChart = () => {
                 </div>
                 
                 <div className="mt-4 text-center">
-                  <p className="text-sm font-medium text-vip">{item.month}</p>
-                  <p className="text-xs text-vip/60">{item.projects} projects</p>
+                  <p className="text-sm font-medium text-gray-900">{item.month}</p>
+                  <p className="text-xs text-gray-600">{item.projects} projects</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="flex items-center justify-between pt-6 border-t border-white/10">
+        <div className="flex items-center justify-between pt-6 border-t border-gray-200">
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-gradient-to-r from-gold-600 to-gold-400"></div>
-              <span className="text-sm text-vip/80">Revenue</span>
+              <span className="text-sm text-gray-600">Revenue</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-white/20"></div>
-              <span className="text-sm text-vip/80">Projects</span>
+              <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+              <span className="text-sm text-gray-600">Projects</span>
             </div>
           </div>
           
           <div className="text-right">
-            <p className="text-sm text-vip/60">Average monthly revenue</p>
-            <p className="text-lg font-orbitron font-bold text-vip-glow">$54,667</p>
+            <p className="text-sm text-gray-600">Average monthly revenue</p>
+            <p className="text-lg font-orbitron font-bold text-gray-900">$54,667</p>
           </div>
         </div>
       </div>
