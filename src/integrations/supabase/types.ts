@@ -151,6 +151,87 @@ export type Database = {
           },
         ]
       }
+      team_members: {
+        Row: {
+          address: string | null
+          certifications: string[] | null
+          created_at: string
+          date_of_birth: string | null
+          department: string | null
+          email: string | null
+          emergency_contact_name: string | null
+          emergency_contact_phone: string | null
+          employee_id: string
+          employment_status: string
+          employment_type: string
+          first_name: string
+          hire_date: string | null
+          hourly_rate: number | null
+          id: string
+          last_name: string
+          location: string | null
+          notes: string | null
+          phone: string | null
+          position: string
+          salary: number | null
+          skills: string[] | null
+          termination_date: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          certifications?: string[] | null
+          created_at?: string
+          date_of_birth?: string | null
+          department?: string | null
+          email?: string | null
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
+          employee_id: string
+          employment_status?: string
+          employment_type?: string
+          first_name: string
+          hire_date?: string | null
+          hourly_rate?: number | null
+          id?: string
+          last_name: string
+          location?: string | null
+          notes?: string | null
+          phone?: string | null
+          position: string
+          salary?: number | null
+          skills?: string[] | null
+          termination_date?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          certifications?: string[] | null
+          created_at?: string
+          date_of_birth?: string | null
+          department?: string | null
+          email?: string | null
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
+          employee_id?: string
+          employment_status?: string
+          employment_type?: string
+          first_name?: string
+          hire_date?: string | null
+          hourly_rate?: number | null
+          id?: string
+          last_name?: string
+          location?: string | null
+          notes?: string | null
+          phone?: string | null
+          position?: string
+          salary?: number | null
+          skills?: string[] | null
+          termination_date?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
