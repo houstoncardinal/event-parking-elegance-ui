@@ -167,73 +167,77 @@ const TeamManagement = () => {
 
   return (
     <div className="space-y-6">
-      <div className="card-vip p-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-          <div>
-            <h2 className="text-2xl font-orbitron font-bold text-vip-glow">Team Management</h2>
-            <p className="text-vip/80">Manage your team members and staff</p>
+      <Card className="bg-white border border-gray-200 shadow-lg">
+        <div className="p-6 border-b border-gray-200">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <h2 className="text-2xl font-orbitron font-bold text-gray-900">Team Management</h2>
+              <p className="text-gray-600">Manage your team members and staff</p>
+            </div>
+            <Button
+              onClick={() => setIsFormOpen(true)}
+              className="bg-gradient-to-r from-gold-400 to-gold-600 text-black font-medium hover:from-gold-500 hover:to-gold-700"
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Add Team Member
+            </Button>
           </div>
-          <Button
-            onClick={() => setIsFormOpen(true)}
-            className="bg-gradient-to-r from-gold-400 to-gold-600 text-black font-medium hover:from-gold-500 hover:to-gold-700"
-          >
-            <Plus className="w-4 h-4 mr-2" />
-            Add Team Member
-          </Button>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-vip/60" />
-            <Input
-              placeholder="Search team members..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-white/5 border-vip/20 text-vip placeholder:text-vip/60"
-            />
+        <div className="p-6">
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Input
+                placeholder="Search team members..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 bg-white border-gray-300 text-gray-900 placeholder:text-gray-500"
+              />
+            </div>
+            
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900"
+            >
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="on_leave">On Leave</option>
+              <option value="terminated">Terminated</option>
+            </select>
+
+            <select
+              value={departmentFilter}
+              onChange={(e) => setDepartmentFilter(e.target.value)}
+              className="px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900"
+            >
+              <option value="all">All Departments</option>
+              {departments.map(dept => (
+                <option key={dept} value={dept}>{dept}</option>
+              ))}
+            </select>
           </div>
-          
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 bg-white/5 border border-vip/20 rounded-md text-vip"
-          >
-            <option value="all">All Statuses</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-            <option value="on_leave">On Leave</option>
-            <option value="terminated">Terminated</option>
-          </select>
 
-          <select
-            value={departmentFilter}
-            onChange={(e) => setDepartmentFilter(e.target.value)}
-            className="px-3 py-2 bg-white/5 border border-vip/20 rounded-md text-vip"
-          >
-            <option value="all">All Departments</option>
-            {departments.map(dept => (
-              <option key={dept} value={dept}>{dept}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredMembers.map((member) => (
-            <Card key={member.id} className="p-4 bg-white/5 border-vip/20 hover:bg-white/10 transition-colors">
-              <div className="flex justify-between items-start mb-3">
-                <div className="flex-1">
-                  <h3 className="font-semibold text-vip text-lg">
-                    {member.first_name} {member.last_name}
-                  </h3>
-                  <p className="text-vip/70 text-sm">{member.position}</p>
-                </div>
-                
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="text-vip/70 hover:text-vip">
-                      <MoreHorizontal className="w-4 h-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredMembers.map((member) => (
+              <Card key={member.id} className="bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 text-lg">
+                        {member.first_name} {member.last_name}
+                      </h3>
+                      <p className="text-gray-600 text-sm">{member.position}</p>
+                    </div>
+                    
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700">
+                          <MoreHorizontal className="w-4 h-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuItem onClick={() => handleView(member)}>
                       <Eye className="w-4 h-4 mr-2" />
@@ -254,46 +258,48 @@ const TeamManagement = () => {
                 </DropdownMenu>
               </div>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center text-sm text-vip/70">
-                  <Briefcase className="w-4 h-4 mr-2" />
-                  {member.department}
-                </div>
-                <div className="flex items-center text-sm text-vip/70">
-                  <Mail className="w-4 h-4 mr-2" />
-                  {member.email}
-                </div>
-                {member.phone && (
-                  <div className="flex items-center text-sm text-vip/70">
-                    <Phone className="w-4 h-4 mr-2" />
-                    {member.phone}
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Briefcase className="w-4 h-4 mr-2" />
+                      {member.department}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Mail className="w-4 h-4 mr-2" />
+                      {member.email}
+                    </div>
+                    {member.phone && (
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Phone className="w-4 h-4 mr-2" />
+                        {member.phone}
+                      </div>
+                    )}
+                    <div className="flex items-center text-sm text-gray-600">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      {member.location}
+                    </div>
                   </div>
-                )}
-                <div className="flex items-center text-sm text-vip/70">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  {member.location}
+
+                  <div className="flex justify-between items-center">
+                    <Badge className={getStatusBadge(member.employment_status)}>
+                      {member.employment_status.replace('_', ' ').toUpperCase()}
+                    </Badge>
+                    <span className="text-xs text-gray-500">
+                      ID: {member.employee_id}
+                    </span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <Badge className={getStatusBadge(member.employment_status)}>
-                  {member.employment_status.replace('_', ' ').toUpperCase()}
-                </Badge>
-                <span className="text-xs text-vip/60">
-                  ID: {member.employee_id}
-                </span>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        {filteredMembers.length === 0 && (
-          <div className="text-center py-12">
-            <Users className="w-12 h-12 text-vip/40 mx-auto mb-4" />
-            <p className="text-vip/70">No team members found</p>
+              </Card>
+            ))}
           </div>
-        )}
-      </div>
+
+          {filteredMembers.length === 0 && (
+            <div className="text-center py-12">
+              <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+              <p className="text-gray-600">No team members found</p>
+            </div>
+          )}
+        </div>
+      </Card>
 
       <TeamFormDialog
         isOpen={isFormOpen}
