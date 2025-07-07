@@ -165,9 +165,9 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-dark border-vip/20">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-gray-200">
         <DialogHeader>
-          <DialogTitle className="text-vip-glow font-orbitron">
+          <DialogTitle className="text-gray-900 font-orbitron text-xl">
             {member ? 'Edit Team Member' : 'Add New Team Member'}
           </DialogTitle>
         </DialogHeader>
@@ -175,23 +175,23 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="employee_id" className="text-vip">Employee ID</Label>
+              <Label htmlFor="employee_id" className="text-gray-700">Employee ID</Label>
               <Input
                 id="employee_id"
                 value={formData.employee_id}
                 onChange={(e) => setFormData({...formData, employee_id: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="bg-white border-gray-300 text-gray-900"
                 placeholder="EMP001"
               />
             </div>
 
             <div>
-              <Label htmlFor="employment_status" className="text-vip">Employment Status</Label>
+              <Label htmlFor="employment_status" className="text-gray-700">Employment Status</Label>
               <select
                 id="employment_status"
                 value={formData.employment_status}
                 onChange={(e) => setFormData({...formData, employment_status: e.target.value})}
-                className="w-full px-3 py-2 bg-white/5 border border-vip/20 rounded-md text-vip"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900"
               >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -201,12 +201,12 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
             </div>
 
             <div>
-              <Label htmlFor="first_name" className="text-vip">First Name *</Label>
+              <Label htmlFor="first_name" className="text-gray-700">First Name *</Label>
               <Input
                 id="first_name"
                 value={formData.first_name}
                 onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="bg-white border-gray-300 text-gray-900"
                 required
               />
             </div>

@@ -21,6 +21,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import TeamFormDialog from "./TeamFormDialog";
 import TeamDetailsDialog from "./TeamDetailsDialog";
+import TeamScheduleDialog from "./TeamScheduleDialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -57,6 +58,7 @@ const TeamManagement = () => {
   const [departmentFilter, setDepartmentFilter] = useState("all");
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
 
@@ -133,6 +135,11 @@ const TeamManagement = () => {
   const handleView = (member: TeamMember) => {
     setSelectedMember(member);
     setIsDetailsOpen(true);
+  };
+
+  const handleSchedule = (member: TeamMember) => {
+    setSelectedMember(member);
+    setIsScheduleOpen(true);
   };
 
   const handleFormClose = () => {
@@ -239,10 +246,14 @@ const TeamManagement = () => {
                         </Button>
                       </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuItem onClick={() => handleView(member)}>
-                      <Eye className="w-4 h-4 mr-2" />
-                      View Details
-                    </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleView(member)}>
+                          <Eye className="w-4 h-4 mr-2" />
+                          View Details
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleSchedule(member)}>
+                          <Calendar className="w-4 h-4 mr-2" />
+                          Schedule & Time
+                        </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => handleEdit(member)}>
                       <Edit className="w-4 h-4 mr-2" />
                       Edit
@@ -310,6 +321,12 @@ const TeamManagement = () => {
       <TeamDetailsDialog
         isOpen={isDetailsOpen}
         onClose={() => setIsDetailsOpen(false)}
+        member={selectedMember}
+      />
+
+      <TeamScheduleDialog
+        isOpen={isScheduleOpen}
+        onClose={() => setIsScheduleOpen(false)}
         member={selectedMember}
       />
     </div>
