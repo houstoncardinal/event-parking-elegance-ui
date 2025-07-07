@@ -22,6 +22,7 @@ import MetricsCards from "@/components/admin/MetricsCards";
 import RevenueChart from "@/components/admin/RevenueChart";
 import RecentActivity from "@/components/admin/RecentActivity";
 import ClientsOverview from "@/components/admin/ClientsOverview";
+import ClientManagement from "@/components/admin/ClientManagement";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -57,10 +58,7 @@ const AdminDashboard = () => {
             )}
             
             {activeTab === "clients" && (
-              <div className="card-vip p-8">
-                <h2 className="text-2xl font-orbitron font-bold text-vip-glow mb-6">Client Management</h2>
-                <p className="text-vip/80">Advanced client management interface coming soon...</p>
-              </div>
+              <ClientManagement />
             )}
             
             {activeTab === "projects" && (

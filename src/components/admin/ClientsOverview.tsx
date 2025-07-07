@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,50 +11,44 @@ import {
   MoreVertical,
   Plus
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+
+interface Client {
+  id: string;
+  name: string;
+  location: string;
+  monthly_value: number;
+  status: string;
+  rating: number;
+  next_service: string;
+  services: string[];
+}
 
 const ClientsOverview = () => {
-  const clients = [
-    {
-      id: 1,
-      name: "Downtown Plaza",
-      location: "Downtown District",
-      monthlyValue: "$2,500",
-      status: "active",
-      rating: 5,
-      nextService: "Dec 28, 2024",
-      services: ["Valet Parking", "Security"]
-    },
-    {
-      id: 2,
-      name: "Metro Shopping Center",
-      location: "Westside",
-      monthlyValue: "$3,200",
-      status: "active",
-      rating: 5,
-      nextService: "Dec 30, 2024",
-      services: ["Event Parking", "Traffic Management"]
-    },
-    {
-      id: 3,
-      name: "City Center Complex",
-      location: "Central Business District",
-      monthlyValue: "$1,800",
-      status: "pending",
-      rating: 4,
-      nextService: "Jan 2, 2025",
-      services: ["Valet Parking"]
-    },
-    {
-      id: 4,
-      name: "Riverside Mall",
-      location: "East Side",
-      monthlyValue: "$2,100",
-      status: "active",
-      rating: 5,
-      nextService: "Jan 5, 2025",
-      services: ["Security", "Traffic Management"]
+  const [clients, setClients] = useState<Client[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchClients = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('clients')
+        .select('*')
+        .eq('status', 'active')
+        .order('monthly_value', { ascending: false })
+        .limit(4);
+
+      if (error) throw error;
+      setClients(data || []);
+    } catch (error) {
+      console.error('Error fetching clients:', error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  useEffect(() => {
+    fetchClients();
+  }, []);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -78,7 +73,12 @@ const ClientsOverview = () => {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {loading ? (
+        <div className="text-center py-8">
+          <p className="text-gray-600">Loading clients...</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {clients.map((client) => (
           <div key={client.id} className="p-6 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-all duration-300 shadow-sm hover:shadow-md">
             <div className="flex items-start justify-between mb-4">
@@ -104,7 +104,7 @@ const ClientsOverview = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Monthly Value</span>
-                <span className="text-lg font-semibold text-gold-600">{client.monthlyValue}</span>
+                <span className="text-lg font-semibold text-gold-600">${client.monthly_value?.toLocaleString()}</span>
               </div>
               
               <div className="flex items-center justify-between">
@@ -130,7 +130,7 @@ const ClientsOverview = () => {
                 <span className="text-sm text-gray-600">Next Service</span>
                 <div className="flex items-center space-x-1 text-sm text-gray-900">
                   <Calendar className="w-3 h-3" />
-                  <span>{client.nextService}</span>
+                  <span>{client.next_service ? new Date(client.next_service).toLocaleDateString() : 'Not scheduled'}</span>
                 </div>
               </div>
             </div>
@@ -147,7 +147,8 @@ const ClientsOverview = () => {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+      )}
     </Card>
   );
 };

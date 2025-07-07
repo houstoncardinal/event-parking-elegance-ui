@@ -8,32 +8,35 @@ import {
   ArrowUp,
   ArrowDown
 } from "lucide-react";
+import { useClients } from "@/hooks/useClients";
 
 const MetricsCards = () => {
+  const { stats, loading } = useClients();
+
   const metrics = [
     {
       title: "Total Revenue",
-      value: "$124,750",
+      value: loading ? "Loading..." : `$${stats.totalMonthlyRevenue.toLocaleString()}`,
       change: "+12.5%",
       trend: "up",
       icon: DollarSign,
-      description: "vs last month"
+      description: "monthly recurring"
     },
     {
       title: "Active Clients",
-      value: "42",
-      change: "+8",
+      value: loading ? "..." : stats.activeClients.toString(),
+      change: `+${stats.pendingClients}`,
       trend: "up",
       icon: Users,
-      description: "new this month"
+      description: "pending approval"
     },
     {
-      title: "Active Projects",
-      value: "18",
+      title: "Total Clients",
+      value: loading ? "..." : stats.totalClients.toString(),
       change: "+3",
       trend: "up",
       icon: FolderOpen,
-      description: "in progress"
+      description: "all clients"
     },
     {
       title: "Monthly Growth",
