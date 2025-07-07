@@ -74,6 +74,83 @@ export type Database = {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          attachments: Json | null
+          client_id: string | null
+          client_name: string | null
+          created_at: string
+          description: string | null
+          end_date: string | null
+          estimated_completion: string | null
+          id: string
+          location: string | null
+          name: string
+          notes: string | null
+          priority: string | null
+          progress: number | null
+          project_type: string | null
+          project_value: number | null
+          services_required: string[] | null
+          start_date: string | null
+          status: string | null
+          team_members: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          attachments?: Json | null
+          client_id?: string | null
+          client_name?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          estimated_completion?: string | null
+          id?: string
+          location?: string | null
+          name: string
+          notes?: string | null
+          priority?: string | null
+          progress?: number | null
+          project_type?: string | null
+          project_value?: number | null
+          services_required?: string[] | null
+          start_date?: string | null
+          status?: string | null
+          team_members?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          attachments?: Json | null
+          client_id?: string | null
+          client_name?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          estimated_completion?: string | null
+          id?: string
+          location?: string | null
+          name?: string
+          notes?: string | null
+          priority?: string | null
+          progress?: number | null
+          project_type?: string | null
+          project_value?: number | null
+          services_required?: string[] | null
+          start_date?: string | null
+          status?: string | null
+          team_members?: string[] | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "projects_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

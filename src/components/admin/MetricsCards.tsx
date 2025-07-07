@@ -9,14 +9,16 @@ import {
   ArrowDown
 } from "lucide-react";
 import { useClients } from "@/hooks/useClients";
+import { useProjects } from "@/hooks/useProjects";
 
 const MetricsCards = () => {
-  const { stats, loading } = useClients();
+  const { stats: clientStats, loading: clientsLoading } = useClients();
+  const { stats: projectStats, loading: projectsLoading } = useProjects();
 
   const metrics = [
     {
       title: "Total Revenue",
-      value: loading ? "Loading..." : `$${stats.totalMonthlyRevenue.toLocaleString()}`,
+      value: clientsLoading ? "Loading..." : `$${clientStats.totalMonthlyRevenue.toLocaleString()}`,
       change: "+12.5%",
       trend: "up",
       icon: DollarSign,
@@ -24,19 +26,19 @@ const MetricsCards = () => {
     },
     {
       title: "Active Clients",
-      value: loading ? "..." : stats.activeClients.toString(),
-      change: `+${stats.pendingClients}`,
+      value: clientsLoading ? "..." : clientStats.activeClients.toString(),
+      change: `+${clientStats.pendingClients}`,
       trend: "up",
       icon: Users,
       description: "pending approval"
     },
     {
-      title: "Total Clients",
-      value: loading ? "..." : stats.totalClients.toString(),
-      change: "+3",
+      title: "Active Projects",
+      value: projectsLoading ? "..." : projectStats.activeProjects.toString(),
+      change: `+${projectStats.planningProjects}`,
       trend: "up",
       icon: FolderOpen,
-      description: "all clients"
+      description: "in planning"
     },
     {
       title: "Monthly Growth",
