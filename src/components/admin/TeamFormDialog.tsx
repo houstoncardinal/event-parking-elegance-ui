@@ -173,25 +173,25 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <Label htmlFor="employee_id" className="text-gray-700">Employee ID</Label>
+              <Label htmlFor="employee_id" className="text-gray-700 font-medium">Employee ID</Label>
               <Input
                 id="employee_id"
                 value={formData.employee_id}
                 onChange={(e) => setFormData({...formData, employee_id: e.target.value})}
-                className="bg-white border-gray-300 text-gray-900"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
                 placeholder="EMP001"
               />
             </div>
 
             <div>
-              <Label htmlFor="employment_status" className="text-gray-700">Employment Status</Label>
+              <Label htmlFor="employment_status" className="text-gray-700 font-medium">Employment Status</Label>
               <select
                 id="employment_status"
                 value={formData.employment_status}
                 onChange={(e) => setFormData({...formData, employment_status: e.target.value})}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900"
+                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -201,76 +201,80 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
             </div>
 
             <div>
-              <Label htmlFor="first_name" className="text-gray-700">First Name *</Label>
+              <Label htmlFor="first_name" className="text-gray-700 font-medium">First Name *</Label>
               <Input
                 id="first_name"
                 value={formData.first_name}
                 onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-                className="bg-white border-gray-300 text-gray-900"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
                 required
               />
             </div>
 
             <div>
-              <Label htmlFor="last_name" className="text-vip">Last Name *</Label>
+              <Label htmlFor="last_name" className="text-gray-700 font-medium">Last Name *</Label>
               <Input
                 id="last_name"
                 value={formData.last_name}
                 onChange={(e) => setFormData({...formData, last_name: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
                 required
               />
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-vip">Email</Label>
+              <Label htmlFor="email" className="text-gray-700 font-medium">Email Address</Label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="john.doe@company.com"
               />
             </div>
 
             <div>
-              <Label htmlFor="phone" className="text-vip">Phone</Label>
+              <Label htmlFor="phone" className="text-gray-700 font-medium">Phone Number</Label>
               <Input
                 id="phone"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="(555) 123-4567"
               />
             </div>
 
             <div>
-              <Label htmlFor="position" className="text-vip">Position *</Label>
+              <Label htmlFor="position" className="text-gray-700 font-medium">Position *</Label>
               <Input
                 id="position"
                 value={formData.position}
                 onChange={(e) => setFormData({...formData, position: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="Operations Manager"
                 required
               />
             </div>
 
             <div>
-              <Label htmlFor="department" className="text-vip">Department</Label>
+              <Label htmlFor="department" className="text-gray-700 font-medium">Department</Label>
               <Input
                 id="department"
                 value={formData.department}
                 onChange={(e) => setFormData({...formData, department: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="Operations"
               />
             </div>
 
             <div>
-              <Label htmlFor="employment_type" className="text-vip">Employment Type</Label>
+              <Label htmlFor="employment_type" className="text-gray-700 font-medium">Employment Type</Label>
               <select
                 id="employment_type"
                 value={formData.employment_type}
                 onChange={(e) => setFormData({...formData, employment_type: e.target.value})}
-                className="w-full px-3 py-2 bg-white/5 border border-vip/20 rounded-md text-vip"
+                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               >
                 <option value="full_time">Full Time</option>
                 <option value="part_time">Part Time</option>
@@ -280,142 +284,147 @@ const TeamFormDialog = ({ isOpen, onClose, member }: TeamFormDialogProps) => {
             </div>
 
             <div>
-              <Label htmlFor="location" className="text-vip">Location</Label>
+              <Label htmlFor="location" className="text-gray-700 font-medium">Work Location</Label>
               <Input
                 id="location"
                 value={formData.location}
                 onChange={(e) => setFormData({...formData, location: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="Downtown Office"
               />
             </div>
 
             <div>
-              <Label htmlFor="hire_date" className="text-vip">Hire Date</Label>
+              <Label htmlFor="hire_date" className="text-gray-700 font-medium">Hire Date</Label>
               <Input
                 id="hire_date"
                 type="date"
                 value={formData.hire_date}
                 onChange={(e) => setFormData({...formData, hire_date: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               />
             </div>
 
             <div>
-              <Label htmlFor="date_of_birth" className="text-vip">Date of Birth</Label>
+              <Label htmlFor="date_of_birth" className="text-gray-700 font-medium">Date of Birth</Label>
               <Input
                 id="date_of_birth"
                 type="date"
                 value={formData.date_of_birth}
                 onChange={(e) => setFormData({...formData, date_of_birth: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               />
             </div>
 
             <div>
-              <Label htmlFor="salary" className="text-vip">Salary</Label>
+              <Label htmlFor="salary" className="text-gray-700 font-medium">Annual Salary</Label>
               <Input
                 id="salary"
                 type="number"
                 step="0.01"
                 value={formData.salary}
                 onChange={(e) => setFormData({...formData, salary: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
                 placeholder="75000.00"
               />
             </div>
 
             <div>
-              <Label htmlFor="hourly_rate" className="text-vip">Hourly Rate</Label>
+              <Label htmlFor="hourly_rate" className="text-gray-700 font-medium">Hourly Rate</Label>
               <Input
                 id="hourly_rate"
                 type="number"
                 step="0.01"
                 value={formData.hourly_rate}
                 onChange={(e) => setFormData({...formData, hourly_rate: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
                 placeholder="25.50"
               />
             </div>
 
             <div>
-              <Label htmlFor="emergency_contact_name" className="text-vip">Emergency Contact Name</Label>
+              <Label htmlFor="emergency_contact_name" className="text-gray-700 font-medium">Emergency Contact Name</Label>
               <Input
                 id="emergency_contact_name"
                 value={formData.emergency_contact_name}
                 onChange={(e) => setFormData({...formData, emergency_contact_name: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="Jane Doe"
               />
             </div>
 
             <div>
-              <Label htmlFor="emergency_contact_phone" className="text-vip">Emergency Contact Phone</Label>
+              <Label htmlFor="emergency_contact_phone" className="text-gray-700 font-medium">Emergency Contact Phone</Label>
               <Input
                 id="emergency_contact_phone"
                 value={formData.emergency_contact_phone}
                 onChange={(e) => setFormData({...formData, emergency_contact_phone: e.target.value})}
-                className="bg-white/5 border-vip/20 text-vip"
+                className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+                placeholder="(555) 987-6543"
               />
             </div>
           </div>
 
           <div>
-            <Label htmlFor="address" className="text-vip">Address</Label>
+            <Label htmlFor="address" className="text-gray-700 font-medium">Home Address</Label>
             <Input
               id="address"
               value={formData.address}
               onChange={(e) => setFormData({...formData, address: e.target.value})}
-              className="bg-white/5 border-vip/20 text-vip"
+              className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
+              placeholder="123 Main St, City, State 12345"
             />
           </div>
 
           <div>
-            <Label htmlFor="skills" className="text-vip">Skills (comma-separated)</Label>
+            <Label htmlFor="skills" className="text-gray-700 font-medium">Skills (comma-separated)</Label>
             <Input
               id="skills"
               value={formData.skills}
               onChange={(e) => setFormData({...formData, skills: e.target.value})}
-              className="bg-white/5 border-vip/20 text-vip"
+              className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               placeholder="Team Leadership, Project Management, Customer Service"
             />
           </div>
 
           <div>
-            <Label htmlFor="certifications" className="text-vip">Certifications (comma-separated)</Label>
+            <Label htmlFor="certifications" className="text-gray-700 font-medium">Certifications (comma-separated)</Label>
             <Input
               id="certifications"
               value={formData.certifications}
               onChange={(e) => setFormData({...formData, certifications: e.target.value})}
-              className="bg-white/5 border-vip/20 text-vip"
+              className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               placeholder="PMP Certified, Safety Training"
             />
           </div>
 
           <div>
-            <Label htmlFor="notes" className="text-vip">Notes</Label>
+            <Label htmlFor="notes" className="text-gray-700 font-medium">Additional Notes</Label>
             <Textarea
               id="notes"
               value={formData.notes}
               onChange={(e) => setFormData({...formData, notes: e.target.value})}
-              className="bg-white/5 border-vip/20 text-vip"
+              className="mt-1 bg-white border-gray-300 text-gray-900 focus:border-gold-400 focus:ring-gold-400"
               rows={3}
+              placeholder="Any additional information about this team member..."
             />
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4">
+          <div className="flex justify-end space-x-3 pt-6 border-t border-gray-200">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className="border-vip/20 text-vip hover:bg-vip/10"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={loading}
-              className="bg-gradient-to-r from-gold-400 to-gold-600 text-black font-medium hover:from-gold-500 hover:to-gold-700"
+              className="bg-gradient-to-r from-gold-400 to-gold-600 text-black font-medium hover:from-gold-500 hover:to-gold-700 disabled:opacity-50"
             >
-              {loading ? 'Saving...' : member ? 'Update Member' : 'Add Member'}
+              {loading ? 'Saving...' : member ? 'Update Team Member' : 'Add Team Member'}
             </Button>
           </div>
         </form>
