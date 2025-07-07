@@ -6,14 +6,9 @@ import { Waves } from "@/components/ui/background";
 import { Marquee } from "@/components/ui/marquee";
 import { Pricing } from "@/components/ui/pricing-section-with-comparison";
 import { Link } from "react-router-dom";
-
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["Weddings", "Corporate Events", "Private Parties", "Galas", "Conferences"],
-    []
-  );
-
+  const titles = useMemo(() => ["Weddings", "Corporate Events", "Private Parties", "Galas", "Conferences"], []);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -24,60 +19,40 @@ function Hero() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-
-  return (
-    <div className="relative w-full bg-white overflow-hidden">
+  return <div className="relative w-full bg-white overflow-hidden">
       {/* Animated Waves Background */}
       <div className="absolute inset-0 z-0">
-        <Waves
-          lineColor="rgba(0,0,0,0.10)"
-          backgroundColor="#fff"
-          waveSpeedX={0.02}
-          waveSpeedY={0.01}
-          waveAmpX={40}
-          waveAmpY={20}
-          friction={0.9}
-          tension={0.01}
-          maxCursorMove={120}
-          xGap={12}
-          yGap={36}
-        />
+        <Waves lineColor="rgba(0,0,0,0.10)" backgroundColor="#fff" waveSpeedX={0.02} waveSpeedY={0.01} waveAmpX={40} waveAmpY={20} friction={0.9} tension={0.01} maxCursorMove={120} xGap={12} yGap={36} />
       </div>
       {/* Hero content */}
       <div className="relative z-10 container mx-auto">
         <div className="flex gap-8 pt-32 pb-0 lg:pt-40 lg:pb-0 items-center justify-center flex-col mb-12">
           <div>
-            <Button variant="secondary" size="sm" className="gap-4 bg-white text-black border border-black hover:bg-gray-100">
+            <Button variant="secondary" size="sm" className="gap-4 bg-white text-black border border-black hover:bg-gray-100 py-0 my-[50px]">
               <Star className="w-4 h-4 text-black" />
               Event Parking Services By Cardinal <MoveRight className="w-4 h-4 text-black" />
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
-              <span className="text-black font-bold">Professional Valet Parking for</span>
+              <span className="text-black font-bold my-0">Professional Valet Parking for</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute font-semibold text-yellow-600"
-                    initial={{ opacity: 0, y: "-100" }}
-                    transition={{ type: "spring", stiffness: 50 }}
-                    animate={
-                      titleNumber === index
-                        ? {
-                            y: 0,
-                            opacity: 1,
-                          }
-                        : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
-                    }
-                  >
+                {titles.map((title, index) => <motion.span key={index} className="absolute font-semibold text-yellow-600" initial={{
+                opacity: 0,
+                y: "-100"
+              }} transition={{
+                type: "spring",
+                stiffness: 50
+              }} animate={titleNumber === index ? {
+                y: 0,
+                opacity: 1
+              } : {
+                y: titleNumber > index ? -150 : 150,
+                opacity: 0
+              }}>
                     {title}
-                  </motion.span>
-                ))}
+                  </motion.span>)}
               </span>
             </h1>
 
@@ -123,27 +98,18 @@ function Hero() {
 
           <div className="flex flex-row gap-3">
             <Link to="/booking">
-              <Button 
-                size="lg" 
-                className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" 
-                variant="outline"
-              >
+              <Button size="lg" className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" variant="outline">
                 Get Free Quote <PhoneCall className="w-4 h-4 text-white" />
               </Button>
             </Link>
             <Link to="/services">
-              <Button 
-                size="lg" 
-                className="gap-4 bg-black text-white hover:bg-gray-900"
-              >
+              <Button size="lg" className="gap-4 bg-black text-white hover:bg-gray-900">
                 View Services <MoveRight className="w-4 h-4 text-white" />
               </Button>
             </Link>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
-
 export { Hero };
