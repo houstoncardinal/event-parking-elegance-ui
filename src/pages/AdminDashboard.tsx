@@ -14,10 +14,13 @@ import {
   Settings,
   Bell,
   Search,
-  Filter
+  Filter,
+  Brain,
+  Zap
 } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import DashboardHeader from "@/components/admin/DashboardHeader";
+import MobileNavigation from "@/components/admin/MobileNavigation";
 import MetricsCards from "@/components/admin/MetricsCards";
 import RevenueChart from "@/components/admin/RevenueChart";
 import RecentActivity from "@/components/admin/RecentActivity";
@@ -26,6 +29,11 @@ import ClientManagement from "@/components/admin/ClientManagement";
 import ProjectManagement from "@/components/admin/ProjectManagement";
 import ProjectsOverview from "@/components/admin/ProjectsOverview";
 import TeamManagement from "@/components/admin/TeamManagement";
+import FormSubmissions from "@/components/admin/FormSubmissions";
+import SupportTickets from "@/components/admin/SupportTickets";
+import AdvancedAnalytics from "@/components/admin/AdvancedAnalytics";
+import QuickActions from "@/components/admin/QuickActions";
+import SettingsPanel from "@/components/admin/SettingsPanel";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -36,31 +44,46 @@ const AdminDashboard = () => {
       <div className="fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-100/30 via-transparent to-transparent"></div>
       
+      {/* Mobile Navigation */}
+      <MobileNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      
       <div className="relative z-10 flex">
-        <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block">
+          <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        </div>
         
-        <main className="flex-1 ml-64">
-          <DashboardHeader />
+        <main className="flex-1 lg:ml-64">
+          {/* Desktop Header */}
+          <div className="hidden lg:block">
+            <DashboardHeader />
+          </div>
           
-          <div className="p-8 space-y-8">
+          <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
             {activeTab === "overview" && (
               <>
-                <MetricsCards />
+                <MetricsCards setActiveTab={setActiveTab} />
                 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                   <div className="lg:col-span-2">
-                    <RevenueChart />
+                    <RevenueChart setActiveTab={setActiveTab} />
                   </div>
                   <div>
-                    <RecentActivity />
+                    <RecentActivity setActiveTab={setActiveTab} />
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <ClientsOverview />
-                  <ProjectsOverview />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                  <ClientsOverview setActiveTab={setActiveTab} />
+                  <ProjectsOverview setActiveTab={setActiveTab} />
                 </div>
+
+                <QuickActions setActiveTab={setActiveTab} />
               </>
+            )}
+            
+            {activeTab === "analytics" && (
+              <AdvancedAnalytics />
             )}
             
             {activeTab === "clients" && (
@@ -76,17 +99,15 @@ const AdminDashboard = () => {
             )}
             
             {activeTab === "forms" && (
-              <div className="card-vip p-8">
-                <h2 className="text-2xl font-orbitron font-bold text-vip-glow mb-6">Form Submissions</h2>
-                <p className="text-vip/80">Form submission tracking and management coming soon...</p>
-              </div>
+              <FormSubmissions />
             )}
             
             {activeTab === "tickets" && (
-              <div className="card-vip p-8">
-                <h2 className="text-2xl font-orbitron font-bold text-vip-glow mb-6">Support Tickets</h2>
-                <p className="text-vip/80">Advanced ticketing system coming soon...</p>
-              </div>
+              <SupportTickets />
+            )}
+
+            {activeTab === "settings" && (
+              <SettingsPanel />
             )}
           </div>
         </main>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo, useCallback, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -49,7 +49,7 @@ interface TeamMember {
   created_at: string;
 }
 
-const TeamManagement = () => {
+const TeamManagement = memo(() => {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [filteredMembers, setFilteredMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -62,51 +62,54 @@ const TeamManagement = () => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
 
-  const fetchTeamMembers = async () => {
+  const fetchTeamMembers = useCallback(async () => {
     try {
+      setLoading(true);
       const { data, error } = await supabase
-        .from('team_members' as any)
+        .from('team_members')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('created_at', { ascending: false })
+        .limit(50); // Limit for faster loading
 
       if (error) throw error;
-      setTeamMembers((data as unknown as TeamMember[]) || []);
-      setFilteredMembers((data as unknown as TeamMember[]) || []);
+      const members = data || [];
+      setTeamMembers(members);
+      setFilteredMembers(members);
     } catch (error) {
       console.error('Error fetching team members:', error);
       toast.error('Failed to load team members');
+      setTeamMembers([]);
+      setFilteredMembers([]);
     } finally {
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    fetchTeamMembers();
   }, []);
 
   useEffect(() => {
-    let filtered = teamMembers;
+    fetchTeamMembers();
+  }, []); // Only run once on mount
 
-    if (searchTerm) {
-      filtered = filtered.filter(member =>
+  const filterMembers = useCallback(() => {
+    const filtered = teamMembers.filter(member => {
+      const matchesSearch = !searchTerm || 
         member.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         member.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         member.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         member.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        member.department.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    if (statusFilter !== "all") {
-      filtered = filtered.filter(member => member.employment_status === statusFilter);
-    }
-
-    if (departmentFilter !== "all") {
-      filtered = filtered.filter(member => member.department === departmentFilter);
-    }
+        member.department.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesStatus = statusFilter === "all" || member.employment_status === statusFilter;
+      const matchesDepartment = departmentFilter === "all" || member.department === departmentFilter;
+      
+      return matchesSearch && matchesStatus && matchesDepartment;
+    });
 
     setFilteredMembers(filtered);
   }, [teamMembers, searchTerm, statusFilter, departmentFilter]);
+
+  useEffect(() => {
+    filterMembers();
+  }, [filterMembers]);
 
   const handleEdit = (member: TeamMember) => {
     setEditingMember(member);
@@ -117,17 +120,22 @@ const TeamManagement = () => {
     if (window.confirm('Are you sure you want to delete this team member?')) {
       try {
         const { error } = await supabase
-          .from('team_members' as any)
+          .from('team_members')
           .delete()
           .eq('id', id);
 
         if (error) throw error;
         
+        // Optimistically update the UI
+        setTeamMembers(prev => prev.filter(member => member.id !== id));
+        setFilteredMembers(prev => prev.filter(member => member.id !== id));
+        
         toast.success('Team member deleted successfully');
-        fetchTeamMembers();
       } catch (error) {
         console.error('Error deleting team member:', error);
         toast.error('Failed to delete team member');
+        // Refresh data on error
+        fetchTeamMembers();
       }
     }
   };
@@ -159,14 +167,74 @@ const TeamManagement = () => {
     return statusColors[status as keyof typeof statusColors] || statusColors.active;
   };
 
-  const departments = [...new Set(teamMembers.map(member => member.department))];
+  const departments = useMemo(() => 
+    [...new Set(teamMembers.map(member => member.department))], 
+    [teamMembers]
+  );
 
   if (loading) {
     return (
-      <div className="card-vip p-8">
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-vip/20 rounded w-1/4"></div>
-          <div className="h-32 bg-vip/20 rounded"></div>
+      <div className="space-y-6">
+        {/* Header with Actions */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h2 className="text-2xl font-orbitron font-bold text-gray-900">Team Management</h2>
+            <p className="text-gray-600">Manage your team members and staff</p>
+          </div>
+          <Button
+            className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white shadow-lg"
+            disabled
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Add Team Member
+          </Button>
+        </div>
+
+        {/* Search and Filters */}
+        <Card className="p-6 bg-white border border-gray-200 shadow-sm">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Input
+                placeholder="Search team members..."
+                disabled
+                className="pl-10"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <Filter className="w-4 h-4 text-gray-500" />
+              <select
+                disabled
+                className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
+              >
+                <option>All Status</option>
+              </select>
+            </div>
+          </div>
+        </Card>
+
+        {/* Loading Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(6)].map((_, i) => (
+            <Card key={i} className="bg-white border border-gray-200 shadow-sm">
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-12 h-12 bg-gray-200 rounded-xl animate-pulse"></div>
+                    <div className="flex-1">
+                      <div className="h-5 bg-gray-200 rounded w-3/4 animate-pulse mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-4 bg-gray-200 rounded w-full animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+                </div>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     );
@@ -199,7 +267,7 @@ const TeamManagement = () => {
                 placeholder="Search team members..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white border-gray-300 text-gray-900 placeholder:text-gray-500"
+                className="pl-10 bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-gold-500 focus:border-transparent"
               />
             </div>
             
@@ -331,6 +399,6 @@ const TeamManagement = () => {
       />
     </div>
   );
-};
+});
 
 export default TeamManagement;

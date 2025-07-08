@@ -8,7 +8,8 @@ import {
   Ticket, 
   Settings,
   LogOut,
-  Crown
+  Crown,
+  Brain
 } from "lucide-react";
 
 interface AdminSidebarProps {
@@ -19,11 +20,13 @@ interface AdminSidebarProps {
 const AdminSidebar = ({ activeTab, setActiveTab }: AdminSidebarProps) => {
   const menuItems = [
     { id: "overview", label: "Overview", icon: BarChart3 },
+    { id: "analytics", label: "Analytics", icon: Brain, count: 4 },
     { id: "clients", label: "Clients", icon: Users, count: 42 },
     { id: "projects", label: "Projects", icon: FolderOpen, count: 18 },
     { id: "team", label: "Team", icon: Users },
     { id: "forms", label: "Form Submissions", icon: MessageSquare, count: 7 },
     { id: "tickets", label: "Support Tickets", icon: Ticket, count: 3 },
+    { id: "settings", label: "Settings", icon: Settings },
   ];
 
   return (
@@ -69,10 +72,6 @@ const AdminSidebar = ({ activeTab, setActiveTab }: AdminSidebarProps) => {
       </nav>
 
       <div className="absolute bottom-4 left-4 right-4 space-y-2">
-        <Button variant="ghost" className="w-full justify-start text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-          <Settings className="w-5 h-5 mr-3" />
-          Settings
-        </Button>
         <Button variant="ghost" className="w-full justify-start text-gray-600 hover:text-gray-900 hover:bg-gray-100">
           <LogOut className="w-5 h-5 mr-3" />
           Logout

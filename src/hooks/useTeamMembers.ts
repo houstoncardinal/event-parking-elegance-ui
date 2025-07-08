@@ -21,18 +21,20 @@ export const useTeamMembers = () => {
 
   const fetchTeamStats = async () => {
     try {
+      setLoading(true);
       const { data, error } = await supabase
-        .from('team_members' as any)
-        .select('employment_status, department');
+        .from('team_members')
+        .select('employment_status, department')
+        .limit(100); // Limit for faster loading
 
       if (error) throw error;
 
-      const teamData = data as unknown as any[];
-      const totalMembers = teamData?.length || 0;
-      const activeMembers = teamData?.filter(member => member.employment_status === 'active').length || 0;
-      const onLeaveMembers = teamData?.filter(member => member.employment_status === 'on_leave').length || 0;
-      const inactiveMembers = teamData?.filter(member => member.employment_status === 'inactive').length || 0;
-      const departments = teamData ? [...new Set(teamData.map(member => member.department).filter(Boolean))] : [];
+      const teamData = data || [];
+      const totalMembers = teamData.length;
+      const activeMembers = teamData.filter(member => member.employment_status === 'active').length;
+      const onLeaveMembers = teamData.filter(member => member.employment_status === 'on_leave').length;
+      const inactiveMembers = teamData.filter(member => member.employment_status === 'inactive').length;
+      const departments = [...new Set(teamData.map(member => member.department).filter(Boolean))];
 
       setStats({
         totalMembers,
@@ -43,6 +45,13 @@ export const useTeamMembers = () => {
       });
     } catch (error) {
       console.error('Error fetching team stats:', error);
+      setStats({
+        totalMembers: 0,
+        activeMembers: 0,
+        onLeaveMembers: 0,
+        inactiveMembers: 0,
+        departments: []
+      });
     } finally {
       setLoading(false);
     }

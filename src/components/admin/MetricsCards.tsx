@@ -12,7 +12,11 @@ import { useClients } from "@/hooks/useClients";
 import { useProjects } from "@/hooks/useProjects";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 
-const MetricsCards = () => {
+interface MetricsCardsProps {
+  setActiveTab: (tab: string) => void;
+}
+
+const MetricsCards = ({ setActiveTab }: MetricsCardsProps) => {
   const { stats: clientStats, loading: clientsLoading } = useClients();
   const { stats: projectStats, loading: projectsLoading } = useProjects();
   const { stats: teamStats, loading: teamLoading } = useTeamMembers();
@@ -24,7 +28,15 @@ const MetricsCards = () => {
       change: "+12.5%",
       trend: "up",
       icon: DollarSign,
-      description: "monthly recurring"
+      description: "monthly recurring",
+      destination: "overview", // Revenue chart is already on overview
+      action: () => {
+        // Scroll to revenue chart or highlight it
+        const revenueChart = document.querySelector('[data-revenue-chart]');
+        if (revenueChart) {
+          revenueChart.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
     },
     {
       title: "Active Clients",
@@ -32,7 +44,9 @@ const MetricsCards = () => {
       change: `+${clientStats.pendingClients}`,
       trend: "up",
       icon: Users,
-      description: "pending approval"
+      description: "pending approval",
+      destination: "clients",
+      action: () => setActiveTab("clients")
     },
     {
       title: "Active Team Members",
@@ -40,15 +54,19 @@ const MetricsCards = () => {
       change: `+${teamStats.onLeaveMembers}`,
       trend: "up",
       icon: Users,
-      description: "on leave"
+      description: "on leave",
+      destination: "team",
+      action: () => setActiveTab("team")
     },
     {
-      title: "Monthly Growth",
-      value: "23.8%",
-      change: "-2.1%",
-      trend: "down",
-      icon: TrendingUp,
-      description: "vs last month"
+      title: "Active Projects",
+      value: projectsLoading ? "..." : projectStats.activeProjects.toString(),
+      change: `+${projectStats.planningProjects}`,
+      trend: "up",
+      icon: FolderOpen,
+      description: "in planning",
+      destination: "projects",
+      action: () => setActiveTab("projects")
     }
   ];
 
@@ -59,10 +77,14 @@ const MetricsCards = () => {
         const isPositive = metric.trend === "up";
         
         return (
-          <Card key={index} className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:scale-105">
+          <Card 
+            key={index} 
+            className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:scale-105 cursor-pointer group"
+            onClick={metric.action}
+          >
             <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 border border-gold-300">
-                <Icon className="w-6 h-6 text-gold-600" />
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 border border-gold-300 group-hover:from-gold-200 group-hover:to-gold-300 transition-all duration-300">
+                <Icon className="w-6 h-6 text-gold-600 group-hover:text-gold-700 transition-colors duration-300" />
               </div>
               <Badge 
                 variant="secondary" 
@@ -78,10 +100,25 @@ const MetricsCards = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-orbitron font-bold text-gray-900 mb-1">{metric.value}</h3>
-              <p className="text-sm text-gray-700 font-medium">{metric.title}</p>
-              <p className="text-xs text-gray-500 mt-1">{metric.description}</p>
+              <h3 className="text-2xl font-orbitron font-bold text-gray-900 mb-1 group-hover:text-gold-600 transition-colors duration-300">
+                {metric.value}
+              </h3>
+              <p className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors duration-300">
+                {metric.title}
+              </p>
+              <p className="text-xs text-gray-500 mt-1 group-hover:text-gray-600 transition-colors duration-300">
+                {metric.description}
+              </p>
             </div>
+            
+            {/* Navigation hint */}
+            {metric.destination !== "overview" && (
+              <div className="mt-4 pt-3 border-t border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-xs text-gold-600 font-medium">
+                  Click to view {metric.destination} →
+                </p>
+              </div>
+            )}
           </Card>
         );
       })}

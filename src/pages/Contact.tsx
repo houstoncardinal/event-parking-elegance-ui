@@ -1,11 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, Mail, MapPin, Clock, Shield, Star } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    eventType: '',
+    eventDate: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      const submission = {
+        form_type: 'contact',
+        status: 'new',
+        priority: 'normal',
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        event_type: formData.eventType,
+        event_date: formData.eventDate,
+        message: formData.message,
+        source_page: window.location.pathname
+      };
+
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert(submission);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 2 hours.",
+        variant: "default",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        eventType: '',
+        eventDate: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -111,22 +181,28 @@ const ContactPage = () => {
               <CardContent className="p-8">
                 <h2 className="text-2xl font-playfair font-bold text-slate-900 mb-6">Request a Quote</h2>
                 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
                       <input 
                         type="text" 
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                         placeholder="John"
+                        required
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
                       <input 
                         type="text" 
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                         placeholder="Doe"
+                        required
                       />
                     </div>
                   </div>
@@ -135,8 +211,11 @@ const ContactPage = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
                     <input 
                       type="email" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
                       className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                       placeholder="john@example.com"
+                      required
                     />
                   </div>
 
@@ -144,20 +223,28 @@ const ContactPage = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">Phone</label>
                     <input 
                       type="tel" 
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                       placeholder="(555) 123-4567"
+                      required
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Event Type</label>
-                    <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent">
-                      <option>Select event type</option>
-                      <option>Wedding</option>
-                      <option>Corporate Event</option>
-                      <option>Private Party</option>
-                      <option>Gala</option>
-                      <option>Other</option>
+                    <select 
+                      value={formData.eventType}
+                      onChange={(e) => setFormData({...formData, eventType: e.target.value})}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                      required
+                    >
+                      <option value="">Select event type</option>
+                      <option value="wedding">Wedding</option>
+                      <option value="corporate">Corporate Event</option>
+                      <option value="private">Private Party</option>
+                      <option value="gala">Gala</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
@@ -165,7 +252,10 @@ const ContactPage = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">Event Date</label>
                     <input 
                       type="date" 
+                      value={formData.eventDate}
+                      onChange={(e) => setFormData({...formData, eventDate: e.target.value})}
                       className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                      required
                     />
                   </div>
 
@@ -173,13 +263,20 @@ const ContactPage = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                     <textarea 
                       rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                       placeholder="Tell us about your event..."
+                      required
                     ></textarea>
                   </div>
 
-                  <Button className="w-full bg-gold-600 hover:bg-gold-700 text-white py-3">
-                    Send Message
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gold-600 hover:bg-gold-700 text-white py-3 disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>

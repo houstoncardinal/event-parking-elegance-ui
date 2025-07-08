@@ -7,9 +7,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const BookingForm = () => {
+  const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     eventType: '',
     date: '',
@@ -51,9 +55,80 @@ const BookingForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    
+    try {
+      // Split name into first and last name
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      
+      // Extract guest count number
+      const guestCountNum = parseInt(formData.guestCount.replace(/\D/g, '')) || null;
+      const attendantsNum = parseInt(formData.attendants.replace(/\D/g, '')) || null;
+      
+      const submission = {
+        form_type: 'booking',
+        status: 'new',
+        priority: 'normal',
+        first_name: firstName,
+        last_name: lastName,
+        email: formData.email,
+        phone: formData.phone,
+        event_type: formData.eventType,
+        event_date: formData.date,
+        event_location: formData.location,
+        guest_count: guestCountNum,
+        start_time: formData.startTime,
+        end_time: formData.endTime,
+        attendants_needed: attendantsNum,
+        special_requests: formData.specialRequests,
+        message: `Booking request for ${formData.eventType} event on ${formData.date}`,
+        source_page: window.location.pathname
+      };
+
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert(submission);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Booking Request Submitted!",
+        description: "We'll review your request and contact you within 24 hours.",
+        variant: "default",
+      });
+
+      // Reset form
+      setFormData({
+        eventType: '',
+        date: '',
+        startTime: '',
+        endTime: '',
+        location: '',
+        guestCount: '',
+        attendants: '',
+        name: '',
+        email: '',
+        phone: '',
+        specialRequests: ''
+      });
+      setCurrentStep(1);
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const updateFormData = (field: string, value: string) => {
@@ -320,10 +395,15 @@ const BookingForm = () => {
                   ) : (
                     <Button
                       type="submit"
-                      className="px-8 py-3 h-12 bg-gold-500 hover:bg-gold-600 text-white group"
+                      disabled={isSubmitting}
+                      className="px-8 py-3 h-12 bg-gold-500 hover:bg-gold-600 text-white group disabled:opacity-50"
                     >
-                      <span>Submit Request</span>
-                      <CheckCircle className="ml-2 w-4 h-4" />
+                      <span>{isSubmitting ? 'Submitting...' : 'Submit Request'}</span>
+                      {isSubmitting ? (
+                        <div className="ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      ) : (
+                        <CheckCircle className="ml-2 w-4 h-4" />
+                      )}
                     </Button>
                   )}
                 </div>

@@ -232,6 +232,311 @@ export type Database = {
         }
         Relationships: []
       }
+      form_submissions: {
+        Row: {
+          id: string
+          form_type: string
+          status: string
+          priority: string
+          first_name: string | null
+          last_name: string | null
+          email: string | null
+          phone: string | null
+          company: string | null
+          event_type: string | null
+          event_date: string | null
+          event_location: string | null
+          guest_count: number | null
+          start_time: string | null
+          end_time: string | null
+          attendants_needed: number | null
+          special_requests: string | null
+          budget_range: string | null
+          message: string | null
+          source_page: string | null
+          utm_source: string | null
+          utm_medium: string | null
+          utm_campaign: string | null
+          admin_notes: string | null
+          assigned_to: string | null
+          created_at: string
+          updated_at: string
+          contacted_at: string | null
+          responded_at: string | null
+        }
+        Insert: {
+          id?: string
+          form_type: string
+          status?: string
+          priority?: string
+          first_name?: string | null
+          last_name?: string | null
+          email?: string | null
+          phone?: string | null
+          company?: string | null
+          event_type?: string | null
+          event_date?: string | null
+          event_location?: string | null
+          guest_count?: number | null
+          start_time?: string | null
+          end_time?: string | null
+          attendants_needed?: number | null
+          special_requests?: string | null
+          budget_range?: string | null
+          message?: string | null
+          source_page?: string | null
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          admin_notes?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          updated_at?: string
+          contacted_at?: string | null
+          responded_at?: string | null
+        }
+        Update: {
+          id?: string
+          form_type?: string
+          status?: string
+          priority?: string
+          first_name?: string | null
+          last_name?: string | null
+          email?: string | null
+          phone?: string | null
+          company?: string | null
+          event_type?: string | null
+          event_date?: string | null
+          event_location?: string | null
+          guest_count?: number | null
+          start_time?: string | null
+          end_time?: string | null
+          attendants_needed?: number | null
+          special_requests?: string | null
+          budget_range?: string | null
+          message?: string | null
+          source_page?: string | null
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          admin_notes?: string | null
+          assigned_to?: string | null
+          created_at?: string
+          updated_at?: string
+          contacted_at?: string | null
+          responded_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "form_submissions_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "team_members"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      support_tickets: {
+        Row: {
+          id: string
+          ticket_number: string
+          title: string
+          description: string
+          status: string
+          priority: string
+          category: string
+          customer_name: string
+          customer_email: string
+          customer_phone: string | null
+          assigned_to: string | null
+          assigned_to_name: string | null
+          created_by: string | null
+          created_by_name: string | null
+          source: string
+          tags: string[] | null
+          estimated_resolution_time: string | null
+          actual_resolution_time: string | null
+          customer_satisfaction_rating: number | null
+          internal_notes: string | null
+          public_notes: string | null
+          attachments: Json | null
+          created_at: string
+          updated_at: string
+          resolved_at: string | null
+          closed_at: string | null
+        }
+        Insert: {
+          id?: string
+          ticket_number?: string
+          title: string
+          description: string
+          status?: string
+          priority?: string
+          category: string
+          customer_name: string
+          customer_email: string
+          customer_phone?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          created_by?: string | null
+          created_by_name?: string | null
+          source?: string
+          tags?: string[] | null
+          estimated_resolution_time?: string | null
+          actual_resolution_time?: string | null
+          customer_satisfaction_rating?: number | null
+          internal_notes?: string | null
+          public_notes?: string | null
+          attachments?: Json | null
+          created_at?: string
+          updated_at?: string
+          resolved_at?: string | null
+          closed_at?: string | null
+        }
+        Update: {
+          id?: string
+          ticket_number?: string
+          title?: string
+          description?: string
+          status?: string
+          priority?: string
+          category?: string
+          customer_name?: string
+          customer_email?: string
+          customer_phone?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          created_by?: string | null
+          created_by_name?: string | null
+          source?: string
+          tags?: string[] | null
+          estimated_resolution_time?: string | null
+          actual_resolution_time?: string | null
+          customer_satisfaction_rating?: number | null
+          internal_notes?: string | null
+          public_notes?: string | null
+          attachments?: Json | null
+          created_at?: string
+          updated_at?: string
+          resolved_at?: string | null
+          closed_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "support_tickets_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "support_tickets_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      ticket_comments: {
+        Row: {
+          id: string
+          ticket_id: string
+          author_id: string | null
+          author_name: string
+          author_type: string
+          content: string
+          is_internal: boolean
+          attachments: Json | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          ticket_id: string
+          author_id?: string | null
+          author_name: string
+          author_type?: string
+          content: string
+          is_internal?: boolean
+          attachments?: Json | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          ticket_id?: string
+          author_id?: string | null
+          author_name?: string
+          author_type?: string
+          content?: string
+          is_internal?: boolean
+          attachments?: Json | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ticket_comments_ticket_id_fkey"
+            columns: ["ticket_id"]
+            isOneToOne: false
+            referencedRelation: "support_tickets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ticket_comments_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      ticket_activities: {
+        Row: {
+          id: string
+          ticket_id: string
+          user_id: string | null
+          user_name: string | null
+          action: string
+          details: Json | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          ticket_id: string
+          user_id?: string | null
+          user_name?: string | null
+          action: string
+          details?: Json | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          ticket_id?: string
+          user_id?: string | null
+          user_name?: string | null
+          action?: string
+          details?: Json | null
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ticket_activities_ticket_id_fkey"
+            columns: ["ticket_id"]
+            isOneToOne: false
+            referencedRelation: "support_tickets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ticket_activities_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
