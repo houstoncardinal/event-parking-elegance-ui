@@ -35,81 +35,118 @@ import AdvancedAnalytics from "@/components/admin/AdvancedAnalytics";
 import QuickActions from "@/components/admin/QuickActions";
 import SettingsPanel from "@/components/admin/SettingsPanel";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import AdminDashboardFallback from "./AdminDashboardFallback";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
+  // Add error logging for debugging
+  console.log("AdminDashboard: Component loaded successfully");
+  console.log("AdminDashboard: Active tab:", activeTab);
+
   return (
-    <ErrorBoundary>
+    <ErrorBoundary fallback={<AdminDashboardFallback />}>
       <div className="min-h-screen bg-background text-foreground font-inter">
         {/* Premium background with subtle patterns */}
         <div className="fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
         <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-100/30 via-transparent to-transparent"></div>
         
         {/* Mobile Navigation */}
-        <MobileNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+        <ErrorBoundary>
+          <MobileNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+        </ErrorBoundary>
         
         <div className="relative z-10 flex">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block">
-            <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+            <ErrorBoundary>
+              <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+            </ErrorBoundary>
           </div>
           
           <main className="flex-1 lg:ml-64">
             {/* Desktop Header */}
             <div className="hidden lg:block">
-              <DashboardHeader />
+              <ErrorBoundary>
+                <DashboardHeader />
+              </ErrorBoundary>
             </div>
             
             <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
               {activeTab === "overview" && (
                 <>
-                  <MetricsCards setActiveTab={setActiveTab} />
+                  <ErrorBoundary>
+                    <MetricsCards setActiveTab={setActiveTab} />
+                  </ErrorBoundary>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                     <div className="lg:col-span-2">
-                      <RevenueChart setActiveTab={setActiveTab} />
+                      <ErrorBoundary>
+                        <RevenueChart setActiveTab={setActiveTab} />
+                      </ErrorBoundary>
                     </div>
                     <div>
-                      <RecentActivity setActiveTab={setActiveTab} />
+                      <ErrorBoundary>
+                        <RecentActivity setActiveTab={setActiveTab} />
+                      </ErrorBoundary>
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                    <ClientsOverview setActiveTab={setActiveTab} />
-                    <ProjectsOverview setActiveTab={setActiveTab} />
+                    <ErrorBoundary>
+                      <ClientsOverview setActiveTab={setActiveTab} />
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                      <ProjectsOverview setActiveTab={setActiveTab} />
+                    </ErrorBoundary>
                   </div>
 
-                  <QuickActions setActiveTab={setActiveTab} />
+                  <ErrorBoundary>
+                    <QuickActions setActiveTab={setActiveTab} />
+                  </ErrorBoundary>
                 </>
               )}
               
               {activeTab === "analytics" && (
-                <AdvancedAnalytics />
+                <ErrorBoundary>
+                  <AdvancedAnalytics />
+                </ErrorBoundary>
               )}
               
               {activeTab === "clients" && (
-                <ClientManagement />
+                <ErrorBoundary>
+                  <ClientManagement />
+                </ErrorBoundary>
               )}
               
               {activeTab === "projects" && (
-                <ProjectManagement />
+                <ErrorBoundary>
+                  <ProjectManagement />
+                </ErrorBoundary>
               )}
               
               {activeTab === "team" && (
-                <TeamManagement />
+                <ErrorBoundary>
+                  <TeamManagement />
+                </ErrorBoundary>
               )}
               
               {activeTab === "forms" && (
-                <FormSubmissions />
+                <ErrorBoundary>
+                  <FormSubmissions />
+                </ErrorBoundary>
               )}
               
               {activeTab === "tickets" && (
-                <SupportTickets />
+                <ErrorBoundary>
+                  <SupportTickets />
+                </ErrorBoundary>
               )}
 
               {activeTab === "settings" && (
-                <SettingsPanel />
+                <ErrorBoundary>
+                  <SettingsPanel />
+                </ErrorBoundary>
               )}
             </div>
           </main>
