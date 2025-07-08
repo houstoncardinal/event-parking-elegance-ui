@@ -11,6 +11,7 @@ import ServiceAreasPage from "./pages/ServiceAreasPage";
 import ClientReviewsPage from "./pages/ClientReviews";
 import BookingPage from "./pages/BookingPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboardSimple from "./pages/AdminDashboardSimple";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/client-reviews" element={<ClientReviewsPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin-simple" element={<AdminDashboardSimple />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
