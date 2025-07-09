@@ -69,75 +69,63 @@ const Navigation = () => {
         <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             
-            {/* Logo - Fixed on Left */}
-            <div className="flex-shrink-0 mr-auto">
+            {/* Logo - Properly Aligned */}
+            <div className="flex items-center">
               <Logo size="sm" className="lg:hidden" />
               <Logo size="md" className="hidden lg:block" />
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex items-center space-x-1">
               <Link
                 to="/services"
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                   isActivePage('/services')
-                    ? 'text-blue-600 bg-blue-50 rounded-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 Services
-                {isActivePage('/services') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
-                )}
               </Link>
               
               <Link
                 to="/service-areas"
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                   isActivePage('/service-areas')
-                    ? 'text-blue-600 bg-blue-50 rounded-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 Service Areas
-                {isActivePage('/service-areas') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
-                )}
               </Link>
               
               <Link
                 to="/client-reviews"
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                   isActivePage('/client-reviews')
-                    ? 'text-blue-600 bg-blue-50 rounded-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 Reviews
-                {isActivePage('/client-reviews') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
-                )}
               </Link>
               
               <Link
                 to="/contact"
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                   isActivePage('/contact')
-                    ? 'text-blue-600 bg-blue-50 rounded-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg'
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 Contact
-                {isActivePage('/contact') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
-                )}
               </Link>
             </nav>
 
-            {/* Desktop CTA Button */}
-            <div className="hidden lg:flex items-center space-x-4">
+            {/* Desktop CTA Button - Premium Design */}
+            <div className="hidden lg:flex items-center">
               <Link to="/booking">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg">
+                <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-6 py-2.5 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                   Get Quote
                 </Button>
               </Link>
