@@ -296,29 +296,50 @@ const PremiumProtection = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-green-600 to-blue-600 text-white">
-          <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-              Experience Complete Protection & Peace of Mind
+        <section className="py-24 bg-gradient-to-br from-slate-900 via-green-900 to-blue-900 text-white relative overflow-hidden">
+          {/* Security-themed background effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-green-500/20 via-blue-500/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tr from-blue-500/15 via-green-500/8 to-transparent rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]" />
+          </div>
+
+          <div className="container mx-auto px-4 lg:px-8 max-w-5xl text-center relative z-10">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 shadow-lg">
+              <Shield className="w-5 h-5 text-green-300" />
+              <span className="text-white/90 font-semibold">Maximum Protection Guaranteed</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-8 leading-tight">
+              <span className="block text-white mb-2">Experience Complete</span>
+              <span className="block bg-gradient-to-r from-green-300 via-blue-300 to-green-300 bg-clip-text text-transparent">
+                Protection & Peace of Mind
+              </span>
             </h2>
-            <p className="text-xl mb-8 text-green-100">
-              Join thousands of satisfied clients who trust our premium protection and professional service
+            
+            <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Join thousands of satisfied clients who trust our premium protection and professional service. 
+              Your peace of mind is our top priority.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 onClick={handleRequestQuote}
                 size="lg"
-                className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="group relative bg-white text-slate-900 hover:bg-green-50 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-500 hover:scale-110 border-2 border-white/20 overflow-hidden"
               >
-                <Shield className="mr-2 w-5 h-5" />
+                <Shield className="mr-3 w-6 h-6 group-hover:text-green-600 transition-colors duration-300" />
                 Get Protected Service
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Button>
+              
               <Button 
                 variant="outline"
                 size="lg"
                 onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
-                className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+                className="group border-3 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
+                <span className="mr-3 text-2xl">🛡️</span>
                 Call (832) 555-CARDINAL
               </Button>
             </div>

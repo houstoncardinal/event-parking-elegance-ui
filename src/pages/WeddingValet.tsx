@@ -168,27 +168,44 @@ const WeddingValet = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+        <section className="py-20 bg-gradient-to-br from-white via-rose-50/30 to-gold-50/20 relative overflow-hidden">
+          {/* Elegant background pattern */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,rgba(244,63,94,0.05)_0%,transparent_50%)]" />
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,rgba(217,119,6,0.05)_0%,transparent_50%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] [background-size:32px_32px]" />
+          </div>
+
+          <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-slate-900 mb-4">
-                Complete Wedding Valet Services
+              <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm border border-rose-200/50 rounded-full px-6 py-3 mb-8 shadow-lg">
+                <Crown className="w-5 h-5 text-rose-600" />
+                <span className="text-slate-700 font-semibold">Premium Wedding Features</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-playfair font-bold text-slate-900 mb-6 leading-tight">
+                <span className="block mb-2">Complete Wedding Valet</span>
+                <span className="block bg-gradient-to-r from-rose-600 via-rose-500 to-gold-500 bg-clip-text text-transparent">
+                  Excellence Package
+                </span>
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Every detail matters on your wedding day. Our comprehensive valet services ensure 
                 your guests experience luxury from the moment they arrive.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <Card key={index} className="bg-white border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <CheckCircle className="w-4 h-4 text-rose-600" />
+                <Card key={index} className="group bg-white/80 backdrop-blur-sm border border-rose-100/50 hover:border-rose-200/80 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:rotate-1">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-rose-100 to-gold-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <CheckCircle className="w-6 h-6 text-rose-600" />
                       </div>
-                      <span className="text-slate-700 font-medium">{feature}</span>
+                      <div className="flex-1">
+                        <span className="text-slate-700 font-semibold text-lg leading-relaxed group-hover:text-slate-900 transition-colors duration-300">{feature}</span>
+                        <div className="w-full h-0.5 bg-gradient-to-r from-rose-200 to-gold-200 rounded-full mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -234,29 +251,50 @@ const WeddingValet = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-rose-600 to-gold-600 text-white">
-          <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-              Ready to Make Your Wedding Perfect?
+        <section className="py-24 bg-gradient-to-br from-slate-900 via-rose-900 to-gold-900 text-white relative overflow-hidden">
+          {/* Luxury background effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-rose-500/20 via-gold-500/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tr from-gold-500/15 via-rose-500/8 to-transparent rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]" />
+          </div>
+
+          <div className="container mx-auto px-4 lg:px-8 max-w-5xl text-center relative z-10">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 shadow-lg">
+              <Heart className="w-5 h-5 text-rose-300" />
+              <span className="text-white/90 font-semibold">Ready for Your Perfect Day?</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-8 leading-tight">
+              <span className="block text-white mb-2">Make Your Wedding</span>
+              <span className="block bg-gradient-to-r from-rose-300 via-gold-300 to-rose-300 bg-clip-text text-transparent">
+                Absolutely Perfect
+              </span>
             </h2>
-            <p className="text-xl mb-8 text-rose-100">
-              Join hundreds of happy couples who chose Cardinal Valet for their special day
+            
+            <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Join hundreds of happy couples who chose Cardinal Valet for their special day. 
+              Let us handle every detail so you can focus on what matters most.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 onClick={handleRequestQuote}
                 size="lg"
-                className="bg-white text-rose-600 hover:bg-rose-50 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="group bg-white text-slate-900 hover:bg-rose-50 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-rose-500/25 transition-all duration-500 hover:scale-110 border-2 border-white/20"
               >
-                <Heart className="mr-2 w-5 h-5" />
+                <Heart className="mr-3 w-6 h-6 group-hover:text-rose-600 transition-colors duration-300" />
                 Get Your Wedding Quote
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Button>
+              
               <Button 
                 variant="outline"
                 size="lg"
                 onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
-                className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+                className="group border-3 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
+                <span className="mr-3 text-2xl">📞</span>
                 Call (832) 555-CARDINAL
               </Button>
             </div>

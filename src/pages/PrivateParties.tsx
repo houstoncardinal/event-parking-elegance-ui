@@ -290,29 +290,50 @@ const PrivateParties = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
-          <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-              Ready to Make Your Celebration Extraordinary?
+        <section className="py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900 text-white relative overflow-hidden">
+          {/* Celebratory background effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/20 via-pink-500/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tr from-pink-500/15 via-purple-500/8 to-transparent rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]" />
+          </div>
+
+          <div className="container mx-auto px-4 lg:px-8 max-w-5xl text-center relative z-10">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 shadow-lg">
+              <PartyPopper className="w-5 h-5 text-purple-300" />
+              <span className="text-white/90 font-semibold">Ready to Celebrate?</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-8 leading-tight">
+              <span className="block text-white mb-2">Make Your Celebration</span>
+              <span className="block bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+                Absolutely Extraordinary
+              </span>
             </h2>
-            <p className="text-xl mb-8 text-purple-100">
-              Let us handle the parking so you can focus on what matters most - celebrating with loved ones
+            
+            <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Let us handle the parking so you can focus on what matters most - celebrating with loved ones. 
+              Create memories that will last a lifetime.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 onClick={handleRequestQuote}
                 size="lg"
-                className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="group relative bg-white text-slate-900 hover:bg-purple-50 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-110 border-2 border-white/20 overflow-hidden"
               >
-                <PartyPopper className="mr-2 w-5 h-5" />
+                <PartyPopper className="mr-3 w-6 h-6 group-hover:text-purple-600 transition-colors duration-300" />
                 Plan Your Celebration
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Button>
+              
               <Button 
                 variant="outline"
                 size="lg"
                 onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
-                className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+                className="group border-3 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
+                <span className="mr-3 text-2xl">🎉</span>
                 Call (832) 555-CARDINAL
               </Button>
             </div>
