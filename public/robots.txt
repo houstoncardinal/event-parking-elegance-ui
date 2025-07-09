@@ -1,14 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cardinalvalet.com/sitemap.xml
+
+# Specific crawl instructions for better SEO
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
-User-agent: Twitterbot
-Allow: /
+# Block admin areas (if any)
+Disallow: /admin/
+Disallow: /admin-simple/
+Disallow: /admin-fallback/
 
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+# Allow important directories
+Allow: /images/
+Allow: /assets/
+Allow: /public/
