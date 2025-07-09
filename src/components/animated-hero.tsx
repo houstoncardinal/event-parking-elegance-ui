@@ -26,9 +26,9 @@ function Hero() {
       </div>
       {/* Hero content */}
       <div className="relative z-10 container mx-auto">
-        <div className="flex gap-8 pt-32 pb-0 lg:pt-40 lg:pb-0 items-center justify-center flex-col mb-12">
+        <div className="flex gap-8 pt-6 pb-0 lg:pt-8 lg:pb-0 items-center justify-center flex-col mb-12">
           <div>
-            <Button variant="secondary" size="sm" className="gap-4 bg-white text-black border border-black hover:bg-gray-100 py-0 my-[50px]">
+            <Button variant="secondary" size="sm" className="gap-4 bg-white text-black border border-black hover:bg-gray-100 py-2 my-4">
               <Star className="w-4 h-4 text-black" />
               Event Parking Services By Cardinal <MoveRight className="w-4 h-4 text-black" />
             </Button>
