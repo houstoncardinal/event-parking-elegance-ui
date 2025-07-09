@@ -154,40 +154,21 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation Menu */}
-        <div className={`lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 transform transition-all duration-300 ${
+        <div className={`lg:hidden absolute top-full left-0 right-0 bg-background shadow-xl border-t border-border transform transition-all duration-300 ${
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'
         }`}>
           <div className="p-6 space-y-6">
             
-            {/* Mobile Contact Info */}
-            <div className="space-y-3 pb-6 border-b border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Contact Info</h3>
-              <div className="space-y-3">
-                <a href="tel:(832)555-CARDINAL" className="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors p-2 -m-2 rounded-lg">
-                  <Phone className="w-5 h-5 text-blue-600" />
-                  <span className="font-medium">(832) 555-CARDINAL</span>
-                </a>
-                <a href="mailto:info@cardinalvalet.com" className="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors p-2 -m-2 rounded-lg">
-                  <Mail className="w-5 h-5 text-blue-600" />
-                  <span className="font-medium">info@cardinalvalet.com</span>
-                </a>
-                <div className="flex items-center space-x-3 text-gray-700 p-2 -m-2">
-                  <MapPin className="w-5 h-5 text-blue-600" />
-                  <span className="font-medium">Houston & Surrounding Areas</span>
-                </div>
-              </div>
-            </div>
-
             {/* Mobile Navigation Links */}
             <div className="space-y-1">
-              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">Menu</h3>
+              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-4">Menu</h3>
               <Link
                 to="/services"
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
                   isActivePage('/services')
-                    ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
                 Services
@@ -197,8 +178,8 @@ const Navigation = () => {
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
                   isActivePage('/service-areas')
-                    ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
                 Service Areas
@@ -208,8 +189,8 @@ const Navigation = () => {
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
                   isActivePage('/client-reviews')
-                    ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
                 Client Reviews
@@ -219,8 +200,8 @@ const Navigation = () => {
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
                   isActivePage('/contact')
-                    ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
                 Contact
@@ -230,10 +211,29 @@ const Navigation = () => {
             {/* Mobile CTA */}
             <div className="pt-4">
               <Link to="/booking" onClick={closeMenu}>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold rounded-lg transition-all duration-200 shadow-md">
+                <Button className="w-full bg-gradient-to-r from-primary via-primary to-primary hover:from-primary/90 hover:via-primary/90 hover:to-primary/90 text-primary-foreground py-4 text-lg font-semibold rounded-lg transition-all duration-200 shadow-md">
                   Get Your Quote
                 </Button>
               </Link>
+            </div>
+
+            {/* Mobile Contact Info */}
+            <div className="space-y-3 pt-6 border-t border-border">
+              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Contact Info</h3>
+              <div className="space-y-3">
+                <a href="tel:(832)555-CARDINAL" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span className="font-medium">(832) 555-CARDINAL</span>
+                </a>
+                <a href="mailto:info@cardinalvalet.com" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <span className="font-medium">info@cardinalvalet.com</span>
+                </a>
+                <div className="flex items-center space-x-3 text-foreground/80 p-2 -m-2">
+                  <MapPin className="w-5 h-5 text-primary" />
+                  <span className="font-medium">Houston & Surrounding Areas</span>
+                </div>
+              </div>
             </div>
 
             {/* Trust Badge */}
