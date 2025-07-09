@@ -14,6 +14,10 @@ import BookingPage from "./pages/BookingPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminDashboardSimple from "./pages/AdminDashboardSimple";
 import AdminDashboardFallback from "./pages/AdminDashboardFallback";
+import WeddingValet from "./pages/WeddingValet";
+import CorporateEvents from "./pages/CorporateEvents";
+import PrivateParties from "./pages/PrivateParties";
+import PremiumProtection from "./pages/PremiumProtection";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -33,6 +37,10 @@ const App = () => (
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/client-reviews" element={<ClientReviewsPage />} />
             <Route path="/booking" element={<BookingPage />} />
+            <Route path="/wedding-valet" element={<WeddingValet />} />
+            <Route path="/corporate-events" element={<CorporateEvents />} />
+            <Route path="/private-parties" element={<PrivateParties />} />
+            <Route path="/premium-protection" element={<PremiumProtection />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin-simple" element={<AdminDashboardSimple />} />
             <Route path="/admin-fallback" element={<AdminDashboardFallback />} />

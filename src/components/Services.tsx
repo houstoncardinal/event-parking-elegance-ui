@@ -178,12 +178,29 @@ const Services = () => {
                   ))}
                 </div>
 
-                <Button 
-                  onClick={handleRequestQuote}
-                  className="w-full bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  REQUEST A QUOTE
-                </Button>
+                <div className="flex gap-3">
+                  <Button 
+                    onClick={() => {
+                      const serviceRoutes = {
+                        'Wedding Valet Services': '/wedding-valet',
+                        'Corporate Events': '/corporate-events',
+                        'Private Parties': '/private-parties',
+                        'Premium Protection': '/premium-protection'
+                      };
+                      window.location.href = serviceRoutes[service.title] || '/services';
+                    }}
+                    variant="outline"
+                    className="flex-1 border-2 border-gold-300 text-gold-700 hover:bg-gold-50 font-semibold py-3 px-4 rounded-lg transition-all duration-300"
+                  >
+                    Learn More
+                  </Button>
+                  <Button 
+                    onClick={handleRequestQuote}
+                    className="flex-1 bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    GET QUOTE
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}

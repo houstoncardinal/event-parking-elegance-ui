@@ -30,7 +30,7 @@ const ServicesPage = () => {
       <div className="min-h-screen bg-white">
         <Navigation />
         <main>
-          <div className="pt-32">
+          <div className="pt-8">
             <Services />
             <Features />
           </div>

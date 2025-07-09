@@ -55,12 +55,25 @@ const CallToAction = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-slate-900 px-6 py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+              <Button 
+                onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
+                className="bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-slate-900 px-6 py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              >
                 <Phone className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                Call Now: (713) 555-VALET
+                Call Now: (832) 555-CARDINAL
               </Button>
               
-              <Button className="bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/50 px-6 py-3 text-base font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group">
+              <Button 
+                onClick={() => {
+                  const bookingSection = document.getElementById('booking') || document.getElementById('book');
+                  if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/booking';
+                  }
+                }}
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/50 px-6 py-3 text-base font-semibold rounded-lg backdrop-blur-sm transition-all duration-300 group"
+              >
                 <Calendar className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 Schedule Consultation
               </Button>
