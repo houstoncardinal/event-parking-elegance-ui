@@ -76,7 +76,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
         }
         return prev + 1;
       });
-    }, 2500);
+    }, 4000); // Slower progression for better readability
 
     return () => clearInterval(timer);
   }, [isOpen, autoAdvance, info.steps.length]);
@@ -85,10 +85,10 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
     if (isOpen) {
       setCurrentStep(0);
       setAutoAdvance(true);
-      // Auto close after 12 seconds
+      // Auto close after 20 seconds for longer display
       const autoCloseTimer = setTimeout(() => {
         onClose();
-      }, 12000);
+      }, 20000);
       return () => clearTimeout(autoCloseTimer);
     }
   }, [isOpen, onClose]);
