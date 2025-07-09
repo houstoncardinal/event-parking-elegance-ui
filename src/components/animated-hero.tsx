@@ -19,14 +19,14 @@ function Hero() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-  return <div className="relative w-full bg-white min-h-screen overflow-x-hidden">
+  return <div className="relative w-full bg-white overflow-x-hidden">
       {/* Animated Waves Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Waves lineColor="rgba(0,0,0,0.10)" backgroundColor="#fff" waveSpeedX={0.02} waveSpeedY={0.01} waveAmpX={40} waveAmpY={20} friction={0.9} tension={0.01} maxCursorMove={120} xGap={12} yGap={36} />
       </div>
       {/* Hero content */}
       <div className="relative z-10 container mx-auto">
-        <div className="flex gap-8 pt-6 pb-0 lg:pt-8 lg:pb-0 items-center justify-center flex-col mb-12">
+        <div className="flex gap-8 pt-6 pb-16 lg:pt-8 lg:pb-20 items-center justify-center flex-col mb-12">
           <div>
             <Button variant="secondary" size="sm" className="gap-4 bg-white text-black border border-black hover:bg-gray-100 py-2 my-4">
               <Star className="w-4 h-4 text-black" />
