@@ -25,15 +25,47 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
       to="/" 
       className={`flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:scale-[1.02] ${className}`}
     >
-      {/* Luxury Crown Icon */}
+      {/* Professional Valet Emblem */}
       <div className="flex-shrink-0">
         <div className="relative">
-          <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 border border-yellow-400/50">
-            <svg className="w-5 h-5 lg:w-6 lg:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M5 16L3 14v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4l-2 2-3-3-4 4-4-4-3 3zm8-10l2.5-1.5L17 3l1.5 1.5L21 3v4l-2.5 1.5L17 7l-1.5 1.5L12 6l-1.5 2.5L9 7l-1.5 1.5L5 7V3l2.5 1.5L9 3l1.5 1.5L12 6z"/>
+          <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 border border-gray-700/50 group-hover:border-yellow-500/30">
+            <svg className="w-6 h-6 lg:w-7 lg:h-7" viewBox="0 0 24 24" fill="none">
+              {/* Luxury Shield Background */}
+              <path d="M12 2L3 7V12C3 16.97 6.84 21.74 12 22C17.16 21.74 21 16.97 21 12V7L12 2Z" 
+                    fill="url(#shieldGradient)" stroke="url(#borderGradient)" strokeWidth="0.5"/>
+              
+              {/* Cardinal Silhouette */}
+              <path d="M12 6C10.5 6 9.2 6.8 8.5 8C8.2 8.5 8.5 9.2 9 9.5C9.2 9.6 9.4 9.7 9.6 9.8C10.3 10.1 11 10.5 11.5 11C11.8 11.3 12.2 11.3 12.5 11C13 10.5 13.7 10.1 14.4 9.8C14.6 9.7 14.8 9.6 15 9.5C15.5 9.2 15.8 8.5 15.5 8C14.8 6.8 13.5 6 12 6Z" 
+                    fill="#EF4444"/>
+              
+              {/* Parking Keys Crossed */}
+              <g transform="translate(12,14)">
+                <path d="M-3,-1 L3,-1 M3,-1 L3,1 M3,1 L2,1 M-3,-1 L-3,1 M-3,1 L-2,1" 
+                      stroke="#FCD34D" strokeWidth="1.2" strokeLinecap="round"/>
+                <path d="M-1,-3 L1,3 M1,-3 L-1,3" 
+                      stroke="#FCD34D" strokeWidth="1.2" strokeLinecap="round"/>
+                <circle cx="0" cy="0" r="1.5" fill="none" stroke="#FCD34D" strokeWidth="1"/>
+              </g>
+              
+              <defs>
+                <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#1F2937" />
+                  <stop offset="50%" stopColor="#111827" />
+                  <stop offset="100%" stopColor="#000000" />
+                </linearGradient>
+                <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FCD34D" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="#EF4444" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#FCD34D" stopOpacity="0.3" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white hidden lg:block"></div>
+          
+          {/* Premium Badge */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 lg:w-5 lg:h-5 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+            <span className="text-[8px] lg:text-[10px] font-bold text-white">P</span>
+          </div>
         </div>
       </div>
       
