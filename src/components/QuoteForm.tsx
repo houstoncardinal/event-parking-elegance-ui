@@ -122,6 +122,39 @@ const QuoteForm = () => {
         throw error;
       }
 
+      // Send the quote email
+      try {
+        const emailData = {
+          firstName,
+          lastName,
+          email: formData.email,
+          eventDate: formData.date,
+          startTime: formData.startTime,
+          endTime: formData.endTime,
+          guestCount: guestCountNum || 0,
+          driversFee: priceCalculation.attendantCost,
+          equipmentSetupFee: priceCalculation.setupFee,
+          total: priceCalculation.totalCost,
+          attendantsNeeded: priceCalculation.tier?.drivers || 2,
+          phone: formData.phone
+        };
+
+        const response = await fetch('https://lwpgqrmcubxgmbzsrdbl.supabase.co/functions/v1/send-quote-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(emailData),
+        });
+
+        if (!response.ok) {
+          console.error('Failed to send quote email');
+        }
+      } catch (emailError) {
+        console.error('Error sending quote email:', emailError);
+        // Don't throw here - we don't want to block the form submission if email fails
+      }
+
       setSubmissionData({
         name: formData.name,
         email: formData.email,
