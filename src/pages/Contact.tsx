@@ -6,6 +6,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import SubmissionSuccess from '@/components/SubmissionSuccess';
+import SEO from '@/components/SEO';
+import { contactSchema } from '@/utils/seoSchemas';
 
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,7 +78,24 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        title="Contact Cardinal Valet Services - Houston Event Parking"
+        description="Contact Houston's premier valet parking service for your event. Get a free quote for wedding, corporate, or private party valet services. Professional, insured, and available 24/7."
+        keywords={[
+          "contact valet service houston",
+          "houston valet parking quote", 
+          "cardinal valet contact",
+          "valet service phone number houston",
+          "event parking contact houston",
+          "professional valet booking",
+          "houston wedding valet contact",
+          "corporate parking houston contact"
+        ]}
+        url="https://cardinalvalet.com/contact"
+        schema={contactSchema}
+      />
+      <div className="min-h-screen bg-white">
       <Navigation />
       <SubmissionSuccess
         isOpen={showSuccess}
@@ -290,7 +309,7 @@ const ContactPage = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
