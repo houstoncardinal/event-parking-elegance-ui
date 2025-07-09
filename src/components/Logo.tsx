@@ -107,11 +107,11 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
       </div>
       
       {/* Enhanced Company Name */}
-      <div className="flex flex-col">
-        <span className="font-bold text-sm md:text-lg lg:text-xl leading-tight text-gray-900 group-hover:text-gray-700 transition-colors duration-300">
+      <div className="flex flex-col min-w-0">
+        <span className="font-bold text-sm md:text-lg lg:text-xl leading-tight text-gray-900 group-hover:text-gray-700 transition-colors duration-300 truncate">
           Cardinal Valet
         </span>
-        <span className="text-xs md:text-sm text-gray-600 leading-tight group-hover:text-gray-500 transition-colors duration-300 font-medium hidden sm:block">
+        <span className="text-xs md:text-sm text-gray-600 leading-tight group-hover:text-gray-500 transition-colors duration-300 font-medium hidden sm:block truncate">
           Premium Event Parking
         </span>
         <div className="flex items-center gap-1 mt-0.5 hidden md:flex">
