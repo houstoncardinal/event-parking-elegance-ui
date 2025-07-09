@@ -89,16 +89,19 @@ const Footer = () => {
             <h4 className="text-xl font-playfair font-semibold mb-6 text-white">Our Services</h4>
             <ul className="space-y-4">
               {[
-                'Wedding Valet',
-                'Corporate Events',
-                'Private Parties',
-                'Hotel Services',
-                'Estate Events'
+                { name: 'Wedding Valet', path: '/wedding-valet' },
+                { name: 'Corporate Events', path: '/corporate-events' },
+                { name: 'Private Parties', path: '/private-parties' },
+                { name: 'Premium Protection', path: '/premium-protection' },
+                { name: 'All Services', path: '/services' }
               ].map((service) => (
-                <li key={service}>
-                  <span className="text-slate-300 text-sm font-medium">
-                    {service}
-                  </span>
+                <li key={service.name}>
+                  <Link 
+                    to={service.path}
+                    className="text-slate-300 hover:text-gold-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 inline-block"
+                  >
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
