@@ -27,7 +27,34 @@ import {
 } from "lucide-react";
 
 const SettingsPanel = () => {
-  const [settings, setSettings] = useState({
+  type SettingsType = {
+    theme: string;
+    notifications: {
+      email: boolean;
+      push: boolean;
+      sms: boolean;
+      sound: boolean;
+    };
+    dashboard: {
+      autoRefresh: boolean;
+      refreshInterval: string;
+      showQuickActions: boolean;
+      showRecentActivity: boolean;
+      compactMode: boolean;
+    };
+    privacy: {
+      showOnlineStatus: boolean;
+      allowAnalytics: boolean;
+      dataRetention: string;
+    };
+    accessibility: {
+      highContrast: boolean;
+      largeText: boolean;
+      reduceMotion: boolean;
+    };
+  };
+
+  const [settings, setSettings] = useState<SettingsType>({
     theme: 'light',
     notifications: {
       email: true,
@@ -94,14 +121,18 @@ const SettingsPanel = () => {
     });
   };
 
-  const updateSetting = (category: string, key: string, value: any) => {
+  const updateSetting = (category: keyof Omit<SettingsType, 'theme'>, key: string, value: any) => {
     setSettings(prev => ({
       ...prev,
       [category]: {
-        ...prev[category as keyof typeof prev],
+        ...prev[category],
         [key]: value
       }
     }));
+  };
+
+  const updateTheme = (value: string) => {
+    setSettings(prev => ({ ...prev, theme: value }));
   };
 
   return (
@@ -158,7 +189,7 @@ const SettingsPanel = () => {
               <Label htmlFor="theme">Theme</Label>
               <Select 
                 value={settings.theme} 
-                onValueChange={(value) => updateSetting('theme', 'theme', value)}
+                onValueChange={(value) => updateTheme(value)}
               >
                 <SelectTrigger>
                   <SelectValue />
