@@ -22,7 +22,6 @@ const Index = () => {
             Houston's Premier Valet Service • Professional • Reliable • Luxury
           </span>
         </Marquee>
-        <Pricing />
         <Services />
         <Features />
         <ServiceAreas />
