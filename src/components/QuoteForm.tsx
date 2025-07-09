@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, MapPin, Users, Phone, Mail, Crown, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Users, Phone, Mail, Crown, ArrowRight, Clock, AlertCircle, DollarSign } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
@@ -18,9 +18,69 @@ const QuoteForm = () => {
     phone: '',
     guests: '',
     date: '',
+    startTime: '',
+    endTime: '',
     location: '',
     details: ''
   });
+
+  const pricingTiers = [
+    { min: 0, max: 50, drivers: 2, rate: 44.99 },
+    { min: 51, max: 100, drivers: 3, rate: 39.99 },
+    { min: 101, max: 150, drivers: 4, rate: 34.99 },
+    { min: 151, max: 175, drivers: 5, rate: 34.99 },
+    { min: 176, max: 200, drivers: 6, rate: 34.99 },
+    { min: 201, max: 250, drivers: 8, rate: 32.99 },
+    { min: 251, max: 300, drivers: 10, rate: 29.99 },
+  ];
+
+  const setupFee = 99.99;
+
+  const priceCalculation = useMemo(() => {
+    const guestCount = parseInt(formData.guests) || 0;
+    const startTime = formData.startTime;
+    const endTime = formData.endTime;
+    
+    if (guestCount >= 300) {
+      return {
+        needsCustomQuote: true,
+        message: "300+ Guest Count needs a customized quote and requires company to gather information with specific details to provide accurate pricing. Please provide good contact information and setup your appointment to speak with one of our parking professionals."
+      };
+    }
+
+    if (guestCount === 0 || !startTime || !endTime) {
+      return { needsCustomQuote: false };
+    }
+
+    const tier = pricingTiers.find(t => guestCount >= t.min && guestCount <= t.max);
+    if (!tier) return { needsCustomQuote: false };
+
+    // Calculate hours
+    const start = new Date(`2000-01-01T${startTime}`);
+    const end = new Date(`2000-01-01T${endTime}`);
+    let hours = (end.getTime() - start.getTime()) / (1000 * 60 * 60);
+    
+    // Handle next day end time
+    if (hours < 0) {
+      hours += 24;
+    }
+    
+    // Minimum 4 hours
+    const serviceHours = Math.max(hours, 4);
+    
+    const attendantCost = tier.drivers * tier.rate * serviceHours;
+    const totalCost = attendantCost + setupFee;
+
+    return {
+      needsCustomQuote: false,
+      tier,
+      serviceHours,
+      attendantCost,
+      setupFee,
+      totalCost,
+      guestCount
+    };
+  }, [formData.guests, formData.startTime, formData.endTime]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,6 +104,8 @@ const QuoteForm = () => {
         email: formData.email,
         phone: formData.phone,
         event_date: formData.date,
+        start_time: formData.startTime,
+        end_time: formData.endTime,
         event_location: formData.location,
         guest_count: guestCountNum,
         message: formData.details,
@@ -71,6 +133,8 @@ const QuoteForm = () => {
         phone: '',
         guests: '',
         date: '',
+        startTime: '',
+        endTime: '',
         location: '',
         details: ''
       });
@@ -185,7 +249,7 @@ const QuoteForm = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           <div className="space-y-2">
             <Label htmlFor="date" className="text-white font-semibold flex items-center gap-2 text-xs">
               <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
@@ -202,23 +266,59 @@ const QuoteForm = () => {
               required
             />
           </div>
-          
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="location" className="text-white font-semibold flex items-center gap-2 text-xs">
+            <Label htmlFor="startTime" className="text-white font-semibold flex items-center gap-2 text-xs">
               <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                <MapPin className="w-2.5 h-2.5 text-white" />
+                <Clock className="w-2.5 h-2.5 text-white" />
               </div>
-              Event Location
+              Start Time
             </Label>
             <Input 
-              id="location" 
-              placeholder="Event venue or address"
-              value={formData.location}
-              onChange={(e) => setFormData({...formData, location: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
+              id="startTime" 
+              type="time"
+              value={formData.startTime}
+              onChange={(e) => setFormData({...formData, startTime: e.target.value})}
+              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white no-tap-highlight"
               required
             />
           </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="endTime" className="text-white font-semibold flex items-center gap-2 text-xs">
+              <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                <Clock className="w-2.5 h-2.5 text-white" />
+              </div>
+              End Time
+            </Label>
+            <Input 
+              id="endTime" 
+              type="time"
+              value={formData.endTime}
+              onChange={(e) => setFormData({...formData, endTime: e.target.value})}
+              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white no-tap-highlight"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="location" className="text-white font-semibold flex items-center gap-2 text-xs">
+            <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+              <MapPin className="w-2.5 h-2.5 text-white" />
+            </div>
+            Event Location
+          </Label>
+          <Input 
+            id="location" 
+            placeholder="Event venue or address"
+            value={formData.location}
+            onChange={(e) => setFormData({...formData, location: e.target.value})}
+            className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
+            required
+          />
         </div>
         
         <div className="space-y-2">
@@ -235,6 +335,47 @@ const QuoteForm = () => {
             required
           />
         </div>
+
+        {/* Pricing Display or 300+ Guest Warning */}
+        {priceCalculation.needsCustomQuote && priceCalculation.message && (
+          <div className="mt-4 p-4 bg-amber-500/20 border border-amber-400/30 rounded-xl">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-amber-300 font-semibold text-sm mb-2">Custom Quote Required</h4>
+                <p className="text-amber-200 text-sm leading-relaxed">{priceCalculation.message}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {priceCalculation.totalCost && !priceCalculation.needsCustomQuote && (
+          <div className="mt-4 p-4 bg-green-500/20 border border-green-400/30 rounded-xl">
+            <div className="flex items-start gap-3">
+              <DollarSign className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <h4 className="text-green-300 font-semibold text-sm mb-3">Estimated Quote</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between text-white/80">
+                    <span>{priceCalculation.tier?.drivers} Attendants × ${priceCalculation.tier?.rate}/hr × {priceCalculation.serviceHours} hrs</span>
+                    <span>${priceCalculation.attendantCost?.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-white/80">
+                    <span>Equipment Setup Fee</span>
+                    <span>${priceCalculation.setupFee.toFixed(2)}</span>
+                  </div>
+                  <div className="border-t border-white/20 pt-2 flex justify-between text-green-300 font-semibold">
+                    <span>Total Estimate</span>
+                    <span>${priceCalculation.totalCost.toFixed(2)}</span>
+                  </div>
+                </div>
+                <p className="text-green-200/70 text-xs mt-2">
+                  Final pricing may vary based on site survey and specific requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         
         <div className="pt-2">
           <Button 
