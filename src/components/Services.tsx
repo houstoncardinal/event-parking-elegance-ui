@@ -1,37 +1,81 @@
 import React from 'react';
 import { Car, Shield, Clock, Star, Crown, Users, MapPin, CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 
 const Services = () => {
+  const handleRequestQuote = () => {
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const services = [
     {
       icon: Crown,
       title: 'Wedding Valet Services',
       description: 'Make your special day perfect with our elegant valet service that ensures your guests arrive and depart in style.',
-      features: ['Professional uniformed attendants', 'Luxury vehicle handling', 'Coordination with wedding planners', 'Photo-friendly service'],
-      pricing: 'Starting at $459'
+      features: [
+        'Professional uniformed attendants in wedding attire',
+        'Premium luxury vehicle handling with white gloves',
+        'Direct coordination with wedding planners',
+        'Photo-friendly service during ceremony arrivals',
+        'Bridal party vehicle priority service',
+        'Guest arrival coordination and announcements',
+        'Complimentary vehicle cleaning during service'
+      ],
+      highlights: ['Most Popular', 'Wedding Specialist'],
+      badge: 'Premium'
     },
     {
       icon: Users,
       title: 'Corporate Events',
       description: 'Elevate your business events with seamless parking solutions that impress clients and employees alike.',
-      features: ['Branded service options', 'Executive vehicle care', 'Flexible scheduling', 'Professional presentation'],
-      pricing: 'Starting at $459'
+      features: [
+        'Custom branded service options with company colors',
+        'Executive vehicle care and VIP treatment',
+        'Flexible scheduling for multi-day events',
+        'Professional presentation and corporate attire',
+        'Client greeting and first impression management',
+        'Secure key management systems',
+        'Post-event analytics and reporting'
+      ],
+      highlights: ['Fortune 500 Trusted', 'Executive Grade'],
+      badge: 'Business'
     },
     {
       icon: Star,
       title: 'Private Parties',
       description: 'Transform your private gathering with premium valet service that lets you focus on entertaining your guests.',
-      features: ['Discreet professional service', 'Flexible duration options', 'Special event coordination', 'Guest satisfaction guarantee'],
-      pricing: 'Starting at $459'
+      features: [
+        'Discreet professional service for intimate events',
+        'Flexible duration options (2-12 hours)',
+        'Special event coordination and planning',
+        'Guest satisfaction guarantee with follow-up',
+        'Customizable service levels per event needs',
+        'Weather contingency planning included',
+        'Complimentary consultation and site survey'
+      ],
+      highlights: ['Most Flexible', 'Satisfaction Guaranteed'],
+      badge: 'Personal'
     },
     {
       icon: Shield,
       title: 'Premium Protection',
       description: 'Complete peace of mind with comprehensive insurance coverage and bonded, background-checked attendants.',
-      features: ['$2M liability coverage', 'Bonded attendants', 'Vehicle damage protection', 'Theft protection'],
-      pricing: 'Included'
+      features: [
+        '$2M comprehensive liability coverage',
+        'Fully bonded and insured attendants',
+        'Complete vehicle damage protection',
+        'Theft protection and security measures',
+        'Background-checked professional staff',
+        'Real-time GPS tracking of vehicles',
+        '24/7 emergency response team'
+      ],
+      highlights: ['Fully Insured', 'Background Checked'],
+      badge: 'Security'
     }
   ];
 
@@ -92,17 +136,28 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={service.title} className="group bg-white/80 backdrop-blur-sm border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold-100 to-gold-200 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-gold-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-playfair font-bold text-slate-900 mb-1">
-                      {service.title}
-                    </h3>
-                    <div className="text-gold-600 font-semibold text-sm">
-                      {service.pricing}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-gold-100 to-gold-200 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-8 h-8 text-gold-600" />
                     </div>
+                    <div>
+                      <h3 className="text-xl font-playfair font-bold text-slate-900 mb-1">
+                        {service.title}
+                      </h3>
+                      <div className="flex gap-2 mb-2">
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-100 text-gold-800">
+                          {service.badge}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    {service.highlights.map((highlight, idx) => (
+                      <span key={idx} className="text-xs font-medium text-gold-600 bg-gold-50 px-2 py-1 rounded-full whitespace-nowrap">
+                        {highlight}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
@@ -110,18 +165,25 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                <ul className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
+                    <div key={featureIndex} className="flex items-center gap-3">
                       <div className="w-5 h-5 bg-gold-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-gold-600" />
                       </div>
                       <span className="text-slate-700 text-sm font-medium">
                         {feature}
                       </span>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
+
+                <Button 
+                  onClick={handleRequestQuote}
+                  className="w-full bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  REQUEST A QUOTE
+                </Button>
               </CardContent>
             </Card>
           ))}
