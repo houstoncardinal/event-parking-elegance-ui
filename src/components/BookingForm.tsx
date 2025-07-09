@@ -138,7 +138,7 @@ const BookingForm = () => {
   };
 
   return (
-    <section id="book" className="py-20 bg-white relative">
+    <section id="booking" className="py-20 bg-white relative">
       <SubmissionSuccess
         isOpen={showSuccess}
         onClose={() => setShowSuccess(false)}

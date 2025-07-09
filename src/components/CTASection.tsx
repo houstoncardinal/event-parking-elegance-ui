@@ -28,15 +28,24 @@ const CTASection = () => {
           <Button 
             size="lg"
             className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-12 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            onClick={() => {
+              window.location.href = 'tel:(832)555-CARDINAL';
+            }}
           >
             <PhoneCall className="w-5 h-5 mr-3" />
-            Call (713) 555-VALET
+            Call (832) 555-CARDINAL
           </Button>
           
           <Button 
             size="lg"
             variant="outline"
             className="border-2 border-gray-300 text-gray-900 hover:bg-gray-50 font-bold px-12 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            onClick={() => {
+              const bookingSection = document.getElementById('booking') || document.getElementById('book');
+              if (bookingSection) {
+                bookingSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <Calendar className="w-5 h-5 mr-3" />
             Schedule Consultation

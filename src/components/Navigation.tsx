@@ -42,14 +42,14 @@ const Navigation = () => {
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="flex items-center justify-between py-2 text-sm">
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors">
+                <a href="tel:(832)555-CARDINAL" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
                   <Phone className="w-4 h-4" />
                   <span className="font-medium">(832) 555-CARDINAL</span>
-                </div>
-                <div className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors">
+                </a>
+                <a href="mailto:info@cardinalvalet.com" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
                   <Mail className="w-4 h-4" />
                   <span className="font-medium">info@cardinalvalet.com</span>
-                </div>
+                </a>
                 <div className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors">
                   <Clock className="w-4 h-4" />
                   <span className="font-medium">24/7 Event Parking</span>
@@ -124,12 +124,18 @@ const Navigation = () => {
 
             {/* Desktop CTA Button - Luxury Design */}
             <div className="hidden lg:flex items-center">
-              <Link to="/booking">
-                <Button className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-400 text-gray-900 px-8 py-3 text-sm font-bold rounded-xl shadow-[0_8px_30px_rgb(234,179,8,0.4)] hover:shadow-[0_12px_40px_rgb(234,179,8,0.6)] transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 border border-yellow-300/50 hover:border-yellow-200 group">
-                  <span className="relative z-10 tracking-wide">Get Premium Quote</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => {
+                  const bookingSection = document.getElementById('booking') || document.getElementById('book');
+                  if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-400 text-gray-900 px-8 py-3 text-sm font-bold rounded-xl shadow-[0_8px_30px_rgb(234,179,8,0.4)] hover:shadow-[0_12px_40px_rgb(234,179,8,0.6)] transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 border border-yellow-300/50 hover:border-yellow-200 group"
+              >
+                <span className="relative z-10 tracking-wide">Get Premium Quote</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </Button>
             </div>
 
             {/* Mobile Hamburger Menu Button - Right Side */}
@@ -210,11 +216,18 @@ const Navigation = () => {
 
             {/* Mobile CTA */}
             <div className="pt-4">
-              <Link to="/booking" onClick={closeMenu}>
-                <Button className="w-full bg-gradient-to-r from-primary via-primary to-primary hover:from-primary/90 hover:via-primary/90 hover:to-primary/90 text-primary-foreground py-4 text-lg font-semibold rounded-lg transition-all duration-200 shadow-md">
-                  Get Your Quote
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => {
+                  const bookingSection = document.getElementById('booking') || document.getElementById('book');
+                  if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  closeMenu();
+                }}
+                className="w-full bg-gradient-to-r from-primary via-primary to-primary hover:from-primary/90 hover:via-primary/90 hover:to-primary/90 text-primary-foreground py-4 text-lg font-semibold rounded-lg transition-all duration-200 shadow-md"
+              >
+                Get Your Quote
+              </Button>
             </div>
 
             {/* Mobile Contact Info */}
