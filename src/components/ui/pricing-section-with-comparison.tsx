@@ -22,57 +22,89 @@ function Pricing() {
   ];
 
   return (
-    <section className="w-full py-20 bg-white">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section className="w-full py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-yellow-50 border border-yellow-200 rounded-full px-4 py-2 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 bg-yellow-50 border border-yellow-200 rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6">
             <Star className="w-4 h-4 text-yellow-600" />
-            <span className="text-yellow-700 font-medium text-sm">TRANSPARENT PRICING</span>
+            <span className="text-yellow-700 font-medium text-xs sm:text-sm">TRANSPARENT PRICING</span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Valet Service Pricing
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Professional valet service with transparent pricing based on guest count. 
             Minimum 4 hours of service. All rates include professional staff and full insurance coverage.
           </p>
         </div>
 
-        {/* Pricing Tiers Table */}
-        <div className="mb-16">
+        {/* Mobile-Optimized Pricing Tiers */}
+        <div className="mb-12 sm:mb-16">
           <Card className="overflow-hidden">
-            <CardHeader className="bg-yellow-50 border-b">
-              <h3 className="text-2xl font-bold text-gray-900 text-center">Pricing Tiers by Guest Count</h3>
-              <p className="text-gray-600 text-center">Professional valet attendants with full equipment setup</p>
+            <CardHeader className="bg-yellow-50 border-b px-4 sm:px-6">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-900 text-center">Pricing Tiers by Guest Count</h3>
+              <p className="text-gray-600 text-center text-sm sm:text-base">Professional valet attendants with full equipment setup</p>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="overflow-x-auto">
+              {/* Mobile Cards for Small Screens */}
+              <div className="block sm:hidden">
+                {pricingTiers.map((tier, index) => (
+                  <div key={index} className="p-4 border-b border-gray-200 last:border-b-0">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <div className="font-bold text-gray-900">{tier.guestRange} guests</div>
+                        <div className="text-sm text-gray-600">{tier.drivers} drivers</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-gray-900">${tier.rate}/hr</div>
+                        <div className="text-sm font-semibold text-gray-700">${(tier.rate * tier.drivers * 4).toFixed(2)} total</div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-gray-500">4-hour minimum service</div>
+                  </div>
+                ))}
+                <div className="p-4 bg-yellow-50">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="font-bold text-gray-900">300+ guests</div>
+                      <div className="text-sm text-gray-600 italic">Custom solution</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-bold text-gray-900">Contact Us</div>
+                      <div className="text-sm text-gray-600">Custom quote</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Table for Larger Screens */}
+              <div className="hidden sm:block overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Guest Count</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Drivers Required</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Rate per Attendant</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">4-Hour Total</th>
+                      <th className="px-4 lg:px-6 py-4 text-left text-sm font-semibold text-gray-900">Guest Count</th>
+                      <th className="px-4 lg:px-6 py-4 text-left text-sm font-semibold text-gray-900">Drivers Required</th>
+                      <th className="px-4 lg:px-6 py-4 text-left text-sm font-semibold text-gray-900">Rate per Attendant</th>
+                      <th className="px-4 lg:px-6 py-4 text-left text-sm font-semibold text-gray-900">4-Hour Total</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {pricingTiers.map((tier, index) => (
                       <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-sm text-gray-900 font-medium">{tier.guestRange} guests</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">{tier.drivers} drivers</td>
-                        <td className="px-6 py-4 text-sm text-gray-900 font-semibold">${tier.rate}/hr</td>
-                        <td className="px-6 py-4 text-sm text-gray-900 font-bold">${(tier.rate * tier.drivers * 4).toFixed(2)}</td>
+                        <td className="px-4 lg:px-6 py-4 text-sm text-gray-900 font-medium">{tier.guestRange} guests</td>
+                        <td className="px-4 lg:px-6 py-4 text-sm text-gray-600">{tier.drivers} drivers</td>
+                        <td className="px-4 lg:px-6 py-4 text-sm text-gray-900 font-semibold">${tier.rate}/hr</td>
+                        <td className="px-4 lg:px-6 py-4 text-sm text-gray-900 font-bold">${(tier.rate * tier.drivers * 4).toFixed(2)}</td>
                       </tr>
                     ))}
                     <tr className="bg-yellow-50">
-                      <td className="px-6 py-4 text-sm text-gray-900 font-bold">300+ guests</td>
-                      <td className="px-6 py-4 text-sm text-gray-600 italic">Custom</td>
-                      <td className="px-6 py-4 text-sm text-gray-600 italic">Custom Quote</td>
-                      <td className="px-6 py-4 text-sm text-gray-900 font-bold">Contact Us</td>
+                      <td className="px-4 lg:px-6 py-4 text-sm text-gray-900 font-bold">300+ guests</td>
+                      <td className="px-4 lg:px-6 py-4 text-sm text-gray-600 italic">Custom</td>
+                      <td className="px-4 lg:px-6 py-4 text-sm text-gray-600 italic">Custom Quote</td>
+                      <td className="px-4 lg:px-6 py-4 text-sm text-gray-900 font-bold">Contact Us</td>
                     </tr>
                   </tbody>
                 </table>

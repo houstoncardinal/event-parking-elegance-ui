@@ -15,19 +15,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <Hero />
-      <Marquee variant="luxury" className="mt-0" speed={30}>
-        <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent whitespace-nowrap">
-          Houston's Premier Valet Service • Professional • Reliable • Luxury
-        </span>
-      </Marquee>
-      <Pricing />
-      <Services />
-      <Features />
-      <ServiceAreas />
-      <TestimonialsSection />
-      <CTASection />
-      <BookingForm />
+      <main>
+        <Hero />
+        <Marquee variant="luxury" className="mt-0" speed={30}>
+          <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent whitespace-nowrap">
+            Houston's Premier Valet Service • Professional • Reliable • Luxury
+          </span>
+        </Marquee>
+        <Pricing />
+        <Services />
+        <Features />
+        <ServiceAreas />
+        <TestimonialsSection />
+        <CTASection />
+        <BookingForm />
+      </main>
       <Footer />
     </div>
   );

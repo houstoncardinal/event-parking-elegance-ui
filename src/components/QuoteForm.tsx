@@ -152,36 +152,36 @@ const QuoteForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-5xl card-vip relative overflow-hidden no-tap-highlight">
+    <Card className="w-full max-w-4xl mx-auto card-vip relative overflow-hidden">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/2 to-white/5 pointer-events-none"></div>
       <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-3xl animate-float"></div>
       <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-white/8 to-white/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-      <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-br from-white/6 to-white/2 rounded-full blur-2xl animate-pulse-glow"></div>
       
-      <CardHeader className="relative z-10 pb-4 text-center">
-        <div className="flex items-center justify-center mb-3">
-          <div className="relative flex items-center justify-center w-12 h-12 rounded-full glass-vip">
+      <CardHeader className="relative z-10 pb-6 text-center px-4 sm:px-6">
+        <div className="flex items-center justify-center mb-4">
+          <div className="relative flex items-center justify-center w-14 h-14 rounded-full glass-vip">
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
-            <Crown className="w-6 h-6 text-white relative z-10 drop-shadow-sm" />
+            <Crown className="w-7 h-7 text-white relative z-10 drop-shadow-sm" />
           </div>
         </div>
-        <CardTitle className="text-2xl font-orbitron font-bold text-vip mb-2 drop-shadow-sm">
+        <CardTitle className="text-xl sm:text-2xl lg:text-3xl font-orbitron font-bold text-vip mb-3 drop-shadow-sm">
           Request Premium Quote
         </CardTitle>
-        <p className="text-white/60 text-sm font-medium leading-relaxed">
+        <p className="text-white/70 text-sm sm:text-base font-medium leading-relaxed max-w-2xl mx-auto">
           Experience luxury valet service tailored to your distinguished event.
-          <span className="block text-white/80 font-semibold mt-1">Premium response within 30 minutes</span>
+          <span className="block text-white/90 font-semibold mt-2">Premium response within 30 minutes</span>
         </p>
       </CardHeader>
       
-      <CardContent className="relative z-10 space-y-3 px-6 pb-4">
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-4">
+      <CardContent className="relative z-10 space-y-4 px-4 sm:px-6 pb-6">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Name and Email Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-white font-semibold flex items-center gap-2 text-xs">
+              <Label htmlFor="name" className="text-white font-semibold flex items-center gap-2 text-sm">
                 <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                  <Users className="w-2.5 h-2.5 text-white" />
+                  <Users className="w-3 h-3 text-white" />
                 </div>
                 Full Name
               </Label>
@@ -190,15 +190,15 @@ const QuoteForm = () => {
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white"
                 required
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-white font-semibold flex items-center gap-2 text-xs">
+              <Label htmlFor="email" className="text-white font-semibold flex items-center gap-2 text-sm">
                 <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                  <Mail className="w-2.5 h-2.5 text-white" />
+                  <Mail className="w-3 h-3 text-white" />
                 </div>
                 Email Address
               </Label>
@@ -208,52 +208,56 @@ const QuoteForm = () => {
                 placeholder="your@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white"
                 required
               />
             </div>
           </div>
-        
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="phone" className="text-white font-semibold flex items-center gap-2 text-xs">
-              <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                <Phone className="w-2.5 h-2.5 text-white" />
-              </div>
-              Phone Number
-            </Label>
-            <Input 
-              id="phone" 
-              type="tel"
-              placeholder="(555) 123-4567"
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
-              required
-            />
+
+          {/* Phone and Guest Count Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-white font-semibold flex items-center gap-2 text-sm">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                  <Phone className="w-3 h-3 text-white" />
+                </div>
+                Phone Number
+              </Label>
+              <Input 
+                id="phone" 
+                type="tel"
+                placeholder="(555) 123-4567"
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="guests" className="text-white font-semibold flex items-center gap-2 text-sm">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                  <Users className="w-3 h-3 text-white" />
+                </div>
+                Guest Count
+              </Label>
+              <Input 
+                id="guests" 
+                type="number"
+                placeholder="100"
+                value={formData.guests}
+                onChange={(e) => setFormData({...formData, guests: e.target.value})}
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white"
+                required
+              />
+            </div>
           </div>
-          
+
+          {/* Event Date */}
           <div className="space-y-2">
-            <Label htmlFor="guests" className="text-white font-semibold text-xs">
-              Guest Count
-            </Label>
-            <Input 
-              id="guests" 
-              type="number"
-              placeholder="100"
-              value={formData.guests}
-              onChange={(e) => setFormData({...formData, guests: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
-              required
-            />
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="date" className="text-white font-semibold flex items-center gap-2 text-xs">
+            <Label htmlFor="date" className="text-white font-semibold flex items-center gap-2 text-sm">
               <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                <Calendar className="w-2.5 h-2.5 text-white" />
+                <Calendar className="w-3 h-3 text-white" />
               </div>
               Event Date
             </Label>
@@ -262,146 +266,150 @@ const QuoteForm = () => {
               type="date"
               value={formData.date}
               onChange={(e) => setFormData({...formData, date: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white no-tap-highlight"
+              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white"
               required
             />
           </div>
-        </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="startTime" className="text-white font-semibold flex items-center gap-2 text-xs">
-              <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                <Clock className="w-2.5 h-2.5 text-white" />
-              </div>
-              Start Time
-            </Label>
-            <Input 
-              id="startTime" 
-              type="time"
-              value={formData.startTime}
-              onChange={(e) => setFormData({...formData, startTime: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white no-tap-highlight"
-              required
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="endTime" className="text-white font-semibold flex items-center gap-2 text-xs">
-              <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-                <Clock className="w-2.5 h-2.5 text-white" />
-              </div>
-              End Time
-            </Label>
-            <Input 
-              id="endTime" 
-              type="time"
-              value={formData.endTime}
-              onChange={(e) => setFormData({...formData, endTime: e.target.value})}
-              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white no-tap-highlight"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="location" className="text-white font-semibold flex items-center gap-2 text-xs">
-            <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
-              <MapPin className="w-2.5 h-2.5 text-white" />
-            </div>
-            Event Location
-          </Label>
-          <Input 
-            id="location" 
-            placeholder="Event venue or address"
-            value={formData.location}
-            onChange={(e) => setFormData({...formData, location: e.target.value})}
-            className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-10 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
-            required
-          />
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="details" className="text-white font-semibold text-xs">
-            Event Details & Special Requirements
-          </Label>
-          <Textarea 
-            id="details" 
-            placeholder="Tell us about your event requirements, special considerations, or any specific services needed..."
-            value={formData.details}
-            onChange={(e) => setFormData({...formData, details: e.target.value})}
-            rows={3}
-            className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg resize-none rounded-xl font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white no-tap-highlight"
-            required
-          />
-        </div>
-
-        {/* Pricing Display or 300+ Guest Warning */}
-        {priceCalculation.needsCustomQuote && priceCalculation.message && (
-          <div className="mt-4 p-4 bg-amber-500/20 border border-amber-400/30 rounded-xl">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-amber-300 font-semibold text-sm mb-2">Custom Quote Required</h4>
-                <p className="text-amber-200 text-sm leading-relaxed">{priceCalculation.message}</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {priceCalculation.totalCost && !priceCalculation.needsCustomQuote && (
-          <div className="mt-4 p-4 bg-green-500/20 border border-green-400/30 rounded-xl">
-            <div className="flex items-start gap-3">
-              <DollarSign className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <h4 className="text-green-300 font-semibold text-sm mb-3">Estimated Quote</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between text-white/80">
-                    <span>{priceCalculation.tier?.drivers} Attendants × ${priceCalculation.tier?.rate}/hr × {priceCalculation.serviceHours} hrs</span>
-                    <span>${priceCalculation.attendantCost?.toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between text-white/80">
-                    <span>Equipment Setup Fee</span>
-                    <span>${priceCalculation.setupFee.toFixed(2)}</span>
-                  </div>
-                  <div className="border-t border-white/20 pt-2 flex justify-between text-green-300 font-semibold">
-                    <span>Total Estimate</span>
-                    <span>${priceCalculation.totalCost.toFixed(2)}</span>
-                  </div>
+          {/* Start and End Time Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="startTime" className="text-white font-semibold flex items-center gap-2 text-sm">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                  <Clock className="w-3 h-3 text-white" />
                 </div>
-                <p className="text-green-200/70 text-xs mt-2">
-                  Final pricing may vary based on site survey and specific requirements.
-                </p>
-              </div>
+                Start Time
+              </Label>
+              <Input 
+                id="startTime" 
+                type="time"
+                value={formData.startTime}
+                onChange={(e) => setFormData({...formData, startTime: e.target.value})}
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="endTime" className="text-white font-semibold flex items-center gap-2 text-sm">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                  <Clock className="w-3 h-3 text-white" />
+                </div>
+                End Time
+              </Label>
+              <Input 
+                id="endTime" 
+                type="time"
+                value={formData.endTime}
+                onChange={(e) => setFormData({...formData, endTime: e.target.value})}
+                className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium text-sm transition-all duration-300 hover:shadow-xl focus:shadow-xl text-white"
+                required
+              />
             </div>
           </div>
-        )}
-        
-        <div className="pt-2">
-          <Button 
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full h-11 text-base font-semibold tracking-wide btn-vip group no-tap-highlight disabled:opacity-50"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <span className="relative z-10 text-vip font-semibold">
-              {isSubmitting ? 'Submitting...' : 'Get Premium Quote'}
-            </span>
-            {isSubmitting ? (
-              <div className="ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            ) : (
-              <ArrowRight className="ml-2 w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1 text-white" />
-            )}
-          </Button>
-        </div>
+
+          {/* Event Location */}
+          <div className="space-y-2">
+            <Label htmlFor="location" className="text-white font-semibold flex items-center gap-2 text-sm">
+              <div className="flex items-center justify-center w-5 h-5 rounded-full glass-vip">
+                <MapPin className="w-3 h-3 text-white" />
+              </div>
+              Event Location
+            </Label>
+            <Input 
+              id="location" 
+              placeholder="Event venue or address"
+              value={formData.location}
+              onChange={(e) => setFormData({...formData, location: e.target.value})}
+              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg rounded-xl h-12 font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white"
+              required
+            />
+          </div>
+
+          {/* Event Details */}
+          <div className="space-y-2">
+            <Label htmlFor="details" className="text-white font-semibold text-sm">
+              Event Details & Special Requirements
+            </Label>
+            <Textarea 
+              id="details" 
+              placeholder="Tell us about your event requirements, special considerations, or any specific services needed..."
+              value={formData.details}
+              onChange={(e) => setFormData({...formData, details: e.target.value})}
+              rows={4}
+              className="border-white/20 focus:border-white/40 focus:ring-white/30 glass-vip shadow-lg resize-none rounded-xl font-medium placeholder:text-white/40 transition-all duration-300 hover:shadow-xl focus:shadow-xl text-sm text-white min-h-[100px]"
+              required
+            />
+          </div>
+
+          {/* Pricing Display or 300+ Guest Warning */}
+          {priceCalculation.needsCustomQuote && priceCalculation.message && (
+            <div className="mt-6 p-4 sm:p-6 bg-amber-500/20 border border-amber-400/30 rounded-xl">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-amber-300 font-semibold text-base mb-3">Custom Quote Required</h4>
+                  <p className="text-amber-200 text-sm leading-relaxed">{priceCalculation.message}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {priceCalculation.totalCost && !priceCalculation.needsCustomQuote && (
+            <div className="mt-6 p-4 sm:p-6 bg-green-500/20 border border-green-400/30 rounded-xl">
+              <div className="flex items-start gap-3">
+                <DollarSign className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <div className="flex-1">
+                  <h4 className="text-green-300 font-semibold text-base mb-4">Estimated Quote</h4>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between items-center text-white/80">
+                      <span>{priceCalculation.tier?.drivers} Attendants × ${priceCalculation.tier?.rate}/hr × {priceCalculation.serviceHours} hrs</span>
+                      <span className="font-semibold">${priceCalculation.attendantCost?.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-white/80">
+                      <span>Equipment Setup Fee</span>
+                      <span className="font-semibold">${priceCalculation.setupFee.toFixed(2)}</span>
+                    </div>
+                    <div className="border-t border-white/20 pt-3 flex justify-between items-center text-green-300 font-bold text-base">
+                      <span>Total Estimate</span>
+                      <span>${priceCalculation.totalCost.toFixed(2)}</span>
+                    </div>
+                  </div>
+                  <p className="text-green-200/70 text-xs mt-3">
+                    Final pricing may vary based on site survey and specific requirements.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Submit Button */}
+          <div className="pt-4">
+            <Button 
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full h-14 text-base font-semibold tracking-wide btn-vip group disabled:opacity-50 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <span className="relative z-10 text-vip font-semibold">
+                {isSubmitting ? 'Submitting...' : 'Get Premium Quote'}
+              </span>
+              {isSubmitting ? (
+                <div className="ml-3 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <ArrowRight className="ml-3 w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1 text-white" />
+              )}
+            </Button>
+          </div>
         </form>
         
-        <div className="text-center pt-3 border-t border-white/20">
-          <div className="flex items-center justify-center gap-2 text-xs text-white/60 font-medium">
-            <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+        {/* Footer Info */}
+        <div className="text-center pt-6 border-t border-white/20">
+          <div className="flex items-center justify-center gap-2 text-sm text-white/70 font-medium mb-2">
+            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             <span>Premium response within 30 minutes during business hours</span>
           </div>
-          <p className="text-xs text-white/50 mt-1 font-medium">
+          <p className="text-xs text-white/60 font-medium">
             Fully insured • Licensed professionals • 5-star rated service
           </p>
         </div>
