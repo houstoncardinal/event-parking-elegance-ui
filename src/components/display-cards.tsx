@@ -56,7 +56,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
       icon: <Sparkles className="size-5 text-white" />,
       title: "Wedding Valet",
       description: "Perfect for your special day",
-      date: "Starting at $15/hour",
+      date: "Starting at $459",
       titleClassName: "text-white",
     },
     {
@@ -64,7 +64,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
       icon: <Building className="size-5 text-white" />,
       title: "Corporate Events",
       description: "Professional business solutions",
-      date: "Starting at $18/hour",
+      date: "Starting at $459",
       titleClassName: "text-white/90",
     },
     {
@@ -72,7 +72,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
       icon: <Car className="size-5 text-white" />,
       title: "Private Parties",
       description: "Elegant service for any occasion",
-      date: "Starting at $12/hour",
+      date: "Starting at $459",
       titleClassName: "text-white/80",
     },
   ];

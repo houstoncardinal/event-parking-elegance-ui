@@ -10,21 +10,21 @@ const Services = () => {
       title: 'Wedding Valet Services',
       description: 'Make your special day perfect with our elegant valet service that ensures your guests arrive and depart in style.',
       features: ['Professional uniformed attendants', 'Luxury vehicle handling', 'Coordination with wedding planners', 'Photo-friendly service'],
-      pricing: 'Starting at $299'
+      pricing: 'Starting at $459'
     },
     {
       icon: Users,
       title: 'Corporate Events',
       description: 'Elevate your business events with seamless parking solutions that impress clients and employees alike.',
       features: ['Branded service options', 'Executive vehicle care', 'Flexible scheduling', 'Professional presentation'],
-      pricing: 'Starting at $249'
+      pricing: 'Starting at $459'
     },
     {
       icon: Star,
       title: 'Private Parties',
       description: 'Transform your private gathering with premium valet service that lets you focus on entertaining your guests.',
       features: ['Discreet professional service', 'Flexible duration options', 'Special event coordination', 'Guest satisfaction guarantee'],
-      pricing: 'Starting at $199'
+      pricing: 'Starting at $459'
     },
     {
       icon: Shield,
