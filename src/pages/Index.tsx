@@ -13,7 +13,7 @@ import { Features } from '@/components/blocks/features-8';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navigation />
       <main>
         <Hero />
