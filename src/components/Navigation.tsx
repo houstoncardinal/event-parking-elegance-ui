@@ -69,8 +69,8 @@ const Navigation = () => {
         <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             
-            {/* Logo - Optimized for Mobile */}
-            <div className="flex-shrink-0 z-10">
+            {/* Logo - Fixed on Left */}
+            <div className="flex-shrink-0">
               <Logo size="sm" className="lg:hidden" />
               <Logo size="md" className="hidden lg:block" />
             </div>
@@ -143,10 +143,10 @@ const Navigation = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Hamburger Menu Button - Right Side */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative z-10 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="lg:hidden relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label="Toggle navigation menu"
             >
               <div className="w-6 h-6 relative">

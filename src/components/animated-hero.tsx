@@ -96,14 +96,14 @@ function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-3">
-            <Link to="/booking">
-              <Button size="lg" className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700" variant="outline">
+          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+            <Link to="/booking" className="w-full">
+              <Button size="lg" className="gap-4 bg-yellow-600 text-white border-2 border-yellow-600 hover:bg-yellow-700 w-full" variant="outline">
                 Get Free Quote <PhoneCall className="w-4 h-4 text-white" />
               </Button>
             </Link>
-            <Link to="/services">
-              <Button size="lg" className="gap-4 bg-black text-white hover:bg-gray-900">
+            <Link to="/services" className="w-full">
+              <Button size="lg" className="gap-4 bg-black text-white hover:bg-gray-900 w-full">
                 View Services <MoveRight className="w-4 h-4 text-white" />
               </Button>
             </Link>
