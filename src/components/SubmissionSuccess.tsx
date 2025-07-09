@@ -13,6 +13,9 @@ interface SubmissionSuccessProps {
     email?: string;
     eventType?: string;
     eventDate?: string;
+    guestCount?: number;
+    startTime?: string;
+    endTime?: string;
   };
 }
 
@@ -24,6 +27,22 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [autoAdvance, setAutoAdvance] = useState(true);
+
+  // Calculate quote details for quote submissions
+  const calculateQuote = () => {
+    const guestCount = customerInfo?.guestCount || 75;
+    const driverFee = Math.ceil(guestCount / 25) * 4 * 34.99; // drivers needed * 4 hours * $34.99/hr
+    const equipmentFee = 99.99;
+    const total = driverFee + equipmentFee;
+    
+    return {
+      guestCount,
+      driversNeeded: Math.ceil(guestCount / 25),
+      driverFee,
+      equipmentFee,
+      total
+    };
+  };
 
   const getFormTypeInfo = () => {
     switch (formType) {
@@ -95,6 +114,144 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
 
   if (!isOpen) return null;
 
+  // Render the professional quote details format for quote submissions
+  if (formType === 'quote') {
+    const quote = calculateQuote();
+    const eventDateTime = customerInfo?.eventDate && customerInfo?.startTime && customerInfo?.endTime 
+      ? `${customerInfo.eventDate}, ${customerInfo.startTime} to ${customerInfo.endTime}`
+      : customerInfo?.eventDate || 'TBD';
+
+    return (
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-slate-900 z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-md bg-slate-800 text-cyan-400 font-mono text-sm rounded-lg overflow-hidden shadow-2xl"
+          >
+            {/* Header */}
+            <div className="bg-slate-700 p-4 flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="text-white text-xs">Custom Quote Details</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onClose}
+                className="text-white hover:bg-slate-600 p-1 h-6 w-6"
+              >
+                <X className="w-3 h-3" />
+              </Button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-4">
+              <div className="border-l-4 border-cyan-400 pl-4">
+                <p className="text-cyan-400 mb-4">
+                  Hello {customerInfo?.name?.split(' ')[0] || 'Client'},
+                </p>
+                
+                <p className="text-cyan-400 mb-6">
+                  Your quote from Cardinal Valet Services has arrived:
+                </p>
+
+                {/* Quote Table */}
+                <div className="bg-slate-900 border border-slate-600 rounded">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-600">
+                        <th className="text-left p-3 text-gray-300">EVENT DATE</th>
+                        <th className="text-center p-3 text-gray-300">GUEST COUNT</th>
+                        <th className="text-center p-3 text-gray-300">PRICE</th>
+                        <th className="text-right p-3 text-gray-300">TOTAL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-3 border-r border-slate-600 text-gray-300">
+                          {eventDateTime}
+                        </td>
+                        <td className="p-3 border-r border-slate-600 text-center text-gray-300">
+                          {quote.guestCount}
+                        </td>
+                        <td className="p-3 border-r border-slate-600">
+                          <div className="space-y-2">
+                            <div>
+                              <div className="text-gray-300 font-semibold">Drivers Fee</div>
+                              <div className="text-xs text-gray-400">
+                                ( {quote.driversNeeded} drivers for 4<br />
+                                hours @<br />
+                                $34.99 each /<br />
+                                hr )<br />
+                                <span className="text-red-400">minimum<br />
+                                charge is 4<br />
+                                hours</span>
+                              </div>
+                            </div>
+                            <div className="border-t border-slate-600 pt-2">
+                              <div className="text-gray-300 font-semibold">Equipment Setup Fee</div>
+                              <div className="text-xs text-gray-400">
+                                ( Valet Box,<br />
+                                Signage,<br />
+                                Cones, Valet<br />
+                                Tickets/Lights<br />
+                                etc )
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="p-3 text-right">
+                          <div className="space-y-4">
+                            <div className="text-gray-300">${quote.driverFee.toFixed(2)}</div>
+                            <div className="text-gray-300 pt-8">${quote.equipmentFee.toFixed(2)}</div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="border-t border-slate-600 bg-slate-700">
+                        <td colSpan={3} className="p-3 text-right font-semibold text-gray-300">
+                          Grand Total
+                        </td>
+                        <td className="p-3 text-right font-bold text-gray-300">
+                          ${quote.total.toFixed(2)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-6 space-y-4 text-cyan-400">
+                  <p>
+                    To book this event or for any other questions simply reply to this email. Our parking specialists are on standby 24/7.
+                  </p>
+                  <p>
+                    You can also call us at{' '}
+                    <span className="text-blue-400 underline">(832) 875-8743</span>{' '}
+                    Monday-Friday 10am-6pm and Saturday 11am-3pm.
+                  </p>
+                  <p>
+                    We look forward to serving you at your event. Thank You
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+    );
+  }
+
+  // Original format for contact and booking submissions
   return (
     <AnimatePresence>
       <motion.div
