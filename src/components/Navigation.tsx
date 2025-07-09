@@ -122,11 +122,12 @@ const Navigation = () => {
               </Link>
             </nav>
 
-            {/* Desktop CTA Button - Premium Design */}
+            {/* Desktop CTA Button - Luxury Design */}
             <div className="hidden lg:flex items-center">
               <Link to="/booking">
-                <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-6 py-2.5 text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  Get Quote
+                <Button className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-400 text-gray-900 px-8 py-3 text-sm font-bold rounded-xl shadow-[0_8px_30px_rgb(234,179,8,0.4)] hover:shadow-[0_12px_40px_rgb(234,179,8,0.6)] transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 border border-yellow-300/50 hover:border-yellow-200 group">
+                  <span className="relative z-10 tracking-wide">Get Premium Quote</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 </Button>
               </Link>
             </div>
