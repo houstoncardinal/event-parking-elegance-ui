@@ -19,9 +19,9 @@ function Hero() {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-  return <div className="relative w-full bg-white overflow-x-hidden">
+  return <div className="relative w-full bg-white overflow-x-hidden" style={{ touchAction: 'pan-y' }}>
       {/* Animated Waves Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ touchAction: 'none' }}>
         <Waves lineColor="rgba(0,0,0,0.10)" backgroundColor="#fff" waveSpeedX={0.02} waveSpeedY={0.01} waveAmpX={40} waveAmpY={20} friction={0.9} tension={0.01} maxCursorMove={120} xGap={12} yGap={36} />
       </div>
       {/* Hero content */}

@@ -298,10 +298,6 @@ export function Waves({
     function onMouseMove(e: MouseEvent) {
       updateMouse(e.pageX, e.pageY)
     }
-    function onTouchMove(e: TouchEvent) {
-      const touch = e.touches[0]
-      updateMouse(touch.clientX, touch.clientY)
-    }
     function updateMouse(x: number, y: number) {
       const mouse = mouseRef.current
       const b = boundingRef.current
@@ -321,13 +317,11 @@ export function Waves({
     animationFrameId = requestAnimationFrame(tick)
     window.addEventListener("resize", onResize)
     window.addEventListener("mousemove", onMouseMove)
-    window.addEventListener("touchmove", onTouchMove, { passive: true })
 
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener("resize", onResize)
       window.removeEventListener("mousemove", onMouseMove)
-      window.removeEventListener("touchmove", onTouchMove)
     }
   }, [
     lineColor,
