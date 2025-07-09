@@ -8,12 +8,13 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import SubmissionSuccess from '@/components/SubmissionSuccess';
 
 const BookingForm = () => {
-  const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submissionData, setSubmissionData] = useState<any>(null);
   const [formData, setFormData] = useState({
     eventType: '',
     date: '',
@@ -97,11 +98,13 @@ const BookingForm = () => {
         throw error;
       }
 
-      toast({
-        title: "Booking Request Submitted!",
-        description: "We'll review your request and contact you within 24 hours.",
-        variant: "default",
+      setSubmissionData({
+        name: formData.name,
+        email: formData.email,
+        eventType: formData.eventType,
+        eventDate: formData.date
       });
+      setShowSuccess(true);
 
       // Reset form
       setFormData({
@@ -121,11 +124,7 @@ const BookingForm = () => {
       
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your request. Please try again.",
-        variant: "destructive",
-      });
+      alert('There was an error submitting your request. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -139,7 +138,13 @@ const BookingForm = () => {
   };
 
   return (
-    <section id="book" className="py-20 bg-white relative">      
+    <section id="book" className="py-20 bg-white relative">
+      <SubmissionSuccess
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        formType="booking"
+        customerInfo={submissionData}
+      />      
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}

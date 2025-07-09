@@ -5,11 +5,12 @@ import { Phone, Mail, MapPin, Clock, Shield, Star } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import SubmissionSuccess from '@/components/SubmissionSuccess';
 
 const ContactPage = () => {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submissionData, setSubmissionData] = useState<any>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -47,11 +48,13 @@ const ContactPage = () => {
         throw error;
       }
 
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you within 2 hours.",
-        variant: "default",
+      setSubmissionData({
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        eventType: formData.eventType,
+        eventDate: formData.eventDate
       });
+      setShowSuccess(true);
 
       // Reset form
       setFormData({
@@ -66,11 +69,7 @@ const ContactPage = () => {
       
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({
-        title: "Submission Failed",
-        description: "There was an error sending your message. Please try again.",
-        variant: "destructive",
-      });
+      alert('There was an error sending your message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -79,6 +78,12 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SubmissionSuccess
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        formType="contact"
+        customerInfo={submissionData}
+      />
       <div className="pt-32 pb-16">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           {/* Header */}

@@ -7,12 +7,13 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, MapPin, Users, Phone, Mail, Crown, ArrowRight, Clock, AlertCircle, DollarSign } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import SubmissionSuccess from '@/components/SubmissionSuccess';
 
 const QuoteForm = () => {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submissionData, setSubmissionData] = useState<any>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -121,11 +122,12 @@ const QuoteForm = () => {
         throw error;
       }
 
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll provide you with a premium quote within 30 minutes during business hours.",
-        variant: "default",
+      setSubmissionData({
+        name: formData.name,
+        email: formData.email,
+        eventDate: formData.date
       });
+      setShowSuccess(true);
 
       // Reset form
       setFormData({
@@ -143,11 +145,7 @@ const QuoteForm = () => {
       
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your request. Please try again.",
-        variant: "destructive",
-      });
+      alert('There was an error submitting your request. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -175,7 +173,14 @@ const QuoteForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-4xl mx-auto card-vip relative overflow-hidden">
+    <>
+      <SubmissionSuccess
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        formType="quote"
+        customerInfo={submissionData}
+      />
+      <Card className="w-full max-w-4xl mx-auto card-vip relative overflow-hidden">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/2 to-white/5 pointer-events-none"></div>
       <div className="absolute -top-8 -right-8 w-40 h-40 bg-gradient-to-br from-white/10 to-white/5 rounded-full blur-3xl animate-float"></div>
@@ -451,6 +456,7 @@ const QuoteForm = () => {
         </form>
       </CardContent>
     </Card>
+    </>
   );
 };
 
