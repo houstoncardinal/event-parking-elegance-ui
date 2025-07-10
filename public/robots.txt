@@ -1,24 +1,35 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Important pages for SEO
+Allow: /services
+Allow: /wedding-valet
+Allow: /corporate-events
+Allow: /private-parties
+Allow: /premium-protection
+Allow: /contact
+Allow: /booking
+Allow: /service-areas
+Allow: /client-reviews
+Allow: /faq
+
+# Block admin areas
+Disallow: /admin
+Disallow: /admin/*
+
+# Allow all assets
+Allow: /assets/*
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+
+# Crawl delay (be respectful)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://cardinalvalet.com/sitemap.xml
-
-# Specific crawl instructions for better SEO
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Block admin areas (if any)
-Disallow: /admin/
-Disallow: /admin-simple/
-Disallow: /admin-fallback/
-
-# Allow important directories
-Allow: /images/
-Allow: /assets/
-Allow: /public/
