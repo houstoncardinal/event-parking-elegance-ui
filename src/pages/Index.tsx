@@ -4,6 +4,7 @@ import { Hero } from '@/components/animated-hero';
 import { Marquee } from '@/components/ui/marquee';
 import { Pricing } from '@/components/ui/pricing-section-with-comparison';
 import Services from '@/components/Services';
+import HomepagePackages from '@/components/HomepagePackages';
 import ServiceAreas from '@/components/ServiceAreas';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
@@ -63,6 +64,7 @@ const Index = () => {
               Houston's Premier Valet Service • Professional • Reliable • Luxury
             </span>
           </Marquee>
+          <HomepagePackages />
           <Services />
           <Features />
           <ServiceAreas />
