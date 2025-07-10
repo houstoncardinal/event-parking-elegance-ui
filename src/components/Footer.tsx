@@ -70,6 +70,8 @@ const Footer = () => {
                 { name: 'Service Areas', path: '/service-areas' },
                 { name: 'Client Reviews', path: '/client-reviews' },
                 { name: 'Contact', path: '/contact' },
+                { name: 'FAQ', path: '/faq' },
+                { name: 'File Claim', path: '/file-claim' },
                 { name: 'Book Now', path: '/booking' }
               ].map((link) => (
                 <li key={link.name}>
@@ -195,6 +197,12 @@ const Footer = () => {
                 className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
               >
                 Contact Us
+              </Link>
+              <Link 
+                to="/file-claim"
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                File Claim
               </Link>
               <Link 
                 to="/services"

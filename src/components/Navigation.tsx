@@ -131,6 +131,17 @@ const Navigation = () => {
               >
                 FAQ
               </Link>
+              
+              <Link
+                to="/file-claim"
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  isActivePage('/file-claim')
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                }`}
+              >
+                File Claim
+              </Link>
             </nav>
 
             {/* Desktop CTA Button - Luxury Design */}
@@ -233,6 +244,17 @@ const Navigation = () => {
                 }`}
               >
                 FAQ
+              </Link>
+              <Link
+                to="/file-claim"
+                onClick={closeMenu}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
+                  isActivePage('/file-claim')
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
+                }`}
+              >
+                File Claim
               </Link>
             </div>
 
