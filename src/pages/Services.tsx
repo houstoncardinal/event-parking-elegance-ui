@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import Services from '@/components/Services';
+import ComprehensiveServices from '@/components/ComprehensiveServices';
 import EventPackages from '@/components/EventPackages';
 import { Features } from '@/components/blocks/features-8';
 import SEO from '@/components/SEO';
@@ -32,7 +32,7 @@ const ServicesPage = () => {
         <Navigation />
         <main>
           <div>
-            <Services />
+            <ComprehensiveServices />
             <EventPackages />
             <Features />
           </div>
