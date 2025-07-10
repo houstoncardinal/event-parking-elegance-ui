@@ -8,11 +8,27 @@ import { useNavigate } from 'react-router-dom';
 const HomepagePackages = () => {
   const navigate = useNavigate();
   
-  const handleRequestQuote = () => {
+  const handleBookPackage = (packageType: 'standard' | 'premium') => {
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
+      // Add a slight delay to ensure smooth scrolling
+      setTimeout(() => {
+        bookingSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+        
+        // Optional: Focus on the form to make it more obvious
+        const firstInput = bookingSection.querySelector('input, select');
+        if (firstInput instanceof HTMLElement) {
+          setTimeout(() => firstInput.focus(), 500);
+        }
+      }, 100);
     }
+  };
+
+  const handleRequestQuote = () => {
+    handleBookPackage('standard');
   };
 
   const handleViewAllServices = () => {
@@ -98,7 +114,7 @@ const HomepagePackages = () => {
 
               <div className="pt-6 border-t border-slate-200 space-y-3">
                 <Button 
-                  onClick={handleRequestQuote}
+                  onClick={() => handleBookPackage('standard')}
                   className="w-full bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-800 hover:to-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <Calendar className="w-4 h-4 mr-2" />
@@ -171,7 +187,7 @@ const HomepagePackages = () => {
 
               <div className="pt-6 border-t border-slate-200 space-y-3">
                 <Button 
-                  onClick={handleRequestQuote}
+                  onClick={() => handleBookPackage('premium')}
                   className="w-full bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <Crown className="w-4 h-4 mr-2" />
@@ -203,7 +219,7 @@ const HomepagePackages = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Button 
-              onClick={handleRequestQuote}
+              onClick={() => handleBookPackage('standard')}
               className="bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300"
             >
               <Calendar className="w-5 h-5 mr-2" />
@@ -219,6 +235,7 @@ const HomepagePackages = () => {
             </Button>
             <Button 
               variant="outline"
+              onClick={() => window.location.href = 'tel:713-555-8253'}
               className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold py-4 px-6 rounded-lg transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
