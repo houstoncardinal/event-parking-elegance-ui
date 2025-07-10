@@ -28,7 +28,7 @@ const ServiceAreasPage = () => {
       />
       <div className="min-h-screen bg-white">
         <Navigation />
-        <div className="pt-32">
+        <div>
           <ServiceAreas />
         </div>
         <Footer />
