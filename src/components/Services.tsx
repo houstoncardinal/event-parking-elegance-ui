@@ -21,10 +21,7 @@ const Services = () => {
         'Professional uniformed attendants in wedding attire',
         'Premium luxury vehicle handling with white gloves',
         'Direct coordination with wedding planners',
-        'Photo-friendly service during ceremony arrivals',
-        'Bridal party vehicle priority service',
-        'Guest arrival coordination and announcements',
-        'Complimentary vehicle cleaning during service'
+        'Bridal party vehicle priority service'
       ],
       highlights: ['Most Popular', 'Wedding Specialist'],
       badge: 'Premium'
@@ -37,10 +34,7 @@ const Services = () => {
         'Custom branded service options with company colors',
         'Executive vehicle care and VIP treatment',
         'Flexible scheduling for multi-day events',
-        'Professional presentation and corporate attire',
-        'Client greeting and first impression management',
-        'Secure key management systems',
-        'Post-event analytics and reporting'
+        'Professional presentation and corporate attire'
       ],
       highlights: ['Fortune 500 Trusted', 'Executive Grade'],
       badge: 'Business'
@@ -53,10 +47,7 @@ const Services = () => {
         'Discreet professional service for intimate events',
         'Flexible duration options (2-12 hours)',
         'Special event coordination and planning',
-        'Guest satisfaction guarantee with follow-up',
-        'Customizable service levels per event needs',
-        'Weather contingency planning included',
-        'Complimentary consultation and site survey'
+        'Guest satisfaction guarantee with follow-up'
       ],
       highlights: ['Most Flexible', 'Satisfaction Guaranteed'],
       badge: 'Personal'
@@ -69,10 +60,7 @@ const Services = () => {
         '$2M comprehensive liability coverage',
         'Fully bonded and insured attendants',
         'Complete vehicle damage protection',
-        'Theft protection and security measures',
-        'Background-checked professional staff',
-        'Real-time GPS tracking of vehicles',
-        '24/7 emergency response team'
+        'Background-checked professional staff'
       ],
       highlights: ['Fully Insured', 'Background Checked'],
       badge: 'Security'
