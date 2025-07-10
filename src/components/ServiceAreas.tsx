@@ -9,14 +9,14 @@ const ServiceAreas = () => {
   const [activeCity, setActiveCity] = useState(0);
 
   const cities = [
-    { name: 'Houston', distance: '0 miles', coverage: 'Full Service', events: '800+' },
-    { name: 'Sugar Land', distance: '20 miles', coverage: 'Full Service', events: '150+' },
-    { name: 'The Woodlands', distance: '25 miles', coverage: 'Full Service', events: '120+' },
-    { name: 'Katy', distance: '30 miles', coverage: 'Full Service', events: '100+' },
-    { name: 'Pearland', distance: '15 miles', coverage: 'Full Service', events: '90+' },
-    { name: 'Conroe', distance: '40 miles', coverage: 'Premium Service', events: '60+' },
-    { name: 'League City', distance: '25 miles', coverage: 'Premium Service', events: '45+' },
-    { name: 'Cypress', distance: '25 miles', coverage: 'Full Service', events: '75+' }
+    { name: 'Houston', distance: 'Service Headquarters', coverage: 'Full Service', events: '1,500+' },
+    { name: 'Sugar Land', distance: '20 miles SW', coverage: 'Full Service', events: '150+' },
+    { name: 'The Woodlands', distance: '30 miles N', coverage: 'Full Service', events: '120+' },
+    { name: 'Katy', distance: '30 miles W', coverage: 'Full Service', events: '100+' },
+    { name: 'Pearland', distance: '20 miles S', coverage: 'Full Service', events: '90+' },
+    { name: 'Conroe', distance: '40 miles N', coverage: 'Premium Service', events: '60+' },
+    { name: 'League City', distance: '25 miles SE', coverage: 'Premium Service', events: '45+' },
+    { name: 'Cypress', distance: '25 miles NW', coverage: 'Full Service', events: '75+' }
   ];
 
   const neighborhoods = [
@@ -142,7 +142,9 @@ const ServiceAreas = () => {
                     <h3 className="text-2xl font-playfair font-bold text-slate-900 mb-1">
                       {cities[activeCity].name}
                     </h3>
-                    <p className="text-slate-600 font-medium">{cities[activeCity].distance} from Houston</p>
+                    <p className="text-slate-600 font-medium">
+                      {cities[activeCity].name === 'Houston' ? 'Metropolitan Area Hub' : `${cities[activeCity].distance} from Houston`}
+                    </p>
                   </div>
                   <div className="text-right">
                     <div className="text-lg font-bold text-gold-600">{cities[activeCity].events}</div>
