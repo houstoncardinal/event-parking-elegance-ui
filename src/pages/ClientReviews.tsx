@@ -28,7 +28,7 @@ const ClientReviewsPage = () => {
       />
       <div className="min-h-screen bg-white">
         <Navigation />
-        <div className="pt-32">
+        <div>
           <TestimonialsSection />
         </div>
         <Footer />
