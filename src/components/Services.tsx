@@ -3,8 +3,11 @@ import { Car, Shield, Clock, Star, Crown, Users, MapPin, CheckCircle } from 'luc
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
+  const navigate = useNavigate();
+  
   const handleRequestQuote = () => {
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
@@ -175,7 +178,7 @@ const Services = () => {
                         'Private Parties': '/private-parties',
                         'Premium Protection': '/premium-protection'
                       };
-                      window.location.href = serviceRoutes[service.title] || '/services';
+                      navigate(serviceRoutes[service.title] || '/services');
                     }}
                     variant="outline"
                     className="flex-1 border-2 border-gold-300 text-gold-700 hover:bg-gold-50 font-semibold py-3 px-4 rounded-lg transition-all duration-300"
