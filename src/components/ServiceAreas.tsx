@@ -4,6 +4,7 @@ import { MapPin, CheckCircle, Star, Navigation, Phone } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
+import HoustonMap from '@/components/HoustonMap';
 
 const ServiceAreas = () => {
   const [activeCity, setActiveCity] = useState(0);
@@ -54,68 +55,12 @@ const ServiceAreas = () => {
         </AnimatedGroup>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Interactive Map Area */}
+          {/* Interactive Houston Map */}
           <div className="relative">
-            {/* Map Container */}
-            <div className="relative bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl p-8 shadow-lg border border-white/40 h-96">
-              {/* Simplified Houston Map */}
-              <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl overflow-hidden">
-                {/* Houston Center */}
-                <div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full shadow-lg cursor-pointer hover:scale-125 transition-all duration-300 z-20"
-                  onClick={() => setActiveCity(0)}
-                >
-                  <div className="absolute inset-0 bg-gold-400 rounded-full animate-ping opacity-30"></div>
-                </div>
-
-                {/* Surrounding Cities */}
-                {cities.slice(1).map((city, index) => {
-                  const positions = [
-                    { top: '25%', left: '25%' }, // Sugar Land
-                    { top: '15%', left: '45%' }, // The Woodlands
-                    { top: '45%', left: '15%' }, // Katy
-                    { top: '65%', left: '55%' }, // Pearland
-                    { top: '10%', left: '60%' }, // Conroe
-                    { top: '75%', left: '70%' }, // League City
-                    { top: '30%', left: '20%' }  // Cypress
-                  ];
-
-                  return (
-                    <div
-                      key={city.name}
-                      className={`absolute w-3 h-3 rounded-full cursor-pointer hover:scale-125 transition-all duration-300 ${
-                        activeCity === index + 1 
-                          ? 'bg-gradient-to-br from-slate-600 to-slate-700 shadow-lg scale-125' 
-                          : 'bg-gradient-to-br from-slate-400 to-slate-500'
-                      }`}
-                      style={positions[index]}
-                      onClick={() => setActiveCity(index + 1)}
-                    >
-                      {activeCity === index + 1 && (
-                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                          {city.name}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-
-                {/* Service Area Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold-400/10 via-transparent to-slate-400/10 rounded-xl"></div>
-              </div>
-
-              {/* Map Legend */}
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-white/40">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-3 h-3 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full"></div>
-                  <span className="text-xs text-slate-700 font-medium">Houston HQ</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-gradient-to-br from-slate-400 to-slate-500 rounded-full"></div>
-                  <span className="text-xs text-slate-700 font-medium">Service Areas</span>
-                </div>
-              </div>
-            </div>
+            <HoustonMap 
+              onCitySelect={setActiveCity}
+              activeCity={activeCity}
+            />
 
             {/* Houston Neighborhoods */}
             <div className="mt-8">
