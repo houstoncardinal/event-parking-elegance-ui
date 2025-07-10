@@ -74,13 +74,105 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          admin_notes: string | null
+          assigned_to: string | null
+          assigned_to_name: string | null
+          best_time_to_contact: string | null
+          company: string | null
+          contact_type: string
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          ip_address: string | null
+          last_name: string
+          message: string
+          phone: string | null
+          preferred_contact_method: string | null
+          priority: string | null
+          resolved_at: string | null
+          response_sent_at: string | null
+          source_page: string | null
+          status: string | null
+          subject: string
+          updated_at: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          website: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          best_time_to_contact?: string | null
+          company?: string | null
+          contact_type?: string
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          ip_address?: string | null
+          last_name: string
+          message: string
+          phone?: string | null
+          preferred_contact_method?: string | null
+          priority?: string | null
+          resolved_at?: string | null
+          response_sent_at?: string | null
+          source_page?: string | null
+          status?: string | null
+          subject: string
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          website?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          best_time_to_contact?: string | null
+          company?: string | null
+          contact_type?: string
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          ip_address?: string | null
+          last_name?: string
+          message?: string
+          phone?: string | null
+          preferred_contact_method?: string | null
+          priority?: string | null
+          resolved_at?: string | null
+          response_sent_at?: string | null
+          source_page?: string | null
+          status?: string | null
+          subject?: string
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
       form_submissions: {
         Row: {
           admin_notes: string | null
           assigned_to: string | null
           attendants_needed: number | null
+          best_time_to_contact: string | null
           budget_range: string | null
           company: string | null
+          contact_method: string | null
           contacted_at: string | null
           created_at: string | null
           email: string | null
@@ -92,6 +184,7 @@ export type Database = {
           form_type: string
           guest_count: number | null
           id: string
+          ip_address: string | null
           last_name: string | null
           message: string | null
           phone: string | null
@@ -102,6 +195,7 @@ export type Database = {
           start_time: string | null
           status: string | null
           updated_at: string | null
+          user_agent: string | null
           utm_campaign: string | null
           utm_medium: string | null
           utm_source: string | null
@@ -110,8 +204,10 @@ export type Database = {
           admin_notes?: string | null
           assigned_to?: string | null
           attendants_needed?: number | null
+          best_time_to_contact?: string | null
           budget_range?: string | null
           company?: string | null
+          contact_method?: string | null
           contacted_at?: string | null
           created_at?: string | null
           email?: string | null
@@ -123,6 +219,7 @@ export type Database = {
           form_type: string
           guest_count?: number | null
           id?: string
+          ip_address?: string | null
           last_name?: string | null
           message?: string | null
           phone?: string | null
@@ -133,6 +230,7 @@ export type Database = {
           start_time?: string | null
           status?: string | null
           updated_at?: string | null
+          user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
@@ -141,8 +239,10 @@ export type Database = {
           admin_notes?: string | null
           assigned_to?: string | null
           attendants_needed?: number | null
+          best_time_to_contact?: string | null
           budget_range?: string | null
           company?: string | null
+          contact_method?: string | null
           contacted_at?: string | null
           created_at?: string | null
           email?: string | null
@@ -154,6 +254,7 @@ export type Database = {
           form_type?: string
           guest_count?: number | null
           id?: string
+          ip_address?: string | null
           last_name?: string | null
           message?: string | null
           phone?: string | null
@@ -164,6 +265,7 @@ export type Database = {
           start_time?: string | null
           status?: string | null
           updated_at?: string | null
+          user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
@@ -177,6 +279,165 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      insurance_claims: {
+        Row: {
+          acknowledge_truth: boolean | null
+          additional_comments: string | null
+          address: string | null
+          admin_notes: string | null
+          assigned_to: string | null
+          assigned_to_name: string | null
+          circumstances: string
+          claim_number: string
+          consent_to_contact: boolean | null
+          consent_to_investigate: boolean | null
+          created_at: string
+          damage_description: string
+          damage_location: string | null
+          email: string
+          estimated_value: number | null
+          event_location: string
+          event_name: string | null
+          event_venue: string | null
+          first_name: string
+          has_insurance: string | null
+          id: string
+          incident_date: string
+          incident_time: string | null
+          incident_type: string
+          insurance_claim_filed: string | null
+          insurance_company: string | null
+          insurance_policy_number: string | null
+          ip_address: string | null
+          last_name: string
+          phone: string
+          police_report: boolean | null
+          police_report_number: string | null
+          prior_damage: boolean | null
+          prior_damage_description: string | null
+          resolution_notes: string | null
+          resolved_at: string | null
+          source_page: string | null
+          status: string | null
+          updated_at: string
+          urgency_level: string | null
+          user_agent: string | null
+          vehicle_color: string | null
+          vehicle_license: string | null
+          vehicle_make: string | null
+          vehicle_model: string | null
+          vehicle_vin: string | null
+          vehicle_year: string | null
+          witness_email: string | null
+          witness_name: string | null
+          witness_phone: string | null
+        }
+        Insert: {
+          acknowledge_truth?: boolean | null
+          additional_comments?: string | null
+          address?: string | null
+          admin_notes?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          circumstances: string
+          claim_number?: string
+          consent_to_contact?: boolean | null
+          consent_to_investigate?: boolean | null
+          created_at?: string
+          damage_description: string
+          damage_location?: string | null
+          email: string
+          estimated_value?: number | null
+          event_location: string
+          event_name?: string | null
+          event_venue?: string | null
+          first_name: string
+          has_insurance?: string | null
+          id?: string
+          incident_date: string
+          incident_time?: string | null
+          incident_type: string
+          insurance_claim_filed?: string | null
+          insurance_company?: string | null
+          insurance_policy_number?: string | null
+          ip_address?: string | null
+          last_name: string
+          phone: string
+          police_report?: boolean | null
+          police_report_number?: string | null
+          prior_damage?: boolean | null
+          prior_damage_description?: string | null
+          resolution_notes?: string | null
+          resolved_at?: string | null
+          source_page?: string | null
+          status?: string | null
+          updated_at?: string
+          urgency_level?: string | null
+          user_agent?: string | null
+          vehicle_color?: string | null
+          vehicle_license?: string | null
+          vehicle_make?: string | null
+          vehicle_model?: string | null
+          vehicle_vin?: string | null
+          vehicle_year?: string | null
+          witness_email?: string | null
+          witness_name?: string | null
+          witness_phone?: string | null
+        }
+        Update: {
+          acknowledge_truth?: boolean | null
+          additional_comments?: string | null
+          address?: string | null
+          admin_notes?: string | null
+          assigned_to?: string | null
+          assigned_to_name?: string | null
+          circumstances?: string
+          claim_number?: string
+          consent_to_contact?: boolean | null
+          consent_to_investigate?: boolean | null
+          created_at?: string
+          damage_description?: string
+          damage_location?: string | null
+          email?: string
+          estimated_value?: number | null
+          event_location?: string
+          event_name?: string | null
+          event_venue?: string | null
+          first_name?: string
+          has_insurance?: string | null
+          id?: string
+          incident_date?: string
+          incident_time?: string | null
+          incident_type?: string
+          insurance_claim_filed?: string | null
+          insurance_company?: string | null
+          insurance_policy_number?: string | null
+          ip_address?: string | null
+          last_name?: string
+          phone?: string
+          police_report?: boolean | null
+          police_report_number?: string | null
+          prior_damage?: boolean | null
+          prior_damage_description?: string | null
+          resolution_notes?: string | null
+          resolved_at?: string | null
+          source_page?: string | null
+          status?: string | null
+          updated_at?: string
+          urgency_level?: string | null
+          user_agent?: string | null
+          vehicle_color?: string | null
+          vehicle_license?: string | null
+          vehicle_make?: string | null
+          vehicle_model?: string | null
+          vehicle_vin?: string | null
+          vehicle_year?: string | null
+          witness_email?: string | null
+          witness_name?: string | null
+          witness_phone?: string | null
+        }
+        Relationships: []
       }
       projects: {
         Row: {

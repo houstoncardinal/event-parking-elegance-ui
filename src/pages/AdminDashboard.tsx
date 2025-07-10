@@ -34,6 +34,8 @@ import SupportTickets from "@/components/admin/SupportTickets";
 import AdvancedAnalytics from "@/components/admin/AdvancedAnalytics";
 import QuickActions from "@/components/admin/QuickActions";
 import SettingsPanel from "@/components/admin/SettingsPanel";
+import ContactSubmissionsManagement from "@/components/admin/ContactSubmissionsManagement";
+import InsuranceClaimsManagement from "@/components/admin/InsuranceClaimsManagement";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AdminDashboardFallback from "./AdminDashboardFallback";
 
@@ -140,6 +142,18 @@ const AdminDashboard = () => {
               {activeTab === "tickets" && (
                 <ErrorBoundary>
                   <SupportTickets />
+                </ErrorBoundary>
+              )}
+
+              {activeTab === "contact-submissions" && (
+                <ErrorBoundary>
+                  <ContactSubmissionsManagement />
+                </ErrorBoundary>
+              )}
+              
+              {activeTab === "insurance-claims" && (
+                <ErrorBoundary>
+                  <InsuranceClaimsManagement />
                 </ErrorBoundary>
               )}
 

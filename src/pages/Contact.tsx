@@ -18,9 +18,13 @@ const ContactPage = () => {
     lastName: '',
     email: '',
     phone: '',
-    eventType: '',
-    eventDate: '',
-    message: ''
+    company: '',
+    website: '',
+    contactType: 'general',
+    subject: '',
+    message: '',
+    preferredContactMethod: 'email',
+    bestTimeToContact: ''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,21 +33,24 @@ const ContactPage = () => {
     
     try {
       const submission = {
-        form_type: 'contact',
-        status: 'new',
-        priority: 'normal',
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
         phone: formData.phone,
-        event_type: formData.eventType,
-        event_date: formData.eventDate,
+        company: formData.company,
+        website: formData.website,
+        contact_type: formData.contactType,
+        subject: formData.subject,
         message: formData.message,
-        source_page: window.location.pathname
+        preferred_contact_method: formData.preferredContactMethod,
+        best_time_to_contact: formData.bestTimeToContact,
+        source_page: window.location.pathname,
+        ip_address: null, // Will be populated by middleware if needed
+        user_agent: navigator.userAgent
       };
 
       const { error } = await supabase
-        .from('form_submissions')
+        .from('contact_submissions')
         .insert(submission);
 
       if (error) {
@@ -53,8 +60,8 @@ const ContactPage = () => {
       setSubmissionData({
         name: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
-        eventType: formData.eventType,
-        eventDate: formData.eventDate
+        contactType: formData.contactType,
+        subject: formData.subject
       });
       setShowSuccess(true);
 
@@ -64,9 +71,13 @@ const ContactPage = () => {
         lastName: '',
         email: '',
         phone: '',
-        eventType: '',
-        eventDate: '',
-        message: ''
+        company: '',
+        website: '',
+        contactType: 'general',
+        subject: '',
+        message: '',
+        preferredContactMethod: 'email',
+        bestTimeToContact: ''
       });
       
     } catch (error) {
@@ -120,8 +131,8 @@ const ContactPage = () => {
               </h1>
               
               <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                Ready to elevate your event with professional valet services? Contact us today for a free quote 
-                and let us handle the parking while you focus on what matters most.
+                We're here to help with any questions, support needs, or feedback you may have. 
+                Get in touch with our team and we'll respond promptly to assist you.
               </p>
             </div>
 
@@ -203,12 +214,12 @@ const ContactPage = () => {
               {/* Contact Form */}
               <Card className="bg-white border-slate-200 shadow-lg">
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-playfair font-bold text-slate-900 mb-6">Request a Quote</h2>
+                  <h2 className="text-2xl font-playfair font-bold text-slate-900 mb-6">Send Us a Message</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">First Name *</label>
                         <input 
                           type="text" 
                           value={formData.firstName}
@@ -219,7 +230,7 @@ const ContactPage = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Last Name *</label>
                         <input 
                           type="text" 
                           value={formData.lastName}
@@ -231,66 +242,119 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                      <input 
-                        type="email" 
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
-                        placeholder="john@example.com"
-                        required
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Email *</label>
+                        <input 
+                          type="email" 
+                          value={formData.email}
+                          onChange={(e) => setFormData({...formData, email: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          placeholder="john@example.com"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Phone</label>
+                        <input 
+                          type="tel" 
+                          value={formData.phone}
+                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          placeholder="(555) 123-4567"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+                        <input 
+                          type="text" 
+                          value={formData.company}
+                          onChange={(e) => setFormData({...formData, company: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          placeholder="Your Company (Optional)"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Website</label>
+                        <input 
+                          type="url" 
+                          value={formData.website}
+                          onChange={(e) => setFormData({...formData, website: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          placeholder="https://yourwebsite.com (Optional)"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Contact Type *</label>
+                        <select 
+                          value={formData.contactType}
+                          onChange={(e) => setFormData({...formData, contactType: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          required
+                        >
+                          <option value="general">General Inquiry</option>
+                          <option value="support">Customer Support</option>
+                          <option value="quote">Request Quote</option>
+                          <option value="complaint">Complaint</option>
+                          <option value="partnership">Partnership</option>
+                          <option value="media">Media Inquiry</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Preferred Contact Method</label>
+                        <select 
+                          value={formData.preferredContactMethod}
+                          onChange={(e) => setFormData({...formData, preferredContactMethod: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                        >
+                          <option value="email">Email</option>
+                          <option value="phone">Phone</option>
+                          <option value="both">Either Email or Phone</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Subject *</label>
+                        <input 
+                          type="text" 
+                          value={formData.subject}
+                          onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                          placeholder="Brief description of your inquiry"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Best Time to Contact</label>
+                        <select 
+                          value={formData.bestTimeToContact}
+                          onChange={(e) => setFormData({...formData, bestTimeToContact: e.target.value})}
+                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                        >
+                          <option value="">No Preference</option>
+                          <option value="morning">Morning (8 AM - 12 PM)</option>
+                          <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                          <option value="evening">Evening (5 PM - 8 PM)</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Phone</label>
-                      <input 
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
-                        placeholder="(555) 123-4567"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Event Type</label>
-                      <select 
-                        value={formData.eventType}
-                        onChange={(e) => setFormData({...formData, eventType: e.target.value})}
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select event type</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="corporate">Corporate Event</option>
-                        <option value="private">Private Party</option>
-                        <option value="gala">Gala</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Event Date</label>
-                      <input 
-                        type="date" 
-                        value={formData.eventDate}
-                        onChange={(e) => setFormData({...formData, eventDate: e.target.value})}
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">Message *</label>
                       <textarea 
-                        rows={4}
+                        rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
-                        placeholder="Tell us about your event..."
+                        placeholder="Please provide details about your inquiry..."
                         required
                       ></textarea>
                     </div>

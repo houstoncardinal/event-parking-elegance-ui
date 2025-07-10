@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -112,8 +113,56 @@ const FileClaim = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Create the claim data object
+      const claimData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        incident_type: formData.incidentType,
+        incident_date: incidentDate ? incidentDate.toISOString().split('T')[0] : null,
+        incident_time: formData.incidentTime || null,
+        event_name: formData.eventName,
+        event_location: formData.eventLocation,
+        event_venue: formData.eventVenue,
+        vehicle_make: formData.vehicleMake,
+        vehicle_model: formData.vehicleModel,
+        vehicle_year: formData.vehicleYear,
+        vehicle_color: formData.vehicleColor,
+        vehicle_license: formData.vehicleLicense,
+        vehicle_vin: formData.vehicleVin,
+        damage_description: formData.damageDescription,
+        damage_location: formData.damageLocation,
+        estimated_value: formData.estimatedValue ? parseFloat(formData.estimatedValue) : null,
+        prior_damage: formData.priorDamage,
+        prior_damage_description: formData.priorDamageDescription,
+        circumstances: formData.circumstances,
+        witness_name: formData.witnessName,
+        witness_phone: formData.witnessPhone,
+        witness_email: formData.witnessEmail,
+        police_report: formData.policeReport,
+        police_report_number: formData.policeReportNumber,
+        has_insurance: formData.hasInsurance,
+        insurance_company: formData.insuranceCompany,
+        insurance_policy_number: formData.insurancePolicyNumber,
+        insurance_claim_filed: formData.insuranceClaimFiled,
+        additional_comments: formData.additionalComments,
+        urgency_level: formData.urgencyLevel,
+        consent_to_investigate: formData.consentToInvestigate,
+        consent_to_contact: formData.consentToContact,
+        acknowledge_truth: formData.acknowledgeTruth,
+        source_page: window.location.pathname,
+        user_agent: navigator.userAgent
+      };
+
+      const { error } = await supabase
+        .from('insurance_claims')
+        .insert(claimData);
+
+      if (error) {
+        throw error;
+      }
       
       toast({
         title: "Claim Submitted Successfully",
@@ -123,6 +172,7 @@ const FileClaim = () => {
       // Reset form or redirect
       setStep(5); // Success step
     } catch (error) {
+      console.error('Error submitting claim:', error);
       toast({
         title: "Submission Failed",
         description: "There was an error submitting your claim. Please try again or contact us directly.",

@@ -9,7 +9,9 @@ import {
   Settings,
   LogOut,
   Crown,
-  Brain
+  Brain,
+  Mail,
+  Shield
 } from "lucide-react";
 
 interface AdminSidebarProps {
@@ -24,7 +26,9 @@ const AdminSidebar = ({ activeTab, setActiveTab }: AdminSidebarProps) => {
     { id: "clients", label: "Clients", icon: Users, count: 42 },
     { id: "projects", label: "Projects", icon: FolderOpen, count: 18 },
     { id: "team", label: "Team", icon: Users },
-    { id: "forms", label: "Form Submissions", icon: MessageSquare, count: 7 },
+    { id: "forms", label: "Quote/Booking Forms", icon: MessageSquare, count: 7 },
+    { id: "contact-submissions", label: "Contact Messages", icon: Mail, count: 12 },
+    { id: "insurance-claims", label: "Insurance Claims", icon: Shield, count: 2 },
     { id: "tickets", label: "Support Tickets", icon: Ticket, count: 3 },
     { id: "settings", label: "Settings", icon: Settings },
   ];
