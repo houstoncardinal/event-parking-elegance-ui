@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Services from '@/components/Services';
+import EventPackages from '@/components/EventPackages';
 import { Features } from '@/components/blocks/features-8';
 import SEO from '@/components/SEO';
 import { servicesSchema } from '@/utils/seoSchemas';
@@ -32,6 +33,7 @@ const ServicesPage = () => {
         <main>
           <div>
             <Services />
+            <EventPackages />
             <Features />
           </div>
         </main>
