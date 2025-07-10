@@ -18,6 +18,7 @@ import WeddingValet from "./pages/WeddingValet";
 import CorporateEvents from "./pages/CorporateEvents";
 import PrivateParties from "./pages/PrivateParties";
 import PremiumProtection from "./pages/PremiumProtection";
+import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/client-reviews" element={<ClientReviewsPage />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/wedding-valet" element={<WeddingValet />} />
             <Route path="/corporate-events" element={<CorporateEvents />} />

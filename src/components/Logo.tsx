@@ -9,15 +9,15 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
   const sizeClasses = {
-    sm: 'text-sm',
-    md: 'text-base lg:text-lg',
-    lg: 'text-lg lg:text-xl'
+    sm: 'text-xs',
+    md: 'text-sm lg:text-base',
+    lg: 'text-base lg:text-lg'
   };
 
   const subtitleSizes = {
-    sm: 'text-xs',
-    md: 'text-xs lg:text-sm',
-    lg: 'text-sm lg:text-base'
+    sm: 'text-[10px]',
+    md: 'text-[10px] lg:text-xs',
+    lg: 'text-xs lg:text-sm'
   };
 
   return (

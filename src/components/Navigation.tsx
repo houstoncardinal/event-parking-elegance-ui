@@ -120,6 +120,17 @@ const Navigation = () => {
               >
                 Contact
               </Link>
+              
+              <Link
+                to="/faq"
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  isActivePage('/faq')
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                }`}
+              >
+                FAQ
+              </Link>
             </nav>
 
             {/* Desktop CTA Button - Luxury Design */}
@@ -211,6 +222,17 @@ const Navigation = () => {
                 }`}
               >
                 Contact
+              </Link>
+              <Link
+                to="/faq"
+                onClick={closeMenu}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
+                  isActivePage('/faq')
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
+                }`}
+              >
+                FAQ
               </Link>
             </div>
 
