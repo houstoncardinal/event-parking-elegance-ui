@@ -175,7 +175,15 @@ const ServiceAreas = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-white">
+                <Button 
+                  onClick={() => {
+                    const bookingSection = document.getElementById('booking');
+                    if (bookingSection) {
+                      bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="w-full bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-white"
+                >
                   <Phone className="mr-2 w-4 h-4" />
                   Get Quote for {cities[activeCity].name}
                 </Button>
@@ -211,7 +219,16 @@ const ServiceAreas = () => {
               <p className="text-sm text-slate-600 mb-4">
                 Contact us today for a personalized quote and discover why we're Houston's premier valet service.
               </p>
-              <Button variant="outline" className="w-full border-gold-300 hover:border-gold-400 text-slate-800">
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  const bookingSection = document.getElementById('booking');
+                  if (bookingSection) {
+                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="w-full border-gold-300 hover:border-gold-400 text-slate-800"
+              >
                 Schedule Consultation
               </Button>
             </div>
