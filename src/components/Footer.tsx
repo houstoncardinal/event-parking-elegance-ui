@@ -128,7 +128,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-white font-medium mb-1">Email</div>
-                  <div className="text-slate-300 text-sm">info@cardinalparking.com</div>
+                  <div className="text-slate-300 text-sm">info@eventsparkingservices.com</div>
                 </div>
               </li>
               <li className="flex items-start space-x-4">

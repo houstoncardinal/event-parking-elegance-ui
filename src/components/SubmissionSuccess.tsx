@@ -357,7 +357,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
                   <div>
                     <h4 className="font-semibold text-blue-900 mb-1">Need immediate assistance?</h4>
                     <p className="text-sm text-blue-700 mb-2">
-                      Call us at <strong>(832) 555-CARDINAL</strong> or email <strong>info@cardinalparking.com</strong>
+                      Call us at <strong>(832) 555-CARDINAL</strong> or email <strong>info@eventsparkingservices.com</strong>
                     </p>
                     <p className="text-xs text-blue-600">
                       Reference ID: {Date.now().toString().slice(-6)} • Available 24/7 for emergencies

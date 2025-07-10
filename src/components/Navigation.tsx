@@ -46,9 +46,9 @@ const Navigation = () => {
                   <Phone className="w-4 h-4" />
                   <span className="font-medium">(832) 555-CARDINAL</span>
                 </a>
-                <a href="mailto:info@cardinalvalet.com" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
+                <a href="mailto:info@eventsparkingservices.com" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
                   <Mail className="w-4 h-4" />
-                  <span className="font-medium">info@cardinalvalet.com</span>
+                  <span className="font-medium">info@eventsparkingservices.com</span>
                 </a>
                 <div className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors">
                   <Clock className="w-4 h-4" />
@@ -282,9 +282,9 @@ const Navigation = () => {
                   <Phone className="w-5 h-5 text-primary" />
                   <span className="font-medium">(832) 555-CARDINAL</span>
                 </a>
-                <a href="mailto:info@cardinalvalet.com" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
+                <a href="mailto:info@eventsparkingservices.com" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span className="font-medium">info@cardinalvalet.com</span>
+                  <span className="font-medium">info@eventsparkingservices.com</span>
                 </a>
                 <div className="flex items-center space-x-3 text-foreground/80 p-2 -m-2">
                   <MapPin className="w-5 h-5 text-primary" />
