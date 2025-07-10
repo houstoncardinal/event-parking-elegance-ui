@@ -331,7 +331,7 @@ const PrivateParties = () => {
                 variant="outline"
                 size="lg"
                 onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
-                className="group border-3 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
+                className="group border-2 border-white bg-transparent text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
                 <span className="mr-3 text-2xl">🎉</span>
                 Call (832) 555-CARDINAL

@@ -281,7 +281,7 @@ const WeddingValet = () => {
               <Button 
                 onClick={handleRequestQuote}
                 size="lg"
-                className="group bg-white text-slate-900 hover:bg-rose-50 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-rose-500/25 transition-all duration-500 hover:scale-110 border-2 border-white/20"
+                className="group relative bg-white text-slate-900 hover:bg-rose-50 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-rose-500/25 transition-all duration-500 hover:scale-110 border-2 border-white/20 overflow-hidden"
               >
                 <Heart className="mr-3 w-6 h-6 group-hover:text-rose-600 transition-colors duration-300" />
                 Get Your Wedding Quote
@@ -292,7 +292,7 @@ const WeddingValet = () => {
                 variant="outline"
                 size="lg"
                 onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
-                className="group border-3 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
+                className="group border-2 border-white bg-transparent text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
                 <span className="mr-3 text-2xl">📞</span>
                 Call (832) 555-CARDINAL
