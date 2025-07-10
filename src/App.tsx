@@ -20,6 +20,9 @@ import PrivateParties from "./pages/PrivateParties";
 import PremiumProtection from "./pages/PremiumProtection";
 import FAQ from "./pages/FAQ";
 import FileClaim from "./pages/FileClaim";
+import AboutUs from "./pages/AboutUs";
+import EventPackages from "./pages/EventPackages";
+import Careers from "./pages/Careers";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -38,6 +41,9 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/client-reviews" element={<ClientReviewsPage />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/event-packages" element={<EventPackages />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/file-claim" element={<FileClaim />} />
             <Route path="/booking" element={<BookingPage />} />

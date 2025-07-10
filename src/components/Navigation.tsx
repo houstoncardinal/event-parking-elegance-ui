@@ -78,6 +78,28 @@ const Navigation = () => {
             {/* Desktop Navigation - Centered */}
             <nav className="hidden lg:flex items-center space-x-1">
               <Link
+                to="/about"
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  isActivePage('/about')
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                }`}
+              >
+                About Us
+              </Link>
+              
+              <Link
+                to="/event-packages"
+                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  isActivePage('/event-packages')
+                    ? 'text-primary bg-primary/10'
+                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                }`}
+              >
+                Event Packages
+              </Link>
+              
+              <Link
                 to="/services"
                 className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
                   isActivePage('/services')
@@ -89,25 +111,25 @@ const Navigation = () => {
               </Link>
               
               <Link
-                to="/service-areas"
+                to="/faq"
                 className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
-                  isActivePage('/service-areas')
+                  isActivePage('/faq')
                     ? 'text-primary bg-primary/10'
                     : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
-                Service Areas
+                FAQ's
               </Link>
               
               <Link
-                to="/client-reviews"
+                to="/careers"
                 className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
-                  isActivePage('/client-reviews')
+                  isActivePage('/careers')
                     ? 'text-primary bg-primary/10'
                     : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
-                Reviews
+                Careers
               </Link>
               
               <Link
@@ -118,29 +140,7 @@ const Navigation = () => {
                     : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                 }`}
               >
-                Contact
-              </Link>
-              
-              <Link
-                to="/faq"
-                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
-                  isActivePage('/faq')
-                    ? 'text-primary bg-primary/10'
-                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
-                }`}
-              >
-                FAQ
-              </Link>
-              
-              <Link
-                to="/file-claim"
-                className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg ${
-                  isActivePage('/file-claim')
-                    ? 'text-primary bg-primary/10'
-                    : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
-                }`}
-              >
-                File Claim
+                Contact Us
               </Link>
             </nav>
 
