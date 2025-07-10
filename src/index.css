@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 45 100% 51%;
+    --primary: 47 100% 55%;
     --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 96%;
@@ -26,7 +26,7 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 45 100% 51%;
+    --accent: 47 100% 55%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
@@ -34,21 +34,21 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 45 100% 51%;
+    --ring: 47 100% 55%;
 
     --radius: 0.875rem;
 
-    /* Enhanced Brand Colors */
-    --gold-50: 45 100% 96%;
-    --gold-100: 45 100% 90%;
-    --gold-200: 45 97% 77%;
-    --gold-300: 45 94% 62%;
-    --gold-400: 45 100% 51%;
-    --gold-500: 36 100% 50%;
-    --gold-600: 32 95% 44%;
-    --gold-700: 26 90% 37%;
-    --gold-800: 23 83% 31%;
-    --gold-900: 22 78% 26%;
+    /* Enhanced Brand Colors - Professional Gold Palette */
+    --gold-50: 47 100% 97%;
+    --gold-100: 47 100% 92%;
+    --gold-200: 47 100% 83%;
+    --gold-300: 47 100% 70%;
+    --gold-400: 47 100% 55%;
+    --gold-500: 47 100% 50%;
+    --gold-600: 43 95% 45%;
+    --gold-700: 38 90% 38%;
+    --gold-800: 32 85% 32%;
+    --gold-900: 28 80% 26%;
 
     /* Enhanced VIP Color System */
     --vip-white: 255, 255, 255;
