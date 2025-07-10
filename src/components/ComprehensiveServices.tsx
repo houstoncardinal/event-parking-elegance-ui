@@ -17,7 +17,23 @@ const ComprehensiveServices = () => {
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If no booking section on services page, navigate to homepage booking
+      navigate('/#booking');
     }
+  };
+
+  const handleScheduleSurvey = () => {
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#booking');
+    }
+  };
+
+  const handleCallUs = () => {
+    window.location.href = 'tel:713-555-8253'; // VALET = 8253
   };
 
   const onDemandServices = [
@@ -308,6 +324,7 @@ const ComprehensiveServices = () => {
             </Button>
             <Button 
               variant="outline"
+              onClick={handleScheduleSurvey}
               className="border-2 border-gold-300 text-gold-700 hover:bg-gold-50 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
             >
               <MapPin className="w-5 h-5 mr-2" />

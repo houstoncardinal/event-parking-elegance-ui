@@ -9,7 +9,14 @@ const EventPackages = () => {
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If no booking section on services page, scroll to top and navigate to homepage
+      window.location.href = '/#booking';
     }
+  };
+
+  const handleCallUs = () => {
+    window.location.href = 'tel:713-555-8253'; // VALET = 8253
   };
 
   const packages = [
@@ -224,6 +231,7 @@ const EventPackages = () => {
             </Button>
             <Button 
               variant="outline"
+              onClick={handleCallUs}
               className="border-2 border-gold-300 text-gold-700 hover:bg-gold-50 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
