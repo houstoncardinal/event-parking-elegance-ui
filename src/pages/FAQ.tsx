@@ -30,140 +30,84 @@ import {
 const FAQ = () => {
   const faqCategories = [
     {
-      title: "General Services",
+      title: "Service Booking & Process",
       icon: <HelpCircle className="w-5 h-5" />,
       color: "bg-blue-500",
       questions: [
         {
-          question: "What is valet parking and how does it work?",
-          answer: "Valet parking is a premium service where our professional attendants park and retrieve your vehicle for you. Simply pull up to the designated valet area, hand us your keys, and we'll take care of the rest. When you're ready to leave, present your ticket and we'll have your car ready in minutes."
+          question: "How does your service work and/or how do we reserve services for our upcoming Event?",
+          answer: "First, to reserve your valet service fill out your instant quote form and once you have received the email simply follow the instructions which is the most efficient and effective. You may also call our office for assistance and support with the process. It would be our pleasure to assist you with getting the information you are looking for."
         },
         {
-          question: "What types of events do you provide valet services for?",
-          answer: "We specialize in weddings, corporate events, private parties, galas, fundraisers, restaurant services, hotel events, and any occasion where you want to provide exceptional guest experience. From intimate gatherings of 20 guests to large corporate events with 500+ attendees."
-        },
-        {
-          question: "How far in advance should I book your services?",
-          answer: "We recommend booking at least 2-4 weeks in advance for most events. For peak seasons (wedding season, holidays) or large events, 6-8 weeks advance booking is preferred. However, we can often accommodate last-minute requests with 48-72 hours notice."
-        },
-        {
-          question: "Do you provide services throughout the Houston area?",
-          answer: "Yes! We provide valet parking services throughout Greater Houston including downtown Houston, The Woodlands, Sugar Land, Pearland, Katy, Pasadena, and surrounding areas. Contact us for specific location availability."
+          question: "How far in advance do we need to book to assure availability?",
+          answer: "The more time the better, by giving us advance notice it allows our team to plan and arrange every detail of the service, however any request made 72 hours or less will be considered an Express booking which will cost an additional $149.99."
         }
       ]
     },
     {
-      title: "Pricing & Packages",
-      icon: <CreditCard className="w-5 h-5" />,
+      title: "Staff & Appearance",
+      icon: <Users className="w-5 h-5" />,
       color: "bg-green-500",
       questions: [
         {
-          question: "How much does valet parking cost?",
-          answer: "Our pricing varies based on event size, duration, location, and specific requirements. Typical rates range from $15-25 per hour per attendant, with a minimum service time. We offer package deals for longer events and regular clients. Contact us for a detailed quote tailored to your event."
+          question: "What will the Valet Parking staff wear?",
+          answer: "Our standard uniforms are company logo polo shirt with lead attendant's color code will be slightly different than the rest of the team. Premium service will include staff members dressed in formal button down long/short sleeve with tie or bow tie. We require staff to wear black pants or shorts and black shoes and in the winter or rainy weather conditions our company provides uniformed company jackets."
         },
         {
-          question: "What's included in your valet service packages?",
-          answer: "Our standard package includes professional uniformed attendants, parking tickets, traffic cones, signage, insurance coverage, and event coordination. Premium packages add features like vehicle detailing, covered parking areas, and extended service hours."
-        },
-        {
-          question: "Do you charge for travel time or setup?",
-          answer: "For locations within our primary service area (Houston Metro), travel and setup are included. For events outside our standard radius, minimal travel fees may apply. Setup time is always included in our service."
-        },
-        {
-          question: "What payment methods do you accept?",
-          answer: "We accept cash, check, all major credit cards, and can set up net-30 payment terms for corporate clients and event planners. A deposit is typically required to secure your booking."
+          question: "How many drivers will my event require?",
+          answer: "The number of valet staff is based upon the distance of designated pick up and drop off or valet station location and parking facility. We usually calculate an average of 20 vehicles per driver with an additional staff member who remains up front to attend patrons upon arrival and a staff member to assist patrons upon departure at the valet station."
         }
       ]
     },
     {
-      title: "Safety & Insurance",
+      title: "Insurance & Coverage",
       icon: <Shield className="w-5 h-5" />,
       color: "bg-red-500",
       questions: [
         {
-          question: "Are you licensed and insured?",
-          answer: "Yes, we are fully licensed, bonded, and insured. We carry comprehensive general liability insurance and garage keepers liability insurance specifically for valet operations. All attendants are background-checked and professionally trained."
-        },
-        {
-          question: "What happens if my car is damaged during valet service?",
-          answer: "While extremely rare, if any damage occurs, we have comprehensive insurance coverage. We document all vehicles upon arrival and have clear protocols for handling any incidents. Our insurance covers both minor and major damages."
-        },
-        {
-          question: "How do you ensure vehicle security?",
-          answer: "All vehicles are parked in designated secure areas. Our attendants maintain visual supervision of parked vehicles throughout the event. Keys are secured and organized with our numbered ticket system. We use professional-grade equipment and follow strict security protocols."
-        },
-        {
-          question: "Do you handle luxury and exotic vehicles?",
-          answer: "Absolutely! Our attendants are specially trained to handle luxury vehicles, exotic cars, and classic automobiles. We take extra precautions with high-value vehicles and can provide premium parking locations upon request."
+          question: "Are you Insured?",
+          answer: "We are fully insured and bonded with a $2,000,000 umbrella coverage and responsible for vehicles in our possession and any incident our staff were involved in. Additional coverage may be added per request."
         }
       ]
     },
     {
-      title: "Operations & Logistics",
-      icon: <Car className="w-5 h-5" />,
+      title: "Gratuity & Service Extensions",
+      icon: <CreditCard className="w-5 h-5" />,
       color: "bg-purple-500",
       questions: [
         {
-          question: "How many attendants will be at my event?",
-          answer: "Attendant count depends on your guest count and event duration. Typically, we provide 1 attendant per 25-40 vehicles. For events with 50+ cars, we assign multiple attendants to ensure efficient service and minimal wait times."
+          question: "Do we Tip the Valet staff or is Gratuity included?",
+          answer: "It is completely your choice if you would like to add a customary 15-20% gratuity to your invoice. If you were pleased with your valet team you may give them a tip at the end of the event."
         },
         {
-          question: "What if it rains during my outdoor event?",
-          answer: "We come prepared for all weather conditions. Our attendants have proper rain gear and we can provide covered areas for ticket distribution. In severe weather, we work with you to modify service as needed while maintaining safety."
+          question: "If we need to extend Service due to Event going past the schedule, how do we arrange that?",
+          answer: "To extend service you would have to message our company support or you may inform your lead staff member."
         },
         {
-          question: "Do you provide your own parking equipment?",
-          answer: "Yes, we bring all necessary equipment including traffic cones, directional signage, ticket dispensers, and professional uniforms. We can also coordinate with venues for additional equipment if needed."
-        },
-        {
-          question: "Can you accommodate wheelchair accessible vehicles?",
-          answer: "Absolutely. Our team is trained to handle vehicles with wheelchair lifts, hand controls, and other accessibility modifications. We ensure these vehicles receive priority parking in convenient locations."
+          question: "If our Event ends earlier than the scheduled time, what happens then?",
+          answer: "Once you have reserved the block of time scheduled our staff is ready to remain for duration of the schedule."
         }
       ]
     },
     {
-      title: "Event Planning",
+      title: "Cancellations & Refunds",
       icon: <Calendar className="w-5 h-5" />,
       color: "bg-orange-500",
       questions: [
         {
-          question: "Do you offer site visits before the event?",
-          answer: "Yes, we highly recommend a pre-event site visit. This allows us to assess parking logistics, identify the best traffic flow, and coordinate with your venue. Site visits help ensure smooth operations on event day."
-        },
-        {
-          question: "How early do your attendants arrive?",
-          answer: "Our team typically arrives 30-60 minutes before guest arrival to set up equipment, review logistics, and coordinate with your event staff. For large events, we may arrive earlier to ensure everything is perfectly organized."
-        },
-        {
-          question: "Can you coordinate with other event vendors?",
-          answer: "Absolutely! We regularly work with wedding planners, caterers, photographers, and venue coordinators. We understand the importance of seamless vendor coordination and will work with your team to ensure perfect timing."
-        },
-        {
-          question: "What information do you need to provide a quote?",
-          answer: "We need: event date and time, approximate guest count, event location/venue, expected duration of service, and any special requirements. The more details you provide, the more accurate our quote will be."
+          question: "If our event is Cancelled do we receive a refund or do we forfeit our deposit?",
+          answer: "Deposits are non-refundable because once submitted our admin team begins preparation and a certain amount of work has already been allocated. You can receive a refund if event is cancelled however the deposit will be deducted. To avoid loss of funds for cancelling your event you may notify our company to reschedule or postpone event for a later date in this case you will not lose your deposit."
         }
       ]
     },
     {
-      title: "Special Situations",
+      title: "Customer Satisfaction",
       icon: <Star className="w-5 h-5" />,
       color: "bg-yellow-500",
       questions: [
         {
-          question: "Do you provide valet for multi-day events?",
-          answer: "Yes, we provide valet services for conferences, festivals, and multi-day celebrations. We can arrange overnight vehicle security and coordinate with your event schedule across multiple days."
-        },
-        {
-          question: "Can you handle events with VIP guests?",
-          answer: "Certainly! We provide special VIP services including priority parking, dedicated attendants, and discretion for high-profile guests. We're experienced with celebrity events and understand confidentiality requirements."
-        },
-        {
-          question: "What about venues with limited parking space?",
-          answer: "We specialize in maximizing limited parking spaces through efficient vehicle arrangement and off-site parking coordination when necessary. We can arrange shuttle services or remote parking solutions for challenging venues."
-        },
-        {
-          question: "Do you provide services during holidays?",
-          answer: "Yes, we operate year-round including holidays. Holiday events may have premium pricing due to increased demand and holiday pay for staff. We recommend booking holiday events well in advance."
+          question: "If we were unsatisfied with service or encountered an issue, how does it get resolved?",
+          answer: "Our Company offers a 100% Satisfaction Guarantee and take all complaints and concerns very seriously as we value our reputation. Please request a claim form from your lead attendant or contact our office on the following business day. Upon receiving your feedback please allow our management team to investigate the matter. Our admin team will assign your claim to one of our upper managers to personally investigate the matter and will be in touch with you upon completion of investigation."
         }
       ]
     }
