@@ -107,18 +107,10 @@ const FAQ = () => {
       questions: [
         {
           question: "If we were unsatisfied with service or encountered an issue, how does it get resolved?",
-          answer: (
-            <>
-              Our Company offers a 100% Satisfaction Guarantee and take all complaints and concerns very seriously as we value our reputation. 
-              Please request a claim form from your lead attendant or contact our office on the following business day. 
-              You can also{" "}
-              <a href="/file-claim" className="text-primary hover:underline font-medium">
-                file a claim online at our claim portal
-              </a>
-              . Upon receiving your feedback please allow our management team to investigate the matter. 
-              Our admin team will assign your claim to one of our upper managers to personally investigate the matter and will be in touch with you upon completion of investigation.
-            </>
-          )
+          answer: "Our Company offers a 100% Satisfaction Guarantee and take all complaints and concerns very seriously as we value our reputation. Please request a claim form from your lead attendant or contact our office on the following business day. You can also file a claim online at our claim portal. Upon receiving your feedback please allow our management team to investigate the matter. Our admin team will assign your claim to one of our upper managers to personally investigate the matter and will be in touch with you upon completion of investigation.",
+          hasLink: true,
+          linkText: "file a claim online at our claim portal",
+          linkUrl: "/file-claim"
         }
       ]
     }
@@ -250,11 +242,21 @@ const FAQ = () => {
                           </span>
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="pt-0 pb-6">
-                        <div className="ml-12 text-muted-foreground leading-relaxed text-base">
-                          {faq.answer}
-                        </div>
-                      </AccordionContent>
+                       <AccordionContent className="pt-0 pb-6">
+                         <div className="ml-12 text-muted-foreground leading-relaxed text-base">
+                           {faq.hasLink ? (
+                             <>
+                               {faq.answer.split(faq.linkText)[0]}
+                               <a href={faq.linkUrl} className="text-primary hover:underline font-medium">
+                                 {faq.linkText}
+                               </a>
+                               {faq.answer.split(faq.linkText)[1]}
+                             </>
+                           ) : (
+                             faq.answer
+                           )}
+                         </div>
+                       </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
