@@ -191,6 +191,28 @@ const Navigation = () => {
             <div className="space-y-1">
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-4">Menu</h3>
               <Link
+                to="/about"
+                onClick={closeMenu}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
+                  isActivePage('/about')
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
+                }`}
+              >
+                About Us
+              </Link>
+              <Link
+                to="/event-packages"
+                onClick={closeMenu}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
+                  isActivePage('/event-packages')
+                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
+                }`}
+              >
+                Event Packages
+              </Link>
+              <Link
                 to="/services"
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
@@ -202,26 +224,26 @@ const Navigation = () => {
                 Services
               </Link>
               <Link
-                to="/service-areas"
+                to="/faq"
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
-                  isActivePage('/service-areas')
+                  isActivePage('/faq')
                     ? 'bg-primary/10 text-primary border-l-4 border-primary'
                     : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
-                Service Areas
+                FAQ's
               </Link>
               <Link
-                to="/client-reviews"
+                to="/careers"
                 onClick={closeMenu}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
-                  isActivePage('/client-reviews')
+                  isActivePage('/careers')
                     ? 'bg-primary/10 text-primary border-l-4 border-primary'
                     : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
-                Client Reviews
+                Careers
               </Link>
               <Link
                 to="/contact"
@@ -232,29 +254,7 @@ const Navigation = () => {
                     : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                 }`}
               >
-                Contact
-              </Link>
-              <Link
-                to="/faq"
-                onClick={closeMenu}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
-                  isActivePage('/faq')
-                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
-                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
-                }`}
-              >
-                FAQ
-              </Link>
-              <Link
-                to="/file-claim"
-                onClick={closeMenu}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200 ${
-                  isActivePage('/file-claim')
-                    ? 'bg-primary/10 text-primary border-l-4 border-primary'
-                    : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
-                }`}
-              >
-                File Claim
+                Contact Us
               </Link>
             </div>
 
