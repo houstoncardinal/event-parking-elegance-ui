@@ -233,16 +233,6 @@ const BookingForm = () => {
         customerInfo={submissionData}
       />      
       
-      {/* Instant Quote Buttons - Top */}
-      <div className="fixed top-4 right-4 z-50">
-        <Button 
-          onClick={() => setActiveTab('instant-quote')}
-          className="bg-gold-500 hover:bg-gold-600 text-white shadow-lg"
-        >
-          INSTANT QUOTE
-        </Button>
-      </div>
-      
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
