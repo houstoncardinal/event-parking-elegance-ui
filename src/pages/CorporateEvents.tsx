@@ -145,11 +145,11 @@ const CorporateEvents = () => {
                     variant="outline"
                     size="lg"
                     onClick={() => {
-                      window.location.href = 'tel:(832)555-CARDINAL';
+                      window.location.href = 'tel:(346)764-9163';
                     }}
                     className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Call (832) 555-CARDINAL
+                    Call (346) 764-9163
                   </Button>
                 </div>
 
@@ -307,11 +307,11 @@ const CorporateEvents = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
+                onClick={() => window.location.href = 'tel:(346)764-9163'}
                 className="group border-2 border-white bg-transparent text-white hover:bg-white hover:text-slate-900 px-10 py-5 text-xl font-bold rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-110 shadow-2xl"
               >
                 <span className="mr-3 text-2xl">📞</span>
-                Call (832) 555-CARDINAL
+                Call (346) 764-9163
               </Button>
             </div>
           </div>

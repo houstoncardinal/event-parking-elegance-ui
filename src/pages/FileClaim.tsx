@@ -256,7 +256,7 @@ const FileClaim = () => {
               <AlertTriangle className="h-4 w-4" />
               <AlertDescription className="text-left">
                 <strong>Important:</strong> Please file your claim as soon as possible after the incident. 
-                For emergencies or immediate assistance, call us at <strong>(832) 555-CARDINAL</strong>.
+                For emergencies or immediate assistance, call us at <strong>(346) 764-9163</strong>.
               </AlertDescription>
             </Alert>
           </div>
@@ -297,8 +297,8 @@ const FileClaim = () => {
                         <Phone className="w-5 h-5 text-primary" />
                       </div>
                       <h3 className="font-semibold">Emergency Line</h3>
-                      <a href="tel:(832)555-CARDINAL" className="text-primary font-medium hover:underline">
-                        (832) 555-CARDINAL
+                                      <a href="tel:(346)764-9163" className="text-primary font-medium hover:underline">
+                  (346) 764-9163
                       </a>
                     </div>
                     

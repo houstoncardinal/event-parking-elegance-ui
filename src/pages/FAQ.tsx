@@ -176,8 +176,8 @@ const FAQ = () => {
                   </div>
                   <h3 className="font-semibold">Quick Quote</h3>
                   <p className="text-sm text-muted-foreground">Call us for immediate assistance</p>
-                  <a href="tel:(832)555-CARDINAL" className="text-primary font-medium hover:underline">
-                    (832) 555-CARDINAL
+                                  <a href="tel:(346)764-9163" className="text-primary font-medium hover:underline">
+                  (346) 764-9163
                   </a>
                 </div>
                 
@@ -291,11 +291,11 @@ const FAQ = () => {
                 </a>
                 
                 <a 
-                  href="tel:(832)555-CARDINAL"
+                  href="tel:(346)764-9163"
                   className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Clock className="w-5 h-5" />
-                  Call Now: (832) 555-CARDINAL
+                  Call Now: (346) 764-9163
                 </a>
               </div>
             </CardContent>
