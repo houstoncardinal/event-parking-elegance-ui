@@ -236,7 +236,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
                   </p>
                   <p>
                     You can also call us at{' '}
-                    <span className="text-blue-400 underline">(832) 875-8743</span>{' '}
+                    <a href="tel:(346)764-9163" className="text-blue-400 underline hover:text-blue-300">(346) 764-9163</a>{' '}
                     Monday-Friday 10am-6pm and Saturday 11am-3pm.
                   </p>
                   <p>
@@ -357,7 +357,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
                   <div>
                     <h4 className="font-semibold text-blue-900 mb-1">Need immediate assistance?</h4>
                     <p className="text-sm text-blue-700 mb-2">
-                      Call us at <strong>(832) 555-CARDINAL</strong> or email <strong>info@eventsparkingservices.com</strong>
+                      Call us at <a href="tel:(346)764-9163" className="font-bold underline hover:text-blue-600">(346) 764-9163</a> or email <strong>info@eventsparkingservices.com</strong>
                     </p>
                     <p className="text-xs text-blue-600">
                       Reference ID: {Date.now().toString().slice(-6)} • Available 24/7 for emergencies

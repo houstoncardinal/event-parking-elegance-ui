@@ -16,7 +16,7 @@ const EventPackages = () => {
   };
 
   const handleCallUs = () => {
-    window.location.href = 'tel:713-555-8253'; // VALET = 8253
+    window.location.href = 'tel:(346)764-9163';
   };
 
   const packages = [
@@ -235,7 +235,7 @@ const EventPackages = () => {
               className="border-2 border-gold-300 text-gold-700 hover:bg-gold-50 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call (713) 555-VALET
+              Call (346) 764-9163
             </Button>
           </div>
         </div>

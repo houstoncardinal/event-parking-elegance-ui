@@ -235,11 +235,11 @@ const HomepagePackages = () => {
             </Button>
             <Button 
               variant="outline"
-              onClick={() => window.location.href = 'tel:713-555-8253'}
+              onClick={() => window.location.href = 'tel:(346)764-9163'}
               className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold py-4 px-6 rounded-lg transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call (713) 555-VALET
+              Call (346) 764-9163
             </Button>
           </div>
 

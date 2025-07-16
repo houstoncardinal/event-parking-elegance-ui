@@ -8,7 +8,7 @@ export const businessSchema = {
   "alternateName": "Cardinal Valet Houston",
   "description": "Houston's premier professional valet parking service for weddings, corporate events, and private parties. Fully insured with uniformed attendants and 24/7 availability serving Greater Houston area.",
   "url": "https://cardinalvalet.com",
-  "telephone": "+1-713-555-0199",
+  "telephone": "+1-346-764-9163",
   "email": "info@cardinalvalet.com",
   "foundingDate": "2020",
   "address": {
@@ -189,7 +189,7 @@ export const servicesSchema = {
     "@type": "LocalBusiness",
     "name": "Cardinal Valet Services",
     "url": "https://cardinalvalet.com",
-    "telephone": "+1-713-555-0199",
+    "telephone": "+1-346-764-9163",
     "email": "info@cardinalvalet.com",
     "address": {
       "@type": "PostalAddress",
@@ -484,7 +484,7 @@ export const bookingSchema = {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Cardinal Valet Services",
-      "telephone": "+1-713-555-0199",
+      "telephone": "+1-346-764-9163",
       "email": "info@cardinalvalet.com"
     }
   }

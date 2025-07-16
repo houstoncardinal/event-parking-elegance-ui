@@ -33,7 +33,7 @@ const ComprehensiveServices = () => {
   };
 
   const handleCallUs = () => {
-    window.location.href = 'tel:713-555-8253'; // VALET = 8253
+    window.location.href = 'tel:(346)764-9163';
   };
 
   const onDemandServices = [

@@ -58,7 +58,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="business:contact_data:region" content="TX" />
       <meta property="business:contact_data:postal_code" content="77001" />
       <meta property="business:contact_data:country_name" content="United States" />
-      <meta property="business:contact_data:phone_number" content="+1-713-555-0199" />
+      <meta property="business:contact_data:phone_number" content="+1-346-764-9163" />
       <meta property="business:contact_data:email" content="info@cardinalvalet.com" />
       
       {/* Enhanced Twitter Card Tags */}

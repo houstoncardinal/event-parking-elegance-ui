@@ -42,9 +42,9 @@ const Navigation = () => {
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="flex items-center justify-between py-2 text-sm">
               <div className="flex items-center space-x-6">
-                <a href="tel:(832)555-CARDINAL" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
+                <a href="tel:(346)764-9163" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
                   <Phone className="w-4 h-4" />
-                  <span className="font-medium">(832) 555-CARDINAL</span>
+                  <span className="font-medium">(346) 764-9163</span>
                 </a>
                 <a href="mailto:info@eventsparkingservices.com" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
                   <Mail className="w-4 h-4" />
@@ -278,9 +278,9 @@ const Navigation = () => {
             <div className="space-y-3 pt-6 border-t border-border">
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Contact Info</h3>
               <div className="space-y-3">
-                <a href="tel:(832)555-CARDINAL" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
+                <a href="tel:(346)764-9163" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span className="font-medium">(832) 555-CARDINAL</span>
+                  <span className="font-medium">(346) 764-9163</span>
                 </a>
                 <a href="mailto:info@eventsparkingservices.com" className="flex items-center space-x-3 text-foreground/80 hover:text-primary transition-colors p-2 -m-2 rounded-lg">
                   <Mail className="w-5 h-5 text-primary" />

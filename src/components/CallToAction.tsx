@@ -56,11 +56,11 @@ const CallToAction = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={() => window.location.href = 'tel:(832)555-CARDINAL'}
+                onClick={() => window.location.href = 'tel:(346)764-9163'}
                 className="bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-slate-900 px-6 py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
               >
                 <Phone className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                Call Now: (832) 555-CARDINAL
+                Call Now: (346) 764-9163
               </Button>
               
               <Button 
