@@ -26,6 +26,7 @@ import Careers from "./pages/Careers";
 import JobApplication from "./pages/JobApplication";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import PremiumQuote from "./pages/PremiumQuote";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -62,6 +63,7 @@ const App = () => (
             <Route path="/admin-fallback" element={<AdminDashboardFallback />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/premium-quote" element={<PremiumQuote />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
