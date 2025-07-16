@@ -14,7 +14,12 @@ const BookingForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [submissionData, setSubmissionData] = useState<any>(null);
+  const [submissionData, setSubmissionData] = useState<{
+    name: string;
+    email: string;
+    eventType: string;
+    eventDate: string;
+  } | null>(null);
   const [formData, setFormData] = useState({
     // Step 1: Customer Information
     firstName: '',
@@ -229,7 +234,7 @@ const BookingForm = () => {
       }
       if (!formData.phone) {
         newErrors.phone = 'Phone number is required';
-      } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
+      } else if (!/^[+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-()]/g, ''))) {
         newErrors.phone = 'Please enter a valid phone number';
       }
       if (!formData.email) {

@@ -13,7 +13,11 @@ const QuoteForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [submissionData, setSubmissionData] = useState<any>(null);
+  const [submissionData, setSubmissionData] = useState<{
+    name: string;
+    email: string;
+    eventDate: string;
+  } | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,7 +86,7 @@ const QuoteForm = () => {
       totalCost,
       guestCount
     };
-  }, [formData.guests, formData.startTime, formData.endTime]);
+  }, [formData.guests, formData.startTime, formData.endTime, pricingTiers]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

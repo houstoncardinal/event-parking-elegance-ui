@@ -12,7 +12,12 @@ import { contactSchema } from '@/utils/seoSchemas';
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [submissionData, setSubmissionData] = useState<any>(null);
+  const [submissionData, setSubmissionData] = useState<{
+    name: string;
+    email: string;
+    contactType: string;
+    subject: string;
+  } | null>(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
