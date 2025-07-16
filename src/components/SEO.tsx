@@ -53,13 +53,13 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Cardinal Valet Services" />
       <meta property="og:locale" content="en_US" />
-      <meta property="business:contact_data:street_address" content="123 Main Street" />
+      <meta property="business:contact_data:street_address" content="Houston, TX" />
       <meta property="business:contact_data:locality" content="Houston" />
       <meta property="business:contact_data:region" content="TX" />
       <meta property="business:contact_data:postal_code" content="77001" />
       <meta property="business:contact_data:country_name" content="United States" />
       <meta property="business:contact_data:phone_number" content="+1-346-764-9163" />
-      <meta property="business:contact_data:email" content="info@cardinalvalet.com" />
+      <meta property="business:contact_data:email" content="info@eventsparkingservices.com" />
       
       {/* Enhanced Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />

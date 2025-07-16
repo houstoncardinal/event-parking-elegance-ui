@@ -149,7 +149,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-slate-900">Phone</h3>
-                        <p className="text-slate-600">(832) 555-CARDINAL</p>
+                        <p className="text-slate-600">(346) 764-9163</p>
                         <p className="text-sm text-slate-500">Available 24/7 for emergencies</p>
                       </div>
                     </div>
@@ -160,7 +160,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-slate-900">Email</h3>
-                        <p className="text-slate-600">info@cardinalparking.com</p>
+                        <p className="text-slate-600">info@eventsparkingservices.com</p>
                         <p className="text-sm text-slate-500">Response within 2 hours</p>
                       </div>
                     </div>

@@ -148,9 +148,37 @@ const Navigation = () => {
             <div className="hidden lg:flex items-center">
               <Button 
                 onClick={() => {
-                  const bookingSection = document.getElementById('booking') || document.getElementById('book');
+                  // More specific selectors to find the booking section
+                  const bookingSection = document.getElementById('booking') || 
+                                        document.querySelector('section[id="booking"]') ||
+                                        document.querySelector('[id*="booking"]') ||
+                                        document.querySelector('[id*="quote"]') ||
+                                        document.querySelector('section:has([id*="booking"])') ||
+                                        document.querySelector('section:has([id*="quote"])');
+                  
                   if (bookingSection) {
-                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    // Add a small delay to ensure smooth scrolling
+                    setTimeout(() => {
+                      bookingSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }, 100);
+                  } else {
+                    // If still not found, try to find any form or booking-related section
+                    const formSection = document.querySelector('form') || 
+                                       document.querySelector('[class*="booking"]') ||
+                                       document.querySelector('[class*="quote"]') ||
+                                       document.querySelector('section:last-child');
+                    
+                    if (formSection) {
+                      setTimeout(() => {
+                        formSection.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }, 100);
+                    }
                   }
                 }}
                 className="relative overflow-hidden bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-400 text-gray-900 px-8 py-3 text-sm font-bold rounded-xl shadow-[0_8px_30px_rgb(234,179,8,0.4)] hover:shadow-[0_12px_40px_rgb(234,179,8,0.6)] transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 border border-yellow-300/50 hover:border-yellow-200 group"
@@ -262,9 +290,37 @@ const Navigation = () => {
             <div className="pt-4">
               <Button 
                 onClick={() => {
-                  const bookingSection = document.getElementById('booking') || document.getElementById('book');
+                  // More specific selectors to find the booking section
+                  const bookingSection = document.getElementById('booking') || 
+                                        document.querySelector('section[id="booking"]') ||
+                                        document.querySelector('[id*="booking"]') ||
+                                        document.querySelector('[id*="quote"]') ||
+                                        document.querySelector('section:has([id*="booking"])') ||
+                                        document.querySelector('section:has([id*="quote"])');
+                  
                   if (bookingSection) {
-                    bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    // Add a small delay to ensure smooth scrolling
+                    setTimeout(() => {
+                      bookingSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }, 100);
+                  } else {
+                    // If still not found, try to find any form or booking-related section
+                    const formSection = document.querySelector('form') || 
+                                       document.querySelector('[class*="booking"]') ||
+                                       document.querySelector('[class*="quote"]') ||
+                                       document.querySelector('section:last-child');
+                    
+                    if (formSection) {
+                      setTimeout(() => {
+                        formSection.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }, 100);
+                    }
                   }
                   closeMenu();
                 }}

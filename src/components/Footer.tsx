@@ -216,6 +216,18 @@ const Footer = () => {
               >
                 Get Quote
               </Link>
+              <Link 
+                to="/privacy-policy"
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                Privacy Policy
+              </Link>
+              <Link 
+                to="/terms-of-service"
+                className="text-slate-400 hover:text-gold-400 transition-colors duration-300 font-medium"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

@@ -82,22 +82,4 @@ CREATE TRIGGER update_form_submissions_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_form_submissions_updated_at();
 
--- Insert some sample data for testing
-INSERT INTO public.form_submissions (
-    form_type, status, priority, first_name, last_name, email, phone, 
-    event_type, event_date, event_location, guest_count, message, source_page
-) VALUES 
-    ('booking', 'new', 'high', 'Sarah', 'Johnson', 'sarah.j@example.com', '(555) 123-4567', 
-     'wedding', '2024-08-15', 'Houston Country Club', 150, 'Need valet service for our wedding ceremony and reception', '/booking'),
-    
-    ('quote', 'reviewed', 'normal', 'Michael', 'Chen', 'mchen@techcorp.com', '(555) 987-6543', 
-     'corporate', '2024-09-20', 'Downtown Convention Center', 200, 'Annual tech conference with VIP parking needs', '/'),
-    
-    ('contact', 'contacted', 'low', 'Emily', 'Rodriguez', 'emily.r@events.com', '(555) 456-7890', 
-     'private', '2024-10-05', 'Private Residence - River Oaks', 50, 'Birthday party valet service inquiry', '/contact'),
-    
-    ('booking', 'booked', 'urgent', 'David', 'Thompson', 'david.t@lawfirm.com', '(555) 321-0987', 
-     'corporate', '2024-07-30', 'Four Seasons Hotel', 75, 'Legal conference with partner parking requirements', '/booking'),
-    
-    ('quote', 'new', 'high', 'Jennifer', 'Williams', 'jennifer.w@weddings.com', '(555) 654-3210', 
-     'wedding', '2024-11-12', 'The Houstonian', 120, 'Luxury wedding with vintage car collection', '/'); 
+-- Sample data removed - only real submissions will be stored 

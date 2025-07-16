@@ -28,7 +28,7 @@ const EventPackages = () => {
         <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20">
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 Event <span className="text-yellow-400">Packages</span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-300 mb-8">
@@ -211,7 +211,7 @@ const EventPackages = () => {
         <section className="py-20 bg-gray-900 text-white">
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">Ready to Elevate Your Event?</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Ready to Elevate Your Event?</h2>
               <p className="text-xl text-gray-300 mb-8">
                 Let our professional valet team handle the parking so you can focus on what matters most - your guests and your event.
               </p>
