@@ -23,6 +23,7 @@ import FileClaim from "./pages/FileClaim";
 import AboutUs from "./pages/AboutUs";
 import EventPackages from "./pages/EventPackages";
 import Careers from "./pages/Careers";
+import JobApplication from "./pages/JobApplication";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/about" element={<AboutUs />} />
             <Route path="/event-packages" element={<EventPackages />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/job-application/:jobTitle" element={<JobApplication />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/file-claim" element={<FileClaim />} />
             <Route path="/booking" element={<BookingPage />} />

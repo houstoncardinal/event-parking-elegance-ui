@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
@@ -8,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Clock, DollarSign, Users, Star, Award, Shield, Car } from 'lucide-react';
 
 const Careers = () => {
+  const navigate = useNavigate();
+  
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -21,9 +24,15 @@ const Careers = () => {
     }
   };
 
+  const handleApplyClick = (jobTitle: string) => {
+    const jobSlug = jobTitle.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/job-application/${jobSlug}`);
+  };
+
   const jobOpenings = [
     {
       title: "Valet Parking Attendant",
+      slug: "valet-parking-attendant",
       type: "Part-Time / Full-Time",
       location: "Houston, TX",
       salary: "$15-20/hour + Tips",
@@ -44,6 +53,7 @@ const Careers = () => {
     },
     {
       title: "Lead Valet Supervisor",
+      slug: "lead-valet-supervisor",
       type: "Full-Time",
       location: "Houston, TX", 
       salary: "$22-28/hour",
@@ -65,6 +75,7 @@ const Careers = () => {
     },
     {
       title: "Event Coordinator",
+      slug: "event-coordinator",
       type: "Full-Time",
       location: "Houston, TX",
       salary: "$45,000-55,000/year",
@@ -186,7 +197,7 @@ const Careers = () => {
                         </div>
                       </div>
                       <Button 
-                        onClick={scrollToContact}
+                        onClick={() => handleApplyClick(job.title)}
                         className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold"
                       >
                         Apply Now
@@ -272,7 +283,7 @@ const Careers = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={scrollToContact}
+                  onClick={() => navigate('/job-application/valet-parking-attendant')}
                   className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-gray-900 px-8 py-4 text-lg font-bold rounded-xl shadow-lg"
                 >
                   Apply Today
