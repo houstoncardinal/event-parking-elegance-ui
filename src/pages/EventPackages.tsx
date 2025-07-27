@@ -8,6 +8,11 @@ import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 
 const EventPackages = () => {
+  const handleSelectPackage = (packageType: string) => {
+    // Navigate to booking page with pre-selected package
+    window.location.href = `/booking?package=${packageType.toLowerCase().replace(' ', '-')}`;
+  };
+
   const handleRequestQuote = () => {
     const bookingSection = document.getElementById('booking');
     if (bookingSection) {
@@ -116,7 +121,7 @@ const EventPackages = () => {
   return (
     <>
       <SEO 
-        title="Event Packages - Cardinal Valet Premium Parking Services"
+        title="Event Packages - Event Parking Services by Cardinal"
         description="Choose from our Standard and Premium event parking packages. Professional valet services tailored to your event's needs in Houston."
         keywords={["event parking packages", "valet service packages", "Houston event parking", "premium valet services"]}
       />
@@ -224,7 +229,7 @@ const EventPackages = () => {
 
                     <div className="pt-6 border-t border-slate-200">
                       <Button 
-                        onClick={handleRequestQuote}
+                        onClick={() => handleSelectPackage(pkg.title)}
                         className={`w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] ${
                           pkg.title === 'Premium Package'
                             ? 'bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white'

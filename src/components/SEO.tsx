@@ -14,7 +14,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = "Cardinal Valet Services - Houston's Premier Event Valet Parking",
+  title = "Event Parking Services by Cardinal - Houston's Premier Event Valet Parking",
   description = "Houston's #1 valet parking service for weddings, corporate events & private parties. Professional uniformed attendants, fully insured, luxury vehicle care. Serving Greater Houston area including Sugar Land, The Woodlands, Katy. Get your free quote today!",
   keywords = ["valet parking Houston", "wedding valet service", "corporate event parking", "private party valet", "professional valet attendants", "luxury car parking", "insured valet service", "Houston event parking", "Sugar Land valet", "The Woodlands valet", "Katy valet service"],
   image = ogImage,
@@ -23,7 +23,7 @@ const SEO: React.FC<SEOProps> = ({
   schema,
   noindex = false
 }) => {
-  const fullTitle = title.includes('Cardinal Valet') ? title : `${title} | Cardinal Valet Services`;
+  const fullTitle = title.includes('Event Parking Services by Cardinal') ? title : `${title} | Event Parking Services by Cardinal`;
   
   return (
     <Helmet>
@@ -31,7 +31,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.join(', ')} />
-      <meta name="author" content="Cardinal Valet Services" />
+      <meta name="author" content="Event Parking Services by Cardinal" />
       <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
       <meta name="language" content="en-US" />
       <meta name="revisit-after" content="7 days" />
@@ -48,10 +48,10 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:secure_url" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Cardinal Valet Services - Houston's Premier Valet Parking" />
+      <meta property="og:image:alt" content="Event Parking Services by Cardinal - Houston's Premier Valet Parking" />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Cardinal Valet Services" />
+      <meta property="og:site_name" content="Event Parking Services by Cardinal" />
       <meta property="og:locale" content="en_US" />
       <meta property="business:contact_data:street_address" content="Houston, TX" />
       <meta property="business:contact_data:locality" content="Houston" />
@@ -68,19 +68,19 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:image:alt" content="Cardinal Valet Services - Houston's Premier Valet Parking" />
+      <meta name="twitter:image:alt" content="Event Parking Services by Cardinal - Houston's Premier Valet Parking" />
       <meta name="twitter:domain" content="cardinalvalet.com" />
       
       {/* LinkedIn Specific */}
-      <meta property="linkedin:owner" content="Cardinal Valet Services" />
+      <meta property="linkedin:owner" content="Event Parking Services by Cardinal" />
       
       {/* Additional Meta Tags for Better SEO */}
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="apple-mobile-web-app-title" content="Cardinal Valet" />
+      <meta name="apple-mobile-web-app-title" content="Event Parking Services" />
       <meta name="theme-color" content="#fbc220" />
       <meta name="msapplication-TileColor" content="#fbc220" />
-      <meta name="application-name" content="Cardinal Valet Services" />
+      <meta name="application-name" content="Event Parking Services by Cardinal" />
       
       {/* Geographic Tags */}
       <meta name="geo.region" content="US-TX" />

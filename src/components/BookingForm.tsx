@@ -20,29 +20,35 @@ const BookingForm = () => {
     eventType: string;
     eventDate: string;
   } | null>(null);
-  const [formData, setFormData] = useState({
-    // Step 1: Customer Information
-    firstName: '',
-    lastName: '',
-    businessName: '',
-    phone: '',
-    email: '',
-    area: '',
-    zipCode: '',
+  const [formData, setFormData] = useState(() => {
+    // Check URL parameters for pre-selected package
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPackage = urlParams.get('package');
     
-    // Step 2: Event Information
-    eventDate: '',
-    startTime: '',
-    endTime: '',
-    guestCount: '',
-    
-    // Step 3: Event Location
-    locationType: '', // residential, business, event_venue
-    eventType: '',
-    eventTypeOther: '',
-    additionalParking: '',
-    otherServices: '',
-    specialRequests: ''
+    return {
+      // Step 1: Customer Information
+      firstName: '',
+      lastName: '',
+      businessName: '',
+      phone: '',
+      email: '',
+      area: '',
+      zipCode: '',
+      
+      // Step 2: Event Information
+      eventDate: '',
+      startTime: '',
+      endTime: '',
+      guestCount: '',
+      
+      // Step 3: Event Location
+      locationType: '', // residential, business, event_venue
+      eventType: '',
+      eventTypeOther: '',
+      additionalParking: '',
+      otherServices: '',
+      specialRequests: selectedPackage ? `Pre-selected package: ${selectedPackage.replace('-', ' ')}` : ''
+    };
   });
 
   const [errors, setErrors] = useState<{[key: string]: string}>({});

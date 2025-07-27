@@ -201,7 +201,7 @@ const Services = () => {
         <div className="bg-white/60 backdrop-blur-sm border border-white/60 rounded-2xl p-8 shadow-lg">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-playfair font-bold text-slate-900 mb-3">
-              Why Choose Cardinal Valet Services?
+              Why Choose Event Parking Services by Cardinal?
             </h3>
             <div className="w-16 h-1 bg-gradient-to-r from-gold-400 to-gold-600 rounded-full mx-auto"></div>
           </div>
