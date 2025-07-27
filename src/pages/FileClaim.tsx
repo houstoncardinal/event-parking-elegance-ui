@@ -328,7 +328,8 @@ const FileClaim = () => {
           )}
 
           {/* Form Steps */}
-          <form onSubmit={handleSubmit}>
+           <form onSubmit={handleSubmit} name="insurance-claim-form" data-netlify="true">
+             <input type="hidden" name="form-name" value="insurance-claim-form" />
             
             {/* Step 1: Personal & Incident Information */}
             {step === 1 && (

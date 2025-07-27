@@ -221,7 +221,8 @@ const ContactPage = () => {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-playfair font-bold text-slate-900 mb-6">Send Us a Message</h2>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                   <form onSubmit={handleSubmit} className="space-y-6" name="contact-form" data-netlify="true">
+                     <input type="hidden" name="form-name" value="contact-form" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">First Name *</label>

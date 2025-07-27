@@ -369,7 +369,8 @@ const BookingForm = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6 md:p-8">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} name="booking-form" data-netlify="true">
+                <input type="hidden" name="form-name" value="booking-form" />
                 {/* Step 1: Customer Information */}
                 {currentStep === 1 && (
                   <div className="space-y-6 animate-fade-in">

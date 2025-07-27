@@ -257,7 +257,8 @@ const QuoteForm = () => {
       </CardHeader>
       
       <CardContent className="relative z-10 px-4 sm:px-6 pb-6">
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5" name="quote-form" data-netlify="true">
+          <input type="hidden" name="form-name" value="quote-form" />
           
           {/* Step 1: Customer Information */}
           {currentStep === 1 && (
