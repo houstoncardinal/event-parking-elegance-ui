@@ -100,8 +100,8 @@ const Careers = () => {
   return (
     <>
       <SEO 
-        title="Careers - Join Cardinal Valet Team | Houston Valet Jobs"
-        description="Join Cardinal Valet's professional team in Houston. We're hiring valet attendants, supervisors, and event coordinators. Competitive pay, flexible schedules, growth opportunities."
+        title="Careers - Join Event Parking Services by Cardinal Team | Houston Valet Jobs"
+        description="Join Event Parking Services by Cardinal's professional team in Houston. We're hiring valet attendants, supervisors, and event coordinators. Competitive pay, flexible schedules, growth opportunities."
         keywords={["valet jobs Houston", "parking attendant careers", "event coordinator jobs", "hospitality careers Houston"]}
       />
       
@@ -130,7 +130,7 @@ const Careers = () => {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">Why Choose Cardinal Valet?</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">Why Choose Event Parking Services by Cardinal?</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="text-center">

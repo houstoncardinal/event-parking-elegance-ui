@@ -11,7 +11,7 @@ const BookingPage = () => {
     <>
       <SEO 
         title="Book Houston Valet Service - Instant Quote & Reservation"
-        description="Book Cardinal Valet Services for your wedding, corporate event, or private party in Houston. Professional uniformed attendants, luxury vehicle care, and fully insured service. Get instant quote now!"
+        description="Book Event Parking Services by Cardinal for your wedding, corporate event, or private party in Houston. Professional uniformed attendants, luxury vehicle care, and fully insured service. Get instant quote now!"
         keywords={[
           "book valet service houston",
           "reserve valet parking",

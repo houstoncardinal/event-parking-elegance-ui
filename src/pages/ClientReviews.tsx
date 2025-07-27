@@ -9,10 +9,10 @@ const ClientReviewsPage = () => {
   return (
     <>
       <SEO 
-        title="5-Star Client Reviews - Cardinal Valet Services Houston"
-        description="Read 5-star testimonials from satisfied clients who chose Cardinal Valet Services for weddings, corporate events, and private parties in Houston. Professional valet parking with excellent reviews."
+        title="5-Star Client Reviews - Event Parking Services by Cardinal Houston"
+        description="Read 5-star testimonials from satisfied clients who chose Event Parking Services by Cardinal for weddings, corporate events, and private parties in Houston. Professional valet parking with excellent reviews."
         keywords={[
-          "cardinal valet reviews",
+          "event parking services by cardinal reviews",
           "houston valet service reviews",
           "5 star valet parking",
           "wedding valet testimonials",

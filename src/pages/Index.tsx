@@ -24,7 +24,7 @@ const Index = () => {
         "@type": "WebSite",
         "@id": "https://cardinalvalet.com/#website",
         "url": "https://cardinalvalet.com",
-        "name": "Cardinal Valet Services",
+        "name": "Event Parking Services by Cardinal",
         "description": "Houston's premier valet parking service for weddings, corporate events, and private parties",
         "potentialAction": {
           "@type": "SearchAction",
@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="Cardinal Valet Services - Premier Event Parking in Houston"
+        title="Event Parking Services by Cardinal - Houston's Premier Event Valet Parking"
         description="Houston's #1 rated valet parking service for weddings, corporate events, and private parties. Professional, insured attendants with 24/7 availability. Licensed & bonded with $2M coverage. Get your free quote today!"
         keywords={[
           "houston valet parking",

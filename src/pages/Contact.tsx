@@ -96,12 +96,12 @@ const ContactPage = () => {
   return (
     <>
       <SEO 
-        title="Contact Cardinal Valet Services - Houston Event Parking"
-        description="Contact Houston's premier valet parking service for your event. Get a free quote for wedding, corporate, or private party valet services. Professional, insured, and available 24/7."
+        title="Contact Event Parking Services by Cardinal - Houston Event Parking"
+        description="Contact Event Parking Services by Cardinal for professional valet parking in Houston. Call (346) 764-9163 for immediate assistance or request a free quote online. Licensed, bonded & insured."
         keywords={[
-          "contact valet service houston",
-          "houston valet parking quote", 
-          "cardinal valet contact",
+          "contact event parking services by cardinal",
+          "houston valet parking contact",
+          "event parking services cardinal contact", 
           "valet service phone number houston",
           "event parking contact houston",
           "professional valet booking",

@@ -53,7 +53,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
           steps: [
             { icon: CheckCircle, title: 'Submission Confirmed', description: 'Your message has been received and logged in our system' },
             { icon: FileText, title: 'Request Review', description: 'Our team is reviewing your inquiry and requirements' },
-            { icon: Phone, title: 'Personal Response', description: 'A Cardinal Valet representative will contact you directly' },
+            { icon: Phone, title: 'Personal Response', description: 'An Event Parking Services by Cardinal representative will contact you directly' },
             { icon: Calendar, title: 'Next Steps', description: 'We\'ll discuss your needs and provide detailed information' }
           ]
         };
@@ -163,7 +163,7 @@ const SubmissionSuccess: React.FC<SubmissionSuccessProps> = ({
                 </p>
                 
                 <p className="text-cyan-400 mb-6">
-                  Your quote from Cardinal Valet Services has arrived:
+                  Your quote from Event Parking Services by Cardinal has arrived:
                 </p>
 
                 {/* Quote Table */}

@@ -196,9 +196,9 @@ const JobApplication = () => {
   return (
     <>
       <SEO 
-        title={`Apply for ${currentJob.title} - Cardinal Valet`}
-        description={`Apply for the ${currentJob.title} position at Cardinal Valet. Join Houston's premier valet parking service team.`}
-        keywords={[`${currentJob.title.toLowerCase()} application`, "valet jobs Houston", "cardinal valet careers"]}
+        title={`Apply for ${currentJob.title} - Event Parking Services by Cardinal`}
+        description={`Apply for the ${currentJob.title} position at Event Parking Services by Cardinal. Join Houston's premier valet parking service team.`}
+        keywords={[`${currentJob.title.toLowerCase()} application`, "valet jobs Houston", "event parking services by cardinal careers"]}
       />
       
       <Navigation />
@@ -488,7 +488,7 @@ const JobApplication = () => {
                         name="whyInterested"
                         value={formData.whyInterested}
                         onChange={handleInputChange}
-                        placeholder="Tell us what interests you about working with Cardinal Valet..."
+                        placeholder="Tell us what interests you about working with Event Parking Services by Cardinal..."
                         rows={4}
                       />
                     </div>

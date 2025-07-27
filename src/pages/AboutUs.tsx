@@ -8,9 +8,9 @@ const AboutUs = () => {
   return (
     <>
       <SEO 
-        title="About Cardinal Valet - Premier Event Parking Services"
-        description="Learn about Cardinal Valet's commitment to excellence in event parking services. Licensed, insured, and trusted by Houston's finest venues."
-        keywords={["about cardinal valet", "event parking company", "Houston valet services", "professional parking attendants"]}
+        title="About Event Parking Services by Cardinal - Premier Houston Valet Company"
+        description="Learn about Event Parking Services by Cardinal's commitment to excellence in professional valet parking. Licensed, bonded, insured, and trusted by Houston's finest venues and event planners."
+        keywords={["about event parking services by cardinal", "houston valet company", "professional valet services houston", "licensed valet parking attendants"]}
       />
       
       <Navigation />
@@ -21,7 +21,7 @@ const AboutUs = () => {
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
-                About <span className="text-yellow-400">Cardinal Valet</span>
+                About <span className="text-yellow-400">Event Parking Services by Cardinal</span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-300 mb-8">
                 Houston's premier event parking service, dedicated to excellence and exceptional guest experiences.
@@ -41,7 +41,7 @@ const AboutUs = () => {
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Our Story</h2>
               <div className="prose prose-lg mx-auto text-gray-700">
                 <p className="text-xl leading-relaxed mb-6">
-                  Cardinal Valet was founded with a simple mission: to provide exceptional parking services that elevate every event experience. What started as a vision to transform event parking has grown into Houston's most trusted valet service company.
+                  Event Parking Services by Cardinal was founded with a simple mission: to provide exceptional parking services that elevate every event experience. What started as a vision to transform event parking has grown into Houston's most trusted valet service company.
                 </p>
                 <p className="text-lg leading-relaxed mb-6">
                   We understand that first impressions matter. When guests arrive at your event, their experience begins with our professional valet attendants. Our team is committed to providing seamless, efficient, and courteous service that reflects the quality and sophistication of your event.
@@ -92,7 +92,7 @@ const AboutUs = () => {
         <section className="py-20 bg-gray-900 text-white">
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-white">Cardinal Valet by the Numbers</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-white">Event Parking Services by Cardinal by the Numbers</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-yellow-400 mb-2">1,500+</div>
@@ -119,7 +119,7 @@ const AboutUs = () => {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 lg:px-6 xl:px-8">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">Why Choose Cardinal Valet?</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">Why Choose Event Parking Services by Cardinal?</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex items-start space-x-4">
                   <Clock className="w-8 h-8 text-blue-600 mt-1 flex-shrink-0" />

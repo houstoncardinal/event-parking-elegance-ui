@@ -37,7 +37,7 @@ const CorporateEvents = () => {
       company: "Fortune 500 Energy Company",
       event: "Annual Shareholder Meeting",
       attendees: "500+ Executives",
-      quote: "Cardinal Valet's professional service enhanced our corporate image and impressed our international stakeholders."
+      quote: "Event Parking Services by Cardinal's professional service enhanced our corporate image and impressed our international stakeholders."
     },
     {
       company: "Tech Startup",
@@ -86,7 +86,7 @@ const CorporateEvents = () => {
   return (
     <>
       <SEO 
-        title="Corporate Event Valet Services Houston - Cardinal Valet"
+        title="Corporate Event Valet Services Houston - Event Parking Services by Cardinal"
         description="Professional corporate event valet parking in Houston. Executive vehicle care, custom branding options, and Fortune 500 trusted service. Impress your clients and employees."
         keywords={[
           "corporate valet houston",
@@ -289,7 +289,7 @@ const CorporateEvents = () => {
             </h2>
             
             <p className="text-xl mb-12 text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Join the Fortune 500 companies that trust Cardinal Valet for executive-level service. 
+              Join the Fortune 500 companies that trust Event Parking Services by Cardinal for executive-level service. 
               Impress your clients and create lasting professional impressions.
             </p>
             
